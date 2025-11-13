@@ -1,0 +1,86 @@
+
+> ai-calculator@1.0.0 build
+> next build
+
+  鈻?Next.js 14.2.13
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+ 鉁?Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/59) ...
+   Generating static pages (14/59) 
+   Generating static pages (29/59) 
+   Generating static pages (44/59) 
+ 鉁?Generating static pages (59/59)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+鈹?鈼?/                                    8.17 kB         102 kB
+鈹?鈼?/_not-found                          879 B          88.3 kB
+鈹?鈼?/401k-calculator                     7.79 kB         253 kB
+鈹?鈼?/age-calculator                      6.97 kB         101 kB
+鈹?茠 /api/ai/analyze                      0 B                0 B
+鈹?鈼?/api/exchange-rates                  0 B                0 B
+鈹?鈼?/api/health                          0 B                0 B
+鈹?鈼?/area-calculator                     5.07 kB         149 kB
+鈹?鈼?/auto-loan-calculator                7.27 kB         245 kB
+鈹?鈼?/average-calculator                  3.66 kB        91.1 kB
+鈹?鈼?/bmi-calculator                      12.5 kB         228 kB
+鈹?鈼?/bmr-calculator                      4.05 kB        91.5 kB
+鈹?鈼?/body-fat-calculator                 9 kB            142 kB
+鈹?鈼?/calculators                         8.09 kB         102 kB
+鈹?鈼?/calorie-calculator                  5.31 kB         143 kB
+鈹?鈼?/credit-card-calculator              8.28 kB         141 kB
+鈹?鈼?/currency-converter                  3.77 kB         148 kB
+鈹?鈼?/date-calculator                     6.78 kB         101 kB
+鈹?鈼?/date-time                           2.12 kB        98.8 kB
+鈹?鈼?/debt-payoff-calculator              4 kB           91.4 kB
+鈹?鈼?/discount-calculator                 3.4 kB         90.8 kB
+鈹?鈼?/emi-calculator                      7.98 kB         148 kB
+鈹?鈼?/financial                           2.84 kB        99.5 kB
+鈹?鈼?/fraction-calculator                 3.43 kB        90.8 kB
+鈹?鈼?/gpa-calculator                      8.12 kB         141 kB
+鈹?鈼?/grade-calculator                    4.91 kB        92.3 kB
+鈹?鈼?/health-fitness                      2.43 kB        99.1 kB
+鈹?鈼?/inflation-calculator                8.95 kB         149 kB
+鈹?鈼?/interest-calculator                 8.09 kB         261 kB
+鈹?鈼?/investment-calculator               7.36 kB         253 kB
+鈹?鈼?/loan-calculator                     11.8 kB         239 kB
+鈹?鈼?/macro-calculator                    8.66 kB         142 kB
+鈹?鈼?/math-numbers                        2.55 kB        99.2 kB
+鈹?鈼?/mortgage-calculator                 18.5 kB         262 kB
+鈹?鈼?/mortgage-payoff-calculator          5.57 kB        96.5 kB
+鈹?鈼?/pace-calculator                     3.5 kB         90.9 kB
+鈹?鈼?/pay-calculator                      7.81 kB         148 kB
+鈹?鈼?/payment-calculator                  7.89 kB         141 kB
+鈹?鈼?/percentage-calculator               6.78 kB         140 kB
+鈹?鈼?/protein-calculator                  4.87 kB         149 kB
+鈹?鈼?/quadratic-formula-calculator        2.28 kB         101 kB
+鈹?鈼?/refinance-calculator                5.47 kB        96.4 kB
+鈹?鈼?/retirement-calculator               7.97 kB         254 kB
+鈹?鈼?/robots.txt                          0 B                0 B
+鈹?鈼?/roi-calculator                      8.21 kB         148 kB
+鈹?鈼?/salary-calculator                   7.18 kB         147 kB
+鈹?鈼?/savings-calculator                  12.4 kB         246 kB
+鈹?鈼?/scientific-calculator               3.45 kB        90.9 kB
+鈹?鈼?/sitemap.xml                         0 B                0 B
+鈹?鈼?/square-footage-calculator           5.21 kB         142 kB
+鈹?鈼?/standard-deviation-calculator       6.79 kB         101 kB
+鈹?鈼?/tax-calculator                      10.7 kB         105 kB
+鈹?鈼?/tdee-calculator                     8.41 kB         148 kB
+鈹?鈼?/time-calculator                     6.92 kB         101 kB
+鈹?鈼?/tip-calculator                      7.36 kB         140 kB
+鈹?鈼?/unit-converter                      3.19 kB         148 kB
+鈹?鈼?/weight-calculator                   8.39 kB         141 kB
++ First Load JS shared by all            87.4 kB
+  鈹?chunks/7023-a863c91e76dbcec1.js      31.8 kB
+  鈹?chunks/fd9d1056-f7f9515d6f374df1.js  53.6 kB
+  鈹?other shared chunks (total)          2 kB
+
+
+鈼? (Static)   prerendered as static content
+茠  (Dynamic)  server-rendered on demand
+

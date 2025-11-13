@@ -1,0 +1,486 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { Share2, Printer, Download } from 'lucide-react';
+import html2canvas from 'html2canvas';
+
+interface CalculationResult {
+  futureValue: number;
+  totalInterest: number;
+  totalPrincipal: number;
+  yearlyBreakdown: {
+    year: number;
+    principal: number;
+    interest: number;
+    balance: number;
+  }[];
+  effectiveAnnualRate: number;
+  futureValueAfterTax: number;
+  buyingPower: number;
+}
+
+export function InterestCalculator() {
+  // Input states
+  const [principal, setPrincipal] = useState('10000');
+  const [rate, setRate] = useState('5');
+  const [time, setTime] = useState('10');
+  const [timeUnit, setTimeUnit] = useState<'years' | 'months'>('years');
+  const [compound, setCompound] = useState<'annually' | 'semiannually' | 'quarterly' | 'monthly' | 'daily' | 'continuously'>('annually');
+  const [contribution, setContribution] = useState('100');
+  const [contributionFrequency, setContributionFrequency] = useState<'monthly' | 'yearly' | 'none'>('monthly');
+  const [contributionTiming, setContributionTiming] = useState<'end' | 'beginning'>('end');
+  const [taxRate, setTaxRate] = useState('0');
+  const [inflationRate, setInflationRate] = useState('0');
+  
+  // Result state
+  const [result, setResult] = useState<CalculationResult | null>(null);
+
+  // Load from URL parameters on mount
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const p = params.get('p');
+    const r = params.get('r');
+    const t = params.get('t');
+    const tu = params.get('tu');
+    const cf = params.get('cf');
+    const contrib = params.get('c');
+    const freq = params.get('fr');
+    const timing = params.get('ct');
+    const tax = params.get('tax');
+    const inf = params.get('inf');
+    
+    if (p) setPrincipal(p);
+    if (r) setRate(r);
+    if (t) setTime(t);
+    if (tu && (tu === 'years' || tu === 'months')) setTimeUnit(tu);
+    if (cf && ['annually', 'semiannually', 'quarterly', 'monthly', 'daily', 'continuously'].includes(cf)) {
+      setCompound(cf as any);
+    }
+    if (contrib) setContribution(contrib);
+    if (freq && (freq === 'monthly' || freq === 'yearly' || freq === 'none')) {
+      setContributionFrequency(freq as any);
+    }
+    if (timing && (timing === 'end' || timing === 'beginning')) {
+      setContributionTiming(timing as any);
+    }
+    if (tax) setTaxRate(tax);
+    if (inf) setInflationRate(inf);
+    
+    if (p && r && t) {
+      setTimeout(() => handleCalculate(), 100);
+    }
+  }, []);
+
+  const getCompoundingFrequency = (compoundType: string): number => {
+    switch (compoundType) {
+      case 'annually': return 1;
+      case 'semiannually': return 2;
+      case 'quarterly': return 4;
+      case 'monthly': return 12;
+      case 'daily': return 365;
+      case 'continuously': return Infinity;
+      default: return 1;
+    }
+  };
+
+  const calculateCompoundInterest = (): CalculationResult => {
+    const P = parseFloat(principal) || 0;
+    const r = (parseFloat(rate) || 0) / 100;
+    const timeInYears = timeUnit === 'years' ? parseFloat(time) || 0 : (parseFloat(time) || 0) / 12;
+    const n = getCompoundingFrequency(compound);
+    const PMT = contributionFrequency === 'none' ? 0 : parseFloat(contribution) || 0;
+    const paymentsPerYear = contributionFrequency === 'monthly' ? 12 : contributionFrequency === 'yearly' ? 1 : 0;
+
+    let futureValue = 0;
+    let totalInterest = 0;
+    let totalPrincipal = P;
+
+    // Calculate future value
+    if (compound === 'continuously') {
+      // Continuous compounding: FV = P * e^(rt)
+      futureValue = P * Math.exp(r * timeInYears);
+      
+      // Add contributions (approximate for continuous)
+      if (PMT > 0 && paymentsPerYear > 0) {
+        const contribFV = PMT * paymentsPerYear * ((Math.exp(r * timeInYears) - 1) / r);
+        futureValue += contribFV;
+        totalPrincipal += PMT * paymentsPerYear * timeInYears;
+      }
+    } else {
+      // Standard compound interest: FV = P(1 + r/n)^(nt)
+      futureValue = P * Math.pow(1 + r / n, n * timeInYears);
+      
+      // Add contributions: FV = PMT * [((1 + r/n)^(nt) - 1) / (r/n)]
+      if (PMT > 0 && paymentsPerYear > 0) {
+        const periodsPerYear = n;
+        const contributionsInCompoundPeriods = PMT * (paymentsPerYear / periodsPerYear);
+        const fvContributions = contributionsInCompoundPeriods * ((Math.pow(1 + r / n, n * timeInYears) - 1) / (r / n));
+        futureValue += fvContributions;
+        totalPrincipal += PMT * paymentsPerYear * timeInYears;
+      }
+    }
+
+    totalInterest = futureValue - totalPrincipal;
+
+    // Calculate yearly breakdown
+    const yearlyBreakdown: CalculationResult['yearlyBreakdown'] = [];
+    const years = Math.ceil(timeInYears);
+    
+    for (let year = 1; year <= years; year++) {
+      const t = Math.min(year, timeInYears);
+      let balance = 0;
+      let principalAtYear = P;
+
+      if (compound === 'continuously') {
+        balance = P * Math.exp(r * t);
+        if (PMT > 0 && paymentsPerYear > 0) {
+          const contribFV = PMT * paymentsPerYear * ((Math.exp(r * t) - 1) / r);
+          balance += contribFV;
+          principalAtYear += PMT * paymentsPerYear * t;
+        }
+      } else {
+        balance = P * Math.pow(1 + r / n, n * t);
+        if (PMT > 0 && paymentsPerYear > 0) {
+          const periodsPerYear = n;
+          const contributionsInCompoundPeriods = PMT * (paymentsPerYear / periodsPerYear);
+          const fvContributions = contributionsInCompoundPeriods * ((Math.pow(1 + r / n, n * t) - 1) / (r / n));
+          balance += fvContributions;
+          principalAtYear += PMT * paymentsPerYear * t;
+        }
+      }
+
+      const interestAtYear = balance - principalAtYear;
+
+      yearlyBreakdown.push({
+        year,
+        principal: principalAtYear,
+        interest: interestAtYear,
+        balance,
+      });
+    }
+
+    // Calculate Effective Annual Rate (EAR)
+    const effectiveAnnualRate = compound === 'continuously'
+      ? Math.exp(r) - 1
+      : Math.pow(1 + r / n, n) - 1;
+
+    return {
+      futureValue,
+      totalInterest,
+      totalPrincipal,
+      yearlyBreakdown,
+      effectiveAnnualRate: effectiveAnnualRate * 100,
+    };
+  };
+
+  const handleCalculate = () => {
+    const result = calculateCompoundInterest();
+    setResult(result);
+  };
+
+  const handleShare = () => {
+    const params = new URLSearchParams({
+      p: principal,
+      r: rate,
+      t: time,
+      tu: timeUnit,
+      cf: compound,
+      c: contribution,
+      fr: contributionFrequency,
+    });
+    const url = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+    
+    if (navigator.share) {
+      navigator.share({
+        title: 'Compound Interest Calculator Result',
+        text: `Future Value: $${result?.futureValue.toFixed(2)} with ${rate}% interest over ${time} ${timeUnit}`,
+        url: url,
+      }).catch(() => {
+        navigator.clipboard.writeText(url);
+        alert('Link copied to clipboard!');
+      });
+    } else {
+      navigator.clipboard.writeText(url);
+      alert('Share link copied to clipboard!');
+    }
+  };
+
+  const handleSaveAsImage = async () => {
+    const element = document.getElementById('interest-result');
+    if (!element) return;
+
+    try {
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        backgroundColor: '#ffffff',
+        logging: false,
+      });
+      
+      const link = document.createElement('a');
+      link.download = 'compound-interest-calculation.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    } catch (error) {
+      console.error('Error saving image:', error);
+      alert('Failed to save image. Please try again.');
+    }
+  };
+
+  const handlePrint = () => {
+    const element = document.getElementById('interest-result');
+    if (!element) return;
+
+    const printWindow = window.open('', '', 'width=800,height=600');
+    if (!printWindow) return;
+
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Compound Interest Calculation</title>
+          <style>
+            body { font-family: Arial, sans-serif; padding: 20px; }
+            .result-card { margin-bottom: 20px; }
+            h2 { color: #1e40af; margin-top: 0; }
+            table { width: 100%; border-collapse: collapse; }
+            th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+            th { background-color: #f3f4f6; }
+            @media print { button { display: none; } }
+          </style>
+        </head>
+        <body>
+          ${element.innerHTML}
+        </body>
+      </html>
+    `);
+    
+    printWindow.document.close();
+    setTimeout(() => {
+      printWindow.print();
+      printWindow.close();
+    }, 250);
+  };
+
+  const formatCurrency = (value: number) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2,
+    }).format(value);
+  };
+
+  return (
+    <div className="max-w-7xl mx-auto">
+      {/* Calculator Card */}
+      <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-8 mb-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+          Compound Interest Calculator
+        </h2>
+        
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Left Column */}
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Initial Principal ($)
+              </label>
+              <input
+                type="number"
+                value={principal}
+                onChange={(e) => setPrincipal(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="10000"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Annual Interest Rate (%)
+              </label>
+              <input
+                type="number"
+                step="0.01"
+                value={rate}
+                onChange={(e) => setRate(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="5"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Time Period
+              </label>
+              <div className="flex gap-2">
+                <input
+                  type="number"
+                  value={time}
+                  onChange={(e) => setTime(e.target.value)}
+                  className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="10"
+                />
+                <select
+                  value={timeUnit}
+                  onChange={(e) => setTimeUnit(e.target.value as 'years' | 'months')}
+                  className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                  <option value="years">Years</option>
+                  <option value="months">Months</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Compound Frequency
+              </label>
+              <select
+                value={compound}
+                onChange={(e) => setCompound(e.target.value as any)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                <option value="annually">Annually (APY)</option>
+                <option value="semiannually">Semi-Annually</option>
+                <option value="quarterly">Quarterly</option>
+                <option value="monthly">Monthly</option>
+                <option value="daily">Daily</option>
+                <option value="continuously">Continuously</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Regular Contribution ($)
+              </label>
+              <input
+                type="number"
+                value={contribution}
+                onChange={(e) => setContribution(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="100"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Contribution Frequency
+              </label>
+              <select
+                value={contributionFrequency}
+                onChange={(e) => setContributionFrequency(e.target.value as any)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                <option value="none">None</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        {/* Calculate Button */}
+        <button
+          onClick={handleCalculate}
+          className="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors shadow-md"
+        >
+          Calculate Compound Interest
+        </button>
+      </div>
+
+      {/* Results */}
+      {result && (
+        <div id="interest-result" className="space-y-6">
+          {/* Summary Card */}
+          <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-lg border border-blue-200 p-6 md:p-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Calculation Results</h3>
+            
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-white rounded-lg border border-gray-200 p-4">
+                <div className="text-sm text-gray-600 mb-1">Future Value</div>
+                <div className="text-2xl font-bold text-blue-600">{formatCurrency(result.futureValue)}</div>
+              </div>
+              <div className="bg-white rounded-lg border border-gray-200 p-4">
+                <div className="text-sm text-gray-600 mb-1">Total Principal</div>
+                <div className="text-2xl font-bold text-gray-900">{formatCurrency(result.totalPrincipal)}</div>
+              </div>
+              <div className="bg-white rounded-lg border border-gray-200 p-4">
+                <div className="text-sm text-gray-600 mb-1">Total Interest Earned</div>
+                <div className="text-2xl font-bold text-green-600">{formatCurrency(result.totalInterest)}</div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg border border-gray-200 p-4">
+              <div className="text-sm text-gray-600 mb-1">Effective Annual Rate (EAR)</div>
+              <div className="text-xl font-bold text-gray-900">{result.effectiveAnnualRate.toFixed(3)}%</div>
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-wrap gap-3 print:hidden">
+            <button
+              onClick={handleShare}
+              className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-md"
+            >
+              <Share2 className="w-5 h-5" />
+              Share
+            </button>
+            <button
+              onClick={handleSaveAsImage}
+              className="flex items-center gap-2 px-6 py-3 bg-gray-600 hover:bg-gray-700 text-white font-medium rounded-lg transition-colors shadow-md"
+            >
+              <Download className="w-5 h-5" />
+              Save as Image
+            </button>
+            <button
+              onClick={handlePrint}
+              className="flex items-center gap-2 px-6 py-3 bg-gray-600 hover:bg-gray-700 text-white font-medium rounded-lg transition-colors shadow-md"
+            >
+              <Printer className="w-5 h-5" />
+              Print
+            </button>
+          </div>
+
+          {/* Yearly Breakdown Table */}
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Year-by-Year Breakdown</h3>
+            
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b-2 border-gray-200">
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Year</th>
+                    <th className="px-4 py-3 text-right text-sm font-semibold text-gray-700">Principal</th>
+                    <th className="px-4 py-3 text-right text-sm font-semibold text-gray-700">Interest Earned</th>
+                    <th className="px-4 py-3 text-right text-sm font-semibold text-gray-700">Balance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {result.yearlyBreakdown.map((row) => (
+                    <tr key={row.year} className="border-b border-gray-100 hover:bg-gray-50">
+                      <td className="px-4 py-3 text-sm text-gray-900">{row.year}</td>
+                      <td className="px-4 py-3 text-sm text-right text-gray-900">{formatCurrency(row.principal)}</td>
+                      <td className="px-4 py-3 text-sm text-right text-green-600 font-medium">{formatCurrency(row.interest)}</td>
+                      <td className="px-4 py-3 text-sm text-right text-blue-600 font-semibold">{formatCurrency(row.balance)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Placeholder when no results */}
+      {!result && (
+        <div className="bg-gray-50 rounded-2xl border-2 border-dashed border-gray-300 p-12 text-center">
+          <p className="text-gray-600 text-lg">
+            Enter your investment details and click "Calculate Compound Interest" to see your results
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+

@@ -1,0 +1,1554 @@
+'use client';
+
+import { useState, useRef, useEffect } from 'react';
+import html2canvas from 'html2canvas';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
+
+interface LoanInputs {
+  loanType: 'amortized' | 'deferred' | 'bond';
+  loanAmount: number;
+  interestRate: number;
+  loanTermYears: number;
+  loanTermMonths: number;
+  compoundFrequency: 'monthly' | 'quarterly' | 'semi-annually' | 'annually';
+  paymentFrequency: 'monthly' | 'bi-weekly' | 'quarterly' | 'semi-annually' | 'annually';
+  
+  // For bond type
+  faceValue: number;
+  
+  // Advanced options (only for amortized)
+  showAdvanced: boolean;
+  monthlyIncome: number;
+  existingDebt: number;
+  extraPayment: number;
+}
+
+interface CalculationResult {
+  loanType: 'amortized' | 'deferred' | 'bond';
+  
+  // For amortized loans
+  paymentAmount?: number;
+  numberOfPayments?: number;
+  
+  // For deferred/bond
+  amountDueAtMaturity?: number;
+  amountReceivedAtStart?: number; // For bond
+  
+  // Common
+  totalInterest: number;
+  totalAmount: number;
+  
+  // DTI Analysis (only for amortized with advanced)
+  dti?: number;
+  dtiRating?: 'excellent' | 'good' | 'fair' | 'poor';
+  
+  // Amortization schedule (only for amortized)
+  amortizationSchedule?: {
+    payment: number;
+    principal: number;
+    interest: number;
+    balance: number;
+  }[];
+}
+
+export function LoanCalculator() {
+  const [inputs, setInputs] = useState<LoanInputs>({
+    loanType: 'amortized',
+    loanAmount: 100000,
+    interestRate: 6,
+    loanTermYears: 10,
+    loanTermMonths: 0,
+    compoundFrequency: 'monthly',
+    paymentFrequency: 'monthly',
+    faceValue: 100000,
+    showAdvanced: false,
+    monthlyIncome: 5000,
+    existingDebt: 500,
+    extraPayment: 0,
+  });
+
+  const [result, setResult] = useState<CalculationResult | null>(null);
+  const [showSchedule, setShowSchedule] = useState(false);
+  const resultRef = useRef<HTMLDivElement>(null);
+
+  // Share functionality
+  const [showShareModal, setShowShareModal] = useState(false);
+  const [shareUrl, setShareUrl] = useState('');
+  const [copySuccess, setCopySuccess] = useState(false);
+
+  // Saved scenarios
+  interface SavedScenario {
+    id: string;
+    name: string;
+    inputs: LoanInputs;
+    result: CalculationResult;
+    savedAt: Date;
+  }
+  const [savedScenarios, setSavedScenarios] = useState<SavedScenario[]>([]);
+  const [showSavedScenarios, setShowSavedScenarios] = useState(false);
+  const [showCompareModal, setShowCompareModal] = useState(false);
+  const compareRef = useRef<HTMLDivElement>(null);
+
+  // Load data from URL parameters
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
+    const params = new URLSearchParams(window.location.search);
+    const la = params.get('la');
+    const ir = params.get('ir');
+    const lty = params.get('lty');
+    const ltm = params.get('ltm');
+
+    if (la || ir || lty || ltm) {
+      const newInputs: LoanInputs = {
+        ...inputs,
+        loanAmount: la ? parseFloat(la) : inputs.loanAmount,
+        interestRate: ir ? parseFloat(ir) : inputs.interestRate,
+        loanTermYears: lty ? parseInt(lty) : inputs.loanTermYears,
+        loanTermMonths: ltm ? parseInt(ltm) : inputs.loanTermMonths,
+      };
+      setInputs(newInputs);
+      
+      setTimeout(() => {
+        handleCalculateWithInputs(newInputs);
+      }, 100);
+    }
+  }, []);
+
+  const getPaymentsPerYear = (frequency: string): number => {
+    switch (frequency) {
+      case 'monthly': return 12;
+      case 'bi-weekly': return 26;
+      case 'quarterly': return 4;
+      case 'semi-annually': return 2;
+      case 'annually': return 1;
+      default: return 12;
+    }
+  };
+
+  const getCompoundPeriodsPerYear = (frequency: string): number => {
+    switch (frequency) {
+      case 'monthly': return 12;
+      case 'quarterly': return 4;
+      case 'semi-annually': return 2;
+      case 'annually': return 1;
+      default: return 12;
+    }
+  };
+
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(amount);
+  };
+
+  const formatCurrencyWhole = (amount: number) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount);
+  };
+
+  const calculate = (customInputs?: LoanInputs): CalculationResult => {
+    const currentInputs = customInputs || inputs;
+    
+    if (currentInputs.loanType === 'amortized') {
+      return calculateAmortized(currentInputs);
+    } else if (currentInputs.loanType === 'deferred') {
+      return calculateDeferred(currentInputs);
+    } else {
+      return calculateBond(currentInputs);
+    }
+  };
+
+  const calculateAmortized = (currentInputs: LoanInputs): CalculationResult => {
+    const totalTermYears = currentInputs.loanTermYears + currentInputs.loanTermMonths / 12;
+    const paymentsPerYear = getPaymentsPerYear(currentInputs.paymentFrequency);
+    const numberOfPayments = Math.ceil(totalTermYears * paymentsPerYear);
+    const annualRate = currentInputs.interestRate / 100;
+    const ratePerPayment = annualRate / paymentsPerYear;
+    
+    const paymentAmount = currentInputs.loanAmount * 
+      (ratePerPayment * Math.pow(1 + ratePerPayment, numberOfPayments)) /
+      (Math.pow(1 + ratePerPayment, numberOfPayments) - 1);
+    
+    let balance = currentInputs.loanAmount;
+    const schedule: CalculationResult['amortizationSchedule'] = [];
+    let totalInterest = 0;
+    
+    for (let i = 1; i <= numberOfPayments; i++) {
+      const interest = balance * ratePerPayment;
+      let principal = paymentAmount - interest + currentInputs.extraPayment;
+      
+      if (principal > balance) {
+        principal = balance;
+      }
+      
+      balance -= principal;
+      totalInterest += interest;
+      
+      schedule!.push({
+        payment: i,
+        principal: principal,
+        interest: interest,
+        balance: Math.max(0, balance),
+      });
+      
+      if (balance <= 0) break;
+    }
+    
+    const totalAmount = currentInputs.loanAmount + totalInterest;
+    
+    const result: CalculationResult = {
+      loanType: 'amortized',
+      paymentAmount: paymentAmount + currentInputs.extraPayment,
+      numberOfPayments: schedule!.length,
+      totalInterest,
+      totalAmount,
+      amortizationSchedule: schedule,
+    };
+    
+    if (currentInputs.showAdvanced && currentInputs.monthlyIncome > 0) {
+      const monthlyPayment = currentInputs.paymentFrequency === 'monthly' 
+        ? paymentAmount 
+        : (paymentAmount * paymentsPerYear) / 12;
+      
+      const totalMonthlyDebt = monthlyPayment + currentInputs.existingDebt;
+      const dti = (totalMonthlyDebt / currentInputs.monthlyIncome) * 100;
+      
+      let dtiRating: 'excellent' | 'good' | 'fair' | 'poor';
+      if (dti < 28) dtiRating = 'excellent';
+      else if (dti < 36) dtiRating = 'good';
+      else if (dti < 43) dtiRating = 'fair';
+      else dtiRating = 'poor';
+      
+      result.dti = dti;
+      result.dtiRating = dtiRating;
+    }
+    
+    return result;
+  };
+
+  const calculateDeferred = (currentInputs: LoanInputs): CalculationResult => {
+    const totalTermYears = currentInputs.loanTermYears + currentInputs.loanTermMonths / 12;
+    const compoundPeriodsPerYear = getCompoundPeriodsPerYear(currentInputs.compoundFrequency);
+    const totalPeriods = totalTermYears * compoundPeriodsPerYear;
+    const ratePerPeriod = currentInputs.interestRate / 100 / compoundPeriodsPerYear;
+    
+    // Calculate amount due at maturity: A = P(1 + r)^n
+    const amountDueAtMaturity = currentInputs.loanAmount * Math.pow(1 + ratePerPeriod, totalPeriods);
+    const totalInterest = amountDueAtMaturity - currentInputs.loanAmount;
+    
+    return {
+      loanType: 'deferred',
+      amountDueAtMaturity,
+      totalInterest,
+      totalAmount: amountDueAtMaturity,
+    };
+  };
+
+  const calculateBond = (currentInputs: LoanInputs): CalculationResult => {
+    const totalTermYears = currentInputs.loanTermYears + currentInputs.loanTermMonths / 12;
+    const compoundPeriodsPerYear = getCompoundPeriodsPerYear(currentInputs.compoundFrequency);
+    const totalPeriods = totalTermYears * compoundPeriodsPerYear;
+    const ratePerPeriod = currentInputs.interestRate / 100 / compoundPeriodsPerYear;
+    
+    // Zero-coupon bond: Present Value = Face Value / (1 + r)^n
+    const amountReceivedAtStart = currentInputs.faceValue / Math.pow(1 + ratePerPeriod, totalPeriods);
+    const totalInterest = currentInputs.faceValue - amountReceivedAtStart;
+    
+    return {
+      loanType: 'bond',
+      amountReceivedAtStart,
+      amountDueAtMaturity: currentInputs.faceValue,
+      totalInterest,
+      totalAmount: currentInputs.faceValue,
+    };
+  };
+
+  const handleCalculate = () => {
+    if (inputs.loanAmount <= 0 || inputs.interestRate <= 0 || (inputs.loanTermYears === 0 && inputs.loanTermMonths === 0)) {
+      alert('Please enter valid loan amount, interest rate, and term.');
+      return;
+    }
+    if (inputs.loanType === 'bond' && inputs.faceValue <= 0) {
+      alert('Please enter valid face value for bond calculation.');
+      return;
+    }
+    const result = calculate();
+    setResult(result);
+    setShowSchedule(false);
+  };
+
+  const handleCalculateWithInputs = (customInputs: LoanInputs) => {
+    const result = calculate(customInputs);
+    setResult(result);
+  };
+
+  // Export functions
+  const handleSaveAsImage = async () => {
+    if (!resultRef.current) return;
+    
+    try {
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      const canvas = await html2canvas(resultRef.current, {
+        scale: 2,
+        backgroundColor: '#ffffff',
+        logging: false,
+      });
+      
+      const link = document.createElement('a');
+      link.download = `loan-calculation-${new Date().toISOString().split('T')[0]}.png`;
+      link.href = canvas.toDataURL('image/png', 1.0);
+      link.click();
+    } catch (error) {
+      console.error('Error saving image:', error);
+      alert('Failed to save image. Please try again.');
+    }
+  };
+
+  const handlePrint = async () => {
+    if (!resultRef.current) return;
+    
+    try {
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      const canvas = await html2canvas(resultRef.current, {
+        scale: 2,
+        backgroundColor: '#ffffff',
+        logging: false,
+      });
+      
+      const imageUrl = canvas.toDataURL('image/png', 1.0);
+      const printWindow = window.open('', '_blank');
+      
+      if (printWindow) {
+        printWindow.document.write(`
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <title>Loan Calculation Report</title>
+              <style>
+                body { margin: 0; padding: 0; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; background: #ffffff; }
+                img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+                @media print { body { margin: 0; padding: 0; } img { max-width: 100%; page-break-inside: avoid; } }
+              </style>
+            </head>
+            <body><img src="${imageUrl}" alt="Loan Calculation Report" /></body>
+          </html>
+        `);
+        printWindow.document.close();
+        
+        const img = printWindow.document.querySelector('img');
+        if (img) {
+          img.onload = () => {
+            setTimeout(() => {
+              printWindow.print();
+            }, 250);
+          };
+        }
+      }
+    } catch (error) {
+      console.error('Error printing:', error);
+      alert('Failed to print. Please try again.');
+    }
+  };
+
+  // Share functions
+  const handleShare = () => {
+    if (typeof window === 'undefined') return;
+    
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || window.location.origin;
+    
+    const params = new URLSearchParams({
+      la: inputs.loanAmount.toString(),
+      ir: inputs.interestRate.toString(),
+      lty: inputs.loanTermYears.toString(),
+      ltm: inputs.loanTermMonths.toString(),
+    });
+    
+    const url = `${baseUrl}/loan-calculator?${params.toString()}`;
+    setShareUrl(url);
+    setShowShareModal(true);
+    setCopySuccess(false);
+  };
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000);
+    } catch (error) {
+      console.error('Failed to copy:', error);
+    }
+  };
+
+  const handleSocialShare = (platform: 'facebook' | 'twitter' | 'whatsapp' | 'email') => {
+    let text = '';
+    if (result) {
+      if (result.loanType === 'amortized' && result.paymentAmount) {
+        text = `Check out my loan calculation: ${formatCurrency(result.paymentAmount)}/payment`;
+      } else if (result.loanType === 'deferred' && result.amountDueAtMaturity) {
+        text = `Check out my loan calculation: ${formatCurrency(result.amountDueAtMaturity)} due at maturity`;
+      } else if (result.loanType === 'bond' && result.amountReceivedAtStart) {
+        text = `Check out my bond calculation: ${formatCurrency(result.amountReceivedAtStart)} received`;
+      }
+    }
+    
+    const encodedText = encodeURIComponent(text);
+    const encodedUrl = encodeURIComponent(shareUrl);
+    
+    let url = '';
+    switch (platform) {
+      case 'facebook':
+        url = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+        break;
+      case 'twitter':
+        url = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
+        break;
+      case 'whatsapp':
+        url = `https://wa.me/?text=${encodedText}%20${encodedUrl}`;
+        break;
+      case 'email':
+        url = `mailto:?subject=${encodeURIComponent('My Loan Calculation')}&body=${encodedText}%20${encodedUrl}`;
+        break;
+    }
+    
+    if (url) {
+      window.open(url, '_blank', 'width=600,height=400');
+    }
+  };
+
+  // Scenario management functions
+  const handleSaveScenario = () => {
+    if (!result) {
+      alert('Please calculate first before saving.');
+      return;
+    }
+    
+    const name = prompt('Enter a name for this scenario:');
+    if (!name) return;
+    
+    const scenario: SavedScenario = {
+      id: Date.now().toString(),
+      name,
+      inputs: {...inputs},
+      result: {...result},
+      savedAt: new Date(),
+    };
+    
+    setSavedScenarios([...savedScenarios, scenario]);
+    alert('Scenario saved successfully!');
+  };
+
+  const handleDeleteScenario = (id: string) => {
+    if (confirm('Delete this scenario?')) {
+      setSavedScenarios(savedScenarios.filter(s => s.id !== id));
+    }
+  };
+
+  const handleLoadScenario = (scenario: SavedScenario) => {
+    setInputs(scenario.inputs);
+    setResult(scenario.result);
+    setShowSavedScenarios(false);
+  };
+
+  const handleCompareScenarios = () => {
+    if (savedScenarios.length < 2) {
+      alert('Please save at least 2 scenarios to compare.');
+      return;
+    }
+    setShowCompareModal(true);
+  };
+
+  const handleSaveCompareAsImage = async () => {
+    if (!compareRef.current) return;
+    
+    try {
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      const canvas = await html2canvas(compareRef.current, {
+        scale: 2,
+        backgroundColor: '#ffffff',
+        logging: false,
+      });
+      
+      const link = document.createElement('a');
+      link.download = `loan-comparison-${new Date().toISOString().split('T')[0]}.png`;
+      link.href = canvas.toDataURL('image/png', 1.0);
+      link.click();
+    } catch (error) {
+      console.error('Error saving image:', error);
+      alert('Failed to save image. Please try again.');
+    }
+  };
+
+  const handlePrintCompare = async () => {
+    if (!compareRef.current) return;
+    
+    try {
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      const canvas = await html2canvas(compareRef.current, {
+        scale: 2,
+        backgroundColor: '#ffffff',
+        logging: false,
+      });
+      
+      const imageUrl = canvas.toDataURL('image/png', 1.0);
+      const printWindow = window.open('', '_blank');
+      
+      if (printWindow) {
+        printWindow.document.write(`
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <title>Loan Comparison Report</title>
+              <style>
+                body { margin: 0; padding: 0; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; background: #ffffff; }
+                img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+                @media print { body { margin: 0; padding: 0; } img { max-width: 100%; page-break-inside: avoid; } }
+              </style>
+            </head>
+            <body><img src="${imageUrl}" alt="Loan Comparison Report" /></body>
+          </html>
+        `);
+        printWindow.document.close();
+        
+        const img = printWindow.document.querySelector('img');
+        if (img) {
+          img.onload = () => {
+            setTimeout(() => {
+              printWindow.print();
+            }, 250);
+          };
+        }
+      }
+    } catch (error) {
+      console.error('Error printing:', error);
+      alert('Failed to print. Please try again.');
+    }
+  };
+
+  const getDTIColor = () => {
+    if (!result || !result.dtiRating) return 'bg-gray-500';
+    switch (result.dtiRating) {
+      case 'excellent': return 'bg-green-500';
+      case 'good': return 'bg-blue-500';
+      case 'fair': return 'bg-yellow-500';
+      case 'poor': return 'bg-red-500';
+    }
+  };
+
+  const getDTIText = () => {
+    if (!result || !result.dtiRating) return '';
+    switch (result.dtiRating) {
+      case 'excellent': return 'Excellent - Very affordable';
+      case 'good': return 'Good - Comfortable range';
+      case 'fair': return 'Fair - Manageable but tight';
+      case 'poor': return 'Poor - May be difficult to manage';
+    }
+  };
+
+  const getPieData = () => {
+    if (!result) return [];
+    
+    let principal = 0;
+    if (result.loanType === 'amortized') {
+      principal = inputs.loanAmount;
+    } else if (result.loanType === 'deferred') {
+      principal = inputs.loanAmount;
+    } else if (result.loanType === 'bond' && result.amountReceivedAtStart) {
+      principal = result.amountReceivedAtStart;
+    }
+    
+    return [
+      { name: 'Principal', value: principal, color: '#3b82f6' },
+      { name: 'Interest', value: result.totalInterest, color: '#ef4444' },
+    ];
+  };
+
+  const getFrequencyLabel = (frequency: string) => {
+    switch (frequency) {
+      case 'monthly': return 'Monthly';
+      case 'bi-weekly': return 'Bi-Weekly';
+      case 'quarterly': return 'Quarterly';
+      case 'semi-annually': return 'Semi-Annually';
+      case 'annually': return 'Annually';
+      default: return frequency;
+    }
+  };
+
+  const getLoanTypeDescription = () => {
+    switch (inputs.loanType) {
+      case 'amortized':
+        return 'Use this calculator for basic calculations of common loan types such as mortgages, auto loans, student loans, or personal loans. Payments are made regularly until the loan is fully paid off.';
+      case 'deferred':
+        return 'Many commercial loans or short-term loans fall into this category. Unlike amortized loans with payments spread uniformly over their lifetimes, these loans have a single, large lump sum due at maturity.';
+      case 'bond':
+        return 'This kind of loan is rarely made except in the form of bonds. Use this calculator to compute the initial value of a bond/loan based on a predetermined face value to be paid back at bond/loan maturity.';
+    }
+  };
+
+  return (
+    <div className="max-w-7xl mx-auto">
+      {/* Loan Type Selector */}
+      <div className="mb-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
+        <h3 className="text-lg font-bold text-gray-900 mb-4">Select Loan Type</h3>
+        <div className="grid md:grid-cols-3 gap-4">
+          <button
+            onClick={() => setInputs({...inputs, loanType: 'amortized', compoundFrequency: 'monthly'})}
+            className={`p-4 rounded-lg border-2 transition-all ${
+              inputs.loanType === 'amortized'
+                ? 'border-blue-600 bg-blue-50 shadow-md'
+                : 'border-gray-200 bg-white hover:border-blue-300'
+            }`}
+          >
+            <div className="font-bold text-gray-900 mb-1">Amortized Loan</div>
+            <div className="text-xs text-gray-600">Fixed payments paid periodically</div>
+          </button>
+          
+          <button
+            onClick={() => setInputs({...inputs, loanType: 'deferred', compoundFrequency: 'annually'})}
+            className={`p-4 rounded-lg border-2 transition-all ${
+              inputs.loanType === 'deferred'
+                ? 'border-blue-600 bg-blue-50 shadow-md'
+                : 'border-gray-200 bg-white hover:border-blue-300'
+            }`}
+          >
+            <div className="font-bold text-gray-900 mb-1">Deferred Payment</div>
+            <div className="text-xs text-gray-600">Lump sum due at maturity</div>
+          </button>
+          
+          <button
+            onClick={() => setInputs({...inputs, loanType: 'bond', compoundFrequency: 'annually'})}
+            className={`p-4 rounded-lg border-2 transition-all ${
+              inputs.loanType === 'bond'
+                ? 'border-blue-600 bg-blue-50 shadow-md'
+                : 'border-gray-200 bg-white hover:border-blue-300'
+            }`}
+          >
+            <div className="font-bold text-gray-900 mb-1">Bond</div>
+            <div className="text-xs text-gray-600">Face value at maturity</div>
+          </button>
+        </div>
+        <p className="mt-4 text-sm text-gray-600 italic">
+          {getLoanTypeDescription()}
+        </p>
+      </div>
+
+      <div className="grid lg:grid-cols-3 gap-8">
+        {/* Input Panel */}
+        <div className="lg:col-span-1">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 sticky top-4">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              {inputs.loanType === 'amortized' && 'Amortized Loan'}
+              {inputs.loanType === 'deferred' && 'Deferred Payment Loan'}
+              {inputs.loanType === 'bond' && 'Bond Calculator'}
+            </h2>
+            
+            {/* Loan Amount / Face Value */}
+            <div className="mb-4">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                {inputs.loanType === 'bond' ? 'Predetermined Due Amount' : 'Loan Amount'}
+              </label>
+              <div className="flex items-center">
+                <span className="text-gray-500 mr-2">$</span>
+                <input
+                  type="number"
+                  value={inputs.loanType === 'bond' ? inputs.faceValue : inputs.loanAmount}
+                  onChange={(e) => {
+                    const val = parseFloat(e.target.value) || 0;
+                    if (inputs.loanType === 'bond') {
+                      setInputs({...inputs, faceValue: val});
+                    } else {
+                      setInputs({...inputs, loanAmount: val});
+                    }
+                  }}
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+            </div>
+
+            {/* Loan Term */}
+            <div className="mb-4">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Loan Term
+              </label>
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <input
+                    type="number"
+                    value={inputs.loanTermYears}
+                    onChange={(e) => setInputs({...inputs, loanTermYears: parseInt(e.target.value) || 0})}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                  />
+                  <div className="text-xs text-gray-500 mt-1 text-center">years</div>
+                </div>
+                <div>
+                  <input
+                    type="number"
+                    value={inputs.loanTermMonths}
+                    onChange={(e) => setInputs({...inputs, loanTermMonths: parseInt(e.target.value) || 0})}
+                    max="11"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                  />
+                  <div className="text-xs text-gray-500 mt-1 text-center">months</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Interest Rate */}
+            <div className="mb-4">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Interest Rate
+              </label>
+              <div className="flex items-center">
+                <input
+                  type="number"
+                  step="0.1"
+                  value={inputs.interestRate}
+                  onChange={(e) => setInputs({...inputs, interestRate: parseFloat(e.target.value) || 0})}
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+                <span className="text-gray-500 ml-2">%</span>
+              </div>
+            </div>
+
+            {/* Compound Frequency */}
+            <div className="mb-4">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Compound
+              </label>
+              <select
+                value={inputs.compoundFrequency}
+                onChange={(e) => setInputs({...inputs, compoundFrequency: e.target.value as any})}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                <option value="monthly">Monthly (APR)</option>
+                <option value="quarterly">Quarterly</option>
+                <option value="semi-annually">Semi-Annually</option>
+                <option value="annually">Annually (APY)</option>
+              </select>
+            </div>
+
+            {/* Payment Frequency (only for amortized) */}
+            {inputs.loanType === 'amortized' && (
+              <div className="mb-6">
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  Pay Back
+                </label>
+                <select
+                  value={inputs.paymentFrequency}
+                  onChange={(e) => setInputs({...inputs, paymentFrequency: e.target.value as any})}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                  <option value="monthly">Every Month</option>
+                  <option value="bi-weekly">Bi-Weekly</option>
+                  <option value="quarterly">Quarterly</option>
+                  <option value="semi-annually">Semi-Annually</option>
+                  <option value="annually">Annually</option>
+                </select>
+              </div>
+            )}
+
+            {/* Advanced Options (only for amortized) */}
+            {inputs.loanType === 'amortized' && (
+              <>
+                <div className="mb-4 border-t pt-4">
+                  <button
+                    onClick={() => setInputs({...inputs, showAdvanced: !inputs.showAdvanced})}
+                    className="flex items-center justify-between w-full text-sm font-semibold text-blue-600 hover:text-blue-700"
+                  >
+                    <span>Advanced Analysis</span>
+                    <svg 
+                      className={`w-5 h-5 transition-transform ${inputs.showAdvanced ? 'rotate-180' : ''}`} 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                </div>
+
+                {inputs.showAdvanced && (
+                  <div className="space-y-4 bg-blue-50 rounded-lg p-4 mb-4">
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Gross Monthly Income
+                      </label>
+                      <div className="flex items-center">
+                        <span className="text-gray-500 mr-2">$</span>
+                        <input
+                          type="number"
+                          value={inputs.monthlyIncome}
+                          onChange={(e) => setInputs({...inputs, monthlyIncome: parseFloat(e.target.value) || 0})}
+                          className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Existing Monthly Debt
+                      </label>
+                      <div className="flex items-center">
+                        <span className="text-gray-500 mr-2">$</span>
+                        <input
+                          type="number"
+                          value={inputs.existingDebt}
+                          onChange={(e) => setInputs({...inputs, existingDebt: parseFloat(e.target.value) || 0})}
+                          className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Extra Payment per Period
+                      </label>
+                      <div className="flex items-center">
+                        <span className="text-gray-500 mr-2">$</span>
+                        <input
+                          type="number"
+                          value={inputs.extraPayment}
+                          onChange={(e) => setInputs({...inputs, extraPayment: parseFloat(e.target.value) || 0})}
+                          className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
+
+            {/* Calculate Button */}
+            <button
+              onClick={handleCalculate}
+              className="w-full py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md transition-colors flex items-center justify-center gap-2"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+              Calculate
+            </button>
+
+            <button
+              onClick={() => setInputs({
+                loanType: 'amortized',
+                loanAmount: 100000,
+                interestRate: 6,
+                loanTermYears: 10,
+                loanTermMonths: 0,
+                compoundFrequency: 'monthly',
+                paymentFrequency: 'monthly',
+                faceValue: 100000,
+                showAdvanced: false,
+                monthlyIncome: 5000,
+                existingDebt: 500,
+                extraPayment: 0,
+              })}
+              className="w-full mt-2 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium rounded-lg transition-colors"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+
+        {/* Results Panel */}
+        <div className="lg:col-span-2">
+          {result ? (
+            <div className="space-y-4">
+              {/* Export, Share & Scenario Buttons */}
+              <div className="flex gap-3 justify-between mb-4 flex-wrap">
+                <div className="flex gap-3">
+                  <button
+                    onClick={handleSaveScenario}
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm font-medium"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+                    </svg>
+                    Save Scenario
+                  </button>
+                  <button
+                    onClick={() => setShowSavedScenarios(true)}
+                    className="flex items-center gap-2 px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-800 transition-colors shadow-sm font-medium relative"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                    </svg>
+                    Scenarios ({savedScenarios.length})
+                  </button>
+                  {savedScenarios.length >= 2 && (
+                    <button
+                      onClick={handleCompareScenarios}
+                      className="flex items-center gap-2 px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-800 transition-colors shadow-sm font-medium"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 00-2-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                      Compare
+                    </button>
+                  )}
+                </div>
+                <div className="flex gap-3">
+                  <button
+                    onClick={handleShare}
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm font-medium"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                    </svg>
+                    Share
+                  </button>
+                  <button
+                    onClick={handleSaveAsImage}
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm font-medium"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    Image
+                  </button>
+                  <button
+                    onClick={handlePrint}
+                    className="flex items-center gap-2 px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-800 transition-colors shadow-sm font-medium"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                    </svg>
+                    Print
+                  </button>
+                </div>
+              </div>
+
+              {/* Result Content */}
+              <div ref={resultRef} className="space-y-4 bg-white p-8 rounded-xl shadow-lg">
+                {/* Export Header */}
+                <div className="border-b-2 border-gray-200 pb-4 mb-6">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                    {result.loanType === 'amortized' && 'Amortized Loan Report'}
+                    {result.loanType === 'deferred' && 'Deferred Payment Loan Report'}
+                    {result.loanType === 'bond' && 'Bond Calculation Report'}
+                  </h2>
+                  <p className="text-sm text-gray-600">
+                    Generated on {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </p>
+                </div>
+
+                {/* Results Card - Different for each type */}
+                {result.loanType === 'amortized' && result.paymentAmount && (
+                  <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl shadow-lg p-6 text-white">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="text-sm font-medium opacity-90 mb-2">
+                          Payment {getFrequencyLabel(inputs.paymentFrequency)}
+                        </div>
+                        <div className="text-4xl font-bold">{formatCurrency(result.paymentAmount)}</div>
+                        <div className="text-sm opacity-90 mt-1">
+                          Total of {result.numberOfPayments} Payments
+                        </div>
+                      </div>
+                      <div className="text-6xl opacity-20">💰</div>
+                    </div>
+                  </div>
+                )}
+
+                {result.loanType === 'deferred' && result.amountDueAtMaturity && (
+                  <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl shadow-lg p-6 text-white">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="text-sm font-medium opacity-90 mb-2">
+                          Amount Due at Loan Maturity
+                        </div>
+                        <div className="text-4xl font-bold">{formatCurrency(result.amountDueAtMaturity)}</div>
+                        <div className="text-sm opacity-90 mt-1">
+                          Single payment at end of {inputs.loanTermYears} year{inputs.loanTermYears > 1 ? 's' : ''} {inputs.loanTermMonths > 0 ? `and ${inputs.loanTermMonths} month${inputs.loanTermMonths > 1 ? 's' : ''}` : ''}
+                        </div>
+                      </div>
+                      <div className="text-6xl opacity-20">📅</div>
+                    </div>
+                  </div>
+                )}
+
+                {result.loanType === 'bond' && result.amountReceivedAtStart && (
+                  <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl shadow-lg p-6 text-white">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="text-sm font-medium opacity-90 mb-2">
+                          Amount Received When Loan Starts
+                        </div>
+                        <div className="text-4xl font-bold">{formatCurrency(result.amountReceivedAtStart)}</div>
+                        <div className="text-sm opacity-90 mt-1">
+                          Pay back {formatCurrency(inputs.faceValue)} at maturity
+                        </div>
+                      </div>
+                      <div className="text-6xl opacity-20">📜</div>
+                    </div>
+                  </div>
+                )}
+
+                {/* DTI Analysis (only for amortized with advanced) */}
+                {result.dti !== undefined && result.dtiRating && (
+                  <div className={`${getDTIColor()} bg-opacity-10 rounded-xl border-2 ${getDTIColor().replace('bg-', 'border-')} p-6`}>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                      <span>📊</span>
+                      Debt-to-Income Ratio (DTI)
+                    </h3>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-3xl font-bold text-gray-900">{result.dti.toFixed(1)}%</span>
+                      <span className={`px-3 py-1 ${getDTIColor()} text-white rounded-full text-sm font-semibold`}>
+                        {result.dtiRating.toUpperCase()}
+                      </span>
+                    </div>
+                    <p className="text-gray-700 text-sm">{getDTIText()}</p>
+                  </div>
+                )}
+
+                {/* Summary Grid */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                    <div className="text-sm text-gray-600 mb-1">Total Interest</div>
+                    <div className="text-2xl font-bold text-red-600">{formatCurrencyWhole(result.totalInterest)}</div>
+                  </div>
+                  <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                    <div className="text-sm text-gray-600 mb-1">Total Amount</div>
+                    <div className="text-2xl font-bold text-gray-900">{formatCurrencyWhole(result.totalAmount)}</div>
+                  </div>
+                </div>
+
+                {/* Pie Chart */}
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">
+                    {result.loanType === 'bond' ? 'Amount Received vs Interest' : 'Principal vs Interest'}
+                  </h3>
+                  <div style={{ width: '100%', height: '300px' }}>
+                    <ResponsiveContainer>
+                      <PieChart>
+                        <Pie
+                          data={getPieData()}
+                          cx="50%"
+                          cy="50%"
+                          labelLine={false}
+                          label={(entry) => `${(entry as any).name}: ${formatCurrencyWhole(Number((entry as any).value ?? 0))}`}
+                          outerRadius={80}
+                          fill="#8884d8"
+                          dataKey="value"
+                        >
+                          {getPieData().map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={entry.color} />
+                          ))}
+                        </Pie>
+                        <Legend />
+                      </PieChart>
+                    </ResponsiveContainer>
+                  </div>
+                  
+                  {/* Percentage breakdown */}
+                  <div className="mt-4 grid grid-cols-2 gap-4 text-center">
+                    <div>
+                      <div className="text-3xl font-bold text-blue-600">
+                        {((getPieData()[0]?.value || 0) / result.totalAmount * 100).toFixed(1)}%
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        {result.loanType === 'bond' ? 'Received' : 'Principal'}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-3xl font-bold text-red-600">
+                        {((result.totalInterest / result.totalAmount) * 100).toFixed(1)}%
+                      </div>
+                      <div className="text-sm text-gray-600">Interest</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Amortization Schedule (only for amortized, outside printable area) */}
+              {result.loanType === 'amortized' && result.amortizationSchedule && (
+                <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 mt-6">
+                  <button
+                    onClick={() => setShowSchedule(!showSchedule)}
+                    className="flex items-center justify-between w-full text-left"
+                  >
+                    <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                      <span>📊</span>
+                      View Amortization Schedule
+                    </h3>
+                    <svg 
+                      className={`w-6 h-6 text-gray-600 transition-transform ${showSchedule ? 'rotate-180' : ''}`}
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+
+                  {showSchedule && (
+                    <div className="mt-4 overflow-x-auto max-h-96 overflow-y-auto">
+                      <table className="w-full text-sm">
+                        <thead className="bg-gray-100 sticky top-0">
+                          <tr>
+                            <th className="px-4 py-2 text-left font-semibold text-gray-700">Payment #</th>
+                            <th className="px-4 py-2 text-right font-semibold text-gray-700">Principal</th>
+                            <th className="px-4 py-2 text-right font-semibold text-gray-700">Interest</th>
+                            <th className="px-4 py-2 text-right font-semibold text-gray-700">Balance</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {result.amortizationSchedule.map((row, index) => (
+                            <tr key={index} className="border-b border-gray-200 hover:bg-gray-50">
+                              <td className="px-4 py-2 text-left">{row.payment}</td>
+                              <td className="px-4 py-2 text-right text-blue-600 font-medium">
+                                {formatCurrency(row.principal)}
+                              </td>
+                              <td className="px-4 py-2 text-right text-red-600 font-medium">
+                                {formatCurrency(row.interest)}
+                              </td>
+                              <td className="px-4 py-2 text-right font-semibold">
+                                {formatCurrency(row.balance)}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-12 text-center">
+              <div className="text-6xl mb-4">
+                {inputs.loanType === 'amortized' && '💰'}
+                {inputs.loanType === 'deferred' && '📅'}
+                {inputs.loanType === 'bond' && '📜'}
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Ready to Calculate</h3>
+              <p className="text-gray-600">
+                Modify the values and click the Calculate button to see your results
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Share Modal (same as before) */}
+      {showShareModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowShareModal(false)}>
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-2xl font-bold text-gray-900">Share Your Results</h3>
+              <button
+                onClick={() => setShowShareModal(false)}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <p className="text-gray-600 mb-4 text-sm">
+              Share your loan calculation with friends and family. They'll see your inputs and can calculate their own loan.
+            </p>
+
+            {/* Copy Link */}
+            <div className="mb-6">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Share Link</label>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={shareUrl}
+                  readOnly
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg bg-gray-50 text-sm text-gray-700 focus:outline-none"
+                />
+                <button
+                  onClick={handleCopyLink}
+                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                    copySuccess
+                      ? 'bg-green-600 text-white'
+                      : 'bg-blue-600 text-white hover:bg-blue-700'
+                  }`}
+                >
+                  {copySuccess ? (
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : (
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                  )}
+                </button>
+              </div>
+              {copySuccess && (
+                <p className="text-green-600 text-xs mt-2 font-medium">✓ Link copied to clipboard!</p>
+              )}
+            </div>
+
+            {/* Social Share Buttons */}
+            <div className="space-y-3">
+              <label className="block text-sm font-semibold text-gray-700">Share via</label>
+              <div className="grid grid-cols-2 gap-3">
+                <button
+                  onClick={() => handleSocialShare('facebook')}
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-[#1877F2] text-white rounded-lg hover:bg-[#166FE5] transition-colors font-medium"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                  Facebook
+                </button>
+                
+                <button
+                  onClick={() => handleSocialShare('twitter')}
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-[#1DA1F2] text-white rounded-lg hover:bg-[#1A91DA] transition-colors font-medium"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                  </svg>
+                  Twitter
+                </button>
+                
+                <button
+                  onClick={() => handleSocialShare('whatsapp')}
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-[#25D366] text-white rounded-lg hover:bg-[#22C55E] transition-colors font-medium"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
+                  WhatsApp
+                </button>
+                
+                <button
+                  onClick={() => handleSocialShare('email')}
+                  className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors font-medium"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  Email
+                </button>
+              </div>
+            </div>
+
+            <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+              <p className="text-xs text-gray-600">
+                <strong className="text-blue-600">💡 Tip:</strong> The link will auto-fill your friend's calculator with your data. They can then adjust and calculate their own loan.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Saved Scenarios Modal */}
+      {showSavedScenarios && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowSavedScenarios(false)}>
+          <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full p-6 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-2xl font-bold text-gray-900">Saved Scenarios</h3>
+              <button
+                onClick={() => setShowSavedScenarios(false)}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {savedScenarios.length === 0 ? (
+              <div className="text-center py-12">
+                <svg className="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+                <p className="text-gray-600">No saved scenarios yet. Calculate and save a scenario to compare different loan options.</p>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {savedScenarios.map((scenario) => (
+                  <div key={scenario.id} className="bg-gray-50 rounded-lg p-4 border border-gray-200 hover:border-blue-300 transition">
+                    <div className="flex items-start justify-between mb-2">
+                      <div className="flex-1">
+                        <h4 className="font-bold text-lg text-gray-900">{scenario.name}</h4>
+                        <p className="text-sm text-gray-600">
+                          {scenario.inputs.loanType === 'amortized' && 'Amortized Loan'}
+                          {scenario.inputs.loanType === 'deferred' && 'Deferred Payment'}
+                          {scenario.inputs.loanType === 'bond' && 'Bond'}
+                          {' • '}
+                          Saved {new Date(scenario.savedAt).toLocaleDateString()}
+                        </p>
+                      </div>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => handleLoadScenario(scenario)}
+                          className="px-3 py-1 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition"
+                        >
+                          Load
+                        </button>
+                        <button
+                          onClick={() => handleDeleteScenario(scenario.id)}
+                          className="px-3 py-1 bg-red-600 text-white text-sm rounded hover:bg-red-700 transition"
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-3">
+                      <div>
+                        <div className="text-xs text-gray-600">Loan Amount</div>
+                        <div className="font-semibold text-gray-900">
+                          {scenario.inputs.loanType === 'bond' 
+                            ? formatCurrencyWhole(scenario.inputs.faceValue)
+                            : formatCurrencyWhole(scenario.inputs.loanAmount)
+                          }
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-xs text-gray-600">Interest Rate</div>
+                        <div className="font-semibold text-gray-900">{scenario.inputs.interestRate}%</div>
+                      </div>
+                      <div>
+                        <div className="text-xs text-gray-600">Term</div>
+                        <div className="font-semibold text-gray-900">
+                          {scenario.inputs.loanTermYears}y {scenario.inputs.loanTermMonths}m
+                        </div>
+                      </div>
+                      <div>
+                        <div className="text-xs text-gray-600">
+                          {scenario.result.loanType === 'amortized' && 'Payment'}
+                          {scenario.result.loanType === 'deferred' && 'Due at Maturity'}
+                          {scenario.result.loanType === 'bond' && 'Received'}
+                        </div>
+                        <div className="font-semibold text-blue-600">
+                          {scenario.result.loanType === 'amortized' && scenario.result.paymentAmount && formatCurrency(scenario.result.paymentAmount)}
+                          {scenario.result.loanType === 'deferred' && scenario.result.amountDueAtMaturity && formatCurrency(scenario.result.amountDueAtMaturity)}
+                          {scenario.result.loanType === 'bond' && scenario.result.amountReceivedAtStart && formatCurrency(scenario.result.amountReceivedAtStart)}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {savedScenarios.length >= 2 && (
+              <div className="mt-6 flex justify-center">
+                <button
+                  onClick={() => {
+                    setShowSavedScenarios(false);
+                    handleCompareScenarios();
+                  }}
+                  className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold shadow-sm"
+                >
+                  Compare Scenarios
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Compare Scenarios Modal */}
+      {showCompareModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowCompareModal(false)}>
+          <div className="bg-white rounded-2xl shadow-2xl max-w-6xl w-full p-6 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-2xl font-bold text-gray-900">Compare Loan Scenarios</h3>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={handleSaveCompareAsImage}
+                  className="flex items-center gap-2 px-3 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  Save as Image
+                </button>
+                <button
+                  onClick={handlePrintCompare}
+                  className="flex items-center gap-2 px-3 py-2 bg-gray-600 text-white text-sm rounded-lg hover:bg-gray-700 transition-colors"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                  </svg>
+                  Print
+                </button>
+                <button
+                  onClick={() => setShowCompareModal(false)}
+                  className="text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div ref={compareRef} className="bg-white">
+              {/* Header for export */}
+              <div className="border-b-2 border-gray-200 pb-4 mb-4">
+                <h3 className="text-xl font-bold text-gray-900">Loan Comparison Report</h3>
+                <p className="text-sm text-gray-600">
+                  Generated on {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </p>
+              </div>
+
+              <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-gray-100">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold text-gray-700 border-b-2 border-gray-300">Metric</th>
+                    {savedScenarios.map((scenario) => (
+                      <th key={scenario.id} className="px-4 py-3 text-left font-semibold text-gray-700 border-b-2 border-gray-300 min-w-[150px]">
+                        {scenario.name}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-gray-200">
+                    <td className="px-4 py-3 font-medium text-gray-900">Loan Type</td>
+                    {savedScenarios.map((scenario) => (
+                      <td key={scenario.id} className="px-4 py-3 text-gray-700">
+                        {scenario.inputs.loanType === 'amortized' && 'Amortized'}
+                        {scenario.inputs.loanType === 'deferred' && 'Deferred'}
+                        {scenario.inputs.loanType === 'bond' && 'Bond'}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr className="border-b border-gray-200 bg-gray-50">
+                    <td className="px-4 py-3 font-medium text-gray-900">Loan Amount</td>
+                    {savedScenarios.map((scenario) => (
+                      <td key={scenario.id} className="px-4 py-3 text-gray-700 font-semibold">
+                        {scenario.inputs.loanType === 'bond'
+                          ? formatCurrencyWhole(scenario.inputs.faceValue)
+                          : formatCurrencyWhole(scenario.inputs.loanAmount)
+                        }
+                      </td>
+                    ))}
+                  </tr>
+                  <tr className="border-b border-gray-200">
+                    <td className="px-4 py-3 font-medium text-gray-900">Interest Rate</td>
+                    {savedScenarios.map((scenario) => (
+                      <td key={scenario.id} className="px-4 py-3 text-gray-700">
+                        {scenario.inputs.interestRate}%
+                      </td>
+                    ))}
+                  </tr>
+                  <tr className="border-b border-gray-200 bg-gray-50">
+                    <td className="px-4 py-3 font-medium text-gray-900">Loan Term</td>
+                    {savedScenarios.map((scenario) => (
+                      <td key={scenario.id} className="px-4 py-3 text-gray-700">
+                        {scenario.inputs.loanTermYears} years {scenario.inputs.loanTermMonths > 0 && `${scenario.inputs.loanTermMonths} months`}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr className="border-b border-gray-200">
+                    <td className="px-4 py-3 font-medium text-gray-900">Compound</td>
+                    {savedScenarios.map((scenario) => (
+                      <td key={scenario.id} className="px-4 py-3 text-gray-700">
+                        {getFrequencyLabel(scenario.inputs.compoundFrequency)}
+                      </td>
+                    ))}
+                  </tr>
+                  {savedScenarios.some(s => s.result.loanType === 'amortized') && (
+                    <tr className="border-b border-gray-200 bg-gray-50">
+                      <td className="px-4 py-3 font-medium text-gray-900">💰 Payment Amount</td>
+                      {savedScenarios.map((scenario) => (
+                        <td key={scenario.id} className="px-4 py-3 font-bold text-blue-600">
+                          {scenario.result.loanType === 'amortized' && scenario.result.paymentAmount
+                            ? formatCurrency(scenario.result.paymentAmount)
+                            : '-'
+                          }
+                        </td>
+                      ))}
+                    </tr>
+                  )}
+                  {savedScenarios.some(s => s.result.loanType === 'deferred') && (
+                    <tr className="border-b border-gray-200">
+                      <td className="px-4 py-3 font-medium text-gray-900">📅 Due at Maturity</td>
+                      {savedScenarios.map((scenario) => (
+                        <td key={scenario.id} className="px-4 py-3 font-bold text-blue-600">
+                          {scenario.result.loanType === 'deferred' && scenario.result.amountDueAtMaturity
+                            ? formatCurrency(scenario.result.amountDueAtMaturity)
+                            : '-'
+                          }
+                        </td>
+                      ))}
+                    </tr>
+                  )}
+                  {savedScenarios.some(s => s.result.loanType === 'bond') && (
+                    <tr className="border-b border-gray-200 bg-gray-50">
+                      <td className="px-4 py-3 font-medium text-gray-900">📜 Amount Received</td>
+                      {savedScenarios.map((scenario) => (
+                        <td key={scenario.id} className="px-4 py-3 font-bold text-blue-600">
+                          {scenario.result.loanType === 'bond' && scenario.result.amountReceivedAtStart
+                            ? formatCurrency(scenario.result.amountReceivedAtStart)
+                            : '-'
+                          }
+                        </td>
+                      ))}
+                    </tr>
+                  )}
+                  <tr className="border-b border-gray-200">
+                    <td className="px-4 py-3 font-medium text-gray-900">Total Interest</td>
+                    {savedScenarios.map((scenario) => (
+                      <td key={scenario.id} className="px-4 py-3 font-semibold text-gray-900">
+                        {formatCurrencyWhole(scenario.result.totalInterest)}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr className="border-b border-gray-200 bg-gray-50">
+                    <td className="px-4 py-3 font-medium text-gray-900">Total Amount</td>
+                    {savedScenarios.map((scenario) => (
+                      <td key={scenario.id} className="px-4 py-3 font-bold text-gray-900">
+                        {formatCurrencyWhole(scenario.result.totalAmount)}
+                      </td>
+                    ))}
+                  </tr>
+                  {savedScenarios.some(s => s.result.dti !== undefined) && (
+                    <tr className="border-b border-gray-200">
+                      <td className="px-4 py-3 font-medium text-gray-900">DTI Ratio</td>
+                      {savedScenarios.map((scenario) => (
+                        <td key={scenario.id} className="px-4 py-3">
+                          {scenario.result.dti !== undefined ? (
+                            <span className={`font-semibold ${
+                              scenario.result.dtiRating === 'excellent' ? 'text-green-600' :
+                              scenario.result.dtiRating === 'good' ? 'text-blue-600' :
+                              scenario.result.dtiRating === 'fair' ? 'text-orange-600' :
+                              'text-red-600'
+                            }`}>
+                              {scenario.result.dti.toFixed(1)}%
+                            </span>
+                          ) : '-'}
+                        </td>
+                      ))}
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+              </div>
+
+              <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+                <p className="text-sm text-gray-600">
+                  <strong className="text-blue-600">💡 Tip:</strong> Compare different scenarios side-by-side to find the best loan option for your needs. The scenario with the lowest total interest typically saves you the most money.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

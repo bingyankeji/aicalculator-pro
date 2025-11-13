@@ -1,0 +1,30 @@
+{
+  "name": "AICalculator.pro - Free Online Calculator",
+  "short_name": "AICalculator.pro",
+  "description": "Best free online calculator with 250+ tools including tax, mortgage, loan, BMI, age, percentage calculators and more. AI-powered analysis and instant results.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["productivity", "utilities", "finance", "education"],
+  "lang": "en",
+  "dir": "ltr"
+}

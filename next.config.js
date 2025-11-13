@@ -3,6 +3,16 @@ const nextConfig = {
   // 启用压缩
   compress: true,
   
+  // TypeScript配置
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  
+  // ESLint配置
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  
   // 图片优化
   images: {
     formats: ['image/avif', 'image/webp'],

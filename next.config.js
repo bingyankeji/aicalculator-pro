@@ -33,8 +33,7 @@ const nextConfig = {
     NEXT_PUBLIC_SUPPORT_EMAIL: process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'support@aicalculator.pro',
     NEXT_PUBLIC_BUSINESS_EMAIL: process.env.NEXT_PUBLIC_BUSINESS_EMAIL || 'business@aicalculator.pro',
     NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.aicalculator.pro',
-    API_SECRET_KEY: process.env.API_SECRET_KEY || 'your-secret-key-here',
-    NODE_ENV: process.env.NODE_ENV || 'production'
+    API_SECRET_KEY: process.env.API_SECRET_KEY || 'your-secret-key-here'
   },
   
   // Headers 配置

@@ -1,12 +1,7 @@
-# Allow all crawlers
 User-agent: *
 Allow: /
 
-# Disallow admin and API routes
 Disallow: /api/
-Disallow: /admin/
 Disallow: /_next/
 
-# Sitemap
 Sitemap: https://aicalculator.pro/sitemap.xml
-

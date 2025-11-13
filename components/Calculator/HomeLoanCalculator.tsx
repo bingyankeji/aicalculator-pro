@@ -48,6 +48,8 @@ interface LoanProgram {
   mortgageInsurance: number;
   eligibilityCriteria: string[];
   pros: string[];
+  eligibilityScore?: number;
+  adjustedRate?: number;
   cons: string[];
 }
 
@@ -283,6 +285,10 @@ export function HomeLoanCalculator() {
     const totalMonthlyPayment = monthlyPI + monthlyTax + monthlyInsurance + monthlyPMI + currentInputs.hoaFees;
     const dti = (totalMonthlyPayment + currentInputs.monthlyDebts) / currentInputs.monthlyIncome * 100;
 
+    // Calculate down payment percentage
+    const downPaymentAmount = currentInputs.homePrice - currentInputs.loanAmount;
+    const downPaymentPercent = (downPaymentAmount / currentInputs.homePrice) * 100;
+
     // Calculate total interest
     const totalPayments = monthlyPI * numPayments;
     const totalInterest = totalPayments - currentInputs.loanAmount;
@@ -412,10 +418,11 @@ export function HomeLoanCalculator() {
     if (!resultRef.current) return;
     try {
       const canvas = await html2canvas(resultRef.current, {
-        scale: 2,
-        backgroundColor: '#ffffff',
+        width: resultRef.current.offsetWidth * 2,
+        height: resultRef.current.offsetHeight * 2,
+        background: '#ffffff',
         logging: false,
-      });
+      } as any);
       const link = document.createElement('a');
       link.download = 'home-loan-analysis.png';
       link.href = canvas.toDataURL('image/png');
@@ -430,10 +437,11 @@ export function HomeLoanCalculator() {
     if (!resultRef.current) return;
     try {
       const canvas = await html2canvas(resultRef.current, {
-        scale: 2,
-        backgroundColor: '#ffffff',
+        width: resultRef.current.offsetWidth * 2,
+        height: resultRef.current.offsetHeight * 2,
+        background: '#ffffff',
         logging: false,
-      });
+      } as any);
       const imgData = canvas.toDataURL('image/png');
       const printWindow = window.open('', '_blank');
       if (printWindow) {

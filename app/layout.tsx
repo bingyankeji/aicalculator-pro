@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Analytics } from "@/components/Analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: {
@@ -153,6 +154,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased font-sans">
         <Analytics />
+        <VercelAnalytics />
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-1" id="main-content" role="main">

@@ -1,9 +1,10 @@
 import { Metadata } from "next";
-import { BasicCalculator } from "@/components/Calculator/BasicCalculator";
+import { ScientificCalculator } from "@/components/Calculator/ScientificCalculator";
 import { PopularCalculators } from "@/components/Calculator/PopularCalculators";
 import { Sidebar } from "@/components/Sidebar";
 import { CalculatorList } from "@/components/CalculatorList";
 import { SmartSearch } from "@/components/SmartSearch";
+import { CategoryShowcase } from "@/components/CategoryShowcase";
 import { getTotalCalculatorsDescription } from "@/lib/categoryStats";
 import Link from "next/link";
 
@@ -245,105 +246,30 @@ export default function HomePage() {
           <div className="max-w-3xl mx-auto mb-8">
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <SmartSearch enhanced={true} />
-              <div className="flex flex-wrap justify-center gap-2 mt-4">
-                <span className="text-sm text-gray-500">Popular:</span>
-                {['mortgage', 'BMI', 'loan', 'percentage', 'tax'].map((term) => (
-                  <button
-                    key={term}
-                    className="px-3 py-1 text-sm bg-gray-100 hover:bg-blue-100 text-gray-700 hover:text-blue-700 rounded-full transition-colors"
-                  >
-                    {term}
-                  </button>
-                ))}
-              </div>
             </div>
           </div>
         </header>
 
-        {/* Main Calculator & Quick Tools */}
+        {/* Main Content: Calculator + Categories */}
         <section className="mb-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Basic Calculator */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  Basic Calculator
-                </h3>
-                <p className="text-gray-600">
-                  Professional calculator with history and advanced functions
-                </p>
-              </div>
-              <BasicCalculator />
-            </div>
-
-            {/* Quick Access Tools */}
-            <div className="space-y-6">
-              <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6">
-                <h4 className="text-lg font-bold text-gray-900 mb-4">
-                  🔥 Most Popular Tools
-                </h4>
-                <div className="grid grid-cols-2 gap-3">
-                  <Link
-                    href="/mortgage-calculator"
-                    className="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition-all duration-200 text-center block cursor-pointer border border-transparent hover:border-blue-300"
-                  >
-                    <div className="text-2xl mb-1">🏠</div>
-                    <div className="text-sm font-medium text-gray-900">Mortgage</div>
-                  </Link>
-                  <Link
-                    href="/bmi-calculator"
-                    className="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition-all duration-200 text-center block cursor-pointer border border-transparent hover:border-blue-300"
-                  >
-                    <div className="text-2xl mb-1">⚖️</div>
-                    <div className="text-sm font-medium text-gray-900">BMI</div>
-                  </Link>
-                  <Link
-                    href="/loan-calculator"
-                    className="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition-all duration-200 text-center block cursor-pointer border border-transparent hover:border-blue-300"
-                  >
-                    <div className="text-2xl mb-1">💰</div>
-                    <div className="text-sm font-medium text-gray-900">Loan</div>
-                  </Link>
-                  <Link
-                    href="/percentage-calculator"
-                    className="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition-all duration-200 text-center block cursor-pointer border border-transparent hover:border-blue-300"
-                  >
-                    <div className="text-2xl mb-1">%</div>
-                    <div className="text-sm font-medium text-gray-900">Percentage</div>
-                  </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Left: Basic Calculator */}
+            <div className="lg:row-span-2">
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 h-full">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    Basic Calculator
+                  </h3>
+                  <p className="text-gray-600">
+                    Professional calculator with history and advanced functions
+                  </p>
                 </div>
-                <Link 
-                  href="/calculators"
-                  className="block mt-4 text-center py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
-                >
-                  View All {getTotalCalculatorsDescription()}
-                </Link>
-              </div>
-
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border border-green-200 p-6">
-                <h4 className="text-lg font-bold text-gray-900 mb-2">
-                  ✨ Why Choose Our Calculators?
-                </h4>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  <li className="flex items-center gap-2">
-                    <span className="text-green-600">✓</span>
-                    AI-powered analysis and insights
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-green-600">✓</span>
-                    Step-by-step explanations
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-green-600">✓</span>
-                    Professional charts and reports
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-green-600">✓</span>
-                    Mobile-friendly design
-                  </li>
-                </ul>
+                <ScientificCalculator />
               </div>
             </div>
+
+            {/* Right: Category Cards */}
+            <CategoryShowcase />
           </div>
         </section>
 

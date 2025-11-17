@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Calculator, RotateCcw, Delete } from 'lucide-react';
+import { Calculator, RotateCcw, DeleteIcon } from 'lucide-react';
 
 type AngleMode = 'deg' | 'rad';
 
@@ -338,7 +338,7 @@ export function ScientificCalculator() {
             onClick={handleBackspace}
             className="px-2 py-3 rounded-lg bg-orange-600 hover:bg-orange-700 text-white font-semibold text-sm transition-colors flex items-center justify-center"
           >
-            <Delete className="w-4 h-4" />
+            <DeleteIcon className="w-4 h-4" />
           </button>
 
           {/* Row 3: Power & Root */}

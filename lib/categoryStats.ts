@@ -12,6 +12,7 @@ export function getCategoryStats() {
     Financial: stats.Financial || 0,
     Health: stats.Health || 0,
     Math: stats.Math || 0,
+    Academic: stats.Academic || 0,
     Other: stats.Other || 0,
     total: allCalculators.length
   };
@@ -25,6 +26,7 @@ export function getActualCategories() {
     { name: 'Financial', icon: '💰', count: stats.Financial, url: '/calculators#financial' },
     { name: 'Health & Fitness', icon: '🏥', count: stats.Health, url: '/calculators#health' },
     { name: 'Math', icon: '📐', count: stats.Math, url: '/calculators#math' },
+    { name: 'Academic', icon: '🎓', count: stats.Academic, url: '/calculators#academic' },
     { name: 'Other', icon: '🔧', count: stats.Other, url: '/calculators#other' },
   ].filter(category => category.count > 0); // 只返回有计算器的分类
 }

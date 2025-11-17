@@ -20,8 +20,20 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <Link href="/calculators" className="text-gray-700 hover:text-blue-600 font-medium transition">
-              All Calculators
+            <Link href="/calculators#financial" className="text-gray-700 hover:text-blue-600 font-medium transition">
+              💰 Financial
+            </Link>
+            <Link href="/calculators#health" className="text-gray-700 hover:text-blue-600 font-medium transition">
+              🏥 Health
+            </Link>
+            <Link href="/calculators#math" className="text-gray-700 hover:text-blue-600 font-medium transition">
+              📐 Math
+            </Link>
+            <Link href="/calculators#other" className="text-gray-700 hover:text-blue-600 font-medium transition">
+              🔧 Other
+            </Link>
+            <Link href="/calculators" className="text-gray-700 hover:text-blue-600 font-medium transition border-l pl-6 ml-6 border-gray-200">
+              All Tools
             </Link>
           </nav>
 
@@ -50,11 +62,39 @@ export function Header() {
           <div className="md:hidden py-4 border-t border-gray-200">
             <nav className="space-y-2">
               <Link 
-                href="/calculators" 
+                href="/calculators#financial" 
                 className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                All Calculators
+                💰 Financial Calculators
+              </Link>
+              <Link 
+                href="/calculators#health" 
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                🏥 Health & Fitness
+              </Link>
+              <Link 
+                href="/calculators#math" 
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                📐 Math Calculators
+              </Link>
+              <Link 
+                href="/calculators#other" 
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                🔧 Other Tools
+              </Link>
+              <Link 
+                href="/calculators" 
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-semibold border-t border-gray-200 mt-2 pt-4"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                View All Calculators
               </Link>
             </nav>
           </div>

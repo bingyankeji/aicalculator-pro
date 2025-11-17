@@ -1588,3 +1588,628 @@ The smart search functionality uses:
 - **图片优化**: 移动端优先的图片格式和尺寸优化
 - **缓存策略**: 针对移动网络的缓存优化
 - **性能监控**: 移动端Core Web Vitals实时监控
+
+---
+
+### UI 颜色设计规范 ⭐ **核心原则：专业、统一、克制**
+
+**问题：** 为什么计算器的UI不应该五颜六色？
+
+**答案：** 
+1. ✅ **专业性** - 工具站需要传达可信、专业的形象
+2. ✅ **可读性** - 过多颜色会分散注意力，降低信息获取效率
+3. ✅ **一致性** - 统一的配色方案让用户感到整个网站协调、有序
+4. ✅ **品牌形象** - 克制的用色体现品牌的专业度和可靠性
+
+---
+
+#### 推荐配色方案
+
+**主色调：蓝灰色系（Blue-Gray Palette）**
+
+```tsx
+// 推荐的 Tailwind CSS 颜色类
+const PROFESSIONAL_COLORS = {
+  // 主色调 - 蓝色（用于强调、按钮、链接）
+  primary: {
+    bg: 'bg-blue-600',           // 主要按钮背景
+    bgHover: 'bg-blue-700',      // 主要按钮悬停
+    text: 'text-blue-600',       // 链接、强调文字
+    textHover: 'text-blue-700',  // 链接悬停
+    border: 'border-blue-200',   // 边框
+    light: 'bg-blue-50',         // 浅色背景
+    gradient: 'from-blue-50 to-indigo-50', // 渐变背景
+  },
+  
+  // 中性色 - 灰色（用于文字、边框、背景）
+  neutral: {
+    text: 'text-gray-900',       // 主要文字
+    textSecondary: 'text-gray-600', // 次要文字
+    textMuted: 'text-gray-500',  // 辅助文字
+    border: 'border-gray-200',   // 边框
+    borderStrong: 'border-gray-300', // 强调边框
+    bg: 'bg-white',              // 卡片背景
+    bgLight: 'bg-gray-50',       // 浅色背景
+    bgMedium: 'bg-gray-100',     // 中性背景
+  },
+  
+  // 状态色 - 仅在必要时使用
+  status: {
+    success: 'bg-green-50 border-green-200 text-green-700', // 成功状态
+    warning: 'bg-amber-50 border-amber-200 text-amber-700',  // 警告状态
+    error: 'bg-red-50 border-red-200 text-red-700',          // 错误状态
+    info: 'bg-blue-50 border-blue-200 text-blue-700',        // 信息提示
+  },
+};
+```
+
+---
+
+#### 设计原则
+
+**1. 主色调统一使用蓝色**
+- ✅ 按钮：`bg-blue-600 hover:bg-blue-700`
+- ✅ 链接：`text-blue-600 hover:text-blue-800`
+- ✅ 强调文字：`text-blue-700`
+- ✅ 边框：`border-blue-200`
+- ✅ 浅色背景：`bg-blue-50`
+
+**2. 中性色为主体**
+- ✅ 文字颜色：`text-gray-900` (主要) / `text-gray-600` (次要) / `text-gray-500` (辅助)
+- ✅ 卡片背景：`bg-white`
+- ✅ 页面背景：`bg-gray-50` 或 `bg-gradient-to-b from-gray-50 to-white`
+- ✅ 边框：`border-gray-200`
+
+**3. 状态色谨慎使用**
+- ✅ **仅在必要时使用**：成功、警告、错误、信息提示
+- ✅ 使用浅色背景 + 深色文字的组合（如 `bg-green-50 text-green-700`）
+- ❌ 避免大面积使用鲜艳的状态色
+
+**4. 避免使用的颜色**
+- ❌ 紫色（`purple`）- 除非品牌色
+- ❌ 粉色（`pink`）- 不够专业
+- ❌ 橙色（`orange`）- 仅用于警告
+- ❌ 黄色（`yellow`）- 仅用于高亮提示
+- ❌ 多种颜色混用 - 降低专业感
+
+---
+
+#### 实际应用示例
+
+**✅ 正确示例：专业的蓝灰配色**
+
+```tsx
+export default function ProfessionalCalculator() {
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-6">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+        {/* 输入区域 */}
+        <div className="xl:col-span-1">
+          <Card className="shadow-lg">
+            {/* ✅ 统一的蓝色渐变背景 */}
+            <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50">
+              <CardTitle className="text-xl text-gray-900">Calculator Inputs</CardTitle>
+            </CardHeader>
+            <CardContent className="p-6 space-y-4">
+              {/* 输入字段 */}
+              <div>
+                <Label className="text-sm font-medium text-gray-700">
+                  Field Name <span className="text-red-500">*</span>
+                </Label>
+                <input
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="Enter value"
+                />
+                <p className="text-xs text-gray-500 mt-1">Helper text</p>
+              </div>
+              
+              {/* ✅ 统一的蓝色按钮 */}
+              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3">
+                Calculate
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+        
+        {/* 结果区域 */}
+        <div className="xl:col-span-2">
+          <Card className="shadow-lg">
+            <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50">
+              <CardTitle className="text-xl text-gray-900">Results</CardTitle>
+            </CardHeader>
+            <CardContent className="p-6 space-y-4">
+              {/* ✅ 蓝色系结果卡片 */}
+              <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4">
+                <p className="text-xs text-gray-600 mb-1">Result Label:</p>
+                <p className="text-3xl font-bold text-blue-700">$1,234</p>
+              </div>
+              
+              {/* ✅ 中性灰色信息卡片 */}
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                <h3 className="font-semibold text-gray-900 mb-2">Details</h3>
+                <p className="text-sm text-gray-700">Explanation text...</p>
+              </div>
+              
+              {/* ✅ 仅在必要时使用状态色 */}
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <p className="text-sm text-green-700">✓ Calculation successful</p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+**❌ 错误示例：五颜六色的配色**
+
+```tsx
+// ❌ 避免这样做！
+export default function ColorfulCalculator() {
+  return (
+    <div>
+      {/* ❌ 紫色背景 */}
+      <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50">
+      
+      {/* ❌ 橙色按钮 */}
+      <Button className="bg-orange-600 hover:bg-orange-700">
+      
+      {/* ❌ 多种颜色的结果卡片 */}
+      <div className="bg-purple-100 border-purple-400">
+        <p className="text-purple-700">Result 1</p>
+      </div>
+      <div className="bg-pink-100 border-pink-400">
+        <p className="text-pink-700">Result 2</p>
+      </div>
+      <div className="bg-orange-100 border-orange-400">
+        <p className="text-orange-700">Result 3</p>
+      </div>
+      <div className="bg-green-100 border-green-400">
+        <p className="text-green-700">Result 4</p>
+      </div>
+      {/* ❌ 太多颜色了！不专业！ */}
+    </div>
+  );
+}
+```
+
+---
+
+#### 特殊情况处理
+
+**1. 标签和徽章**
+```tsx
+// ✅ 使用灰色系为主，蓝色为辅
+<span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-sm">
+  Normal Tag
+</span>
+
+<span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-lg text-sm">
+  Important Tag
+</span>
+```
+
+**2. 图表和可视化**
+```tsx
+// ✅ 使用蓝色系渐变
+const CHART_COLORS = {
+  primary: '#3B82F6',   // blue-500
+  secondary: '#60A5FA', // blue-400
+  tertiary: '#93C5FD',  // blue-300
+  background: '#EFF6FF', // blue-50
+};
+```
+
+**3. 表格和列表**
+```tsx
+// ✅ 斑马纹使用灰色
+<tr className="even:bg-gray-50 hover:bg-blue-50">
+  <td className="px-4 py-3 text-gray-900">...</td>
+</tr>
+```
+
+---
+
+#### 检查清单
+
+**颜色使用检查：**
+- [ ] 主色调统一使用蓝色（`blue-*`）
+- [ ] 背景主要使用白色和浅灰色（`white`, `gray-50`）
+- [ ] 文字颜色使用灰色系（`gray-900`, `gray-600`, `gray-500`）
+- [ ] 按钮统一使用 `bg-blue-600 hover:bg-blue-700`
+- [ ] 卡片头部使用 `bg-gradient-to-r from-blue-50 to-indigo-50`
+- [ ] 边框主要使用 `border-gray-200` 或 `border-blue-200`
+- [ ] 状态色仅在必要时使用（成功、警告、错误）
+- [ ] 避免使用紫色、粉色、橙色（除非必要）
+- [ ] 没有大面积使用鲜艳颜色
+- [ ] 整体配色协调、专业、统一
+
+**反面检查（必须避免）：**
+- [ ] 是否使用了超过3种主色？
+- [ ] 是否每个卡片都是不同颜色？
+- [ ] 是否使用了紫色、粉色等非主色调？
+- [ ] 是否颜色过于鲜艳刺眼？
+- [ ] 是否缺乏统一的配色方案？
+
+---
+
+#### 颜色对比表
+
+| 用途 | ✅ 推荐 | ❌ 避免 |
+|-----|--------|--------|
+| **主要按钮** | `bg-blue-600` | `bg-purple-600`, `bg-orange-600` |
+| **卡片头部** | `from-blue-50 to-indigo-50` | `from-purple-50 to-pink-50` |
+| **结果卡片背景** | `bg-blue-50 border-blue-200` | `bg-purple-100 border-purple-400` |
+| **文字颜色** | `text-gray-900`, `text-gray-600` | `text-purple-700`, `text-orange-700` |
+| **强调数字** | `text-blue-700` | `text-purple-700`, `text-pink-700` |
+| **边框** | `border-gray-200`, `border-blue-200` | `border-purple-300`, `border-orange-300` |
+| **成功提示** | `bg-green-50 text-green-700` | `bg-green-500 text-white` (太鲜艳) |
+
+---
+
+#### 实际效果对比
+
+**专业配色的好处：**
+- ✅ 用户感觉网站可信、专业
+- ✅ 阅读体验舒适，不刺眼
+- ✅ 品牌形象统一
+- ✅ 符合工具站的定位
+- ✅ 降低用户的视觉疲劳
+
+**五颜六色的问题：**
+- ❌ 显得不专业、像玩具
+- ❌ 分散用户注意力
+- ❌ 降低可信度
+- ❌ 品牌形象混乱
+- ❌ 用户体验差
+
+---
+
+**总结：坚持「蓝灰」配色，拒绝「五颜六色」！**
+
+---
+
+### 分享和导出功能规范 ⭐ **必需！使用统一组件！**
+
+**问题：** 为什么每个计算器都要实现分享和保存图片功能？
+
+**答案：** 
+1. ✅ **用户需求** - 用户希望分享计算结果或保存为图片
+2. ✅ **标准化** - 使用统一的组件和 Hook，代码更易维护
+3. ✅ **代码复用** - 避免每次重复实现相同功能
+4. ✅ **功能完整性** - 专业计算器必备的导出功能
+
+---
+
+#### 必需的3个导出功能
+
+**所有计算器必须实现：**
+1. ✅ **分享功能** - 使用 `useShare` Hook + `ShareModal` 组件
+2. ✅ **保存为图片** - 使用 `html2canvas` 库
+3. ✅ **打印功能** - 将结果打印为 PDF
+
+---
+
+#### 完整实现代码
+
+**步骤 1: 导入必要的依赖**
+
+```tsx
+'use client';
+
+import { useState, useRef } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Calculator, Copy, Share2, Printer, Download } from 'lucide-react';
+import html2canvas from 'html2canvas';
+import { ShareModal } from '@/components/ShareModal';
+import { useShare } from '@/hooks/useShare';
+```
+
+**步骤 2: 在组件中设置 Hook 和 Ref**
+
+```tsx
+export default function YourCalculator() {
+  const [inputs, setInputs] = useState({ /* ... */ });
+  const [result, setResult] = useState(null);
+  
+  // ✅ 结果区域的引用（用于保存图片和打印）
+  const resultRef = useRef<HTMLDivElement>(null);
+  
+  // ✅ 分享功能 Hook
+  const { showShareModal, shareUrl, shareText, handleShare, closeShareModal } = useShare({
+    calculatorPath: '/your-calculator',  // 你的计算器路径
+    getShareParams: () => ({
+      // 返回URL参数（使用简短字母缩写）
+      n: inputs.number?.toString() || '',
+      r: inputs.selected?.toString() || '',
+      // 只传递必要参数，保持URL简洁
+    }),
+    getShareText: () => {
+      // 返回分享文本（当有结果时显示结果，否则显示默认文本）
+      return result 
+        ? `My calculation result: ${result.value}`
+        : 'Check out this calculator!';
+    },
+  });
+
+  // ✅ 保存为图片功能
+  const handleSaveAsImage = async () => {
+    if (!resultRef.current) return;
+    
+    try {
+      // 等待内容渲染完成
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      const canvas = await html2canvas(resultRef.current, {
+        scale: 2,                    // 高清晰度
+        backgroundColor: '#ffffff',   // 白色背景
+        logging: false,              // 不输出日志
+        useCORS: true,               // 支持跨域图片
+        allowTaint: true,
+      });
+      
+      const link = document.createElement('a');
+      link.download = `calculator-result-${new Date().toISOString().split('T')[0]}.png`;
+      link.href = canvas.toDataURL('image/png', 1.0);
+      link.click();
+    } catch (error) {
+      console.error('Error saving image:', error);
+      alert('Failed to save image. Please try again.');
+    }
+  };
+
+  // ✅ 打印功能
+  const handlePrint = async () => {
+    if (!resultRef.current) return;
+    
+    try {
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      const canvas = await html2canvas(resultRef.current, {
+        scale: 2,
+        backgroundColor: '#ffffff',
+        logging: false,
+      });
+      
+      const imgData = canvas.toDataURL('image/png');
+      const printWindow = window.open('', '_blank');
+      if (printWindow) {
+        printWindow.document.write(`
+          <html>
+            <head>
+              <title>Calculator Results</title>
+              <style>
+                body { margin: 0; padding: 20px; display: flex; justify-content: center; }
+                img { max-width: 100%; height: auto; }
+                @media print {
+                  body { padding: 0; }
+                  img { max-width: 100%; page-break-inside: avoid; }
+                }
+              </style>
+            </head>
+            <body>
+              <img src="${imgData}" onload="window.print();"/>
+            </body>
+          </html>
+        `);
+        printWindow.document.close();
+      }
+    } catch (error) {
+      console.error('Failed to print:', error);
+      alert('Failed to print. Please try again.');
+    }
+  };
+
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-6">
+      {/* ... 输入区域 ... */}
+      
+      {/* ✅ 结果区域 - 添加 ref */}
+      <div ref={resultRef}>
+        <Card className="shadow-lg">
+          <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50">
+            <CardTitle className="text-xl text-gray-900">Results</CardTitle>
+          </CardHeader>
+          <CardContent className="p-6">
+            {result ? (
+              <div className="space-y-4">
+                {/* 结果内容 */}
+              </div>
+            ) : (
+              <div className="text-center text-gray-500">
+                No results yet
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* ✅ 操作按钮区域 */}
+      <div className="flex flex-wrap gap-3 justify-center mt-6 print:hidden">
+        <Button 
+          onClick={handleSaveAsImage} 
+          variant="outline" 
+          className="gap-2"
+          disabled={!result}
+        >
+          <Download className="h-4 w-4" />
+          Save as Image
+        </Button>
+        
+        <Button 
+          onClick={handlePrint} 
+          variant="outline" 
+          className="gap-2"
+          disabled={!result}
+        >
+          <Printer className="h-4 w-4" />
+          Print Results
+        </Button>
+        
+        <Button 
+          onClick={handleShare} 
+          variant="outline" 
+          className="gap-2"
+        >
+          <Share2 className="h-4 w-4" />
+          Share Calculator
+        </Button>
+      </div>
+
+      {/* ✅ 分享模态框 */}
+      <ShareModal 
+        isOpen={showShareModal}
+        onClose={closeShareModal}
+        shareUrl={shareUrl}
+        shareText={shareText}
+        calculatorName="Your Calculator Name"
+      />
+    </div>
+  );
+}
+```
+
+---
+
+#### 关键要点
+
+**1. resultRef 的使用**
+```tsx
+// ✅ 正确：包裹整个结果区域
+<div ref={resultRef}>
+  <Card>
+    <CardContent>
+      {/* 所有要导出的内容 */}
+    </CardContent>
+  </Card>
+</div>
+
+// ❌ 错误：只包裹部分内容
+<Card>
+  <div ref={resultRef}>  // 不完整
+    <p>Result</p>
+  </div>
+</Card>
+```
+
+**2. 按钮状态管理**
+```tsx
+// ✅ 正确：有结果时才启用保存和打印
+<Button onClick={handleSaveAsImage} disabled={!result}>
+  Save as Image
+</Button>
+
+// ✅ 分享按钮始终可用（可以分享计算器本身）
+<Button onClick={handleShare}>
+  Share Calculator
+</Button>
+```
+
+**3. URL 参数简化**
+```tsx
+// ✅ 正确：使用简短字母缩写
+getShareParams: () => ({
+  n: inputs.number.toString(),     // n = number
+  r: inputs.rate.toString(),       // r = rate
+  t: inputs.term.toString(),       // t = term
+})
+
+// ❌ 错误：使用完整单词（URL太长）
+getShareParams: () => ({
+  number: inputs.number.toString(),
+  rate: inputs.rate.toString(),
+  term: inputs.term.toString(),
+})
+```
+
+**4. html2canvas 配置**
+```tsx
+// ✅ 推荐配置
+const canvas = await html2canvas(resultRef.current, {
+  scale: 2,                    // 2倍分辨率，高清晰度
+  backgroundColor: '#ffffff',   // 白色背景，避免透明
+  logging: false,              // 不输出日志，保持控制台干净
+  useCORS: true,               // 支持跨域图片
+  allowTaint: true,            // 允许跨域内容
+});
+```
+
+---
+
+#### 检查清单
+
+**必须实现的功能：**
+- [ ] 导入 `useShare` Hook 和 `ShareModal` 组件
+- [ ] 导入 `html2canvas` 库
+- [ ] 创建 `resultRef` 引用结果区域
+- [ ] 实现 `handleSaveAsImage` 函数
+- [ ] 实现 `handlePrint` 函数
+- [ ] 配置 `useShare` Hook（路径、参数、文本）
+- [ ] 添加3个操作按钮（Save、Print、Share）
+- [ ] 添加 `ShareModal` 组件
+- [ ] 按钮有正确的 `disabled` 状态
+- [ ] 结果区域使用 `ref={resultRef}`
+
+**测试验证：**
+- [ ] 点击 "Save as Image" 能下载 PNG 图片
+- [ ] 点击 "Print Results" 能打开打印预览
+- [ ] 点击 "Share Calculator" 能打开分享模态框
+- [ ] 分享模态框可以复制链接
+- [ ] 分享模态框可以分享到社交媒体
+- [ ] 没有结果时，保存和打印按钮是禁用状态
+- [ ] 生成的图片包含完整的结果内容
+
+---
+
+#### 常见错误（必须避免）
+
+```tsx
+// ❌ 错误1：自己实现分享逻辑
+const handleShare = async () => {
+  try {
+    if (navigator.share) {
+      await navigator.share({ title: '...', url: '...' });
+    }
+  } catch (err) { /* ... */ }
+};
+// ✅ 正确：使用 useShare Hook
+
+// ❌ 错误2：缺少保存图片功能
+// 完全没有实现 handleSaveAsImage
+// ✅ 正确：必须实现
+
+// ❌ 错误3：缺少 resultRef
+<div>  // 没有 ref
+  <Card>Results</Card>
+</div>
+// ✅ 正确：<div ref={resultRef}>
+
+// ❌ 错误4：按钮没有禁用状态
+<Button onClick={handleSaveAsImage}>
+  Save as Image
+</Button>
+// ✅ 正确：<Button disabled={!result}>
+
+// ❌ 错误5：忘记添加 ShareModal
+// JSX 中没有 <ShareModal />
+// ✅ 正确：必须添加
+```
+
+---
+
+#### 效果对比
+
+| 功能 | 没有实现 | 正确实现 |
+|-----|---------|---------|
+| **分享** | ❌ 用户无法分享 | ✅ 多平台分享 |
+| **保存图片** | ❌ 无法保存 | ✅ 高清PNG下载 |
+| **打印** | ❌ 打印效果差 | ✅ 专业打印布局 |
+| **用户体验** | ⚠️ 功能不完整 | ✅ 专业工具站 |
+| **代码维护** | ⚠️ 重复代码 | ✅ 统一组件 |
+
+---
+
+**总结：所有计算器必须实现「分享」+「保存图片」+「打印」三大导出功能！**

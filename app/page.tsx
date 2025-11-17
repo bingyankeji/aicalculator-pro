@@ -256,15 +256,15 @@ export default function HomePage() {
             {/* Left: Basic Calculator */}
             <div className="lg:row-span-2">
               <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 h-full">
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    Basic Calculator
-                  </h3>
-                  <p className="text-gray-600">
-                    Professional calculator with history and advanced functions
-                  </p>
-                </div>
-                <ScientificCalculator />
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  Basic Calculator
+                </h3>
+                <p className="text-gray-600">
+                  Professional calculator with history and advanced functions
+                </p>
+              </div>
+              <ScientificCalculator />
               </div>
             </div>
 

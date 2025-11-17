@@ -94,7 +94,7 @@ export default function MathNumbersPage() {
     "@type": "CollectionPage",
     "name": "Math & Numbers Calculators",
     "description": "Free online math calculators for percentages, algebra, geometry, statistics, and more. 50+ professional math tools.",
-    "url": "https://aicalculator.com/math-numbers",
+    "url": "https://aicalculator.pro/math-numbers",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -102,13 +102,13 @@ export default function MathNumbersPage() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.com"
+          "item": "https://aicalculator.pro"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Math & Numbers Calculators",
-          "item": "https://aicalculator.com/math-numbers"
+          "item": "https://aicalculator.pro/math-numbers"
         }
       ]
     }

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Free BMR Calculator - Calculate Your Basal Metabolic Rate & TDEE",
     description: "Calculate your BMR and daily calorie needs based on activity level. Get personalized weight loss, maintenance, and muscle gain calorie goals.",
     type: "website",
-    url: "https://aicalculator.com/bmr-calculator",
+    url: "https://aicalculator.pro/bmr-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/bmr-calculator",
+    canonical: "https://aicalculator.pro/bmr-calculator",
   },
   robots: {
     index: true,
@@ -60,7 +60,7 @@ export default function BMRCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "BMR Calculator",
-        "url": "https://aicalculator.com/bmr-calculator",
+        "url": "https://aicalculator.pro/bmr-calculator",
         "description": "Free online BMR (Basal Metabolic Rate) calculator to determine your daily calorie needs, TDEE (Total Daily Energy Expenditure), and personalized macronutrient recommendations for weight loss, maintenance, or muscle gain.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
@@ -87,19 +87,19 @@ export default function BMRCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Calculators",
-            "item": "https://aicalculator.com/calculators"
+            "item": "https://aicalculator.pro/calculators"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "BMR Calculator",
-            "item": "https://aicalculator.com/bmr-calculator"
+            "item": "https://aicalculator.pro/bmr-calculator"
           }
         ]
       },

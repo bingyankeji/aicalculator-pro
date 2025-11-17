@@ -130,15 +130,15 @@ export default function CircleCalculator() {
   });
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 sm:space-y-4 md:space-y-6">
       {/* Input Section */}
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-        <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
           <Circle className="w-6 h-6 text-blue-600" />
           Circle Calculator
         </h3>
 
-        <div className="space-y-6">
+        <div className="space-y-3 sm:space-y-4 md:space-y-6">
           {/* Input Type Selection */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-3">What do you know about the circle?</label>
@@ -202,40 +202,40 @@ export default function CircleCalculator() {
 
       {/* Results Section */}
       {result && (
-        <div ref={resultRef} className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+        <div ref={resultRef} className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
           <h4 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
             <Calculator className="w-5 h-5 text-green-600" />
             Circle Calculation Results
           </h4>
 
           {/* Main Results */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-3 sm:mb-6">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-3 sm:p-4 rounded-lg border border-blue-200">
               <div className="text-sm text-blue-700 font-medium mb-1">Radius</div>
-              <div className="text-2xl font-bold text-blue-900">{formatNumber(result.radius)}</div>
+              <div className="text-xl sm:text-2xl font-bold text-blue-900 break-all">{formatNumber(result.radius)}</div>
               <div className="text-xs text-blue-600">units</div>
             </div>
-            <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200">
+            <div className="bg-gradient-to-br from-green-50 to-green-100 p-3 sm:p-4 rounded-lg border border-green-200">
               <div className="text-sm text-green-700 font-medium mb-1">Diameter</div>
-              <div className="text-2xl font-bold text-green-900">{formatNumber(result.diameter)}</div>
+              <div className="text-xl sm:text-2xl font-bold text-green-900 break-all">{formatNumber(result.diameter)}</div>
               <div className="text-xs text-green-600">units</div>
             </div>
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200">
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-3 sm:p-4 rounded-lg border border-purple-200">
               <div className="text-sm text-purple-700 font-medium mb-1">Circumference</div>
-              <div className="text-2xl font-bold text-purple-900">{formatNumber(result.circumference)}</div>
+              <div className="text-xl sm:text-2xl font-bold text-purple-900 break-all">{formatNumber(result.circumference)}</div>
               <div className="text-xs text-purple-600">units</div>
             </div>
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border border-orange-200">
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-3 sm:p-4 rounded-lg border border-orange-200">
               <div className="text-sm text-orange-700 font-medium mb-1">Area</div>
-              <div className="text-2xl font-bold text-orange-900">{formatNumber(result.area)}</div>
+              <div className="text-xl sm:text-2xl font-bold text-orange-900 break-all">{formatNumber(result.area)}</div>
               <div className="text-xs text-orange-600">square units</div>
             </div>
           </div>
 
           {/* Circle Visualization */}
-          <div className="mb-6">
-            <h5 className="text-lg font-bold text-gray-900 mb-4">🔵 Circle Visualization</h5>
-            <div className="bg-gray-50 rounded-lg p-6 flex justify-center">
+          <div className="mb-3 sm:mb-6">
+            <h5 className="text-lg font-bold text-gray-900 mb-3 sm:mb-4">🔵 Circle Visualization</h5>
+            <div className="bg-gray-50 rounded-lg p-3 sm:p-6 flex justify-center">
               <div className="relative">
                 <svg width="200" height="200" viewBox="0 0 200 200" className="border border-gray-300 rounded">
                   {/* Circle */}
@@ -278,20 +278,20 @@ export default function CircleCalculator() {
           </div>
 
           {/* Formulas */}
-          <div className="mb-6">
-            <h5 className="text-lg font-bold text-gray-900 mb-4">📐 Circle Formulas</h5>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+          <div className="mb-3 sm:mb-6">
+            <h5 className="text-lg font-bold text-gray-900 mb-3 sm:mb-4">📐 Circle Formulas</h5>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+              <div className="bg-blue-50 rounded-lg p-3 sm:p-4 border border-blue-200">
                 <div className="font-semibold text-blue-900 mb-2">Area Formula</div>
                 <div className="font-mono text-lg text-blue-800">{result.formulas.area}</div>
                 <div className="text-xs text-blue-600 mt-1">π ≈ 3.14159</div>
               </div>
-              <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+              <div className="bg-green-50 rounded-lg p-3 sm:p-4 border border-green-200">
                 <div className="font-semibold text-green-900 mb-2">Circumference Formula</div>
                 <div className="font-mono text-lg text-green-800">{result.formulas.circumference}</div>
                 <div className="text-xs text-green-600 mt-1">Perimeter of circle</div>
               </div>
-              <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
+              <div className="bg-purple-50 rounded-lg p-3 sm:p-4 border border-purple-200">
                 <div className="font-semibold text-purple-900 mb-2">Diameter Formula</div>
                 <div className="font-mono text-lg text-purple-800">{result.formulas.diameter}</div>
                 <div className="text-xs text-purple-600 mt-1">Twice the radius</div>
@@ -300,9 +300,9 @@ export default function CircleCalculator() {
           </div>
 
           {/* Step-by-Step Calculations */}
-          <div className="mb-6">
-            <h5 className="text-lg font-bold text-gray-900 mb-4">🧮 Step-by-Step Calculations</h5>
-            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+          <div className="mb-3 sm:mb-6">
+            <h5 className="text-lg font-bold text-gray-900 mb-3 sm:mb-4">🧮 Step-by-Step Calculations</h5>
+            <div className="bg-gray-50 rounded-lg p-3 sm:p-4 border border-gray-200">
               <ol className="space-y-2">
                 {result.calculations.map((step, index) => (
                   <li key={index} className="text-sm font-mono text-gray-700">
@@ -315,9 +315,9 @@ export default function CircleCalculator() {
 
           {/* Quick Conversions */}
           <div>
-            <h5 className="text-lg font-bold text-gray-900 mb-4">🔄 Quick Conversions</h5>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
+            <h5 className="text-lg font-bold text-gray-900 mb-3 sm:mb-4">🔄 Quick Conversions</h5>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+              <div className="bg-yellow-50 rounded-lg p-3 sm:p-4 border border-yellow-200">
                 <h6 className="font-semibold text-yellow-900 mb-3">Area Relationships</h6>
                 <div className="space-y-1 text-sm text-yellow-800">
                   <div>• Circle area = {formatNumber(result.area)} square units</div>
@@ -325,7 +325,7 @@ export default function CircleCalculator() {
                   <div>• Rectangle (2:1 ratio): {formatNumber(Math.sqrt(2 * result.area))} × {formatNumber(Math.sqrt(result.area / 2))}</div>
                 </div>
               </div>
-              <div className="bg-cyan-50 rounded-lg p-4 border border-cyan-200">
+              <div className="bg-cyan-50 rounded-lg p-3 sm:p-4 border border-cyan-200">
                 <h6 className="font-semibold text-cyan-900 mb-3">Circumference Relationships</h6>
                 <div className="space-y-1 text-sm text-cyan-800">
                   <div>• Circle circumference = {formatNumber(result.circumference)} units</div>

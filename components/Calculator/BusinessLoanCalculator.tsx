@@ -282,23 +282,24 @@ export default function BusinessLoanCalculator() {
       type: inputs.loanType,
     }),
     getShareText: () => {
+      if (!result) return 'Calculate your business loan options!';
       const payment = formatCurrency(result.monthlyPayment);
       return `Business Loan: ${formatCurrency(inputs.principal)} at ${inputs.annualRate}% for ${inputs.termYears} years = ${payment}/month`;
     },
   });
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
         {/* Left Side - Input Section */}
         <div className="space-y-6">
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2 hidden lg:block">
               <Building2 className="w-6 h-6 text-blue-600" />
               Business Loan Calculator
             </h3>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4 md:space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Loan Amount</label>
                 <input
@@ -430,7 +431,7 @@ export default function BusinessLoanCalculator() {
           </div>
 
           {/* Enhanced Business Scenarios */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
             <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <Target className="w-5 h-5 text-purple-600" />
               🎯 Industry Scenarios
@@ -483,19 +484,19 @@ export default function BusinessLoanCalculator() {
             <div className="grid grid-cols-2 gap-4 mb-6">
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
                 <div className="text-sm text-blue-700 font-medium mb-1">Monthly Payment</div>
-                <div className="text-2xl font-bold text-blue-900">{formatCurrency(result.monthlyPayment)}</div>
+                <div className="text-xl sm:text-2xl font-bold text-blue-900 break-all">{formatCurrency(result.monthlyPayment)}</div>
               </div>
               <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200">
                 <div className="text-sm text-green-700 font-medium mb-1">Total Interest</div>
-                <div className="text-2xl font-bold text-green-900">{formatCurrency(result.totalInterest)}</div>
+                <div className="text-xl sm:text-2xl font-bold text-green-900 break-all">{formatCurrency(result.totalInterest)}</div>
               </div>
               <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200">
                 <div className="text-sm text-purple-700 font-medium mb-1">Total Cost</div>
-                <div className="text-2xl font-bold text-purple-900">{formatCurrency(result.totalCost)}</div>
+                <div className="text-xl sm:text-2xl font-bold text-purple-900 break-all">{formatCurrency(result.totalCost)}</div>
               </div>
               <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border border-orange-200">
                 <div className="text-sm text-orange-700 font-medium mb-1">Effective APR</div>
-                <div className="text-2xl font-bold text-orange-900">{result.effectiveAPR.toFixed(2)}%</div>
+                <div className="text-xl sm:text-2xl font-bold text-orange-900 break-all">{result.effectiveAPR.toFixed(2)}%</div>
               </div>
             </div>
 
@@ -534,14 +535,14 @@ export default function BusinessLoanCalculator() {
               <div className="grid grid-cols-2 gap-4">
                 <div className={`p-4 rounded-lg border ${result.riskLevel === 'low' ? 'bg-green-50 border-green-200' : result.riskLevel === 'medium' ? 'bg-yellow-50 border-yellow-200' : 'bg-red-50 border-red-200'}`}>
                   <div className="text-sm font-medium mb-1">Debt Service Coverage</div>
-                  <div className="text-2xl font-bold">{result.debtServiceCoverageRatio.toFixed(2)}</div>
+                  <div className="text-xl sm:text-2xl font-bold break-all">{result.debtServiceCoverageRatio.toFixed(2)}</div>
                   <div className="text-xs mt-1">
                     {result.debtServiceCoverageRatio >= 1.5 ? '✅ Strong' : result.debtServiceCoverageRatio >= 1.25 ? '⚠️ Adequate' : '🔴 Weak'}
                   </div>
                 </div>
                 <div className={`p-4 rounded-lg border ${result.debtToIncomeRatio <= 25 ? 'bg-green-50 border-green-200' : result.debtToIncomeRatio <= 40 ? 'bg-yellow-50 border-yellow-200' : 'bg-red-50 border-red-200'}`}>
                   <div className="text-sm font-medium mb-1">Debt-to-Income</div>
-                  <div className="text-2xl font-bold">{result.debtToIncomeRatio.toFixed(1)}%</div>
+                  <div className="text-xl sm:text-2xl font-bold break-all">{result.debtToIncomeRatio.toFixed(1)}%</div>
                   <div className="text-xs mt-1">
                     {result.debtToIncomeRatio <= 25 ? '✅ Conservative' : result.debtToIncomeRatio <= 40 ? '⚠️ Moderate' : '🔴 High'}
                   </div>

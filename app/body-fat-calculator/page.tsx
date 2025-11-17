@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Free Body Fat Calculator - Navy & YMCA Methods",
     description: "Calculate body fat percentage accurately with Navy Method and YMCA formulas. Get instant results with healthy ranges.",
     type: "website",
-    url: "https://aicalculator.com/body-fat-calculator",
+    url: "https://aicalculator.pro/body-fat-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/body-fat-calculator",
+    canonical: "https://aicalculator.pro/body-fat-calculator",
   },
   robots: {
     index: true,
@@ -44,7 +44,7 @@ export default function BodyFatCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Body Fat Calculator",
-        "url": "https://aicalculator.com/body-fat-calculator",
+        "url": "https://aicalculator.pro/body-fat-calculator",
         "description": "Free body fat calculator using Navy Method, YMCA Method, and BMI-based formulas. Calculate body fat percentage, fat mass, lean mass, and get personalized health recommendations.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
@@ -73,19 +73,19 @@ export default function BodyFatCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Health & Fitness",
-            "item": "https://aicalculator.com/health-fitness"
+            "item": "https://aicalculator.pro/health-fitness"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Body Fat Calculator",
-            "item": "https://aicalculator.com/body-fat-calculator"
+            "item": "https://aicalculator.pro/body-fat-calculator"
           }
         ]
       },

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: 'Free Protein Calculator - Calculate Daily Protein Needs',
     description: 'Calculate your daily protein requirements based on weight, activity level, and fitness goals. Perfect for cutting, maintenance, and bulking phases.',
     type: 'website',
-    url: 'https://aicalculator.com/protein-calculator',
+    url: 'https://aicalculator.pro/protein-calculator',
     siteName: 'AICalculator',
   },
   twitter: {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     site: '@AICalculator',
   },
   alternates: {
-    canonical: 'https://aicalculator.com/protein-calculator',
+    canonical: 'https://aicalculator.pro/protein-calculator',
   },
   robots: {
     index: true,
@@ -62,7 +62,7 @@ export default function ProteinCalculatorPage() {
       {
         '@type': 'WebApplication',
         name: 'Protein Calculator',
-        url: 'https://aicalculator.com/protein-calculator',
+        url: 'https://aicalculator.pro/protein-calculator',
         description:
           'Free protein calculator to calculate daily protein needs based on weight, activity level, and fitness goals. Get personalized protein recommendations for cutting, maintenance, and bulking phases.',
         applicationCategory: 'HealthApplication',
@@ -91,19 +91,19 @@ export default function ProteinCalculatorPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.com',
+            item: 'https://aicalculator.pro',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Health & Fitness',
-            item: 'https://aicalculator.com/health-fitness',
+            item: 'https://aicalculator.pro/health-fitness',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'Protein Calculator',
-            item: 'https://aicalculator.com/protein-calculator',
+            item: 'https://aicalculator.pro/protein-calculator',
           },
         ],
       },

@@ -111,12 +111,12 @@ export function AverageCalculator() {
   ];
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 sm:space-y-4 md:space-y-6">
       {/* Input Section */}
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-        <h3 className="text-2xl font-bold text-gray-900 mb-6">Enter Your Numbers</h3>
-        
-        <div className="grid md:grid-cols-3 gap-4 mb-6">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-3 sm:p-4 md:p-6">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Enter Your Numbers</h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-3 sm:mb-6">
           {numbers.map((num, index) => (
             <div key={index} className="flex items-center gap-2">
               <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm">
@@ -128,12 +128,12 @@ export function AverageCalculator() {
                 onChange={(e) => updateNumber(index, e.target.value)}
                 placeholder="Enter number"
                 step="any"
-                className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="flex-1 px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent min-h-[44px]"
               />
               {numbers.length > 1 && (
                 <button
                   onClick={() => removeNumber(index)}
-                  className="flex-shrink-0 w-10 h-10 rounded-lg bg-red-100 text-red-600 hover:bg-red-200 transition-colors flex items-center justify-center"
+                  className="flex-shrink-0 w-10 h-10 min-h-[44px] rounded-lg bg-red-100 text-red-600 hover:bg-red-200 transition-colors flex items-center justify-center"
                   title="Remove"
                 >
                   <Minus className="w-5 h-5" />
@@ -143,25 +143,25 @@ export function AverageCalculator() {
           ))}
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
           <button
             onClick={addNumber}
-            className="flex items-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            className="flex items-center justify-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium min-h-[44px]"
           >
             <Plus className="w-5 h-5" />
             Add Number
           </button>
-          
+
           <button
             onClick={() => setNumbers([''])}
-            className="px-4 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+            className="px-4 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium min-h-[44px]"
           >
             Clear All
           </button>
         </div>
 
         {/* Quick Examples */}
-        <div className="mt-6">
+        <div className="mt-3 sm:mt-6">
           <h4 className="text-sm font-semibold text-gray-700 mb-3">Quick Examples:</h4>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             {quickExamples.map((example, idx) => (
@@ -181,49 +181,49 @@ export function AverageCalculator() {
       {result && (
         <>
           {/* Main Statistics */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Statistical Results</h3>
-            
-            <div className="grid md:grid-cols-4 gap-4 mb-6">
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-lg border border-blue-200">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-3 sm:p-4 md:p-6">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Statistical Results</h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-3 sm:mb-6">
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-3 sm:p-4 md:p-5 rounded-lg border border-blue-200">
                 <div className="flex items-center gap-2 mb-2">
                   <TrendingUp className="w-5 h-5 text-blue-600" />
                   <div className="text-sm text-blue-600 font-medium">Mean (Average)</div>
                 </div>
-                <div className="text-4xl font-bold text-blue-700">
+                <div className="text-xl sm:text-2xl md:text-4xl font-bold text-blue-700 break-all">
                   {result.mean.toFixed(2)}
                 </div>
                 <div className="text-xs text-blue-600 mt-1">Sum ÷ Count</div>
               </div>
 
-              <div className="bg-gradient-to-br from-green-50 to-green-100 p-5 rounded-lg border border-green-200">
+              <div className="bg-gradient-to-br from-green-50 to-green-100 p-3 sm:p-4 md:p-5 rounded-lg border border-green-200">
                 <div className="flex items-center gap-2 mb-2">
                   <Hash className="w-5 h-5 text-green-600" />
                   <div className="text-sm text-green-600 font-medium">Median</div>
                 </div>
-                <div className="text-4xl font-bold text-green-700">
+                <div className="text-xl sm:text-2xl md:text-4xl font-bold text-green-700 break-all">
                   {result.median.toFixed(2)}
                 </div>
                 <div className="text-xs text-green-600 mt-1">Middle value</div>
               </div>
 
-              <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-5 rounded-lg border border-purple-200">
+              <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-3 sm:p-4 md:p-5 rounded-lg border border-purple-200">
                 <div className="flex items-center gap-2 mb-2">
                   <BarChart3 className="w-5 h-5 text-purple-600" />
                   <div className="text-sm text-purple-600 font-medium">Mode</div>
                 </div>
-                <div className="text-4xl font-bold text-purple-700">
+                <div className="text-xl sm:text-2xl md:text-4xl font-bold text-purple-700 break-all">
                   {result.mode.length > 0 ? result.mode.map(m => m.toFixed(2)).join(', ') : 'None'}
                 </div>
                 <div className="text-xs text-purple-600 mt-1">Most frequent</div>
               </div>
 
-              <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-5 rounded-lg border border-orange-200">
+              <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-3 sm:p-4 md:p-5 rounded-lg border border-orange-200">
                 <div className="flex items-center gap-2 mb-2">
                   <Calculator className="w-5 h-5 text-orange-600" />
                   <div className="text-sm text-orange-600 font-medium">Range</div>
                 </div>
-                <div className="text-4xl font-bold text-orange-700">
+                <div className="text-xl sm:text-2xl md:text-4xl font-bold text-orange-700 break-all">
                   {result.range.toFixed(2)}
                 </div>
                 <div className="text-xs text-orange-600 mt-1">Max - Min</div>
@@ -231,20 +231,20 @@ export function AverageCalculator() {
             </div>
 
             {/* Additional Stats */}
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+              <div className="bg-gray-50 p-3 sm:p-4 rounded-lg border border-gray-200">
                 <div className="text-sm text-gray-600 mb-1">Sum</div>
-                <div className="text-2xl font-bold text-gray-900">{result.sum.toFixed(2)}</div>
+                <div className="text-xl sm:text-2xl font-bold text-gray-900 break-all">{result.sum.toFixed(2)}</div>
               </div>
 
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+              <div className="bg-gray-50 p-3 sm:p-4 rounded-lg border border-gray-200">
                 <div className="text-sm text-gray-600 mb-1">Count</div>
-                <div className="text-2xl font-bold text-gray-900">{result.count}</div>
+                <div className="text-xl sm:text-2xl font-bold text-gray-900 break-all">{result.count}</div>
               </div>
 
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+              <div className="bg-gray-50 p-3 sm:p-4 rounded-lg border border-gray-200">
                 <div className="text-sm text-gray-600 mb-1">Min / Max</div>
-                <div className="text-2xl font-bold text-gray-900">
+                <div className="text-xl sm:text-2xl font-bold text-gray-900 break-all">
                   {result.min.toFixed(2)} / {result.max.toFixed(2)}
                 </div>
               </div>
@@ -252,13 +252,13 @@ export function AverageCalculator() {
           </div>
 
           {/* Advanced Statistics */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Advanced Statistics</h3>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-5 rounded-lg border border-indigo-200">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-3 sm:p-4 md:p-6">
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Advanced Statistics</h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
+              <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-3 sm:p-4 md:p-5 rounded-lg border border-indigo-200">
                 <div className="text-sm text-indigo-600 mb-2 font-medium">Variance (σ²)</div>
-                <div className="text-3xl font-bold text-indigo-700 mb-2">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-indigo-700 mb-2 break-all">
                   {result.variance.toFixed(4)}
                 </div>
                 <p className="text-xs text-indigo-600">
@@ -266,9 +266,9 @@ export function AverageCalculator() {
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-pink-50 to-pink-100 p-5 rounded-lg border border-pink-200">
+              <div className="bg-gradient-to-br from-pink-50 to-pink-100 p-3 sm:p-4 md:p-5 rounded-lg border border-pink-200">
                 <div className="text-sm text-pink-600 mb-2 font-medium">Standard Deviation (σ)</div>
-                <div className="text-3xl font-bold text-pink-700 mb-2">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-pink-700 mb-2 break-all">
                   {result.standardDeviation.toFixed(4)}
                 </div>
                 <p className="text-xs text-pink-600">
@@ -279,14 +279,14 @@ export function AverageCalculator() {
           </div>
 
           {/* Sorted Data */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Sorted Data (Ascending Order)</h3>
-            <div className="bg-gray-50 p-4 rounded-lg">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-3 sm:p-4 md:p-6">
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Sorted Data (Ascending Order)</h3>
+            <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
               <div className="flex flex-wrap gap-2">
                 {result.sortedData.map((num, idx) => (
                   <div
                     key={idx}
-                    className={`px-4 py-2 rounded-lg font-semibold ${
+                    className={`px-3 py-2 rounded-lg font-semibold text-xs sm:text-sm ${
                       num === result.min
                         ? 'bg-red-100 text-red-700 border-2 border-red-300'
                         : num === result.max
@@ -307,11 +307,11 @@ export function AverageCalculator() {
           </div>
 
           {/* Formulas */}
-          <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl border border-blue-200 p-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Calculation Formulas</h3>
-            
-            <div className="space-y-4 text-sm">
-              <div className="bg-white p-4 rounded-lg border border-gray-200">
+          <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl border border-blue-200 p-3 sm:p-4 md:p-6">
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Calculation Formulas</h3>
+
+            <div className="space-y-3 sm:space-y-4 text-xs sm:text-sm">
+              <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200">
                 <strong className="text-blue-700">Mean (Average):</strong>
                 <div className="font-mono mt-2 text-gray-700">
                   Mean = (Sum of all values) / (Number of values)
@@ -321,7 +321,7 @@ export function AverageCalculator() {
                 </div>
               </div>
 
-              <div className="bg-white p-4 rounded-lg border border-gray-200">
+              <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200">
                 <strong className="text-green-700">Median:</strong>
                 <div className="font-mono mt-2 text-gray-700">
                   {result.count % 2 === 0
@@ -333,7 +333,7 @@ export function AverageCalculator() {
                 </div>
               </div>
 
-              <div className="bg-white p-4 rounded-lg border border-gray-200">
+              <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200">
                 <strong className="text-purple-700">Mode:</strong>
                 <div className="font-mono mt-2 text-gray-700">
                   Mode = Most frequently occurring value(s)
@@ -343,7 +343,7 @@ export function AverageCalculator() {
                 </div>
               </div>
 
-              <div className="bg-white p-4 rounded-lg border border-gray-200">
+              <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200">
                 <strong className="text-orange-700">Range:</strong>
                 <div className="font-mono mt-2 text-gray-700">
                   Range = Maximum value - Minimum value
@@ -353,7 +353,7 @@ export function AverageCalculator() {
                 </div>
               </div>
 
-              <div className="bg-white p-4 rounded-lg border border-gray-200">
+              <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200">
                 <strong className="text-indigo-700">Variance:</strong>
                 <div className="font-mono mt-2 text-gray-700">
                   σ² = Σ(x - mean)² / n
@@ -363,7 +363,7 @@ export function AverageCalculator() {
                 </div>
               </div>
 
-              <div className="bg-white p-4 rounded-lg border border-gray-200">
+              <div className="bg-white p-3 sm:p-4 rounded-lg border border-gray-200">
                 <strong className="text-pink-700">Standard Deviation:</strong>
                 <div className="font-mono mt-2 text-gray-700">
                   σ = √(Variance)

@@ -209,12 +209,12 @@ export function ROICalculator() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-3 gap-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
         {/* Input Section */}
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 sticky top-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+        <div className="xl:col-span-1">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6 sticky top-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2 hidden lg:block">
               <TrendingUp className="w-6 h-6 text-blue-600" />
               Investment Details
             </h2>
@@ -380,7 +380,7 @@ export function ROICalculator() {
                       <Percent className={`w-5 h-5 ${result.roi >= 0 ? 'text-green-600' : 'text-red-600'}`} />
                       <h3 className="text-lg font-bold text-gray-900">Return on Investment (ROI)</h3>
                     </div>
-                    <div className={`text-4xl font-bold mb-2 ${result.roi >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                    <div className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 break-all ${result.roi >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                       {result.roi.toFixed(2)}%
                     </div>
                     <p className="text-sm text-gray-600">Net profit relative to total investment</p>
@@ -392,7 +392,7 @@ export function ROICalculator() {
                       <TrendingUp className="w-5 h-5 text-blue-600" />
                       <h3 className="text-lg font-bold text-gray-900">Annualized ROI</h3>
                     </div>
-                    <div className="text-4xl font-bold text-blue-600 mb-2">
+                    <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-blue-600 mb-2 break-all">
                       {result.annualizedROI.toFixed(2)}%
                     </div>
                     <p className="text-sm text-gray-600">Average yearly return ({result.yearsInvested.toFixed(2)} years)</p>

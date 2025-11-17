@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description:
       "Calculate volume and surface area for cubes, spheres, cylinders, cones and more. Includes material estimates and real-world applications.",
     type: "website",
-    url: "https://aicalculator.com/volume-calculator",
+    url: "https://aicalculator.pro/volume-calculator",
     siteName: "AI Calculator",
   },
   twitter: {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/volume-calculator",
+    canonical: "https://aicalculator.pro/volume-calculator",
   },
   robots: {
     index: true,
@@ -60,7 +60,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Volume Calculator",
-      "url": "https://aicalculator.com/volume-calculator",
+      "url": "https://aicalculator.pro/volume-calculator",
       "description": "Calculate volume and surface area for 15+ 3D shapes including cubes, spheres, cylinders, cones, pyramids with step-by-step formulas.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Any",
@@ -87,19 +87,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.com"
+          "item": "https://aicalculator.pro"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Math & Numbers",
-          "item": "https://aicalculator.com/math-numbers"
+          "item": "https://aicalculator.pro/math-numbers"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Volume Calculator",
-          "item": "https://aicalculator.com/volume-calculator"
+          "item": "https://aicalculator.pro/volume-calculator"
         }
       ]
     },

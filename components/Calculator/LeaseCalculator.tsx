@@ -433,10 +433,10 @@ export default function LeaseCalculator() {
   });
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-8">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid xl:grid-cols-2 gap-8">
         {/* Left Side - Input Section */}
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
           <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
             <Car className="w-6 h-6 text-blue-500" />
             Lease Calculator
@@ -486,7 +486,7 @@ export default function LeaseCalculator() {
             {/* Analysis Mode */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-3">Analysis Mode</label>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <button
                   onClick={() => updateInput('analysisMode', 'lease-only')}
                   className={`p-3 rounded-lg border-2 transition-all ${
@@ -529,7 +529,7 @@ export default function LeaseCalculator() {
             </div>
 
             {/* Lease Terms */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Lease Term (months)
@@ -562,7 +562,7 @@ export default function LeaseCalculator() {
             </div>
 
             {/* Down Payment & Fees */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Down Payment
@@ -599,7 +599,7 @@ export default function LeaseCalculator() {
               <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4">Purchase Option</h4>
                 
-                <div className="grid grid-cols-2 gap-4 mb-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Purchase Price
@@ -632,7 +632,7 @@ export default function LeaseCalculator() {
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Loan Term (months)
@@ -752,16 +752,16 @@ export default function LeaseCalculator() {
               </h4>
 
               {/* Main Results Cards */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
                   <div className="text-sm text-blue-700 font-medium mb-1">Monthly Lease Payment</div>
-                  <div className="text-3xl font-bold text-blue-900">{formatCurrency(inputs.monthlyPayment)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-900 break-all">{formatCurrency(inputs.monthlyPayment)}</div>
                   <div className="text-xs text-blue-600">For {inputs.leaseTerm} months</div>
                 </div>
                 
                 <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg border border-green-200">
                   <div className="text-sm text-green-700 font-medium mb-1">Total Lease Cost</div>
-                  <div className="text-3xl font-bold text-green-900">{formatCurrency(result.totalLeaseCost)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-900 break-all">{formatCurrency(result.totalLeaseCost)}</div>
                   <div className="text-xs text-green-600">Including all fees</div>
                 </div>
               </div>
@@ -770,7 +770,7 @@ export default function LeaseCalculator() {
               {inputs.analysisMode === 'lease-vs-buy' && result.loanMonthlyPayment && (
                 <div className="mb-6">
                   <h5 className="text-lg font-bold text-gray-900 mb-4">💰 Cost Comparison</h5>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
                       <h6 className="font-bold text-blue-900 mb-3">🚗 Leasing</h6>
                       <div className="space-y-2 text-sm">
@@ -837,7 +837,7 @@ export default function LeaseCalculator() {
               {/* Key Metrics */}
               <div className="mb-6">
                 <h5 className="text-lg font-bold text-gray-900 mb-4">📊 Key Metrics</h5>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                     <div className="text-sm text-gray-700 font-medium mb-1">Residual Value</div>
                     <div className="text-lg font-bold text-gray-900">
@@ -875,7 +875,7 @@ export default function LeaseCalculator() {
               {/* Pros and Cons */}
               <div>
                 <h5 className="text-lg font-bold text-gray-900 mb-4">⚖️ Pros & Cons</h5>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-green-50 rounded-lg p-4 border border-green-200">
                     <h6 className="font-bold text-green-900 mb-2">✅ Leasing Advantages</h6>
                     <ul className="text-green-800 text-sm space-y-1">

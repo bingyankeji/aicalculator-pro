@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description:
       "Calculate break-even points, analyze profitability, and optimize pricing strategies. Essential business planning tool for entrepreneurs and managers.",
     type: "website",
-    url: "https://aicalculator.com/breakeven-calculator",
+    url: "https://aicalculator.pro/breakeven-calculator",
     siteName: "AI Calculator",
   },
   twitter: {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/breakeven-calculator",
+    canonical: "https://aicalculator.pro/breakeven-calculator",
   },
   robots: {
     index: true,
@@ -68,7 +68,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Break-even Calculator",
-      "url": "https://aicalculator.com/breakeven-calculator",
+      "url": "https://aicalculator.pro/breakeven-calculator",
       "description": "Professional break-even analysis calculator for business planning and profitability analysis. Calculate break-even points, contribution margins, target profits, and develop pricing strategies with comprehensive business insights.",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Any",
@@ -103,19 +103,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.com"
+          "item": "https://aicalculator.pro"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Financial",
-          "item": "https://aicalculator.com/financial"
+          "item": "https://aicalculator.pro/financial"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Break-even Calculator",
-          "item": "https://aicalculator.com/breakeven-calculator"
+          "item": "https://aicalculator.pro/breakeven-calculator"
         }
       ]
     },

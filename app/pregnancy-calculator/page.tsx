@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Pregnancy Calculator - Calculate Your Due Date | AICalculator",
     description: "Free pregnancy calculator to estimate your due date from LMP, conception, or ultrasound. Track your pregnancy week by week with milestones and appointments.",
     type: "website",
-    url: "https://aicalculator.com/pregnancy-calculator",
+    url: "https://aicalculator.pro/pregnancy-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/pregnancy-calculator",
+    canonical: "https://aicalculator.pro/pregnancy-calculator",
   },
   robots: {
     index: true,
@@ -58,7 +58,7 @@ export default function PregnancyCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Pregnancy Calculator",
-        "url": "https://aicalculator.com/pregnancy-calculator",
+        "url": "https://aicalculator.pro/pregnancy-calculator",
         "description": "Free pregnancy calculator to estimate your due date and track pregnancy week by week. Calculate from last menstrual period (LMP), conception date, or ultrasound results.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
@@ -85,19 +85,19 @@ export default function PregnancyCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Health & Fitness",
-            "item": "https://aicalculator.com/health-fitness"
+            "item": "https://aicalculator.pro/health-fitness"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Pregnancy Calculator",
-            "item": "https://aicalculator.com/pregnancy-calculator"
+            "item": "https://aicalculator.pro/pregnancy-calculator"
           }
         ]
       },
@@ -254,7 +254,7 @@ export default function PregnancyCalculatorPage() {
       <section className="py-12 bg-gradient-to-b from-gray-50 to-white" aria-label="Educational Content">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center hidden lg:block">
               Understanding Pregnancy Calculators & Due Dates
             </h2>
 
@@ -325,7 +325,7 @@ export default function PregnancyCalculatorPage() {
             </div>
 
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8 mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center hidden lg:block">
                 Frequently Asked Questions
               </h2>
               <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">

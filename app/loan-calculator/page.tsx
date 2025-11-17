@@ -1,5 +1,15 @@
 import { Metadata } from "next";
 import { LoanCalculator } from "@/components/Calculator/LoanCalculator";
+import { 
+  getUrl, 
+  getOgImage, 
+  getBreadcrumbId, 
+  getWebAppId, 
+  getFaqId, 
+  getHowToId, 
+  getArticleId,
+  getStepUrl 
+} from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Loan Calculator - Free Monthly Payment Calculator with Affordability Analysis",
@@ -16,23 +26,47 @@ export const metadata: Metadata = {
     "loan interest calculator",
     "loan repayment calculator",
     "DTI calculator",
-    "debt to income ratio"
+    "debt to income ratio",
+    "loan amortization calculator",
+    "loan estimator",
+    "payment calculator",
+    "loan cost calculator",
+    "interest rate calculator",
+    "loan comparison calculator",
+    "debt repayment calculator",
+    "loan payoff calculator",
+    "finance calculator",
+    "borrowing calculator"
   ],
+  authors: [{ name: 'AICalculator.pro Team' }],
+  creator: 'AICalculator.pro',
+  publisher: 'AICalculator.pro',
   openGraph: {
     title: "Loan Calculator - Instant Payment Analysis",
     description: "Calculate loan payments and get detailed affordability analysis, repayment strategies, and personalized recommendations.",
     type: "website",
-    url: "https://aicalculator.com/loan-calculator",
+    url: getUrl('/loan-calculator'),
     siteName: "AICalculator",
+    locale: 'en_US',
+    images: [
+      {
+        url: getOgImage('loan'),
+        width: 1200,
+        height: 630,
+        alt: 'Loan Calculator',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Loan Calculator with Affordability Analysis",
     description: "Calculate loan payments and discover the best repayment strategy with detailed insights and recommendations.",
+    images: [getOgImage('loan')],
     site: "@AICalculator",
+    creator: '@aicalculator',
   },
   alternates: {
-    canonical: "https://aicalculator.com/loan-calculator",
+    canonical: getUrl('/loan-calculator'),
   },
   robots: {
     index: true,
@@ -57,8 +91,9 @@ export default function LoanCalculatorPage() {
     "@graph": [
       {
         "@type": "WebApplication",
+        "@id": getWebAppId('/loan-calculator'),
         "name": "Loan Calculator",
-        "url": "https://aicalculator.com/loan-calculator",
+        "url": getUrl('/loan-calculator'),
         "description": "Free loan calculator with detailed affordability analysis, DTI ratio calculation, and personalized repayment strategies.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -79,29 +114,31 @@ export default function LoanCalculatorPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "@id": getBreadcrumbId('/loan-calculator'),
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.com/financial"
+            "item": getUrl('/financial')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Loan Calculator",
-            "item": "https://aicalculator.com/loan-calculator"
+            "item": getUrl('/loan-calculator')
           }
         ]
       },
       {
         "@type": "FAQPage",
+        "@id": getFaqId('/loan-calculator'),
         "mainEntity": [
           {
             "@type": "Question",
@@ -147,40 +184,79 @@ export default function LoanCalculatorPage() {
       },
       {
         "@type": "HowTo",
+        "@id": getHowToId('/loan-calculator'),
         "name": "How to Use the Loan Calculator",
         "description": "Step-by-step guide to calculate your loan payments and analyze affordability",
+        "totalTime": "PT5M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "tool": {
+          "@type": "HowToTool",
+          "name": "Loan Calculator"
+        },
         "step": [
           {
             "@type": "HowToStep",
             "position": 1,
             "name": "Enter Loan Details",
-            "text": "Input the loan amount you need to borrow, the annual interest rate offered by your lender, and the loan term in years."
+            "text": "Input the loan amount you need to borrow, the annual interest rate offered by your lender, and the loan term in years.",
+            "url": getStepUrl('/loan-calculator', 1)
           },
           {
             "@type": "HowToStep",
             "position": 2,
             "name": "Add Your Income",
-            "text": "Enter your gross monthly income to calculate your debt-to-income ratio and assess affordability."
+            "text": "Enter your gross monthly income to calculate your debt-to-income ratio and assess affordability.",
+            "url": getStepUrl('/loan-calculator', 2)
           },
           {
             "@type": "HowToStep",
             "position": 3,
             "name": "Calculate Results",
-            "text": "Click the Calculate button to see your monthly payment, total interest, and detailed affordability analysis."
+            "text": "Click the Calculate button to see your monthly payment, total interest, and detailed affordability analysis.",
+            "url": getStepUrl('/loan-calculator', 3)
           },
           {
             "@type": "HowToStep",
             "position": 4,
             "name": "Review Strategies",
-            "text": "Explore different repayment strategies including extra payments and see how much interest you can save."
+            "text": "Explore different repayment strategies including extra payments and see how much interest you can save.",
+            "url": getStepUrl('/loan-calculator', 4)
           },
           {
             "@type": "HowToStep",
             "position": 5,
             "name": "Check Amortization Schedule",
-            "text": "View the detailed payment breakdown showing how much goes to principal vs interest each month."
+            "text": "View the detailed payment breakdown showing how much goes to principal vs interest each month.",
+            "url": getStepUrl('/loan-calculator', 5)
           }
         ]
+      },
+      {
+        "@type": "Article",
+        "@id": getArticleId('/loan-calculator'),
+        "headline": "Loan Calculator - Complete Guide to Loan Payments & Affordability",
+        "description": "Comprehensive guide to loan calculations with free calculator. Learn how to calculate monthly payments, understand amortization, analyze affordability, and make informed borrowing decisions.",
+        "author": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "url": getUrl('/')
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": getUrl('/logo.png')
+          }
+        },
+        "datePublished": "2025-11-16",
+        "dateModified": "2025-11-16",
+        "image": getOgImage('loan'),
+        "articleBody": "A loan calculator helps you estimate your monthly loan payment including principal and interest. Understanding your loan payment is crucial for financial planning. Use our calculator to analyze affordability, compare loan terms, and plan your borrowing strategy with detailed amortization schedules and DTI ratio analysis."
       }
     ]
   };

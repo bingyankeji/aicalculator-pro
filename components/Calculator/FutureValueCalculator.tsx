@@ -259,11 +259,13 @@ export default function FutureValueCalculator() {
   const [scenarioName, setScenarioName] = useState('');
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [showComparison, setShowComparison] = useState(false);
+  const [result, setResult] = useState<FutureValueResult | null>(null);
   const resultRef = useRef<HTMLDivElement>(null);
 
-  const result = useMemo(() => {
-    return calculateFutureValue(inputs);
-  }, [inputs]);
+  const handleCalculate = () => {
+    const calculatedResult = calculateFutureValue(inputs);
+    setResult(calculatedResult);
+  };
 
   const updateInput = (field: keyof FutureValueInputs, value: string | number | boolean) => {
     setInputs(prev => ({ ...prev, [field]: value }));
@@ -313,8 +315,8 @@ export default function FutureValueCalculator() {
   });
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-8">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid xl:grid-cols-2 gap-8">
         {/* Left Side - Input Section */}
         <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
           <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
@@ -501,13 +503,22 @@ export default function FutureValueCalculator() {
               </div>
             </div>
 
+            {/* Calculate Button */}
+            <button
+              onClick={handleCalculate}
+              className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium shadow-lg min-h-[44px]"
+            >
+              <Calculator className="w-5 h-5" />
+              Calculate Future Value
+            </button>
+
             {/* Save Scenario */}
             <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
               <h4 className="text-lg font-semibold text-blue-900 mb-3">💾 Save This Scenario</h4>
               <button
                 onClick={() => setShowSaveModal(true)}
                 disabled={!result}
-                className="w-full px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2 font-medium"
+                className="w-full px-4 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2 font-medium"
               >
                 <Save className="w-4 h-4" />
                 Save Current Scenario
@@ -565,26 +576,26 @@ export default function FutureValueCalculator() {
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
                   <div className="text-sm text-blue-700 font-medium mb-1">Future Value</div>
-                  <div className="text-2xl font-bold text-blue-900">{formatCurrency(result.futureValue)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-blue-900 break-all">{formatCurrency(result.futureValue)}</div>
                   <div className="text-xs text-blue-600">Nominal value after {inputs.years} years</div>
                 </div>
                 
                 <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200">
                   <div className="text-sm text-green-700 font-medium mb-1">Total Interest</div>
-                  <div className="text-2xl font-bold text-green-900">{formatCurrency(result.totalInterest)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-green-900 break-all">{formatCurrency(result.totalInterest)}</div>
                   <div className="text-xs text-green-600">Earnings from growth</div>
                 </div>
                 
                 <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200">
                   <div className="text-sm text-purple-700 font-medium mb-1">Total Invested</div>
-                  <div className="text-2xl font-bold text-purple-900">{formatCurrency(result.summary.totalInvested)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-purple-900 break-all">{formatCurrency(result.summary.totalInvested)}</div>
                   <div className="text-xs text-purple-600">Your total contributions</div>
                 </div>
                 
                 {inputs.includeInflation && (
                   <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border border-orange-200">
                     <div className="text-sm text-orange-700 font-medium mb-1">Real Value</div>
-                    <div className="text-2xl font-bold text-orange-900">{formatCurrency(result.realValue)}</div>
+                    <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-orange-900 break-all">{formatCurrency(result.realValue)}</div>
                     <div className="text-xs text-orange-600">Inflation-adjusted value</div>
                   </div>
                 )}
@@ -677,8 +688,8 @@ export default function FutureValueCalculator() {
               {/* Yearly Breakdown Table */}
               <div>
                 <h5 className="text-lg font-bold text-gray-900 mb-4">📊 Year-by-Year Breakdown</h5>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm border border-gray-200 rounded-lg">
+                <div className="overflow-x-auto overflow-y-hidden">
+                  <table className="w-full min-w-[350px] text-xs sm:text-sm border border-gray-200 rounded-lg">
                     <thead className="bg-gray-50">
                       <tr>
                         <th className="px-3 py-2 text-left font-semibold text-gray-900 border-b">Year</th>
@@ -735,8 +746,8 @@ export default function FutureValueCalculator() {
             </button>
           </div>
           
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+          <div className="overflow-x-auto overflow-y-hidden">
+            <table className="w-full min-w-[350px] text-xs sm:text-sm">
               <thead className="bg-gray-50">
                 <tr>
                   <th className="px-4 py-3 text-left font-semibold">Scenario Name</th>

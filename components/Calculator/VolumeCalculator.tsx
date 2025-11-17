@@ -391,9 +391,9 @@ export default function VolumeCalculator() {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-8">
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 sm:space-y-4 md:space-y-6">
       {/* Input Section */}
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
         <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
           <Box className="w-6 h-6 text-blue-600" />
           Volume Calculator
@@ -448,22 +448,22 @@ export default function VolumeCalculator() {
 
       {/* Results Section */}
       {result && (
-        <div ref={resultRef} className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+        <div ref={resultRef} className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
           <h4 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
             <Calculator className="w-5 h-5 text-green-600" />
             Volume Calculation Results
           </h4>
 
           {/* Main Results */}
-          <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <div className="grid md:grid-cols-2 xl:grid-cols-2 gap-4 sm:gap-6 mb-6">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
               <div className="text-sm text-blue-700 font-medium mb-2">Volume</div>
-              <div className="text-3xl font-bold text-blue-900">{formatNumber(result.volume)}</div>
+              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-900 break-all">{formatNumber(result.volume)}</div>
               <div className="text-sm text-blue-600 mt-1">cubic units</div>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg border border-green-200">
               <div className="text-sm text-green-700 font-medium mb-2">Surface Area</div>
-              <div className="text-3xl font-bold text-green-900">{formatNumber(result.surfaceArea)}</div>
+              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-green-900 break-all">{formatNumber(result.surfaceArea)}</div>
               <div className="text-sm text-green-600 mt-1">square units</div>
             </div>
           </div>
@@ -480,20 +480,20 @@ export default function VolumeCalculator() {
           {/* Material Estimates */}
           <div className="mb-6">
             <h5 className="text-lg font-bold text-gray-900 mb-4">🏗️ Material Estimates</h5>
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-4">
               <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border border-orange-200">
                 <div className="text-sm text-orange-700 font-medium mb-1">Concrete Needed</div>
-                <div className="text-xl font-bold text-orange-900">{formatNumber(result.materialEstimate.concrete)}</div>
+                <div className="text-lg sm:text-xl md:text-2xl font-bold text-orange-900 break-all">{formatNumber(result.materialEstimate.concrete)}</div>
                 <div className="text-xs text-orange-600">cubic yards</div>
               </div>
               <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 p-4 rounded-lg border border-cyan-200">
                 <div className="text-sm text-cyan-700 font-medium mb-1">Water Capacity</div>
-                <div className="text-xl font-bold text-cyan-900">{formatNumber(result.materialEstimate.water)}</div>
+                <div className="text-lg sm:text-xl md:text-2xl font-bold text-cyan-900 break-all">{formatNumber(result.materialEstimate.water)}</div>
                 <div className="text-xs text-cyan-600">gallons</div>
               </div>
               <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200">
                 <div className="text-sm text-purple-700 font-medium mb-1">Paint Coverage</div>
-                <div className="text-xl font-bold text-purple-900">{formatNumber(result.materialEstimate.paint)}</div>
+                <div className="text-lg sm:text-xl md:text-2xl font-bold text-purple-900 break-all">{formatNumber(result.materialEstimate.paint)}</div>
                 <div className="text-xs text-purple-600">square feet</div>
               </div>
             </div>
@@ -502,7 +502,7 @@ export default function VolumeCalculator() {
           {/* Applications */}
           <div>
             <h5 className="text-lg font-bold text-gray-900 mb-4">🎯 Real-World Applications</h5>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
               {result.applications.map((app, index) => (
                 <div key={index} className="bg-indigo-50 rounded-lg p-3 border border-indigo-200">
                   <div className="text-sm font-medium text-indigo-900">{app}</div>

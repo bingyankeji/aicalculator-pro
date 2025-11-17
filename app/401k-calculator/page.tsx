@@ -1,25 +1,72 @@
 import { Metadata } from 'next';
 import { FourZeroOneKCalculator } from '@/components/Calculator/FourZeroOneKCalculator';
+import { 
+  getUrl, 
+  getOgImage, 
+  getBreadcrumbId, 
+  getWebAppId, 
+  getFaqId, 
+  getHowToId, 
+  getArticleId,
+  getStepUrl 
+} from '@/config/site';
 
 export const metadata: Metadata = {
   title: "401k Calculator - Traditional vs Roth 401k Comparison | AICalculator",
   description: "Compare Traditional vs Roth 401k retirement accounts. Calculate future value, tax implications, and find the best 401k strategy. Free calculator with employer match.",
-  keywords: ["401k calculator", "roth 401k calculator", "traditional 401k calculator", "401k vs roth 401k", "retirement calculator", "401k contribution calculator", "employer match calculator", "401k comparison", "retirement savings calculator", "401k tax calculator", "roth conversion calculator", "401k planning"],
+  keywords: [
+    "401k calculator", 
+    "roth 401k calculator", 
+    "traditional 401k calculator", 
+    "401k vs roth 401k", 
+    "retirement calculator", 
+    "401k contribution calculator", 
+    "employer match calculator", 
+    "401k comparison", 
+    "retirement savings calculator", 
+    "401k tax calculator", 
+    "roth conversion calculator", 
+    "401k planning",
+    "401k retirement calculator",
+    "401k investment calculator",
+    "401k growth calculator",
+    "401k contribution limits",
+    "401k employer match",
+    "401k withdrawal calculator",
+    "401k savings calculator",
+    "401k estimator",
+    "retirement planning calculator",
+    "401k account calculator"
+  ],
+  authors: [{ name: 'AICalculator.pro Team' }],
+  creator: 'AICalculator.pro',
+  publisher: 'AICalculator.pro',
   openGraph: {
     title: "Free 401k Calculator - Traditional vs Roth Comparison",
     description: "Compare 401k account types and calculate retirement savings with employer match and tax implications.",
     type: "website",
-    url: "https://aicalculator.com/401k-calculator",
+    url: getUrl('/401k-calculator'),
     siteName: "AICalculator",
+    locale: 'en_US',
+    images: [
+      {
+        url: getOgImage('401k'),
+        width: 1200,
+        height: 630,
+        alt: '401k Calculator',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "401k Calculator - Traditional vs Roth",
     description: "Compare 401k retirement accounts and optimize your retirement savings strategy. Free calculator.",
+    images: [getOgImage('401k')],
     site: "@AICalculator",
+    creator: '@aicalculator',
   },
   alternates: {
-    canonical: "https://aicalculator.com/401k-calculator",
+    canonical: getUrl('/401k-calculator'),
   },
   robots: {
     index: true,
@@ -43,8 +90,9 @@ export default function FourZeroOneKCalculatorPage() {
     "@graph": [
       {
         "@type": "WebApplication",
+        "@id": getWebAppId('/401k-calculator'),
         "name": "401k Calculator",
-        "url": "https://aicalculator.com/401k-calculator",
+        "url": getUrl('/401k-calculator'),
         "description": "Free 401k calculator comparing Traditional vs Roth 401k accounts. Calculate retirement savings, employer match, tax implications, and find optimal contribution strategy.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -68,29 +116,31 @@ export default function FourZeroOneKCalculatorPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "@id": getBreadcrumbId('/401k-calculator'),
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.com/financial"
+            "item": getUrl('/financial')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "401k Calculator",
-            "item": "https://aicalculator.com/401k-calculator"
+            "item": getUrl('/401k-calculator')
           }
         ]
       },
       {
         "@type": "FAQPage",
+        "@id": getFaqId('/401k-calculator'),
         "mainEntity": [
           {
             "@type": "Question",
@@ -112,34 +162,72 @@ export default function FourZeroOneKCalculatorPage() {
       },
       {
         "@type": "HowTo",
+        "@id": getHowToId('/401k-calculator'),
         "name": "How to Use the 401k Calculator",
         "description": "Compare Traditional vs Roth 401k in 4 steps",
+        "totalTime": "PT5M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "tool": {
+          "@type": "HowToTool",
+          "name": "401k Calculator"
+        },
         "step": [
           {
             "@type": "HowToStep",
             "position": 1,
             "name": "Choose Account Type and Timeline",
-            "text": "Select Traditional or Roth 401k to compare. Enter your current age and planned retirement age. Input your current 401k balance if you have one."
+            "text": "Select Traditional or Roth 401k to compare. Enter your current age and planned retirement age. Input your current 401k balance if you have one.",
+            "url": getStepUrl('/401k-calculator', 1)
           },
           {
             "@type": "HowToStep",
             "position": 2,
             "name": "Enter Contributions",
-            "text": "Input your annual salary and how much you plan to contribute annually. Enter your employer match percentage and the salary limit it applies to. Most employers match 50-100% of first 3-6% of salary."
+            "text": "Input your annual salary and how much you plan to contribute annually. Enter your employer match percentage and the salary limit it applies to. Most employers match 50-100% of first 3-6% of salary.",
+            "url": getStepUrl('/401k-calculator', 2)
           },
           {
             "@type": "HowToStep",
             "position": 3,
             "name": "Set Returns and Tax Rates",
-            "text": "Enter expected annual return (historical average: 7-10%). Input your current marginal tax rate and expected retirement tax rate. Tax rates are crucial for Traditional vs Roth decision."
+            "text": "Enter expected annual return (historical average: 7-10%). Input your current marginal tax rate and expected retirement tax rate. Tax rates are crucial for Traditional vs Roth decision.",
+            "url": getStepUrl('/401k-calculator', 3)
           },
           {
             "@type": "HowToStep",
             "position": 4,
             "name": "Compare Results",
-            "text": "Review Traditional vs Roth projections with after-tax values. See which strategy produces higher retirement income. Consider tax implications, employer match value, and contribution limits."
+            "text": "Review Traditional vs Roth projections with after-tax values. See which strategy produces higher retirement income. Consider tax implications, employer match value, and contribution limits.",
+            "url": getStepUrl('/401k-calculator', 4)
           }
         ]
+      },
+      {
+        "@type": "Article",
+        "@id": getArticleId('/401k-calculator'),
+        "headline": "401k Calculator - Complete Guide to Traditional vs Roth 401k",
+        "description": "Comprehensive guide to 401k retirement planning with free calculator. Learn the differences between Traditional and Roth 401k, understand employer matching, and optimize your retirement savings strategy.",
+        "author": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "url": getUrl('/')
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": getUrl('/logo.png')
+          }
+        },
+        "datePublished": "2025-11-16",
+        "dateModified": "2025-11-16",
+        "image": getOgImage('401k'),
+        "articleBody": "A 401k is a powerful retirement savings tool that offers tax advantages and employer matching. Use our calculator to compare Traditional vs Roth 401k accounts, understand the tax implications, and maximize your employer match. Make informed decisions about your retirement savings strategy."
       }
     ]
   };

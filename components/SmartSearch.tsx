@@ -265,9 +265,16 @@ export function SmartSearch({ enhanced = false }: SmartSearchProps) {
       {/* Search tips */}
       {!enhanced && !query && (
         <div className="mt-2 text-xs text-gray-500">
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 flex-wrap">
             <TrendingUp className="w-3 h-3" />
-            <span>Popular: mortgage, BMI, loan, tax</span>
+            <span>Popular:</span>
+            <button onClick={() => navigateTo('/mortgage-calculator')} className="text-blue-600 hover:text-blue-800 hover:underline">mortgage</button>
+            <span>,</span>
+            <button onClick={() => navigateTo('/bmi-calculator')} className="text-blue-600 hover:text-blue-800 hover:underline">BMI</button>
+            <span>,</span>
+            <button onClick={() => navigateTo('/loan-calculator')} className="text-blue-600 hover:text-blue-800 hover:underline">loan</button>
+            <span>,</span>
+            <button onClick={() => navigateTo('/percentage-calculator')} className="text-blue-600 hover:text-blue-800 hover:underline">percentage</button>
           </div>
         </div>
       )}

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: 'Macro Calculator - Calculate Your Perfect Macronutrients | AICalculator',
     description: 'Free macro calculator for weight loss, muscle gain, or maintenance. Get personalized protein, carbs, and fats targets based on your goals and activity level.',
     type: 'website',
-    url: 'https://aicalculator.com/macro-calculator',
+    url: 'https://aicalculator.pro/macro-calculator',
     siteName: 'AICalculator',
   },
   twitter: {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     site: '@AICalculator',
   },
   alternates: {
-    canonical: 'https://aicalculator.com/macro-calculator',
+    canonical: 'https://aicalculator.pro/macro-calculator',
   },
   robots: {
     index: true,
@@ -60,7 +60,7 @@ export default function MacroCalculatorPage() {
       {
         '@type': 'WebApplication',
         name: 'Macro Calculator',
-        url: 'https://aicalculator.com/macro-calculator',
+        url: 'https://aicalculator.pro/macro-calculator',
         description:
           'Free macronutrient calculator that helps you determine optimal protein, carbs, and fats for cutting, bulking, or maintenance. Get personalized macro targets based on your goals, activity level, and body composition.',
         applicationCategory: 'HealthApplication',
@@ -89,19 +89,19 @@ export default function MacroCalculatorPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.com',
+            item: 'https://aicalculator.pro',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Health & Fitness',
-            item: 'https://aicalculator.com/health-fitness',
+            item: 'https://aicalculator.pro/health-fitness',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'Macro Calculator',
-            item: 'https://aicalculator.com/macro-calculator',
+            item: 'https://aicalculator.pro/macro-calculator',
           },
         ],
       },

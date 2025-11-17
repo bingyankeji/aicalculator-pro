@@ -266,9 +266,9 @@ export function StandardDeviationCalculator() {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-8">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 sm:space-y-6">
       {/* Input Section */}
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-2xl font-bold text-gray-900">Enter Your Data</h3>
           <div className="flex items-center gap-4">
@@ -324,7 +324,7 @@ export function StandardDeviationCalculator() {
         {/* Individual Input Mode */}
         {inputMode === 'individual' && (
           <>
-            <div className="grid md:grid-cols-3 gap-4 mb-6">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
             {numbers.map((num, index) => (
             <div key={index} className="flex items-center gap-2">
               <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm">
@@ -393,8 +393,8 @@ export function StandardDeviationCalculator() {
           </div>
         )}
 
-        {/* Quick Examples */}
-        <div className="mt-6 pt-6 border-t border-gray-200">
+        {/* Quick Examples - Desktop Only */}
+        <div className="mt-6 pt-6 border-t border-gray-200 hidden lg:block">
           <p className="text-sm font-medium text-gray-700 mb-3">Quick Examples:</p>
           <div className="flex flex-wrap gap-2">
             {quickExamples.map((example, idx) => (
@@ -413,80 +413,80 @@ export function StandardDeviationCalculator() {
       {/* Results Section */}
       {result && (
         <>
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
             <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               <BarChart3 className="w-6 h-6 text-blue-600" />
               Results
             </h3>
 
             {/* Key Statistics */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-4 border border-blue-200">
                 <div className="text-sm text-blue-700 font-medium mb-1">Mean (μ)</div>
-                <div className="text-2xl font-bold text-blue-900">{result.mean.toFixed(4)}</div>
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-900 break-all">{result.mean.toFixed(4)}</div>
               </div>
               <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-4 border border-green-200">
                 <div className="text-sm text-green-700 font-medium mb-1">
                   {calculationType === 'population' ? 'Population' : 'Sample'} Std Dev (σ)
                 </div>
-                <div className="text-2xl font-bold text-green-900">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-900 break-all">
                   {(calculationType === 'population' ? result.populationStdDev : result.sampleStdDev).toFixed(4)}
                 </div>
               </div>
               <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg p-4 border border-purple-200">
                 <div className="text-sm text-purple-700 font-medium mb-1">Variance (σ²)</div>
-                <div className="text-2xl font-bold text-purple-900">{result.variance.toFixed(4)}</div>
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-900 break-all">{result.variance.toFixed(4)}</div>
               </div>
               <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg p-4 border border-orange-200">
                 <div className="text-sm text-orange-700 font-medium mb-1">Count (n)</div>
-                <div className="text-2xl font-bold text-orange-900">{result.count}</div>
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-orange-900 break-all">{result.count}</div>
               </div>
             </div>
 
             {/* Additional Statistics */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
               <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <div className="text-sm text-gray-600 mb-1">Sum</div>
-                <div className="text-xl font-semibold text-gray-900">{result.sum.toFixed(2)}</div>
+                <div className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 break-all">{result.sum.toFixed(2)}</div>
               </div>
               <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <div className="text-sm text-gray-600 mb-1">Min</div>
-                <div className="text-xl font-semibold text-gray-900">{result.min.toFixed(2)}</div>
+                <div className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 break-all">{result.min.toFixed(2)}</div>
               </div>
               <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <div className="text-sm text-gray-600 mb-1">Max</div>
-                <div className="text-xl font-semibold text-gray-900">{result.max.toFixed(2)}</div>
+                <div className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 break-all">{result.max.toFixed(2)}</div>
               </div>
               <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                 <div className="text-sm text-gray-600 mb-1">Range</div>
-                <div className="text-xl font-semibold text-gray-900">{result.range.toFixed(2)}</div>
+                <div className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 break-all">{result.range.toFixed(2)}</div>
               </div>
             </div>
 
             {/* Enhanced Descriptive Statistics */}
             <div className="mb-6">
               <h4 className="text-lg font-bold text-gray-900 mb-4">📊 Descriptive Statistics</h4>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+              <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 mb-4">
                 <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-lg p-4 border border-teal-200">
                   <div className="text-sm text-teal-700 font-medium mb-1">Median</div>
-                  <div className="text-2xl font-bold text-teal-900">{result.median.toFixed(4)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-teal-900 break-all">{result.median.toFixed(4)}</div>
                   <div className="text-xs text-teal-600">Middle value</div>
                 </div>
                 <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-lg p-4 border border-indigo-200">
                   <div className="text-sm text-indigo-700 font-medium mb-1">Mode</div>
-                  <div className="text-lg font-bold text-indigo-900">
+                  <div className="text-lg sm:text-xl md:text-2xl font-bold text-indigo-900 break-all">
                     {result.mode.length === result.count ? 'No mode' : result.mode.map(m => m.toFixed(2)).join(', ')}
                   </div>
                   <div className="text-xs text-indigo-600">Most frequent</div>
                 </div>
                 <div className="bg-gradient-to-br from-pink-50 to-pink-100 rounded-lg p-4 border border-pink-200">
                   <div className="text-sm text-pink-700 font-medium mb-1">IQR</div>
-                  <div className="text-2xl font-bold text-pink-900">{result.iqr.toFixed(4)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-pink-900 break-all">{result.iqr.toFixed(4)}</div>
                   <div className="text-xs text-pink-600">Q3 - Q1</div>
                 </div>
                 <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-lg p-4 border border-amber-200">
                   <div className="text-sm text-amber-700 font-medium mb-1">CV</div>
-                  <div className="text-2xl font-bold text-amber-900">{result.coefficientOfVariation.toFixed(2)}%</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-amber-900 break-all">{result.coefficientOfVariation.toFixed(2)}%</div>
                   <div className="text-xs text-amber-600">Coefficient of Variation</div>
                 </div>
               </div>
@@ -495,22 +495,22 @@ export function StandardDeviationCalculator() {
             {/* Quartiles and Percentiles */}
             <div className="mb-6">
               <h4 className="text-lg font-bold text-gray-900 mb-4">📈 Quartiles & Percentiles</h4>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
                 <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
                   <div className="text-sm text-blue-700 font-medium mb-1">Q1 (25th)</div>
-                  <div className="text-xl font-bold text-blue-900">{result.q1.toFixed(4)}</div>
+                  <div className="text-lg sm:text-xl md:text-2xl font-bold text-blue-900 break-all">{result.q1.toFixed(4)}</div>
                 </div>
                 <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
                   <div className="text-sm text-blue-700 font-medium mb-1">Q3 (75th)</div>
-                  <div className="text-xl font-bold text-blue-900">{result.q3.toFixed(4)}</div>
+                  <div className="text-lg sm:text-xl md:text-2xl font-bold text-blue-900 break-all">{result.q3.toFixed(4)}</div>
                 </div>
                 <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
                   <div className="text-sm text-blue-700 font-medium mb-1">90th Percentile</div>
-                  <div className="text-xl font-bold text-blue-900">{result.percentile90.toFixed(4)}</div>
+                  <div className="text-lg sm:text-xl md:text-2xl font-bold text-blue-900 break-all">{result.percentile90.toFixed(4)}</div>
                 </div>
                 <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
                   <div className="text-sm text-blue-700 font-medium mb-1">95th Percentile</div>
-                  <div className="text-xl font-bold text-blue-900">{result.percentile95.toFixed(4)}</div>
+                  <div className="text-lg sm:text-xl md:text-2xl font-bold text-blue-900 break-all">{result.percentile95.toFixed(4)}</div>
                 </div>
               </div>
             </div>
@@ -518,10 +518,10 @@ export function StandardDeviationCalculator() {
             {/* Distribution Shape */}
             <div className="mb-6">
               <h4 className="text-lg font-bold text-gray-900 mb-4">📊 Distribution Shape</h4>
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg p-4 border border-emerald-200">
                   <div className="text-sm text-emerald-700 font-medium mb-1">Skewness</div>
-                  <div className="text-2xl font-bold text-emerald-900">{result.skewness.toFixed(4)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-emerald-900 break-all">{result.skewness.toFixed(4)}</div>
                   <div className="text-xs text-emerald-600">
                     {Math.abs(result.skewness) < 0.5 ? 'Approximately symmetric' :
                      result.skewness > 0.5 ? 'Right-skewed (positive)' : 'Left-skewed (negative)'}
@@ -529,7 +529,7 @@ export function StandardDeviationCalculator() {
                 </div>
                 <div className="bg-gradient-to-br from-rose-50 to-rose-100 rounded-lg p-4 border border-rose-200">
                   <div className="text-sm text-rose-700 font-medium mb-1">Kurtosis</div>
-                  <div className="text-2xl font-bold text-rose-900">{result.kurtosis.toFixed(4)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-rose-900 break-all">{result.kurtosis.toFixed(4)}</div>
                   <div className="text-xs text-rose-600">
                     {Math.abs(result.kurtosis) < 0.5 ? 'Mesokurtic (normal)' :
                      result.kurtosis > 0.5 ? 'Leptokurtic (peaked)' : 'Platykurtic (flat)'}
@@ -541,7 +541,7 @@ export function StandardDeviationCalculator() {
             {/* Confidence Intervals */}
             <div className="mb-6">
               <h4 className="text-lg font-bold text-gray-900 mb-4">🎯 Confidence Intervals</h4>
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-gradient-to-br from-violet-50 to-violet-100 rounded-lg p-4 border border-violet-200">
                   <div className="text-sm text-violet-700 font-medium mb-2">95% Confidence Interval</div>
                   <div className="text-sm text-violet-900 font-mono">

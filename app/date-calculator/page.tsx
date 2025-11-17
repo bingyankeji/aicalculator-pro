@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Date Calculator - Calculate Date Difference & Add/Subtract Days",
     description: "Calculate days between dates, add or subtract time, find weekdays, and plan events. Free, accurate, and easy-to-use date calculator.",
     type: "website",
-    url: "https://aicalculator.com/date-calculator",
+    url: "https://aicalculator.pro/date-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     site: "@aicalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/date-calculator",
+    canonical: "https://aicalculator.pro/date-calculator",
   },
   robots: {
     index: true,
@@ -61,7 +61,7 @@ export default function DateCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Date Calculator",
-        "url": "https://aicalculator.com/date-calculator",
+        "url": "https://aicalculator.pro/date-calculator",
         "description": "Free online date calculator to calculate the difference between dates, add or subtract days/months/years, and find weekday information.",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
@@ -88,19 +88,19 @@ export default function DateCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Date & Time",
-            "item": "https://aicalculator.com/date-time"
+            "item": "https://aicalculator.pro/date-time"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Date Calculator",
-            "item": "https://aicalculator.com/date-calculator"
+            "item": "https://aicalculator.pro/date-calculator"
           }
         ]
       },
@@ -252,12 +252,7 @@ export default function DateCalculatorPage() {
       {/* Calculator Section */}
       <section className="py-8 md:py-12" aria-label="Date Calculator Tool">
         <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">📅 Date Calculator</h2>
-            <p className="text-lg text-gray-600">
-              Calculate days between dates, add or subtract time, and find weekday information instantly.
-            </p>
-          </div>
+          <h2 className="sr-only">Date Calculator - Calculate days between dates, add or subtract time, and find weekday information instantly.</h2>
           <DateCalculator />
         </div>
       </section>

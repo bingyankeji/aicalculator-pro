@@ -157,15 +157,15 @@ export function BMRCalculator() {
   ];
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-8">
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 sm:space-y-4 md:space-y-6">
       {/* Unit System Toggle */}
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-bold text-gray-900">Calculator Settings</h3>
           <div className="flex gap-2">
             <button
               onClick={() => setSystem('imperial')}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+              className={`px-3 sm:px-4 py-2 sm:py-3 min-h-[44px] rounded-lg font-medium transition-colors ${
                 system === 'imperial'
                   ? 'bg-blue-600 text-white'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -175,7 +175,7 @@ export function BMRCalculator() {
             </button>
             <button
               onClick={() => setSystem('metric')}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+              className={`px-3 sm:px-4 py-2 sm:py-3 min-h-[44px] rounded-lg font-medium transition-colors ${
                 system === 'metric'
                   ? 'bg-blue-600 text-white'
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -217,7 +217,7 @@ export function BMRCalculator() {
       </div>
 
       {/* Input Form */}
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
         <h3 className="text-xl font-bold text-gray-900 mb-6">Your Information</h3>
 
         <div className="space-y-6">
@@ -251,7 +251,7 @@ export function BMRCalculator() {
           </div>
 
           {/* Age, Weight, Height */}
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4">
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700">Age (years) *</label>
               <input
@@ -259,7 +259,7 @@ export function BMRCalculator() {
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
                 placeholder="30"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
 
@@ -288,7 +288,7 @@ export function BMRCalculator() {
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
                 placeholder={system === 'imperial' ? '70' : '178'}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
           </div>
@@ -296,7 +296,7 @@ export function BMRCalculator() {
           {/* Activity Level */}
           <div className="space-y-3">
             <label className="block text-sm font-medium text-gray-700">Activity Level *</label>
-            <div className="grid md:grid-cols-5 gap-3">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
               {activityLevels.map((level) => (
                 <button
                   key={level.value}
@@ -323,10 +323,10 @@ export function BMRCalculator() {
       {result && (
         <>
           {/* BMR & TDEE */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Your Metabolic Rate</h3>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="grid xl:grid-cols-2 gap-3 sm:gap-4 md:gap-6 mb-6">
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
                 <div className="flex items-center gap-3 mb-3">
                   <Heart className="w-8 h-8 text-blue-600" />
@@ -335,8 +335,8 @@ export function BMRCalculator() {
                     <div className="text-xs text-blue-500">Calories burned at rest</div>
                   </div>
                 </div>
-                <div className="text-4xl font-bold text-blue-700 mb-2">
-                  {result.bmr.toFixed(0)} <span className="text-2xl">cal/day</span>
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-700 mb-2 break-all">
+                  {result.bmr.toFixed(0)} <span className="text-sm sm:text-lg md:text-xl lg:text-2xl">cal/day</span>
                 </div>
                 <p className="text-xs text-blue-600">
                   This is the minimum calories your body needs to function
@@ -351,8 +351,8 @@ export function BMRCalculator() {
                     <div className="text-xs text-green-500">Calories burned with activity</div>
                   </div>
                 </div>
-                <div className="text-4xl font-bold text-green-700 mb-2">
-                  {result.tdee[activityLevel as keyof typeof result.tdee].toFixed(0)} <span className="text-2xl">cal/day</span>
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-green-700 mb-2 break-all">
+                  {result.tdee[activityLevel as keyof typeof result.tdee].toFixed(0)} <span className="text-sm sm:text-lg md:text-xl lg:text-2xl">cal/day</span>
                 </div>
                 <p className="text-xs text-green-600">
                   Based on your {activityLevel} lifestyle
@@ -379,17 +379,17 @@ export function BMRCalculator() {
           </div>
 
           {/* Weight Goals */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Calorie Goals by Objective</h3>
             
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4">
               <div className="bg-gradient-to-br from-red-50 to-red-100 p-5 rounded-lg border border-red-200">
                 <div className="flex items-center gap-2 mb-3">
                   <TrendingUp className="w-6 h-6 text-red-600 transform rotate-180" />
                   <div className="font-bold text-red-900">Weight Loss</div>
                 </div>
-                <div className="text-3xl font-bold text-red-700 mb-2">
-                  {result.weightGoal.loss.calories.toFixed(0)} <span className="text-lg">cal/day</span>
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-red-700 mb-2 break-all">
+                  {result.weightGoal.loss.calories.toFixed(0)} <span className="text-sm sm:text-lg md:text-xl">cal/day</span>
                 </div>
                 <div className="text-xs text-red-600 mb-3">
                   {result.weightGoal.loss.deficit} cal deficit per day
@@ -404,8 +404,8 @@ export function BMRCalculator() {
                   <Scale className="w-6 h-6 text-blue-600" />
                   <div className="font-bold text-blue-900">Maintain Weight</div>
                 </div>
-                <div className="text-3xl font-bold text-blue-700 mb-2">
-                  {result.weightGoal.maintain.calories.toFixed(0)} <span className="text-lg">cal/day</span>
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-700 mb-2 break-all">
+                  {result.weightGoal.maintain.calories.toFixed(0)} <span className="text-sm sm:text-lg md:text-xl">cal/day</span>
                 </div>
                 <div className="text-xs text-blue-600 mb-3">
                   Balanced intake and expenditure
@@ -420,8 +420,8 @@ export function BMRCalculator() {
                   <TrendingUp className="w-6 h-6 text-green-600" />
                   <div className="font-bold text-green-900">Weight Gain</div>
                 </div>
-                <div className="text-3xl font-bold text-green-700 mb-2">
-                  {result.weightGoal.gain.calories.toFixed(0)} <span className="text-lg">cal/day</span>
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-700 mb-2 break-all">
+                  {result.weightGoal.gain.calories.toFixed(0)} <span className="text-sm sm:text-lg md:text-xl">cal/day</span>
                 </div>
                 <div className="text-xs text-green-600 mb-3">
                   {result.weightGoal.gain.surplus} cal surplus per day
@@ -434,16 +434,16 @@ export function BMRCalculator() {
           </div>
 
           {/* Macros */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Recommended Macronutrients</h3>
             <p className="text-sm text-gray-600 mb-6">
               Based on {result.tdee[activityLevel as keyof typeof result.tdee].toFixed(0)} calories per day (30/40/30 split)
             </p>
 
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4">
               <div className="bg-gradient-to-br from-red-50 to-red-100 p-5 rounded-lg border border-red-200">
                 <div className="font-bold text-red-900 mb-2">Protein (30%)</div>
-                <div className="text-3xl font-bold text-red-700 mb-1">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-red-700 mb-1 break-all">
                   {result.macros.protein.grams.toFixed(0)}g
                 </div>
                 <div className="text-xs text-red-600">
@@ -453,7 +453,7 @@ export function BMRCalculator() {
 
               <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-5 rounded-lg border border-yellow-200">
                 <div className="font-bold text-yellow-900 mb-2">Carbohydrates (40%)</div>
-                <div className="text-3xl font-bold text-yellow-700 mb-1">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-yellow-700 mb-1 break-all">
                   {result.macros.carbs.grams.toFixed(0)}g
                 </div>
                 <div className="text-xs text-yellow-600">
@@ -463,7 +463,7 @@ export function BMRCalculator() {
 
               <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-5 rounded-lg border border-purple-200">
                 <div className="font-bold text-purple-900 mb-2">Fats (30%)</div>
-                <div className="text-3xl font-bold text-purple-700 mb-1">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-700 mb-1 break-all">
                   {result.macros.fats.grams.toFixed(0)}g
                 </div>
                 <div className="text-xs text-purple-600">

@@ -213,10 +213,10 @@ export function UnitConverter() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Category Selection */}
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 mb-6">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Select Category</h2>
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6 mb-6">
+        <h2 className="text-xl font-bold text-gray-900 mb-4 hidden lg:block">Select Category</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           {(Object.keys(conversionData) as ConversionCategory[]).map((cat) => (
             <button
@@ -235,12 +235,12 @@ export function UnitConverter() {
       </div>
 
       {/* Converter */}
-      <div className="grid lg:grid-cols-2 gap-6">
+      <div className="grid xl:grid-cols-2 gap-6">
         {/* Left: Input */}
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
           <h3 className="text-lg font-bold text-gray-900 mb-4">From</h3>
-          
-          <div className="space-y-4">
+
+          <div className="space-y-3 sm:space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Unit
@@ -283,7 +283,7 @@ export function UnitConverter() {
             </button>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Convert To
@@ -309,18 +309,18 @@ export function UnitConverter() {
             <h3 className="text-lg font-bold text-gray-900 mb-4">Result</h3>
             
             {toValue ? (
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div className="bg-white rounded-lg p-6 border-2 border-blue-300">
                   <div className="text-center">
                     <div className="text-sm text-gray-600 mb-2">From</div>
-                    <div className="text-2xl font-bold text-gray-900 mb-4">
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 break-all">
                       {fromValue} {fromUnitData.symbol}
                     </div>
                     
-                    <div className="text-3xl text-blue-600 mb-4">=</div>
-                    
+                    <div className="text-2xl sm:text-3xl text-blue-600 mb-4">=</div>
+
                     <div className="text-sm text-gray-600 mb-2">To</div>
-                    <div className="text-3xl font-bold text-blue-600">
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 break-all">
                       {toValue} {toUnitData.symbol}
                     </div>
                   </div>
@@ -379,7 +379,7 @@ export function UnitConverter() {
           <h3 className="text-lg font-bold text-gray-900 mb-4">
             Quick Reference: {fromValue} {fromUnitData.symbol} in Other Units
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {units.map(([key, unit]) => {
               const baseValue = fromUnitData.toBase(parseFloat(fromValue));
               const convertedValue = unit.fromBase(baseValue);

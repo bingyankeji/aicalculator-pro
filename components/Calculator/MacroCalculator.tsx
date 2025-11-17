@@ -339,21 +339,21 @@ export function MacroCalculator() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-3 gap-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
         {/* Input Section */}
-        <div className="lg:col-span-1 space-y-4">
+        <div className="xl:col-span-1 space-y-3 sm:space-y-4">
           {/* Basic Info Card */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">Basic Information</h3>
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-3 sm:p-4 md:p-6">
+            <h3 className="text-lg font-bold text-gray-900 mb-3 sm:mb-4">Basic Information</h3>
             
             {/* Unit System Toggle */}
-            <div className="mb-4">
+            <div className="mb-3 sm:mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">Unit System</label>
               <div className="grid grid-cols-2 gap-2">
                 <button
                   onClick={() => handleUnitSystemChange('imperial')}
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                  className={`px-3 py-3 rounded-lg font-medium transition-colors min-h-[44px] ${
                     inputs.unitSystem === 'imperial'
                       ? 'bg-blue-600 text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -363,7 +363,7 @@ export function MacroCalculator() {
                 </button>
                 <button
                   onClick={() => handleUnitSystemChange('metric')}
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                  className={`px-3 py-3 rounded-lg font-medium transition-colors min-h-[44px] ${
                     inputs.unitSystem === 'metric'
                       ? 'bg-blue-600 text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -375,7 +375,7 @@ export function MacroCalculator() {
             </div>
 
             {/* Age */}
-            <div className="mb-4">
+            <div className="mb-3 sm:mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Age (years)
               </label>
@@ -383,19 +383,19 @@ export function MacroCalculator() {
                 type="number"
                 value={inputs.age}
                 onChange={(e) => handleInputChange('age', parseInt(e.target.value) || 0)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 min="15"
                 max="100"
               />
             </div>
 
             {/* Gender */}
-            <div className="mb-4">
+            <div className="mb-3 sm:mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">Gender</label>
               <div className="grid grid-cols-2 gap-2">
                 <button
                   onClick={() => handleInputChange('gender', 'male')}
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                  className={`px-3 py-3 rounded-lg font-medium transition-colors min-h-[44px] ${
                     inputs.gender === 'male'
                       ? 'bg-blue-600 text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -405,7 +405,7 @@ export function MacroCalculator() {
                 </button>
                 <button
                   onClick={() => handleInputChange('gender', 'female')}
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                  className={`px-3 py-3 rounded-lg font-medium transition-colors min-h-[44px] ${
                     inputs.gender === 'female'
                       ? 'bg-pink-600 text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -417,7 +417,7 @@ export function MacroCalculator() {
             </div>
 
             {/* Weight */}
-            <div className="mb-4">
+            <div className="mb-3 sm:mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Weight ({inputs.unitSystem === 'imperial' ? 'lbs' : 'kg'})
               </label>
@@ -425,13 +425,13 @@ export function MacroCalculator() {
                 type="number"
                 value={inputs.weight}
                 onChange={(e) => handleInputChange('weight', parseFloat(e.target.value) || 0)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 step="0.1"
               />
             </div>
 
             {/* Height */}
-            <div className="mb-4">
+            <div className="mb-3 sm:mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Height ({inputs.unitSystem === 'imperial' ? 'inches' : 'cm'})
               </label>
@@ -439,25 +439,25 @@ export function MacroCalculator() {
                 type="number"
                 value={inputs.height}
                 onChange={(e) => handleInputChange('height', parseFloat(e.target.value) || 0)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 step="0.1"
               />
             </div>
           </div>
 
           {/* Activity & Goal Card */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">Activity & Goals</h3>
-            
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-3 sm:p-4 md:p-6">
+            <h3 className="text-lg font-bold text-gray-900 mb-3 sm:mb-4">Activity & Goals</h3>
+
             {/* Activity Level */}
-            <div className="mb-4">
+            <div className="mb-3 sm:mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Activity Level
               </label>
               <select
                 value={inputs.activityLevel}
                 onChange={(e) => handleInputChange('activityLevel', e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 {activityLevels.map((level) => (
                   <option key={level.value} value={level.value}>
@@ -468,14 +468,14 @@ export function MacroCalculator() {
             </div>
 
             {/* Goal */}
-            <div className="mb-4">
+            <div className="mb-3 sm:mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Fitness Goal
               </label>
               <select
                 value={inputs.goal}
                 onChange={(e) => handleInputChange('goal', e.target.value as any)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 {goals.map((goal) => (
                   <option key={goal.value} value={goal.value}>
@@ -486,7 +486,7 @@ export function MacroCalculator() {
             </div>
 
             {/* Meals Per Day */}
-            <div className="mb-4">
+            <div className="mb-3 sm:mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Meals Per Day
               </label>
@@ -494,7 +494,7 @@ export function MacroCalculator() {
                 type="number"
                 value={inputs.mealsPerDay}
                 onChange={(e) => handleInputChange('mealsPerDay', parseInt(e.target.value) || 3)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 min="3"
                 max="8"
               />
@@ -503,16 +503,16 @@ export function MacroCalculator() {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
             <button
               onClick={calculateMacros}
-              className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all shadow-md font-medium"
+              className="flex-1 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all shadow-md font-medium min-h-[44px]"
             >
               Calculate Macros
             </button>
             <button
               onClick={handleReset}
-              className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+              className="px-4 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium min-h-[44px]"
             >
               Reset
             </button>
@@ -520,14 +520,14 @@ export function MacroCalculator() {
         </div>
 
         {/* Results Section */}
-        <div className="lg:col-span-2">
+        <div className="xl:col-span-2">
           {result ? (
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {/* Action Buttons */}
-              <div className="flex justify-end gap-3">
+              <div className="flex flex-col sm:flex-row sm:justify-end gap-2 sm:gap-3">
                 <button
                   onClick={handleSaveAsImage}
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-md font-medium"
+                  className="flex items-center justify-center gap-2 px-3 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-md font-medium min-h-[44px] w-full sm:w-auto"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -536,7 +536,7 @@ export function MacroCalculator() {
                 </button>
                 <button
                   onClick={handlePrint}
-                  className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors shadow-md font-medium"
+                  className="flex items-center justify-center gap-2 px-3 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors shadow-md font-medium min-h-[44px] w-full sm:w-auto"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
@@ -545,7 +545,7 @@ export function MacroCalculator() {
                 </button>
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md font-medium"
+                  className="flex items-center justify-center gap-2 px-3 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md font-medium min-h-[44px] w-full sm:w-auto"
                 >
                   <Share2 className="w-4 h-4" />
                   Share
@@ -553,51 +553,51 @@ export function MacroCalculator() {
               </div>
 
               {/* Results Content (for export) */}
-              <div ref={resultRef} className="space-y-4 bg-white p-6 rounded-xl">
+              <div ref={resultRef} className="space-y-3 sm:space-y-4 bg-white p-3 sm:p-4 md:p-6 rounded-xl">
                 {/* Export Header */}
-                <div className="border-b-2 border-gray-200 pb-4 mb-4">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-2">Macro Calculator Results</h2>
-                  <p className="text-sm text-gray-600">
+                <div className="border-b-2 border-gray-200 pb-3 sm:pb-4 mb-3 sm:mb-4">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Macro Calculator Results</h2>
+                  <p className="text-xs sm:text-sm text-gray-600">
                     {inputs.age} years old • {inputs.gender === 'male' ? 'Male' : 'Female'} • {inputs.weight} {inputs.unitSystem === 'imperial' ? 'lbs' : 'kg'} • Goal: {inputs.goal.charAt(0).toUpperCase() + inputs.goal.slice(1)}
                   </p>
                 </div>
 
               {/* Daily Targets Card */}
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-200 p-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-200 p-3 sm:p-4 md:p-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 flex items-center gap-2">
                   <span>🎯</span>
                   Daily Macro Targets
                 </h3>
-                
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                  <div className="bg-white rounded-lg p-4 border border-gray-200">
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-3 sm:mb-6">
+                  <div className="bg-white rounded-lg p-3 sm:p-4 border border-gray-200">
                     <div className="text-sm text-gray-600 mb-1">Calories</div>
-                    <div className="text-2xl font-bold text-blue-600">{result.targetCalories}</div>
+                    <div className="text-xl sm:text-2xl font-bold text-blue-600 break-all">{result.targetCalories}</div>
                     <div className="text-xs text-gray-500">kcal/day</div>
                   </div>
-                  
-                  <div className="bg-white rounded-lg p-4 border border-red-200">
+
+                  <div className="bg-white rounded-lg p-3 sm:p-4 border border-red-200">
                     <div className="text-sm text-gray-600 mb-1">Protein</div>
-                    <div className="text-2xl font-bold text-red-600">{result.protein}g</div>
+                    <div className="text-xl sm:text-2xl font-bold text-red-600 break-all">{result.protein}g</div>
                     <div className="text-xs text-gray-500">{result.proteinPercent}%</div>
                   </div>
-                  
-                  <div className="bg-white rounded-lg p-4 border border-yellow-200">
+
+                  <div className="bg-white rounded-lg p-3 sm:p-4 border border-yellow-200">
                     <div className="text-sm text-gray-600 mb-1">Carbs</div>
-                    <div className="text-2xl font-bold text-yellow-600">{result.carbs}g</div>
+                    <div className="text-xl sm:text-2xl font-bold text-yellow-600 break-all">{result.carbs}g</div>
                     <div className="text-xs text-gray-500">{result.carbsPercent}%</div>
                   </div>
-                  
-                  <div className="bg-white rounded-lg p-4 border border-orange-200">
+
+                  <div className="bg-white rounded-lg p-3 sm:p-4 border border-orange-200">
                     <div className="text-sm text-gray-600 mb-1">Fats</div>
-                    <div className="text-2xl font-bold text-orange-600">{result.fats}g</div>
+                    <div className="text-xl sm:text-2xl font-bold text-orange-600 break-all">{result.fats}g</div>
                     <div className="text-xs text-gray-500">{result.fatsPercent}%</div>
                   </div>
                 </div>
 
                 {/* Macro Breakdown Bar */}
-                <div className="mb-4">
-                  <div className="flex items-center justify-between mb-2">
+                <div className="mb-3 sm:mb-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
                     <span className="text-sm font-medium text-gray-700">Macro Distribution</span>
                     <span className="text-xs text-gray-500">Click legend to view details</span>
                   </div>
@@ -624,7 +624,7 @@ export function MacroCalculator() {
                       {result.fatsPercent}%
                     </div>
                   </div>
-                  <div className="flex justify-between mt-2 text-xs text-gray-600">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-2 mt-2 text-xs text-gray-600">
                     <span>🔴 Protein: {result.proteinCalories} cal</span>
                     <span>🟡 Carbs: {result.carbsCalories} cal</span>
                     <span>🟠 Fats: {result.fatsCalories} cal</span>
@@ -632,54 +632,54 @@ export function MacroCalculator() {
                 </div>
 
                 {/* BMR & TDEE Info */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   <div className="bg-white rounded-lg p-3 border border-gray-200">
                     <div className="text-xs text-gray-600 mb-1">BMR (Base Metabolic Rate)</div>
-                    <div className="text-lg font-bold text-gray-900">{result.bmr} cal/day</div>
+                    <div className="text-lg sm:text-xl font-bold text-gray-900 break-all">{result.bmr} cal/day</div>
                   </div>
                   <div className="bg-white rounded-lg p-3 border border-gray-200">
                     <div className="text-xs text-gray-600 mb-1">TDEE (Total Daily Energy)</div>
-                    <div className="text-lg font-bold text-gray-900">{result.tdee} cal/day</div>
+                    <div className="text-lg sm:text-xl font-bold text-gray-900 break-all">{result.tdee} cal/day</div>
                   </div>
                 </div>
               </div>
 
               {/* Per Meal Breakdown */}
-              <div className="bg-white rounded-xl border border-gray-200 p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <div className="bg-white rounded-xl border border-gray-200 p-3 sm:p-4 md:p-6">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
                   <span>🍽️</span>
                   Per Meal Breakdown ({inputs.mealsPerDay} meals/day)
                 </h3>
-                
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="text-center p-4 bg-gray-50 rounded-lg">
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                  <div className="text-center p-3 sm:p-4 bg-gray-50 rounded-lg">
                     <div className="text-xs text-gray-600 mb-1">Calories</div>
-                    <div className="text-xl font-bold text-blue-600">{result.perMeal.calories}</div>
+                    <div className="text-lg sm:text-xl font-bold text-blue-600 break-all">{result.perMeal.calories}</div>
                   </div>
-                  <div className="text-center p-4 bg-red-50 rounded-lg">
+                  <div className="text-center p-3 sm:p-4 bg-red-50 rounded-lg">
                     <div className="text-xs text-gray-600 mb-1">Protein</div>
-                    <div className="text-xl font-bold text-red-600">{result.perMeal.protein}g</div>
+                    <div className="text-lg sm:text-xl font-bold text-red-600 break-all">{result.perMeal.protein}g</div>
                   </div>
-                  <div className="text-center p-4 bg-yellow-50 rounded-lg">
+                  <div className="text-center p-3 sm:p-4 bg-yellow-50 rounded-lg">
                     <div className="text-xs text-gray-600 mb-1">Carbs</div>
-                    <div className="text-xl font-bold text-yellow-600">{result.perMeal.carbs}g</div>
+                    <div className="text-lg sm:text-xl font-bold text-yellow-600 break-all">{result.perMeal.carbs}g</div>
                   </div>
-                  <div className="text-center p-4 bg-orange-50 rounded-lg">
+                  <div className="text-center p-3 sm:p-4 bg-orange-50 rounded-lg">
                     <div className="text-xs text-gray-600 mb-1">Fats</div>
-                    <div className="text-xl font-bold text-orange-600">{result.perMeal.fats}g</div>
+                    <div className="text-lg sm:text-xl font-bold text-orange-600 break-all">{result.perMeal.fats}g</div>
                   </div>
                 </div>
-                
-                <p className="text-xs text-gray-500 mt-4 text-center">
+
+                <p className="text-xs text-gray-500 mt-3 sm:mt-4 text-center">
                   💡 Aim to hit these targets in each meal for optimal nutrient distribution
                 </p>
               </div>
 
               {/* Weekly & Monthly Totals */}
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="bg-purple-50 rounded-xl border border-purple-200 p-6">
-                  <h4 className="text-lg font-bold text-gray-900 mb-4">📅 Weekly Totals</h4>
-                  <div className="space-y-2 text-sm">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                <div className="bg-purple-50 rounded-xl border border-purple-200 p-3 sm:p-4 md:p-6">
+                  <h4 className="text-lg font-bold text-gray-900 mb-3 sm:mb-4">📅 Weekly Totals</h4>
+                  <div className="space-y-2 text-xs sm:text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">Calories:</span>
                       <span className="font-bold">{result.weekly.calories.toLocaleString()} kcal</span>
@@ -699,9 +699,9 @@ export function MacroCalculator() {
                   </div>
                 </div>
 
-                <div className="bg-green-50 rounded-xl border border-green-200 p-6">
-                  <h4 className="text-lg font-bold text-gray-900 mb-4">📊 Monthly Totals</h4>
-                  <div className="space-y-2 text-sm">
+                <div className="bg-green-50 rounded-xl border border-green-200 p-3 sm:p-4 md:p-6">
+                  <h4 className="text-lg font-bold text-gray-900 mb-3 sm:mb-4">📊 Monthly Totals</h4>
+                  <div className="space-y-2 text-xs sm:text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">Calories:</span>
                       <span className="font-bold">{result.monthly.calories.toLocaleString()} kcal</span>
@@ -723,14 +723,14 @@ export function MacroCalculator() {
               </div>
 
               {/* Recommendations */}
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-indigo-200 p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-indigo-200 p-3 sm:p-4 md:p-6">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
                   <span>💡</span>
                   Personalized Recommendations
                 </h3>
                 <ul className="space-y-2">
                   {result.recommendations.map((rec, index) => (
-                    <li key={index} className="flex items-start gap-2 text-gray-700">
+                    <li key={index} className="flex items-start gap-2 text-xs sm:text-sm text-gray-700">
                       <span className="text-green-500 mt-1">✓</span>
                       <span>{rec}</span>
                     </li>
@@ -740,13 +740,13 @@ export function MacroCalculator() {
               </div> {/* End of Results Content for export */}
             </div>
           ) : (
-            <div className="bg-gray-50 rounded-xl border-2 border-dashed border-gray-300 p-12 text-center">
-              <div className="text-6xl mb-4">🍗</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Ready to Calculate Your Macros?</h3>
-              <p className="text-gray-600 mb-4">
+            <div className="bg-gray-50 rounded-xl border-2 border-dashed border-gray-300 p-6 sm:p-8 md:p-12 text-center">
+              <div className="text-4xl sm:text-5xl md:text-6xl mb-4">🍗</div>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Ready to Calculate Your Macros?</h3>
+              <p className="text-sm sm:text-base text-gray-600 mb-4">
                 Enter your information and click "Calculate Macros" to get your personalized macro targets
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-xs sm:text-sm text-gray-500">
                 We'll calculate your optimal protein, carbs, and fats based on your goal
               </p>
             </div>

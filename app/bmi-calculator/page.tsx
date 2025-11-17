@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { BMICalculator } from "@/components/Calculator/BMICalculator";
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     title: "BMI Calculator - Calculate Your Body Mass Index",
     description: "Free BMI calculator with personalized health analysis and recommendations. Calculate your ideal weight and get actionable health insights.",
     type: "website",
-    url: "https://aicalculator.com/bmi-calculator",
+    url: "https://aicalculator.pro/bmi-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/bmi-calculator",
+    canonical: "https://aicalculator.pro/bmi-calculator",
   },
   robots: {
     index: true,
@@ -59,7 +60,7 @@ export default function BMICalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "BMI Calculator",
-        "url": "https://aicalculator.com/bmi-calculator",
+        "url": "https://aicalculator.pro/bmi-calculator",
         "description": "Free BMI calculator with personalized health analysis. Calculate your Body Mass Index and get ideal weight recommendations.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
@@ -84,19 +85,19 @@ export default function BMICalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Health & Fitness",
-            "item": "https://aicalculator.com/health-fitness"
+            "item": "https://aicalculator.pro/health-fitness"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "BMI Calculator",
-            "item": "https://aicalculator.com/bmi-calculator"
+            "item": "https://aicalculator.pro/bmi-calculator"
           }
         ]
       },
@@ -248,16 +249,16 @@ export default function BMICalculatorPage() {
           <ol className="flex items-center space-x-2 text-sm text-gray-600" 
               itemScope itemType="https://schema.org/BreadcrumbList">
             <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <a href="/" itemProp="item" className="hover:text-blue-600 transition-colors">
+              <Link href="/" itemProp="item" className="hover:text-blue-600 transition-colors">
                 <span itemProp="name">Home</span>
-              </a>
+              </Link>
               <meta itemProp="position" content="1" />
             </li>
             <li className="text-gray-400">/</li>
             <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <a href="/health-fitness" itemProp="item" className="hover:text-blue-600 transition-colors">
+              <Link href="/health-fitness" itemProp="item" className="hover:text-blue-600 transition-colors">
                 <span itemProp="name">Health & Fitness</span>
-              </a>
+              </Link>
               <meta itemProp="position" content="2" />
             </li>
             <li className="text-gray-400">/</li>
@@ -740,9 +741,9 @@ export default function BMICalculatorPage() {
                 Learn more from these authoritative health organizations
               </p>
               <div className="grid md:grid-cols-3 gap-6">
-                <a 
-                  href="https://www.cdc.gov/healthyweight/assessing/bmi/index.html" 
-                  target="_blank" 
+                <Link
+                  href="https://www.cdc.gov/healthyweight/assessing/bmi/index.html"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="block p-6 bg-white rounded-xl border-2 border-blue-300 hover:shadow-xl transition-shadow"
                 >
@@ -751,10 +752,10 @@ export default function BMICalculatorPage() {
                   <p className="text-sm text-gray-600 text-center">
                     Official BMI information and healthy weight guidelines from the U.S. CDC
                   </p>
-                </a>
-                <a 
-                  href="https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight" 
-                  target="_blank" 
+                </Link>
+                <Link
+                  href="https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="block p-6 bg-white rounded-xl border-2 border-blue-300 hover:shadow-xl transition-shadow"
                 >
@@ -763,10 +764,10 @@ export default function BMICalculatorPage() {
                   <p className="text-sm text-gray-600 text-center">
                     Global BMI standards and obesity fact sheets from WHO
                   </p>
-                </a>
-                <a 
-                  href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmi-m.htm" 
-                  target="_blank" 
+                </Link>
+                <Link
+                  href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmi-m.htm"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="block p-6 bg-white rounded-xl border-2 border-blue-300 hover:shadow-xl transition-shadow"
                 >
@@ -775,7 +776,7 @@ export default function BMICalculatorPage() {
                   <p className="text-sm text-gray-600 text-center">
                     BMI tools and heart health information from NIH's NHLBI
                   </p>
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -786,21 +787,21 @@ export default function BMICalculatorPage() {
                 Related Health Calculators
               </h3>
               <div className="grid md:grid-cols-3 gap-4">
-                <a href="/" className="block p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                <Link href="/" className="block p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
                   <div className="text-2xl mb-2">🧮</div>
                   <div className="font-semibold text-gray-900">Basic Calculator</div>
                   <p className="text-xs text-gray-600 mt-1">Scientific and basic calculations</p>
-                </a>
-                <a href="/mortgage-calculator" className="block p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                </Link>
+                <Link href="/mortgage-calculator" className="block p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
                   <div className="text-2xl mb-2">🏠</div>
                   <div className="font-semibold text-gray-900">Mortgage Calculator</div>
                   <p className="text-xs text-gray-600 mt-1">Calculate home loan payments</p>
-                </a>
-                <a href="/calculators" className="block p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                </Link>
+                <Link href="/calculators" className="block p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
                   <div className="text-2xl mb-2">📱</div>
                   <div className="font-semibold text-gray-900">All Calculators</div>
                   <p className="text-xs text-gray-600 mt-1">Browse all calculator tools</p>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

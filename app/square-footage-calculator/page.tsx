@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Free Square Footage Calculator - Room Area & Materials",
     description: "Calculate room areas and estimate materials for flooring, paint, and carpet. Free tool for home renovation projects.",
     type: "website",
-    url: "https://aicalculator.com/square-footage-calculator",
+    url: "https://aicalculator.pro/square-footage-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/square-footage-calculator",
+    canonical: "https://aicalculator.pro/square-footage-calculator",
   },
   robots: {
     index: true,
@@ -44,7 +44,7 @@ export default function SquareFootageCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Square Footage Calculator",
-        "url": "https://aicalculator.com/square-footage-calculator",
+        "url": "https://aicalculator.pro/square-footage-calculator",
         "description": "Free square footage calculator for multiple rooms with material estimation for flooring, paint, and carpet. Includes waste factor and cost calculator.",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
@@ -73,19 +73,19 @@ export default function SquareFootageCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Math & Numbers",
-            "item": "https://aicalculator.com/math-numbers"
+            "item": "https://aicalculator.pro/math-numbers"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Square Footage Calculator",
-            "item": "https://aicalculator.com/square-footage-calculator"
+            "item": "https://aicalculator.pro/square-footage-calculator"
           }
         ]
       },

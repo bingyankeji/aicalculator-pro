@@ -155,11 +155,11 @@ export function FractionCalculator() {
   ] as const;
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-8">
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 sm:space-y-4 md:space-y-6">
       {/* Operation Selection */}
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
         <h3 className="text-lg font-bold text-gray-900 mb-4">Select Operation</h3>
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {operations.map((op) => {
             const Icon = op.icon;
             const isActive = operation === op.symbol;
@@ -167,16 +167,16 @@ export function FractionCalculator() {
               <button
                 key={op.symbol}
                 onClick={() => setOperation(op.symbol as any)}
-                className={`p-4 rounded-lg border-2 transition-all ${
+                className={`p-3 sm:p-4 rounded-lg border-2 transition-all min-h-[44px] ${
                   isActive
                     ? `border-${op.color}-500 bg-${op.color}-50`
                     : 'border-gray-200 hover:border-gray-300'
                 }`}
               >
-                <Icon className={`w-8 h-8 mx-auto mb-2 ${
+                <Icon className={`w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-2 ${
                   isActive ? `text-${op.color}-600` : 'text-gray-400'
                 }`} />
-                <div className="font-semibold text-sm">{op.label}</div>
+                <div className="font-semibold text-xs sm:text-sm">{op.label}</div>
               </button>
             );
           })}
@@ -184,10 +184,10 @@ export function FractionCalculator() {
       </div>
 
       {/* Input */}
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
         <h3 className="text-2xl font-bold text-gray-900 mb-6">Enter Fractions</h3>
-        
-        <div className="flex items-center justify-center gap-4 flex-wrap">
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 flex-wrap">
           {/* First Fraction */}
           <div className="flex flex-col items-center">
             <input
@@ -195,21 +195,21 @@ export function FractionCalculator() {
               value={num1}
               onChange={(e) => setNum1(e.target.value)}
               placeholder="1"
-              className="w-24 px-3 py-2 border-b-2 border-gray-300 text-center text-2xl font-bold focus:outline-none focus:border-blue-500"
+              className="w-20 sm:w-24 px-3 py-2 border-b-2 border-gray-300 text-center text-xl sm:text-2xl font-bold focus:outline-none focus:border-blue-500 min-h-[44px]"
             />
-            <div className="w-24 h-0.5 bg-gray-900 my-1"></div>
+            <div className="w-20 sm:w-24 h-0.5 bg-gray-900 my-1"></div>
             <input
               type="number"
               value={den1}
               onChange={(e) => setDen1(e.target.value)}
               placeholder="2"
-              className="w-24 px-3 py-2 border-b-2 border-gray-300 text-center text-2xl font-bold focus:outline-none focus:border-blue-500"
+              className="w-20 sm:w-24 px-3 py-2 border-b-2 border-gray-300 text-center text-xl sm:text-2xl font-bold focus:outline-none focus:border-blue-500 min-h-[44px]"
             />
             <div className="text-xs text-gray-600 mt-2">First Fraction</div>
           </div>
 
           {/* Operation Symbol */}
-          <div className="text-5xl font-bold text-gray-700 mx-4">
+          <div className="text-3xl sm:text-5xl font-bold text-gray-700 mx-2 sm:mx-4">
             {operation}
           </div>
 
@@ -220,29 +220,29 @@ export function FractionCalculator() {
               value={num2}
               onChange={(e) => setNum2(e.target.value)}
               placeholder="1"
-              className="w-24 px-3 py-2 border-b-2 border-gray-300 text-center text-2xl font-bold focus:outline-none focus:border-blue-500"
+              className="w-20 sm:w-24 px-3 py-2 border-b-2 border-gray-300 text-center text-xl sm:text-2xl font-bold focus:outline-none focus:border-blue-500 min-h-[44px]"
             />
-            <div className="w-24 h-0.5 bg-gray-900 my-1"></div>
+            <div className="w-20 sm:w-24 h-0.5 bg-gray-900 my-1"></div>
             <input
               type="number"
               value={den2}
               onChange={(e) => setDen2(e.target.value)}
               placeholder="3"
-              className="w-24 px-3 py-2 border-b-2 border-gray-300 text-center text-2xl font-bold focus:outline-none focus:border-blue-500"
+              className="w-20 sm:w-24 px-3 py-2 border-b-2 border-gray-300 text-center text-xl sm:text-2xl font-bold focus:outline-none focus:border-blue-500 min-h-[44px]"
             />
             <div className="text-xs text-gray-600 mt-2">Second Fraction</div>
           </div>
 
           {/* Equals */}
-          <div className="text-5xl font-bold text-gray-700 mx-4">=</div>
+          <div className="text-3xl sm:text-5xl font-bold text-gray-700 mx-2 sm:mx-4">=</div>
 
           {/* Result Preview */}
           {result && (
-            <div className="flex flex-col items-center bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border-2 border-blue-300">
+            <div className="flex flex-col items-center bg-gradient-to-br from-blue-50 to-blue-100 p-3 sm:p-6 rounded-lg border-2 border-blue-300">
               <div className="flex flex-col items-center">
-                <div className="text-3xl font-bold text-blue-700">{result.simplified.numerator}</div>
-                <div className="w-20 h-0.5 bg-blue-700 my-1"></div>
-                <div className="text-3xl font-bold text-blue-700">{result.simplified.denominator}</div>
+                <div className="text-xl sm:text-3xl font-bold text-blue-700 break-all">{result.simplified.numerator}</div>
+                <div className="w-16 sm:w-20 h-0.5 bg-blue-700 my-1"></div>
+                <div className="text-xl sm:text-3xl font-bold text-blue-700 break-all">{result.simplified.denominator}</div>
               </div>
               <div className="text-xs text-blue-600 mt-2">Result (Simplified)</div>
             </div>
@@ -253,18 +253,18 @@ export function FractionCalculator() {
       {/* Detailed Results */}
       {result && (
         <>
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Detailed Results</h3>
-            
-            <div className="grid md:grid-cols-2 gap-6">
+
+            <div className="grid xl:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
               {/* Original Result */}
               <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
                 <div className="text-sm text-gray-600 mb-2">Original Answer:</div>
                 <div className="flex items-center justify-center gap-2">
                   <div className="flex flex-col items-center">
-                    <div className="text-4xl font-bold text-gray-900">{result.numerator}</div>
+                    <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 break-all">{result.numerator}</div>
                     <div className="w-full h-1 bg-gray-900 my-1"></div>
-                    <div className="text-4xl font-bold text-gray-900">{result.denominator}</div>
+                    <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 break-all">{result.denominator}</div>
                   </div>
                 </div>
                 <div className="text-xs text-gray-500 text-center mt-3">
@@ -277,9 +277,9 @@ export function FractionCalculator() {
                 <div className="text-sm text-blue-600 mb-2">Simplified:</div>
                 <div className="flex items-center justify-center gap-2">
                   <div className="flex flex-col items-center">
-                    <div className="text-4xl font-bold text-blue-700">{result.simplified.numerator}</div>
+                    <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-700 break-all">{result.simplified.numerator}</div>
                     <div className="w-full h-1 bg-blue-700 my-1"></div>
-                    <div className="text-4xl font-bold text-blue-700">{result.simplified.denominator}</div>
+                    <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-700 break-all">{result.simplified.denominator}</div>
                   </div>
                 </div>
                 {result.simplified.denominator === 1 && (
@@ -294,11 +294,11 @@ export function FractionCalculator() {
                 <div className="bg-gradient-to-br from-green-50 to-green-100 p-5 rounded-lg border border-green-200">
                   <div className="text-sm text-green-600 mb-2">Mixed Number:</div>
                   <div className="flex items-center justify-center gap-2">
-                    <div className="text-5xl font-bold text-green-700">{result.mixed.whole}</div>
+                    <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-green-700 break-all">{result.mixed.whole}</div>
                     <div className="flex flex-col items-center">
-                      <div className="text-2xl font-bold text-green-700">{result.mixed.numerator}</div>
-                      <div className="w-12 h-0.5 bg-green-700 my-0.5"></div>
-                      <div className="text-2xl font-bold text-green-700">{result.mixed.denominator}</div>
+                      <div className="text-lg sm:text-xl md:text-2xl font-bold text-green-700 break-all">{result.mixed.numerator}</div>
+                      <div className="w-10 sm:w-12 h-0.5 bg-green-700 my-0.5"></div>
+                      <div className="text-lg sm:text-xl md:text-2xl font-bold text-green-700 break-all">{result.mixed.denominator}</div>
                     </div>
                   </div>
                 </div>
@@ -307,7 +307,7 @@ export function FractionCalculator() {
               {/* Decimal */}
               <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-5 rounded-lg border border-purple-200">
                 <div className="text-sm text-purple-600 mb-2">Decimal:</div>
-                <div className="text-5xl font-bold text-purple-700 text-center">
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-purple-700 text-center break-all">
                   {result.decimal.toFixed(6).replace(/\.?0+$/, '')}
                 </div>
                 {!Number.isInteger(result.decimal) && (
@@ -320,13 +320,13 @@ export function FractionCalculator() {
           </div>
 
           {/* Step-by-Step Solution */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
             <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
               <Calculator className="w-6 h-6 text-blue-600" />
               Step-by-Step Solution
             </h3>
-            
-            <div className="space-y-3 text-sm bg-gray-50 p-4 rounded-lg">
+
+            <div className="space-y-3 text-sm bg-gray-50 p-4 rounded-lg overflow-x-auto">
               <div className="flex items-start gap-2">
                 <span className="font-bold text-blue-600">1.</span>
                 <div>
@@ -418,33 +418,33 @@ export function FractionCalculator() {
           </div>
 
           {/* Quick Examples */}
-          <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl border border-blue-200 p-6">
+          <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl border border-blue-200 p-4 sm:p-6">
             <h3 className="text-xl font-bold text-gray-900 mb-4">Try These Examples</h3>
-            <div className="grid md:grid-cols-4 gap-3">
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
               <button
                 onClick={() => { setNum1('1'); setDen1('2'); setNum2('1'); setDen2('4'); setOperation('+'); }}
-                className="p-3 bg-white rounded-lg border hover:shadow-md transition text-sm"
+                className="p-3 bg-white rounded-lg border hover:shadow-md transition text-sm min-h-[44px]"
               >
                 <div className="font-semibold">1/2 + 1/4</div>
                 <div className="text-xs text-gray-600 mt-1">= 3/4</div>
               </button>
               <button
                 onClick={() => { setNum1('3'); setDen1('4'); setNum2('1'); setDen2('2'); setOperation('-'); }}
-                className="p-3 bg-white rounded-lg border hover:shadow-md transition text-sm"
+                className="p-3 bg-white rounded-lg border hover:shadow-md transition text-sm min-h-[44px]"
               >
                 <div className="font-semibold">3/4 - 1/2</div>
                 <div className="text-xs text-gray-600 mt-1">= 1/4</div>
               </button>
               <button
                 onClick={() => { setNum1('2'); setDen1('3'); setNum2('3'); setDen2('4'); setOperation('*'); }}
-                className="p-3 bg-white rounded-lg border hover:shadow-md transition text-sm"
+                className="p-3 bg-white rounded-lg border hover:shadow-md transition text-sm min-h-[44px]"
               >
                 <div className="font-semibold">2/3 × 3/4</div>
                 <div className="text-xs text-gray-600 mt-1">= 1/2</div>
               </button>
               <button
                 onClick={() => { setNum1('1'); setDen1('2'); setNum2('1'); setDen2('4'); setOperation('/'); }}
-                className="p-3 bg-white rounded-lg border hover:shadow-md transition text-sm"
+                className="p-3 bg-white rounded-lg border hover:shadow-md transition text-sm min-h-[44px]"
               >
                 <div className="font-semibold">1/2 ÷ 1/4</div>
                 <div className="text-xs text-gray-600 mt-1">= 2</div>

@@ -363,11 +363,11 @@ export default function PresentValueCalculator() {
   });
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-8">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid xl:grid-cols-2 gap-8">
         {/* Left Side - Input Section */}
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center gap-2">
             <Target className="w-6 h-6 text-blue-600" />
             Present Value Calculator
           </h3>
@@ -582,7 +582,7 @@ export default function PresentValueCalculator() {
             {/* Quick Presets */}
             <div>
               <h4 className="text-lg font-semibold text-gray-900 mb-4">🎯 Quick Presets</h4>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {investmentPresets.map((preset) => (
                   <button
                     key={preset.name}
@@ -661,16 +661,16 @@ export default function PresentValueCalculator() {
               </h4>
 
               {/* Summary Cards */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
                   <div className="text-sm text-blue-700 font-medium mb-1">Present Value</div>
-                  <div className="text-2xl font-bold text-blue-900">{formatCurrency(result.presentValue)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-900 break-all">{formatCurrency(result.presentValue)}</div>
                   <div className="text-xs text-blue-600">Discounted value today</div>
                 </div>
                 
                 <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200">
                   <div className="text-sm text-green-700 font-medium mb-1">Discount Rate</div>
-                  <div className="text-2xl font-bold text-green-900">{formatPercentage(inputs.discountRate)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-900 break-all">{formatPercentage(inputs.discountRate)}</div>
                   <div className="text-xs text-green-600">Required rate of return</div>
                 </div>
                 
@@ -678,7 +678,7 @@ export default function PresentValueCalculator() {
                   <>
                     <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200">
                       <div className="text-sm text-purple-700 font-medium mb-1">Net Present Value</div>
-                      <div className={`text-2xl font-bold ${result.netPresentValue >= 0 ? 'text-green-900' : 'text-red-900'}`}>
+                      <div className={`text-xl sm:text-2xl md:text-3xl font-bold ${result.netPresentValue >= 0 ? 'text-green-900' : 'text-red-900'} break-all`}>
                         {formatCurrency(result.netPresentValue)}
                       </div>
                       <div className="text-xs text-purple-600">NPV after initial investment</div>
@@ -686,7 +686,7 @@ export default function PresentValueCalculator() {
                     
                     <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border border-orange-200">
                       <div className="text-sm text-orange-700 font-medium mb-1">Profitability Index</div>
-                      <div className={`text-2xl font-bold ${result.profitabilityIndex >= 1 ? 'text-green-900' : 'text-red-900'}`}>
+                      <div className={`text-xl sm:text-2xl md:text-3xl font-bold ${result.profitabilityIndex >= 1 ? 'text-green-900' : 'text-red-900'} break-all`}>
                         {result.profitabilityIndex.toFixed(2)}
                       </div>
                       <div className="text-xs text-orange-600">Return per dollar invested</div>
@@ -769,7 +769,7 @@ export default function PresentValueCalculator() {
               {/* Key Metrics */}
               <div>
                 <h5 className="text-lg font-bold text-gray-900 mb-4">📊 Key Metrics</h5>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                     <div className="text-sm text-gray-700 font-medium mb-1">Analysis Type</div>
                     <div className="text-lg font-bold text-gray-900">
@@ -812,7 +812,7 @@ export default function PresentValueCalculator() {
       {showComparison && savedScenarios.length > 0 && (
         <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-2xl font-bold text-gray-900">📊 Compare Present Value Analyses</h3>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">📊 Compare Present Value Analyses</h3>
             <button
               onClick={() => setShowComparison(false)}
               className="text-gray-400 hover:text-gray-600 transition-colors"

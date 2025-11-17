@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Square Root Calculator - Calculate √n, Nth Roots & Perfect Squares",
     description: "Free online square root calculator with step-by-step solutions. Calculate square roots, nth roots, and check perfect squares with detailed mathematical analysis.",
     type: "website",
-    url: "https://aicalculator.com/square-root-calculator",
+    url: "https://aicalculator.pro/square-root-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/square-root-calculator",
+    canonical: "https://aicalculator.pro/square-root-calculator",
   },
   robots: {
     index: true,
@@ -58,7 +58,7 @@ export default function SquareRootCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Square Root Calculator",
-        "url": "https://aicalculator.com/square-root-calculator",
+        "url": "https://aicalculator.pro/square-root-calculator",
         "description": "Free online square root calculator to calculate √n, nth roots, and check perfect squares with step-by-step solutions and mathematical analysis.",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Any",
@@ -85,19 +85,19 @@ export default function SquareRootCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Math Calculators",
-            "item": "https://aicalculator.com/math-numbers"
+            "item": "https://aicalculator.pro/math-numbers"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Square Root Calculator",
-            "item": "https://aicalculator.com/square-root-calculator"
+            "item": "https://aicalculator.pro/square-root-calculator"
           }
         ]
       },

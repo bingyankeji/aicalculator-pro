@@ -336,11 +336,11 @@ export default function ProfitMarginCalculator() {
   });
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-8">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid xl:grid-cols-2 gap-8">
         {/* Left Side - Input Section */}
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center gap-2 hidden lg:block">
             <Percent className="w-6 h-6 text-blue-500" />
             Profit Margin Calculator
           </h3>
@@ -349,7 +349,7 @@ export default function ProfitMarginCalculator() {
             {/* Input Method Selection */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-3">Input Method</label>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <button
                   onClick={() => updateInput('inputMethod', 'total')}
                   className={`p-3 rounded-lg border-2 transition-all ${
@@ -647,17 +647,17 @@ export default function ProfitMarginCalculator() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                 <div className="bg-blue-50 p-4 rounded-lg">
                   <div className="text-sm text-blue-600 font-medium">Gross Margin</div>
-                  <div className="text-2xl font-bold text-blue-900">{formatPercentage(result.grossMargin)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-900 break-all">{formatPercentage(result.grossMargin)}</div>
                   <div className="text-sm text-blue-700">{formatCurrency(result.grossProfit)} profit</div>
                 </div>
                 <div className="bg-green-50 p-4 rounded-lg">
                   <div className="text-sm text-green-600 font-medium">Operating Margin</div>
-                  <div className="text-2xl font-bold text-green-900">{formatPercentage(result.operatingMargin)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-900 break-all">{formatPercentage(result.operatingMargin)}</div>
                   <div className="text-sm text-green-700">{formatCurrency(result.operatingProfit)} profit</div>
                 </div>
                 <div className="bg-purple-50 p-4 rounded-lg">
                   <div className="text-sm text-purple-600 font-medium">Net Margin</div>
-                  <div className="text-2xl font-bold text-purple-900">{formatPercentage(result.netMargin)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-900 break-all">{formatPercentage(result.netMargin)}</div>
                   <div className="text-sm text-purple-700">{formatCurrency(result.netProfit)} profit</div>
                 </div>
               </div>
@@ -701,7 +701,7 @@ export default function ProfitMarginCalculator() {
                   <BarChart3 className="w-4 h-4" />
                   Industry Comparison
                 </h5>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <div className="text-sm text-gray-600">Your Gross Margin</div>
                     <div className="text-lg font-bold text-gray-900">{formatPercentage(result.grossMargin)}</div>
@@ -808,7 +808,7 @@ export default function ProfitMarginCalculator() {
               {/* Additional Metrics */}
               <div className="bg-gray-50 p-4 rounded-lg mt-6">
                 <h5 className="font-bold text-gray-900 mb-3">Additional Metrics</h5>
-                <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Markup Percentage:</span>
                     <span className="font-bold text-gray-900">{formatPercentage(result.markupPercentage)}</span>
@@ -841,7 +841,7 @@ export default function ProfitMarginCalculator() {
       {showComparison && savedScenarios.length > 0 && (
         <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 mt-8">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-2xl font-bold text-gray-900">📊 Compare Profit Scenarios</h3>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">📊 Compare Profit Scenarios</h3>
             <button
               onClick={() => setShowComparison(false)}
               className="text-gray-400 hover:text-gray-600 transition-colors"

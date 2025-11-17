@@ -343,12 +343,12 @@ export function RatioCalculator() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid xl:grid-cols-2 gap-6">
         {/* LEFT: Input Section */}
-        <div className="space-y-6">
-          <div className="bg-white rounded-xl shadow-lg border p-6">
-            <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+        <div className="space-y-4 sm:space-y-6">
+          <div className="bg-white rounded-xl shadow-lg border p-4 sm:p-6">
+            <h3 className="text-lg font-bold mb-4 flex items-center gap-2 hidden lg:block">
               <Calculator className="w-5 h-5 text-blue-600" />
               Ratio Calculator
             </h3>
@@ -393,7 +393,7 @@ export function RatioCalculator() {
                   min="0"
                   step="0.1"
                 />
-                <div className="text-center text-2xl font-bold text-gray-600">:</div>
+                <div className="text-center text-xl sm:text-2xl font-bold text-gray-600">:</div>
                 <input
                   type="number"
                   value={inputs.b}
@@ -459,7 +459,7 @@ export function RatioCalculator() {
                     step="0.1"
                     disabled={inputs.calculationType === 'solve' && inputs.solveFor === 'c'}
                   />
-                  <div className="text-center text-2xl font-bold text-gray-600">:</div>
+                  <div className="text-center text-xl sm:text-2xl font-bold text-gray-600">:</div>
                   <input
                     type="number"
                     value={inputs.d}
@@ -504,13 +504,13 @@ export function RatioCalculator() {
                 <div className="space-y-3">
                   <div>
                     <p className="text-sm text-gray-600 mb-1">Original Ratio</p>
-                    <p className="text-3xl font-bold text-blue-600">{result.originalRatio}</p>
+                    <p className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 break-all">{result.originalRatio}</p>
                   </div>
                   <div>
                     <p className="text-sm text-gray-600 mb-1">Simplified Ratio</p>
-                    <p className="text-2xl font-bold text-indigo-600">{result.simplifiedRatio}</p>
+                    <p className="text-xl sm:text-2xl md:text-3xl font-bold text-indigo-600 break-all">{result.simplifiedRatio}</p>
                   </div>
-                  <div className="grid grid-cols-2 gap-4 mt-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                     <div className="bg-white rounded-lg p-3 text-center">
                       <p className="text-lg font-bold text-purple-600">{result.decimal.toFixed(4)}</p>
                       <p className="text-xs text-gray-600">Decimal</p>
@@ -523,7 +523,7 @@ export function RatioCalculator() {
                   {result.solvedValue && (
                     <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-4">
                       <p className="text-sm text-gray-600 mb-1">Solved Value</p>
-                      <p className="text-2xl font-bold text-yellow-700">{result.solvedValue.toFixed(4)}</p>
+                      <p className="text-xl sm:text-2xl md:text-3xl font-bold text-yellow-700 break-all">{result.solvedValue.toFixed(4)}</p>
                     </div>
                   )}
                 </div>
@@ -544,7 +544,7 @@ export function RatioCalculator() {
                     {result.analysis.ratioType}
                   </h4>
                   <p className="text-sm text-gray-700 mb-3">{result.analysis.relationship}</p>
-                  <div className="grid grid-cols-2 gap-2 text-xs">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                     <div className="bg-gray-50 p-2 rounded">
                       <span className="font-medium">GCD:</span> {result.analysis.mathematicalProperties.gcd}
                     </div>
@@ -596,7 +596,7 @@ export function RatioCalculator() {
             {/* Real-World Examples */}
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-4">Real-World Applications</h3>
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
                 {result.examples.slice(0, 4).map((example, i) => (
                   <div key={i} className="p-4 bg-gradient-to-br from-gray-50 to-blue-50 rounded-lg border">
                     <h4 className="font-semibold text-gray-900 mb-2">{example.scenario}</h4>

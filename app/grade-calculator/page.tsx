@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Grade Calculator - Calculate Your Weighted Grade & GPA",
     description: "Free online grade calculator with weighted averages, GPA conversion, and performance analysis. Calculate your final grade instantly!",
     type: "website",
-    url: "https://aicalculator.com/grade-calculator",
+    url: "https://aicalculator.pro/grade-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/grade-calculator",
+    canonical: "https://aicalculator.pro/grade-calculator",
   },
   robots: {
     index: true,
@@ -60,7 +60,7 @@ export default function GradeCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Grade Calculator",
-        "url": "https://aicalculator.com/grade-calculator",
+        "url": "https://aicalculator.pro/grade-calculator",
         "description": "Free online grade calculator for calculating weighted averages, GPA, and letter grades. Supports multiple assignments with custom weights.",
         "applicationCategory": "EducationApplication",
         "operatingSystem": "Any",
@@ -91,19 +91,19 @@ export default function GradeCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Math & Numbers",
-            "item": "https://aicalculator.com/math-numbers"
+            "item": "https://aicalculator.pro/math-numbers"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Grade Calculator",
-            "item": "https://aicalculator.com/grade-calculator"
+            "item": "https://aicalculator.pro/grade-calculator"
           }
         ]
       },

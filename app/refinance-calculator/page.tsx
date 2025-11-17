@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Free Refinance Calculator - See If You Should Refinance",
     description: "Calculate monthly savings and break-even point. See if refinancing your mortgage makes financial sense.",
     type: "website",
-    url: "https://aicalculator.com/refinance-calculator",
+    url: "https://aicalculator.pro/refinance-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/refinance-calculator",
+    canonical: "https://aicalculator.pro/refinance-calculator",
   },
   robots: {
     index: true,
@@ -60,7 +60,7 @@ export default function RefinanceCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Refinance Calculator",
-        "url": "https://aicalculator.com/refinance-calculator",
+        "url": "https://aicalculator.pro/refinance-calculator",
         "description": "Free online mortgage refinance calculator to determine if refinancing makes financial sense. Calculate monthly savings, break-even point, lifetime savings, and compare your current loan vs new loan options. Features instant results, closing cost analysis, and personalized recommendations.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -88,19 +88,19 @@ export default function RefinanceCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Calculators",
-            "item": "https://aicalculator.com/calculators"
+            "item": "https://aicalculator.pro/calculators"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Refinance Calculator",
-            "item": "https://aicalculator.com/refinance-calculator"
+            "item": "https://aicalculator.pro/refinance-calculator"
           }
         ]
       },

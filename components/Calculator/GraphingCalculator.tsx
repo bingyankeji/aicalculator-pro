@@ -748,13 +748,13 @@ export function GraphingCalculator() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-4 gap-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
         {/* Control Panel - Left Side */}
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 sticky top-6">
+        <div className="xl:col-span-1">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-3 sm:p-4 md:p-6 sticky top-6">
             {/* Function Management */}
-            <div className="space-y-4 mb-6">
+            <div className="space-y-3 sm:space-y-4 mb-3 sm:mb-6">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold text-gray-900">Functions</h3>
                 <button
@@ -1043,12 +1043,12 @@ export function GraphingCalculator() {
         </div>
 
         {/* Graph Area - Right Side */}
-        <div className="lg:col-span-3 space-y-6">
+        <div className="xl:col-span-3 space-y-3 sm:space-y-4 md:space-y-6">
           {/* Graph Viewer */}
-          <div ref={containerRef} className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-xl font-bold text-gray-900">Graph Viewer</h3>
-              <div className="text-sm text-gray-500">
+          <div ref={containerRef} className="bg-white rounded-xl shadow-lg border border-gray-200 p-3 sm:p-4 md:p-6">
+            <div className="mb-3 sm:mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900">Graph Viewer</h3>
+              <div className="text-xs sm:text-sm text-gray-500">
                 Range: [{graphSettings.xMin}, {graphSettings.xMax}] × [{graphSettings.yMin}, {graphSettings.yMax}]
               </div>
             </div>
@@ -1074,7 +1074,7 @@ export function GraphingCalculator() {
             </div>
 
             {/* Graph Status */}
-            <div className="mt-4 flex items-center justify-between text-sm text-gray-600">
+            <div className="mt-3 sm:mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs sm:text-sm text-gray-600">
               <div>
                 Functions plotted: {functions.filter(f => f.visible && f.expression).length}
               </div>
@@ -1086,20 +1086,20 @@ export function GraphingCalculator() {
 
           {/* Intelligent Analysis Panel */}
           {analysisResults.length > 0 && (
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200 p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200 p-3 sm:p-4 md:p-6">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
                 <span>🧠</span>
                 AI Function Analysis
               </h3>
-              
-              <div className="space-y-6">
+
+              <div className="space-y-3 sm:space-y-4 md:space-y-6">
                 {analysisResults.map((analysis, index) => (
-                  <div key={index} className="bg-white rounded-lg p-4 border border-blue-100">
+                  <div key={index} className="bg-white rounded-lg p-3 sm:p-4 border border-blue-100">
                     <h4 className="font-semibold text-gray-900 mb-3">
                       f{index + 1}(x) = {analysis.function}
                     </h4>
-                    
-                    <div className="grid md:grid-cols-2 gap-4">
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                       {/* Mathematical Properties */}
                       <div className="space-y-3">
                         <div>

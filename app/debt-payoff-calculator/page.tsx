@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Free Debt Payoff Calculator - Avalanche vs Snowball Method",
     description: "Compare debt repayment strategies and calculate your debt-free date. Find the fastest and cheapest way to pay off your debts.",
     type: "website",
-    url: "https://aicalculator.com/debt-payoff-calculator",
+    url: "https://aicalculator.pro/debt-payoff-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/debt-payoff-calculator",
+    canonical: "https://aicalculator.pro/debt-payoff-calculator",
   },
   robots: {
     index: true,
@@ -60,7 +60,7 @@ export default function DebtPayoffCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Debt Payoff Calculator",
-        "url": "https://aicalculator.com/debt-payoff-calculator",
+        "url": "https://aicalculator.pro/debt-payoff-calculator",
         "description": "Free online debt payoff calculator to compare avalanche and snowball debt repayment methods. Calculate your debt-free date, total interest costs, and create a personalized debt elimination plan.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -88,19 +88,19 @@ export default function DebtPayoffCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Calculators",
-            "item": "https://aicalculator.com/calculators"
+            "item": "https://aicalculator.pro/calculators"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Debt Payoff Calculator",
-            "item": "https://aicalculator.com/debt-payoff-calculator"
+            "item": "https://aicalculator.pro/debt-payoff-calculator"
           }
         ]
       },

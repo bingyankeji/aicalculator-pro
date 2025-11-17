@@ -1,25 +1,72 @@
 import { Metadata } from 'next';
 import { AutoLoanCalculator } from '@/components/Calculator/AutoLoanCalculator';
+import { 
+  getUrl, 
+  getOgImage, 
+  getBreadcrumbId, 
+  getWebAppId, 
+  getFaqId, 
+  getHowToId, 
+  getArticleId,
+  getStepUrl 
+} from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Auto Loan Calculator - Free Car Loan Calculator with Depreciation Analysis | AICalculator",
   description: "Calculate your car loan payments with our free auto loan calculator. Features vehicle depreciation tracking, trade-in value, down payment analysis, and monthly payment breakdown. Plan your car purchase wisely.",
-  keywords: ["auto loan calculator", "car loan calculator", "vehicle loan calculator", "car payment calculator", "auto financing calculator", "car lease calculator", "used car loan calculator", "new car loan calculator", "car depreciation calculator", "trade in value calculator", "down payment calculator", "monthly car payment"],
+  keywords: [
+    "auto loan calculator",
+    "car loan calculator",
+    "vehicle loan calculator",
+    "car payment calculator",
+    "auto financing calculator",
+    "car lease calculator",
+    "used car loan calculator",
+    "new car loan calculator",
+    "car depreciation calculator",
+    "trade in value calculator",
+    "down payment calculator",
+    "monthly car payment",
+    "auto loan payment calculator",
+    "car finance calculator",
+    "vehicle financing calculator",
+    "car loan interest calculator",
+    "auto loan interest calculator",
+    "car affordability calculator",
+    "vehicle payment calculator",
+    "car loan amortization calculator",
+    "auto loan estimator",
+    "car purchase calculator"
+  ],
+  authors: [{ name: 'AICalculator.pro Team' }],
+  creator: 'AICalculator.pro',
+  publisher: 'AICalculator.pro',
   openGraph: {
     title: "Free Auto Loan Calculator - Car Payment & Depreciation",
     description: "Calculate car loan payments with depreciation analysis. Include trade-in value, down payment, and see total cost. Free auto loan calculator.",
     type: "website",
-    url: "https://aicalculator.com/auto-loan-calculator",
+    url: getUrl('/auto-loan-calculator'),
     siteName: "AICalculator",
+    locale: 'en_US',
+    images: [
+      {
+        url: getOgImage('auto-loan'),
+        width: 1200,
+        height: 630,
+        alt: 'Auto Loan Calculator',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Auto Loan Calculator - Car Payment Calculator",
     description: "Calculate car loan payments with vehicle depreciation tracking. Free calculator with trade-in analysis.",
+    images: [getOgImage('auto-loan')],
     site: "@AICalculator",
+    creator: '@aicalculator',
   },
   alternates: {
-    canonical: "https://aicalculator.com/auto-loan-calculator",
+    canonical: getUrl('/auto-loan-calculator'),
   },
   robots: {
     index: true,
@@ -43,8 +90,9 @@ export default function AutoLoanCalculatorPage() {
     "@graph": [
       {
         "@type": "WebApplication",
+        "@id": getWebAppId('/auto-loan-calculator'),
         "name": "Auto Loan Calculator",
-        "url": "https://aicalculator.com/auto-loan-calculator",
+        "url": getUrl('/auto-loan-calculator'),
         "description": "Free online auto loan calculator to calculate car loan payments, vehicle depreciation, trade-in value impact, and total cost of ownership. Features new vs used car analysis.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -68,29 +116,31 @@ export default function AutoLoanCalculatorPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "@id": getBreadcrumbId('/auto-loan-calculator'),
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.com/financial"
+            "item": getUrl('/financial')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Auto Loan Calculator",
-            "item": "https://aicalculator.com/auto-loan-calculator"
+            "item": getUrl('/auto-loan-calculator')
           }
         ]
       },
       {
         "@type": "FAQPage",
+        "@id": getFaqId('/auto-loan-calculator'),
         "mainEntity": [
           {
             "@type": "Question",
@@ -160,34 +210,72 @@ export default function AutoLoanCalculatorPage() {
       },
       {
         "@type": "HowTo",
+        "@id": getHowToId('/auto-loan-calculator'),
         "name": "How to Calculate Your Auto Loan Payment",
+        "totalTime": "PT5M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "tool": {
+          "@type": "HowToTool",
+          "name": "Auto Loan Calculator"
+        },
         "description": "Calculate car loan payments and total costs in 4 steps",
         "step": [
           {
             "@type": "HowToStep",
             "position": 1,
             "name": "Enter Vehicle Details",
-            "text": "Input the vehicle price and select whether it's new or used (affects depreciation calculations). Enter your state's sales tax rate - this is added to the loan amount in most states."
+            "text": "Input the vehicle price and select whether it's new or used (affects depreciation calculations). Enter your state's sales tax rate - this is added to the loan amount in most states.",
+            "url": getStepUrl('/auto-loan-calculator', 1)
           },
           {
             "@type": "HowToStep",
             "position": 2,
             "name": "Add Down Payment and Trade-In",
-            "text": "Enter your down payment amount (recommended 20% for new, 10% for used). If trading in your current vehicle, enter its trade-in value to reduce the loan amount needed."
+            "text": "Enter your down payment amount (recommended 20% for new, 10% for used). If trading in your current vehicle, enter its trade-in value to reduce the loan amount needed.",
+            "url": getStepUrl('/auto-loan-calculator', 2)
           },
           {
             "@type": "HowToStep",
             "position": 3,
             "name": "Set Loan Terms",
-            "text": "Enter the annual interest rate (check your credit score for typical rates). Choose loan term length - shorter terms (36-48 months) cost less interest but have higher monthly payments."
+            "text": "Enter the annual interest rate (check your credit score for typical rates). Choose loan term length - shorter terms (36-48 months) cost less interest but have higher monthly payments.",
+            "url": getStepUrl('/auto-loan-calculator', 3)
           },
           {
             "@type": "HowToStep",
             "position": 4,
             "name": "Review Results and Depreciation",
-            "text": "See your monthly payment, total interest cost, and total amount paid. Review the depreciation schedule to understand how your vehicle's value changes over time compared to your loan balance."
+            "text": "See your monthly payment, total interest cost, and total amount paid. Review the depreciation schedule to understand how your vehicle's value changes over time compared to your loan balance.",
+            "url": getStepUrl('/auto-loan-calculator', 4)
           }
         ]
+      },
+      {
+        "@type": "Article",
+        "@id": getArticleId('/auto-loan-calculator'),
+        "headline": "Auto Loan Calculator - Complete Guide to Car Financing and Depreciation",
+        "description": "Comprehensive guide to auto loans with free calculator. Learn how to calculate car payments, understand vehicle depreciation, and make smart financing decisions.",
+        "author": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "url": getUrl('/')
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": getUrl('/logo.png')
+          }
+        },
+        "datePublished": "2025-11-16",
+        "dateModified": "2025-11-16",
+        "image": getOgImage('auto-loan'),
+        "articleBody": "Make informed car buying decisions with our comprehensive auto loan calculator. Understand monthly payments, total interest costs, vehicle depreciation, and the impact of down payments and trade-ins on your financing."
       }
     ]
   };

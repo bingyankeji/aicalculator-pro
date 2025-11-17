@@ -1,25 +1,72 @@
 import { Metadata } from 'next';
 import { InvestmentCalculator } from '@/components/Calculator/InvestmentCalculator';
+import { 
+  getUrl, 
+  getOgImage, 
+  getBreadcrumbId, 
+  getWebAppId, 
+  getFaqId, 
+  getHowToId, 
+  getArticleId,
+  getStepUrl 
+} from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Investment Calculator - Free Lump Sum vs Dollar-Cost Averaging (DCA) Calculator | AICalculator",
   description: "Compare lump sum vs dollar-cost averaging investment strategies with our free calculator. See compound growth curves, future value projections, and inflation-adjusted returns. Make smarter investment decisions.",
-  keywords: ["investment calculator", "lump sum vs dca", "dollar cost averaging calculator", "compound interest calculator", "investment return calculator", "portfolio growth calculator", "dca calculator", "investment strategy calculator", "future value calculator", "investment comparison calculator", "retirement investment calculator", "compound growth calculator"],
+  keywords: [
+    "investment calculator",
+    "lump sum vs dca",
+    "dollar cost averaging calculator",
+    "compound interest calculator",
+    "investment return calculator",
+    "portfolio growth calculator",
+    "dca calculator",
+    "investment strategy calculator",
+    "future value calculator",
+    "investment comparison calculator",
+    "retirement investment calculator",
+    "compound growth calculator",
+    "investment planning calculator",
+    "stock investment calculator",
+    "mutual fund calculator",
+    "investment growth calculator",
+    "roi calculator",
+    "investment portfolio calculator",
+    "wealth calculator",
+    "investment estimator",
+    "long term investment calculator",
+    "investment analysis calculator"
+  ],
+  authors: [{ name: 'AICalculator.pro Team' }],
+  creator: 'AICalculator.pro',
+  publisher: 'AICalculator.pro',
   openGraph: {
     title: "Free Investment Calculator - Lump Sum vs DCA Comparison",
     description: "Compare investment strategies with detailed compound growth analysis. See which approach works best for your financial goals.",
     type: "website",
-    url: "https://aicalculator.com/investment-calculator",
+    url: getUrl('/investment-calculator'),
     siteName: "AICalculator",
+    locale: 'en_US',
+    images: [
+      {
+        url: getOgImage('investment'),
+        width: 1200,
+        height: 630,
+        alt: 'Investment Calculator',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Investment Calculator - Lump Sum vs DCA",
     description: "Compare investment strategies and visualize compound growth over time. Free calculator with inflation adjustment.",
+    images: [getOgImage('investment')],
     site: "@AICalculator",
+    creator: '@aicalculator',
   },
   alternates: {
-    canonical: "https://aicalculator.com/investment-calculator",
+    canonical: getUrl('/investment-calculator'),
   },
   robots: {
     index: true,
@@ -44,7 +91,8 @@ export default function InvestmentCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Investment Calculator",
-        "url": "https://aicalculator.com/investment-calculator",
+        "@id": getWebAppId('/investment-calculator'),
+        "url": getUrl('/investment-calculator'),
         "description": "Free investment calculator to compare lump sum vs dollar-cost averaging strategies. Calculate compound returns, visualize growth curves, and see inflation-adjusted values.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -68,29 +116,31 @@ export default function InvestmentCalculatorPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "@id": getBreadcrumbId('/investment-calculator'),
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.com/financial"
+            "item": getUrl('/financial')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Investment Calculator",
-            "item": "https://aicalculator.com/investment-calculator"
+            "item": getUrl('/investment-calculator')
           }
         ]
       },
       {
         "@type": "FAQPage",
+        "@id": getFaqId('/investment-calculator'),
         "mainEntity": [
           {
             "@type": "Question",
@@ -160,34 +210,72 @@ export default function InvestmentCalculatorPage() {
       },
       {
         "@type": "HowTo",
+        "@id": getHowToId('/investment-calculator'),
         "name": "How to Use the Investment Calculator",
         "description": "Compare investment strategies and calculate future returns in 4 steps",
+        "totalTime": "PT5M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "tool": {
+          "@type": "HowToTool",
+          "name": "Investment Calculator"
+        },
         "step": [
           {
             "@type": "HowToStep",
             "position": 1,
             "name": "Choose Investment Strategy",
-            "text": "Select whether to compare Lump Sum (invest all at once), DCA (dollar-cost averaging with monthly contributions), or Both strategies side-by-side. This determines which input fields are shown."
+            "text": "Select whether to compare Lump Sum (invest all at once), DCA (dollar-cost averaging with monthly contributions), or Both strategies side-by-side. This determines which input fields are shown.",
+            "url": getStepUrl('/investment-calculator', 1)
           },
           {
             "@type": "HowToStep",
             "position": 2,
             "name": "Enter Investment Amounts",
-            "text": "Input your initial investment amount and, if using DCA or Both, your planned monthly contribution. This calculator supports any amount from small regular investments to large lump sums."
+            "text": "Input your initial investment amount and, if using DCA or Both, your planned monthly contribution. This calculator supports any amount from small regular investments to large lump sums.",
+            "url": getStepUrl('/investment-calculator', 2)
           },
           {
             "@type": "HowToStep",
             "position": 3,
             "name": "Set Time Period and Returns",
-            "text": "Enter your investment period in years (1-50), expected annual return rate (historical stock market average: ~10%), and expected inflation rate (historical average: 2-3%). These assumptions significantly impact results."
+            "text": "Enter your investment period in years (1-50), expected annual return rate (historical stock market average: ~10%), and expected inflation rate (historical average: 2-3%). These assumptions significantly impact results.",
+            "url": getStepUrl('/investment-calculator', 3)
           },
           {
             "@type": "HowToStep",
             "position": 4,
             "name": "Review Results and Charts",
-            "text": "See detailed results including future value, total earnings, real value after inflation, and side-by-side strategy comparison. Switch between Summary, Growth Chart, and Yearly Breakdown tabs to visualize your investment journey."
+            "text": "See detailed results including future value, total earnings, real value after inflation, and side-by-side strategy comparison. Switch between Summary, Growth Chart, and Yearly Breakdown tabs to visualize your investment journey.",
+            "url": getStepUrl('/investment-calculator', 4)
           }
         ]
+      },
+      {
+        "@type": "Article",
+        "@id": getArticleId('/investment-calculator'),
+        "headline": "Investment Calculator - Complete Guide to Lump Sum vs Dollar-Cost Averaging",
+        "description": "Comprehensive guide to investment strategies with free calculator. Learn the differences between lump sum and DCA investing, understand compound growth, and make informed investment decisions.",
+        "author": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "url": getUrl('/')
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": getUrl('/logo.png')
+          }
+        },
+        "datePublished": "2025-11-16",
+        "dateModified": "2025-11-16",
+        "image": getOgImage('investment'),
+        "articleBody": "Compare lump sum and dollar-cost averaging investment strategies to maximize your returns. Understand how compound interest works, the impact of inflation, and which strategy suits your risk tolerance and financial goals."
       }
     ]
   };

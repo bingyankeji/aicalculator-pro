@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description:
       "Calculate missing sides of right triangles using the Pythagorean theorem. Find hypotenuse or legs with step-by-step solutions and visual diagrams.",
     type: "website",
-    url: "https://aicalculator.com/pythagorean-calculator",
+    url: "https://aicalculator.pro/pythagorean-calculator",
     siteName: "AI Calculator",
   },
   twitter: {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/pythagorean-calculator",
+    canonical: "https://aicalculator.pro/pythagorean-calculator",
   },
   robots: {
     index: true,
@@ -60,7 +60,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Pythagorean Theorem Calculator",
-      "url": "https://aicalculator.com/pythagorean-calculator",
+      "url": "https://aicalculator.pro/pythagorean-calculator",
       "description": "Calculate missing sides of right triangles using the Pythagorean theorem (a² + b² = c²). Includes step-by-step solutions and visual triangle diagrams.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Any",
@@ -87,19 +87,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.com"
+          "item": "https://aicalculator.pro"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Math & Numbers",
-          "item": "https://aicalculator.com/math-numbers"
+          "item": "https://aicalculator.pro/math-numbers"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Pythagorean Theorem Calculator",
-          "item": "https://aicalculator.com/pythagorean-calculator"
+          "item": "https://aicalculator.pro/pythagorean-calculator"
         }
       ]
     },

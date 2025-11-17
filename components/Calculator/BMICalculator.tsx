@@ -59,6 +59,7 @@ export function BMICalculator() {
   const [showShareModal, setShowShareModal] = useState(false);
   const [shareUrl, setShareUrl] = useState('');
   const [copySuccess, setCopySuccess] = useState(false);
+  const [isCalculating, setIsCalculating] = useState(false);
 
   // Load data from URL parameters on mount
   useEffect(() => {
@@ -539,7 +540,7 @@ export function BMICalculator() {
     };
   };
 
-  const handleCalculate = () => {
+  const handleCalculate = async () => {
     if (inputs.weight <= 0 || inputs.height <= 0 || inputs.age <= 0) {
       alert('Please enter valid weight, height, and age values.');
       return;
@@ -552,8 +553,21 @@ export function BMICalculator() {
       alert('Please enter a valid age.');
       return;
     }
-    const result = calculateBMI();
-    setResult(result);
+
+    setIsCalculating(true);
+
+    // Simulate calculation time for better UX
+    await new Promise(resolve => setTimeout(resolve, 300));
+
+    try {
+      const result = calculateBMI();
+      setResult(result);
+    } catch (error) {
+      console.error('Calculation error:', error);
+      alert('An error occurred during calculation. Please try again.');
+    } finally {
+      setIsCalculating(false);
+    }
   };
 
   const handleShare = () => {
@@ -761,20 +775,28 @@ export function BMICalculator() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-3 gap-6 lg:items-start">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 xl:items-start">
         {/* Input Panel */}
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 sticky top-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">BMI Calculator</h2>
+        <div className="xl:col-span-1">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6 sticky top-6 space-y-4 sm:space-y-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 hidden lg:block">BMI Calculator</h2>
 
             {/* Unit Toggle */}
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">Unit System</label>
-              <div className="flex rounded-lg border border-gray-300 overflow-hidden">
+              <div className="flex rounded-lg border border-gray-300 overflow-hidden" role="radiogroup" aria-label="Unit system">
                 <button
                   onClick={() => handleUnitChange('metric')}
-                  className={`flex-1 py-2 text-sm font-medium transition-colors ${
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      handleUnitChange('metric');
+                    }
+                  }}
+                  role="radio"
+                  aria-checked={inputs.unit === 'metric'}
+                  className={`flex-1 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
                     inputs.unit === 'metric' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'
                   }`}
                 >
@@ -782,7 +804,15 @@ export function BMICalculator() {
                 </button>
                 <button
                   onClick={() => handleUnitChange('imperial')}
-                  className={`flex-1 py-2 text-sm font-medium transition-colors ${
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      handleUnitChange('imperial');
+                    }
+                  }}
+                  role="radio"
+                  aria-checked={inputs.unit === 'imperial'}
+                  className={`flex-1 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
                     inputs.unit === 'imperial' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'
                   }`}
                 >
@@ -860,17 +890,33 @@ export function BMICalculator() {
             {/* Calculate Button */}
             <button
               onClick={handleCalculate}
-              className="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleCalculate();
+                }
+              }}
+              disabled={isCalculating}
+              className="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:shadow-none"
+              aria-label="Calculate BMI"
+              aria-busy={isCalculating}
             >
-              Calculate BMI
+              {isCalculating ? (
+                <div className="flex items-center justify-center gap-2">
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  Calculating...
+                </div>
+              ) : (
+                'Calculate BMI'
+              )}
             </button>
           </div>
         </div>
 
         {/* Results Panel */}
-        <div className="lg:col-span-2">
+        <div className="xl:col-span-2">
           {result ? (
-            <div className="space-y-4">
+            <div className="space-y-4 sm:space-y-6">
               {/* Export & Share Buttons */}
               <div className="flex gap-3 justify-end mb-4 flex-wrap">
                 <button
@@ -903,7 +949,7 @@ export function BMICalculator() {
               </div>
 
               {/* Result Content */}
-              <div ref={resultRef} className="space-y-4 bg-white p-8 rounded-xl shadow-lg" style={{ width: '900px' }}>
+              <div ref={resultRef} className="space-y-4 bg-white p-4 sm:p-6 lg:p-8 rounded-xl shadow-lg" style={{ width: '900px' }}>
                 {/* Export Header */}
                 <div className="border-b-2 border-gray-200 pb-4 mb-6">
                   <h2 className="text-2xl font-bold text-gray-900 mb-2">BMI Calculation Report</h2>
@@ -916,21 +962,21 @@ export function BMICalculator() {
                 </div>
 
                 {/* BMI Result Card with Gauge */}
-                <div className={`bg-gradient-to-br ${getCategoryColor(result.category).gradient} rounded-xl shadow-xl p-6 text-white`}>
+                <div className={`bg-gradient-to-br ${getCategoryColor(result.category).gradient} rounded-xl shadow-xl p-4 sm:p-6 text-white`}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
                     <div style={{ flex: 1 }}>
                       <div className="text-sm font-medium opacity-90 mb-2">Your BMI is</div>
-                      <div className="text-5xl font-bold mb-2">{result.bmi}</div>
+                      <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 break-all">{result.bmi}</div>
                       <div className="text-xl font-semibold mb-1">{result.categoryLabel}</div>
                       <div className="text-sm opacity-90">{result.categoryDescription}</div>
                     </div>
                     <div style={{ width: '160px', height: '160px', flexShrink: 0 }}>
-                      <ResponsiveContainer width={160} height={160}>
+                      <ResponsiveContainer width="100%" height="100%" minHeight={160}>
                         <PieChart>
                           <Pie
                             data={getGaugeData(result.bmi)}
-                            cx={80}
-                            cy={80}
+                            cx="50%"
+                            cy="50%"
                             startAngle={180}
                             endAngle={0}
                             innerRadius={60}
@@ -948,9 +994,9 @@ export function BMICalculator() {
                 </div>
 
                 {/* BMI Metrics Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* BMI Prime */}
-                  <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl border-2 border-purple-200 p-5">
+                  <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl border-2 border-purple-200 p-4 sm:p-5">
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-2xl">📊</span>
                       <h4 className="font-bold text-gray-900">BMI Prime</h4>
@@ -967,7 +1013,7 @@ export function BMICalculator() {
                   </div>
 
                   {/* Ponderal Index */}
-                  <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl border-2 border-cyan-200 p-5">
+                  <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl border-2 border-cyan-200 p-4 sm:p-5">
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-2xl">📐</span>
                       <h4 className="font-bold text-gray-900">Ponderal Index</h4>
@@ -983,7 +1029,7 @@ export function BMICalculator() {
                 </div>
 
                 {/* BMI Range Visualization */}
-                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-4">BMI Range (WHO Classification)</h3>
                   <div className="relative">
                     {/* Multi-color gradient bar */}
@@ -1059,7 +1105,7 @@ export function BMICalculator() {
                 </div>
 
                 {/* Peer Comparison */}
-                <div className="bg-purple-50 rounded-xl border border-purple-200 p-6">
+                <div className="bg-purple-50 rounded-xl border border-purple-200 p-4 sm:p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
                     <span>👥</span>
                     Comparison with Peers
@@ -1070,7 +1116,7 @@ export function BMICalculator() {
                 </div>
 
                 {/* Healthy Weight Range */}
-                <div className="bg-green-50 rounded-xl border border-green-200 p-6">
+                <div className="bg-green-50 rounded-xl border border-green-200 p-4 sm:p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-3">Healthy Weight Range</h3>
                   <p className="text-gray-700 mb-2">For your height, a healthy weight range is:</p>
                   <div className="text-2xl font-bold text-green-600">
@@ -1090,12 +1136,12 @@ export function BMICalculator() {
                 </div>
 
                 {/* Action Plan */}
-                <div className="bg-blue-50 rounded-xl border border-blue-200 p-6">
+                <div className="bg-blue-50 rounded-xl border border-blue-200 p-4 sm:p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
                     <span>🎯</span>
                     Your Action Plan
                   </h3>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="bg-white rounded-lg p-4">
                       <div className="text-sm font-semibold text-gray-600 mb-1">Target Daily Calories</div>
                       <div className="text-2xl font-bold text-blue-600">{result.analysis.targetCalories} cal</div>
@@ -1114,7 +1160,7 @@ export function BMICalculator() {
                 </div>
 
                 {/* Health Analysis */}
-                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="text-3xl">📊</div>
                     <div>
@@ -1161,7 +1207,7 @@ export function BMICalculator() {
                 </div>
 
                 {/* Disclaimer */}
-                <div className="bg-yellow-50 rounded-lg border border-yellow-200 p-4">
+                <div className="bg-yellow-50 rounded-lg border border-yellow-200 p-3 sm:p-4">
                   <p className="text-xs text-gray-700">
                     <strong>⚠️ Disclaimer:</strong> This BMI calculator is for informational purposes only and should not replace professional medical advice. BMI is a screening tool and doesn't diagnose health conditions. Consult with a healthcare provider for personalized health assessments, especially before starting any weight loss or gain program.
                   </p>
@@ -1170,7 +1216,7 @@ export function BMICalculator() {
             </div>
           ) : (
             <div className="bg-gray-50 rounded-xl border-2 border-dashed border-gray-300 p-12 text-center">
-              <div className="text-5xl mb-4">⚖️</div>
+              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-4">⚖️</div>
               <div className="text-xl font-semibold text-gray-900 mb-2">Ready to Calculate</div>
               <p className="text-gray-600">
                 Enter your details on the left and click "Calculate BMI" to see your personalized health analysis

@@ -408,10 +408,11 @@ export function HomeLoanCalculator() {
       cs: inputs.creditScore.toString(),
       lt: inputs.loanType,
     }),
-    getShareText: () =>
-      analysis
-        ? `Home Loan Analysis: ${analysis.recommendedProgram.name} | Monthly: $${analysis.totalMonthlyPayment.toFixed(0)} | Approval: ${analysis.approvalProbability}%`
-        : 'Calculate your home loan options!',
+    getShareText: () => {
+      const currentAnalysis = analysis; // 确保使用当前的 analysis 状态
+      if (!currentAnalysis) return 'Calculate your home loan options!';
+      return `Home Loan Analysis: ${currentAnalysis.recommendedProgram.name} | Monthly: $${currentAnalysis.totalMonthlyPayment.toFixed(0)} | Approval: ${currentAnalysis.approvalProbability}%`;
+    },
   });
 
   const handleSaveImage = async () => {
@@ -503,12 +504,12 @@ export function HomeLoanCalculator() {
   })) : [];
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-3 gap-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
         {/* Input Section */}
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 sticky top-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+        <div className="xl:col-span-1">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6 sticky top-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2 hidden lg:block">
               <Home className="w-6 h-6 text-blue-600" />
               Home Loan Calculator
             </h2>
@@ -873,9 +874,9 @@ export function HomeLoanCalculator() {
         </div>
 
         {/* Results Section */}
-        <div className="lg:col-span-2">
+        <div className="xl:col-span-2">
           {analysis ? (
-            <div className="space-y-4">
+            <div className="space-y-4 sm:space-y-6">
               {/* Action Buttons */}
               <div className="flex justify-end gap-3">
                 <button
@@ -921,19 +922,19 @@ export function HomeLoanCalculator() {
                     <div className="grid md:grid-cols-2 gap-4 mb-4">
                       <div>
                         <p className="text-sm text-gray-600">Adjusted Interest Rate</p>
-                        <p className="text-xl font-semibold text-gray-900">{analysis.recommendedProgram.adjustedRate.toFixed(2)}%</p>
+                        <p className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 break-all">{(analysis.recommendedProgram.adjustedRate || 0).toFixed(2)}%</p>
                       </div>
                       <div>
                         <p className="text-sm text-gray-600">Minimum Down Payment</p>
-                        <p className="text-xl font-semibold text-gray-900">{analysis.recommendedProgram.minDownPayment}%</p>
+                        <p className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 break-all">{analysis.recommendedProgram.minDownPayment}%</p>
                       </div>
                       <div>
                         <p className="text-sm text-gray-600">Eligibility Score</p>
-                        <p className="text-xl font-semibold text-gray-900">{analysis.eligibilityScore}/100</p>
+                        <p className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 break-all">{analysis.eligibilityScore}/100</p>
                       </div>
                       <div>
                         <p className="text-sm text-gray-600">Approval Probability</p>
-                        <p className={`text-xl font-semibold ${getApprovalColor(analysis.approvalProbability)}`}>
+                        <p className={`text-lg sm:text-xl md:text-2xl font-semibold break-all ${getApprovalColor(analysis.approvalProbability)}`}>
                           {analysis.approvalProbability.toFixed(0)}%
                         </p>
                       </div>
@@ -969,21 +970,21 @@ export function HomeLoanCalculator() {
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <div className="text-3xl font-bold text-gray-900 mb-2">
+                      <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 break-all">
                         ${analysis.totalMonthlyPayment.toFixed(0)}
                       </div>
                       <div className="text-sm text-gray-600">Total Monthly Payment</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-blue-600 mb-2">
+                      <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 mb-2 break-all">
                         {analysis.dti.toFixed(1)}%
                       </div>
                       <div className="text-sm text-gray-600">Debt-to-Income Ratio</div>
                     </div>
                   </div>
 
-                  <div className="mt-6 h-64">
-                    <ResponsiveContainer width="100%" height="100%">
+                  <div className="mt-4 sm:mt-6 h-48 sm:h-56 md:h-64">
+                    <ResponsiveContainer width="100%" height={180} minHeight={200}>
                       <PieChart>
                         <Pie
                           data={chartData}
@@ -991,14 +992,17 @@ export function HomeLoanCalculator() {
                           nameKey="name"
                           cx="50%"
                           cy="50%"
-                          outerRadius={80}
-                          label={(entry) => `${entry.name}: $${entry.value.toFixed(0)}`}
+                          outerRadius={60}
+                          label={false}
                         >
                           {chartData.map((entry, index) => (
                             <Cell key={`cell-${index}`} fill={entry.fill} />
                           ))}
                         </Pie>
-                        <Tooltip formatter={(value: number) => `$${value.toFixed(0)}`} />
+                        <Tooltip
+                          formatter={(value: number) => `$${value.toFixed(0)}`}
+                          contentStyle={{ fontSize: '12px' }}
+                        />
                       </PieChart>
                     </ResponsiveContainer>
                   </div>
@@ -1006,21 +1010,21 @@ export function HomeLoanCalculator() {
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
                     <div className="text-center p-3 bg-blue-50 rounded-lg">
                       <div className="text-sm text-blue-600 mb-1">Principal & Interest</div>
-                      <div className="text-lg font-semibold text-blue-900">
+                      <div className="text-base sm:text-lg md:text-xl font-semibold text-blue-900 break-all">
                         ${analysis.monthlyPayment.toFixed(0)}
                       </div>
                     </div>
                     {analysis.pmi > 0 && (
                       <div className="text-center p-3 bg-red-50 rounded-lg">
                         <div className="text-sm text-red-600 mb-1">PMI</div>
-                        <div className="text-lg font-semibold text-red-900">
+                        <div className="text-base sm:text-lg md:text-xl font-semibold text-red-900 break-all">
                           ${analysis.pmi.toFixed(0)}
                         </div>
                       </div>
                     )}
                     <div className="text-center p-3 bg-green-50 rounded-lg">
                       <div className="text-sm text-green-600 mb-1">Total Interest</div>
-                      <div className="text-lg font-semibold text-green-900">
+                      <div className="text-base sm:text-lg md:text-xl font-semibold text-green-900 break-all">
                         ${analysis.totalInterest.toLocaleString()}
                       </div>
                     </div>
@@ -1039,33 +1043,33 @@ export function HomeLoanCalculator() {
                     </button>
                   </div>
 
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
+                  <div className="overflow-x-auto overflow-y-hidden">
+                    <table className="w-full text-xs sm:text-sm min-w-[350px]">
                       <thead>
                         <tr className="border-b border-gray-200">
-                          <th className="text-left py-3 px-2 font-semibold text-gray-900">Program</th>
-                          <th className="text-center py-3 px-2 font-semibold text-gray-900">Eligibility</th>
-                          <th className="text-center py-3 px-2 font-semibold text-gray-900">Rate</th>
-                          <th className="text-center py-3 px-2 font-semibold text-gray-900">Down %</th>
-                          <th className="text-center py-3 px-2 font-semibold text-gray-900">PMI</th>
+                          <th className="text-left py-3 px-2 sm:px-4 font-semibold text-gray-900">Program</th>
+                          <th className="text-center py-3 px-2 sm:px-4 font-semibold text-gray-900">Eligibility</th>
+                          <th className="text-center py-3 px-2 sm:px-4 font-semibold text-gray-900">Rate</th>
+                          <th className="text-center py-3 px-2 sm:px-4 font-semibold text-gray-900">Down %</th>
+                          <th className="text-center py-3 px-2 sm:px-4 font-semibold text-gray-900">PMI</th>
                         </tr>
                       </thead>
                       <tbody>
                         {(showAllPrograms ? comparisonData : comparisonData.slice(0, 3)).map((program, idx) => (
                           <tr key={idx} className={`border-b border-gray-100 ${idx === 0 ? 'bg-blue-50' : ''}`}>
-                            <td className="py-3 px-2 font-medium text-gray-900">{program.name}</td>
-                            <td className="py-3 px-2 text-center">
+                            <td className="py-3 px-2 sm:px-4 font-medium text-gray-900">{program.name}</td>
+                            <td className="py-3 px-2 sm:px-4 text-center">
                               <div className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${
-                                program.eligibilityScore >= 80 ? 'bg-green-100 text-green-800' :
-                                program.eligibilityScore >= 60 ? 'bg-yellow-100 text-yellow-800' :
+                                (program.eligibilityScore || 0) >= 80 ? 'bg-green-100 text-green-800' :
+                                (program.eligibilityScore || 0) >= 60 ? 'bg-yellow-100 text-yellow-800' :
                                 'bg-red-100 text-red-800'
                               }`}>
-                                {program.eligibilityScore}%
+                                {program.eligibilityScore || 0}%
                               </div>
                             </td>
-                            <td className="py-3 px-2 text-center">{program.adjustedRate.toFixed(2)}%</td>
-                            <td className="py-3 px-2 text-center">{program.downPaymentMin}%</td>
-                            <td className="py-3 px-2 text-center">{program.name === 'VA' ? 'No' : 'Yes'}</td>
+                            <td className="py-3 px-2 sm:px-4 text-center">{(program.adjustedRate || 0).toFixed(2)}%</td>
+                            <td className="py-3 px-2 sm:px-4 text-center">{program.downPaymentMin}%</td>
+                            <td className="py-3 px-2 sm:px-4 text-center">{program.name === 'VA' ? 'No' : 'Yes'}</td>
                           </tr>
                         ))}
                       </tbody>

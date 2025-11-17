@@ -263,11 +263,11 @@ export default function AmortizationCharts({
 
         {/* Chart - Loan Balance Over Time */}
         <div className="flex flex-col gap-6">
-          <div className="bg-white rounded-lg shadow border border-gray-200 p-6">
+          <div className="bg-white rounded-lg shadow border border-gray-200 p-4 sm:p-6">
             <h4 className="text-base font-bold text-gray-900 mb-4">
               ✅ Loan Balance & Payments Over Time
             </h4>
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={250} minHeight={200}>
               <LineChart data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
                 <XAxis 
@@ -317,11 +317,11 @@ export default function AmortizationCharts({
 
           {/* Pie Chart - Monthly Payment Breakdown */}
           {pieData.length > 0 && (
-            <div className="bg-white rounded-lg shadow border border-gray-200 p-6">
+            <div className="bg-white rounded-lg shadow border border-gray-200 p-4 sm:p-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Left: Donut Chart */}
                 <div>
-                  <ResponsiveContainer width="100%" height={250}>
+                  <ResponsiveContainer width="100%" height={200} minHeight={180}>
                     <PieChart>
                       <Pie
                         data={pieData}

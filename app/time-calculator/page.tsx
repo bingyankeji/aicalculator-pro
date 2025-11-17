@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Time Calculator - Add, Subtract & Convert Time Online",
     description: "Free time calculator with iOS design. Add/subtract time, convert units, calculate dates. Smart analysis + time management tips.",
     type: "website",
-    url: "https://aicalculator.com/time-calculator",
+    url: "https://aicalculator.pro/time-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     site: "@aicalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/time-calculator",
+    canonical: "https://aicalculator.pro/time-calculator",
   },
   robots: {
     index: true,
@@ -61,7 +61,7 @@ export default function TimeCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Time Calculator",
-        "url": "https://aicalculator.com/time-calculator",
+        "url": "https://aicalculator.pro/time-calculator",
         "description": "Free online time calculator to add, subtract, and convert time units instantly. Perfect for project planning and scheduling.",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
@@ -88,19 +88,19 @@ export default function TimeCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Date & Time",
-            "item": "https://aicalculator.com/date-time"
+            "item": "https://aicalculator.pro/date-time"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Time Calculator",
-            "item": "https://aicalculator.com/time-calculator"
+            "item": "https://aicalculator.pro/time-calculator"
           }
         ]
       },
@@ -252,12 +252,7 @@ export default function TimeCalculatorPage() {
       {/* Calculator Section */}
       <section className="py-8 md:py-12" aria-label="Time Calculator Tool">
         <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">⏰ Time Calculator</h2>
-            <p className="text-lg text-gray-600">
-              Add, subtract, and convert time instantly. Calculate durations, convert units, and plan your schedule efficiently.
-            </p>
-          </div>
+          <h2 className="sr-only">Time Calculator - Add, subtract, and convert time instantly. Calculate durations, convert units, and plan your schedule efficiently.</h2>
           <TimeCalculator />
         </div>
       </section>

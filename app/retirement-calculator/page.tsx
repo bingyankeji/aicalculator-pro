@@ -1,25 +1,72 @@
 import { Metadata } from 'next';
 import { RetirementCalculator } from '@/components/Calculator/RetirementCalculator';
+import { 
+  getUrl, 
+  getOgImage, 
+  getBreadcrumbId, 
+  getWebAppId, 
+  getFaqId, 
+  getHowToId, 
+  getArticleId,
+  getStepUrl 
+} from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Retirement Calculator - Free Retirement Planning Calculator with Gap Analysis | AICalculator",
   description: "Plan your retirement with our comprehensive retirement calculator. Calculate retirement savings needs, analyze income gaps, optimize contributions, and ensure financial security. Free retirement planning tool with Social Security and pension integration.",
-  keywords: ["retirement calculator", "retirement planning calculator", "retirement savings calculator", "401k calculator", "retirement income calculator", "how much do I need to retire", "retirement gap analysis", "retirement planner", "social security calculator", "pension calculator", "retirement age calculator", "early retirement calculator"],
+  keywords: [
+    "retirement calculator", 
+    "retirement planning calculator", 
+    "retirement savings calculator", 
+    "401k calculator", 
+    "retirement income calculator", 
+    "how much do I need to retire", 
+    "retirement gap analysis", 
+    "retirement planner", 
+    "social security calculator", 
+    "pension calculator", 
+    "retirement age calculator", 
+    "early retirement calculator",
+    "retirement nest egg calculator",
+    "retirement withdrawal calculator",
+    "retirement planning tool",
+    "retirement savings goal",
+    "retirement investment calculator",
+    "retirement budget calculator",
+    "retirement readiness calculator",
+    "retirement fund calculator",
+    "retirement estimator",
+    "retirement projection calculator"
+  ],
+  authors: [{ name: 'AICalculator.pro Team' }],
+  creator: 'AICalculator.pro',
+  publisher: 'AICalculator.pro',
   openGraph: {
     title: "Free Retirement Calculator - Retirement Savings & Gap Analysis",
     description: "Calculate retirement savings needs with gap analysis. Plan for Social Security, pensions, and investment returns. Free comprehensive retirement calculator.",
     type: "website",
-    url: "https://aicalculator.com/retirement-calculator",
+    url: getUrl('/retirement-calculator'),
     siteName: "AICalculator",
+    locale: 'en_US',
+    images: [
+      {
+        url: getOgImage('retirement'),
+        width: 1200,
+        height: 630,
+        alt: 'Retirement Calculator',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Retirement Calculator - Plan Your Financial Future",
     description: "Comprehensive retirement planning calculator with gap analysis, Social Security, and pension integration.",
+    images: [getOgImage('retirement')],
     site: "@AICalculator",
+    creator: '@aicalculator',
   },
   alternates: {
-    canonical: "https://aicalculator.com/retirement-calculator",
+    canonical: getUrl('/retirement-calculator'),
   },
   robots: {
     index: true,
@@ -43,8 +90,9 @@ export default function RetirementCalculatorPage() {
     "@graph": [
       {
         "@type": "WebApplication",
+        "@id": getWebAppId('/retirement-calculator'),
         "name": "Retirement Calculator",
-        "url": "https://aicalculator.com/retirement-calculator",
+        "url": getUrl('/retirement-calculator'),
         "description": "Free comprehensive retirement calculator to plan retirement savings, analyze income gaps, optimize contributions, and ensure financial security with Social Security and pension integration.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -69,29 +117,31 @@ export default function RetirementCalculatorPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "@id": getBreadcrumbId('/retirement-calculator'),
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.com/financial"
+            "item": getUrl('/financial')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Retirement Calculator",
-            "item": "https://aicalculator.com/retirement-calculator"
+            "item": getUrl('/retirement-calculator')
           }
         ]
       },
       {
         "@type": "FAQPage",
+        "@id": getFaqId('/retirement-calculator'),
         "mainEntity": [
           {
             "@type": "Question",
@@ -161,34 +211,72 @@ export default function RetirementCalculatorPage() {
       },
       {
         "@type": "HowTo",
+        "@id": getHowToId('/retirement-calculator'),
         "name": "How to Plan Your Retirement",
         "description": "Calculate retirement savings needs and create a comprehensive retirement plan in 4 steps",
+        "totalTime": "PT10M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "tool": {
+          "@type": "HowToTool",
+          "name": "Retirement Calculator"
+        },
         "step": [
           {
             "@type": "HowToStep",
             "position": 1,
             "name": "Enter Personal Information",
-            "text": "Input your current age, desired retirement age (typically 65-67), and life expectancy (plan for 85-90 to be safe). These determine your savings timeline and retirement duration."
+            "text": "Input your current age, desired retirement age (typically 65-67), and life expectancy (plan for 85-90 to be safe). These determine your savings timeline and retirement duration.",
+            "url": getStepUrl('/retirement-calculator', 1)
           },
           {
             "@type": "HowToStep",
             "position": 2,
             "name": "Input Current Savings and Contributions",
-            "text": "Enter your current retirement savings across all accounts (401k, IRA, etc.). Add your monthly contribution amount and employer match. Always contribute enough to get full employer match - it's free money with immediate 50-100% return."
+            "text": "Enter your current retirement savings across all accounts (401k, IRA, etc.). Add your monthly contribution amount and employer match. Always contribute enough to get full employer match - it's free money with immediate 50-100% return.",
+            "url": getStepUrl('/retirement-calculator', 2)
           },
           {
             "@type": "HowToStep",
             "position": 3,
             "name": "Set Investment and Economic Assumptions",
-            "text": "Enter expected annual investment return (historical average: 7-10% for stocks, 3-5% for bonds, use 7% for balanced portfolio). Set inflation rate (historical average: 2-3%). These affect future value calculations."
+            "text": "Enter expected annual investment return (historical average: 7-10% for stocks, 3-5% for bonds, use 7% for balanced portfolio). Set inflation rate (historical average: 2-3%). These affect future value calculations.",
+            "url": getStepUrl('/retirement-calculator', 3)
           },
           {
             "@type": "HowToStep",
             "position": 4,
             "name": "Define Retirement Income Needs",
-            "text": "Enter desired monthly income in today's dollars (rule of thumb: 70-80% of current income). Add expected Social Security (check SSA.gov for estimate) and any pension. The calculator will show if you're on track and how much extra to save if there's a gap."
+            "text": "Enter desired monthly income in today's dollars (rule of thumb: 70-80% of current income). Add expected Social Security (check SSA.gov for estimate) and any pension. The calculator will show if you're on track and how much extra to save if there's a gap.",
+            "url": getStepUrl('/retirement-calculator', 4)
           }
         ]
+      },
+      {
+        "@type": "Article",
+        "@id": getArticleId('/retirement-calculator'),
+        "headline": "Retirement Calculator - Complete Guide to Retirement Planning",
+        "description": "Comprehensive guide to retirement planning with free calculator. Learn how much you need to retire, understand the 4% rule, optimize Social Security, and create a retirement savings strategy.",
+        "author": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "url": getUrl('/')
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": getUrl('/logo.png')
+          }
+        },
+        "datePublished": "2025-11-16",
+        "dateModified": "2025-11-16",
+        "image": getOgImage('retirement'),
+        "articleBody": "Retirement planning requires careful calculation of savings needs, investment returns, and income sources. Use our calculator to determine if you're on track for retirement, analyze income gaps, and optimize your savings strategy with Social Security and pension integration."
       }
     ]
   };

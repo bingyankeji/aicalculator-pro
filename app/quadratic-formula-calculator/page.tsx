@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "Quadratic Formula Calculator - Solve ax^2 + bx + c with Steps",
     description: "Solve quadratic equations with discriminant and step-by-step solutions. Supports real and complex roots.",
     type: "website",
-    url: "https://aicalculator.com/quadratic-formula-calculator",
+    url: "https://aicalculator.pro/quadratic-formula-calculator",
     siteName: "AICalculator"
   },
   twitter: {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: "Instantly solve ax^2 + bx + c = 0 with steps, discriminant, and real/complex roots.",
     site: "@AICalculator"
   },
-  alternates: { canonical: "https://aicalculator.com/quadratic-formula-calculator" },
+  alternates: { canonical: "https://aicalculator.pro/quadratic-formula-calculator" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-video-preview': -1, 'max-image-preview': 'large', 'max-snippet': -1 } },
   other: { 'last-modified': new Date().toISOString() }
 };

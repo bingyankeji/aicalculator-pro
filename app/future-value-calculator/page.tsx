@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 import FutureValueCalculator from "@/components/Calculator/FutureValueCalculator";
 import Link from "next/link";
+import {
+  getUrl,
+  getOgImage,
+  getBreadcrumbId,
+  getWebAppId,
+  getFaqId,
+  getHowToId,
+  getArticleId,
+  getStepUrl
+} from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Future Value Calculator - Save & Compare Investment Scenarios with Inflation | AI Calculator",
@@ -24,24 +34,41 @@ export const metadata: Metadata = {
     "wealth projection tool",
     "compound growth calculator",
     "investment analysis tool",
+    "future value annuity calculator",
+    "fv calculator with inflation",
+    "investment growth projections"
   ],
+  authors: [{ name: 'AICalculator.pro Team' }],
+  creator: 'AICalculator.pro',
+  publisher: 'AICalculator.pro',
   openGraph: {
     title: "Future Value Calculator - Project Investment Growth",
     description:
       "Calculate future value of investments with inflation adjustment. Plan your financial future with detailed projections and analysis tools.",
     type: "website",
-    url: "https://aicalculator.com/future-value-calculator",
-    siteName: "AI Calculator",
+    url: getUrl('/future-value-calculator'),
+    siteName: "AICalculator",
+    locale: 'en_US',
+    images: [
+      {
+        url: getOgImage('future-value'),
+        width: 1200,
+        height: 630,
+        alt: 'Future Value Calculator',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Future Value Calculator - Financial Planning Tool",
     description:
       "Free calculator for future value projections. Plan investments with inflation adjustment and detailed analysis.",
+    images: [getOgImage('future-value')],
     site: "@AICalculator",
+    creator: '@aicalculator',
   },
   alternates: {
-    canonical: "https://aicalculator.com/future-value-calculator",
+    canonical: getUrl('/future-value-calculator'),
   },
   robots: {
     index: true,
@@ -61,8 +88,9 @@ const structuredData = {
   "@graph": [
     {
       "@type": "WebApplication",
+      "@id": getWebAppId('/future-value-calculator'),
       "name": "Future Value Calculator",
-      "url": "https://aicalculator.com/future-value-calculator",
+      "url": getUrl('/future-value-calculator'),
       "description": "Advanced future value calculator with scenario saving and inflation adjustment. Calculate FV of lump sum, annuity, or mixed investments. Save multiple scenarios, compare investment strategies with detailed analysis and real purchasing power calculations.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Any",
@@ -89,29 +117,31 @@ const structuredData = {
     },
     {
       "@type": "BreadcrumbList",
+      "@id": getBreadcrumbId('/future-value-calculator'),
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.com"
+          "item": getUrl('/')
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Financial",
-          "item": "https://aicalculator.com/financial"
+          "item": getUrl('/financial')
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Future Value Calculator",
-          "item": "https://aicalculator.com/future-value-calculator"
+          "item": getUrl('/future-value-calculator')
         }
       ]
     },
     {
       "@type": "FAQPage",
+      "@id": getFaqId('/future-value-calculator'),
       "mainEntity": [
         {
           "@type": "Question",
@@ -165,34 +195,72 @@ const structuredData = {
     },
     {
       "@type": "HowTo",
+      "@id": getHowToId('/future-value-calculator'),
       "name": "How to Calculate Future Value for Investment Planning",
       "description": "Step-by-step guide to calculate future value and plan your financial goals",
+      "totalTime": "PT5M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": "0"
+      },
+      "tool": {
+        "@type": "HowToTool",
+        "name": "Future Value Calculator"
+      },
       "step": [
         {
           "@type": "HowToStep",
           "position": 1,
           "name": "Define Your Investment Scenario",
-          "text": "Choose between lump sum (one-time investment), annuity (regular payments only), or mixed (initial investment plus regular contributions)."
+          "text": "Choose between lump sum (one-time investment), annuity (regular payments only), or mixed (initial investment plus regular contributions).",
+          "url": getStepUrl('/future-value-calculator', 1)
         },
         {
           "@type": "HowToStep",
           "position": 2,
           "name": "Input Investment Parameters",
-          "text": "Enter your initial investment amount, expected annual return rate, time period, and any regular contribution amounts and frequency."
+          "text": "Enter your initial investment amount, expected annual return rate, time period, and any regular contribution amounts and frequency.",
+          "url": getStepUrl('/future-value-calculator', 2)
         },
         {
           "@type": "HowToStep",
           "position": 3,
           "name": "Consider Inflation Impact",
-          "text": "Include expected inflation rate to see both nominal and real (purchasing power) values. This helps with realistic financial planning."
+          "text": "Include expected inflation rate to see both nominal and real (purchasing power) values. This helps with realistic financial planning.",
+          "url": getStepUrl('/future-value-calculator', 3)
         },
         {
           "@type": "HowToStep",
           "position": 4,
           "name": "Analyze Results and Adjust",
-          "text": "Review the projected future value, growth metrics, and year-by-year breakdown. Adjust your inputs to meet your financial goals."
+          "text": "Review the projected future value, growth metrics, and year-by-year breakdown. Adjust your inputs to meet your financial goals.",
+          "url": getStepUrl('/future-value-calculator', 4)
         }
       ]
+    },
+    {
+      "@type": "Article",
+      "@id": getArticleId('/future-value-calculator'),
+      "headline": "Future Value Calculator - Complete Guide to Investment Growth Projections",
+      "description": "Comprehensive guide to future value calculations with free calculator. Learn how to project investment growth, plan for retirement, and understand the time value of money.",
+      "author": {
+        "@type": "Organization",
+        "name": "AICalculator.pro",
+        "url": getUrl('/')
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AICalculator.pro",
+        "logo": {
+          "@type": "ImageObject",
+          "url": getUrl('/logo.png')
+        }
+      },
+      "datePublished": "2025-11-16",
+      "dateModified": "2025-11-16",
+      "image": getOgImage('future-value'),
+      "articleBody": "Master future value calculations with our comprehensive calculator. Project investment growth for lump sums, annuities, or mixed scenarios. Understand inflation impact, compare investment strategies, and make informed financial planning decisions for retirement and wealth building."
     }
   ]
 } as const;

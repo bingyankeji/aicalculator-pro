@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Statistics Calculator - Descriptive Statistics & Data Analysis",
     description: "Free online statistics calculator for comprehensive data analysis. Calculate mean, median, standard deviation, quartiles, and detect outliers with detailed statistical insights.",
     type: "website",
-    url: "https://aicalculator.com/statistics-calculator",
+    url: "https://aicalculator.pro/statistics-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/statistics-calculator",
+    canonical: "https://aicalculator.pro/statistics-calculator",
   },
   robots: {
     index: true,
@@ -58,7 +58,7 @@ export default function StatisticsCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Statistics Calculator",
-        "url": "https://aicalculator.com/statistics-calculator",
+        "url": "https://aicalculator.pro/statistics-calculator",
         "description": "Free online statistics calculator for comprehensive descriptive statistics including mean, median, mode, standard deviation, variance, quartiles, and distribution analysis.",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Any",
@@ -85,19 +85,19 @@ export default function StatisticsCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Math Calculators",
-            "item": "https://aicalculator.com/math-numbers"
+            "item": "https://aicalculator.pro/math-numbers"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Statistics Calculator",
-            "item": "https://aicalculator.com/statistics-calculator"
+            "item": "https://aicalculator.pro/statistics-calculator"
           }
         ]
       },

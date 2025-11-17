@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description:
       "Estimate business loan payments and total cost. Includes origination fees, prepayments, and multiple repayment frequencies.",
     type: "website",
-    url: "https://aicalculator.com/business-loan-calculator",
+    url: "https://aicalculator.pro/business-loan-calculator",
     siteName: "AI Calculator",
   },
   twitter: {
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/business-loan-calculator",
+    canonical: "https://aicalculator.pro/business-loan-calculator",
   },
   robots: {
     index: true,
@@ -57,7 +57,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Business Loan Calculator",
-      "url": "https://aicalculator.com/business-loan-calculator",
+      "url": "https://aicalculator.pro/business-loan-calculator",
       "description": "Estimate business loan payments, total interest, origination fee impact, and payoff time with multiple repayment frequencies.",
       "applicationCategory": "FinancialApplication",
       "operatingSystem": "Any",
@@ -84,19 +84,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.com"
+          "item": "https://aicalculator.pro"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Financial",
-          "item": "https://aicalculator.com/financial"
+          "item": "https://aicalculator.pro/financial"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Business Loan Calculator",
-          "item": "https://aicalculator.com/business-loan-calculator"
+          "item": "https://aicalculator.pro/business-loan-calculator"
         }
       ]
     },

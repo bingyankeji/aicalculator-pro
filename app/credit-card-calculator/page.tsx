@@ -1,5 +1,15 @@
 import type { Metadata } from 'next';
 import { CreditCardCalculator } from '@/components/Calculator/CreditCardCalculator';
+import { 
+  getUrl, 
+  getOgImage, 
+  getBreadcrumbId, 
+  getWebAppId, 
+  getFaqId, 
+  getHowToId, 
+  getArticleId,
+  getStepUrl 
+} from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Credit Card Calculator - Free Credit Card Payoff Calculator with Interest Savings | Debt Payoff Tool',
@@ -19,22 +29,55 @@ export const metadata: Metadata = {
     'balance transfer calculator',
     'credit card apr calculator',
     'debt free calculator',
-    'credit card strategy calculator'
+    'credit card strategy calculator',
+    'credit card paydown calculator',
+    'credit card consolidation calculator',
+    'credit card debt relief calculator',
+    'credit card monthly payment calculator',
+    'credit card balance calculator',
+    'credit card debt payoff planner',
+    'credit card interest rate calculator'
   ],
+  authors: [{ name: 'AICalculator.pro Team' }],
+  creator: 'AICalculator.pro',
+  publisher: 'AICalculator.pro',
   openGraph: {
     title: 'Free Credit Card Payoff Calculator - Calculate Interest & Savings',
     description: 'Calculate your credit card payoff time, compare payment strategies, and discover how much interest you can save. Get personalized recommendations for debt freedom.',
     type: 'website',
-    url: 'https://aicalculator.com/credit-card-calculator',
+    url: getUrl('/credit-card-calculator'),
+    siteName: 'AICalculator',
+    locale: 'en_US',
+    images: [
+      {
+        url: getOgImage('credit-card'),
+        width: 1200,
+        height: 630,
+        alt: 'Credit Card Calculator',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Credit Card Calculator - Payoff Time & Interest Savings',
     description: 'Calculate payoff time, compare strategies, and save thousands in interest. Free credit card calculator with personalized recommendations.',
+    images: [getOgImage('credit-card')],
+    site: '@AICalculator',
+    creator: '@aicalculator',
   },
-  robots: 'index, follow',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   alternates: {
-    canonical: 'https://aicalculator.com/credit-card-calculator',
+    canonical: getUrl('/credit-card-calculator'),
   },
   other: {
     'last-modified': new Date().toISOString(),
@@ -49,7 +92,8 @@ export default function CreditCardCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Credit Card Calculator",
-        "url": "https://aicalculator.com/credit-card-calculator",
+        "@id": getWebAppId('/credit-card-calculator'),
+        "url": getUrl('/credit-card-calculator'),
         "description": "Calculate credit card payoff time, total interest, and compare payment strategies. See how much you can save by paying more than the minimum payment.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -72,29 +116,31 @@ export default function CreditCardCalculatorPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "@id": getBreadcrumbId('/credit-card-calculator'),
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial Calculators",
-            "item": "https://aicalculator.com/financial"
+            "item": getUrl('/financial')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Credit Card Calculator",
-            "item": "https://aicalculator.com/credit-card-calculator"
+            "item": getUrl('/credit-card-calculator')
           }
         ]
       },
       {
         "@type": "FAQPage",
+        "@id": getFaqId('/credit-card-calculator'),
         "mainEntity": [
           {
             "@type": "Question",
@@ -164,40 +210,79 @@ export default function CreditCardCalculatorPage() {
       },
       {
         "@type": "HowTo",
+        "@id": getHowToId('/credit-card-calculator'),
         "name": "How to Use Credit Card Payoff Calculator",
         "description": "Step-by-step guide to calculating credit card payoff time and interest savings",
+        "totalTime": "PT5M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "tool": {
+          "@type": "HowToTool",
+          "name": "Credit Card Calculator"
+        },
         "step": [
           {
             "@type": "HowToStep",
             "position": 1,
             "name": "Enter Current Balance",
-            "text": "Input your total credit card debt amount. If you have multiple cards, you can calculate each separately or combine balances."
+            "text": "Input your total credit card debt amount. If you have multiple cards, you can calculate each separately or combine balances.",
+            "url": getStepUrl('/credit-card-calculator', 1)
           },
           {
             "@type": "HowToStep",
             "position": 2,
             "name": "Enter Interest Rate (APR)",
-            "text": "Input your Annual Percentage Rate (APR), found on your credit card statement. This is the yearly interest rate charged on your balance."
+            "text": "Input your Annual Percentage Rate (APR), found on your credit card statement. This is the yearly interest rate charged on your balance.",
+            "url": getStepUrl('/credit-card-calculator', 2)
           },
           {
             "@type": "HowToStep",
             "position": 3,
             "name": "Set Minimum Payment",
-            "text": "Choose percentage (typically 2-3% of balance) or fixed dollar amount. Check your statement for your card's minimum payment calculation method."
+            "text": "Choose percentage (typically 2-3% of balance) or fixed dollar amount. Check your statement for your card's minimum payment calculation method.",
+            "url": getStepUrl('/credit-card-calculator', 3)
           },
           {
             "@type": "HowToStep",
             "position": 4,
             "name": "Enter Your Monthly Payment",
-            "text": "Input how much you plan to pay each month. Always pay more than the minimum to save interest and pay off faster."
+            "text": "Input how much you plan to pay each month. Always pay more than the minimum to save interest and pay off faster.",
+            "url": getStepUrl('/credit-card-calculator', 4)
           },
           {
             "@type": "HowToStep",
             "position": 5,
             "name": "Calculate and Compare",
-            "text": "Click 'Calculate Payoff' to see 4 payment strategies: minimum payment, your custom payment, 3-year payoff, and 1-year payoff. Compare interest savings and payoff times."
+            "text": "Click 'Calculate Payoff' to see 4 payment strategies: minimum payment, your custom payment, 3-year payoff, and 1-year payoff. Compare interest savings and payoff times.",
+            "url": getStepUrl('/credit-card-calculator', 5)
           }
         ]
+      },
+      {
+        "@type": "Article",
+        "@id": getArticleId('/credit-card-calculator'),
+        "headline": "Credit Card Calculator - Complete Guide to Paying Off Credit Card Debt",
+        "description": "Comprehensive guide to credit card debt payoff with free calculator. Learn strategies to eliminate debt faster, save thousands in interest, and achieve financial freedom.",
+        "author": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "url": getUrl('/')
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": getUrl('/logo.png')
+          }
+        },
+        "datePublished": "2025-11-16",
+        "dateModified": "2025-11-16",
+        "image": getOgImage('credit-card'),
+        "articleBody": "Eliminate credit card debt with smart payment strategies. Compare minimum payments vs aggressive payoff plans, understand how interest compounds, and discover proven methods to become debt-free faster while saving thousands in interest charges."
       }
     ]
   };

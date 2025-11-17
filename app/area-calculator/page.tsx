@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: 'Free Area Calculator - Calculate Area for Multiple Shapes',
     description: 'Calculate area for rectangle, circle, triangle, trapezoid, parallelogram, and ellipse. Free tool with formulas and unit conversions.',
     type: 'website',
-    url: 'https://aicalculator.com/area-calculator',
+    url: 'https://aicalculator.pro/area-calculator',
     siteName: 'AICalculator',
   },
   twitter: {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     site: '@AICalculator',
   },
   alternates: {
-    canonical: 'https://aicalculator.com/area-calculator',
+    canonical: 'https://aicalculator.pro/area-calculator',
   },
   robots: {
     index: true,
@@ -63,7 +63,7 @@ export default function AreaCalculatorPage() {
       {
         '@type': 'WebApplication',
         name: 'Area Calculator',
-        url: 'https://aicalculator.com/area-calculator',
+        url: 'https://aicalculator.pro/area-calculator',
         description:
           'Free area calculator for rectangle, circle, triangle, trapezoid, parallelogram, and ellipse. Calculate area with formulas, step-by-step calculations, and unit conversions.',
         applicationCategory: 'EducationalApplication',
@@ -93,19 +93,19 @@ export default function AreaCalculatorPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.com',
+            item: 'https://aicalculator.pro',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Math & Numbers',
-            item: 'https://aicalculator.com/math-numbers',
+            item: 'https://aicalculator.pro/math-numbers',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'Area Calculator',
-            item: 'https://aicalculator.com/area-calculator',
+            item: 'https://aicalculator.pro/area-calculator',
           },
         ],
       },

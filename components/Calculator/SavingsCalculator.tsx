@@ -33,6 +33,9 @@ interface TargetGoal {
 }
 
 export function SavingsCalculator() {
+  // 渐进式披露状态管理
+  const [showAdvanced, setShowAdvanced] = useState(false);
+  
   const [inputs, setInputs] = useState<SavingsInputs>({
     initialDeposit: 1000,
     monthlyDeposit: 500,
@@ -156,15 +159,7 @@ export function SavingsCalculator() {
     });
   };
 
-  useEffect(() => {
-    calculateSavings();
-  }, [inputs]);
-
-  useEffect(() => {
-    if (showTargetGoal) {
-      calculateTargetGoal();
-    }
-  }, [targetAmount, inputs, showTargetGoal]);
+  // 移除自动计算 - 改为手动点击计算按钮
 
   // Share functionality
   const { showShareModal, shareUrl, shareText, handleShare, closeShareModal } = useShare({
@@ -211,40 +206,33 @@ export function SavingsCalculator() {
   }));
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="grid md:grid-cols-5 gap-6">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid md:grid-cols-5 xl:grid-cols-5 gap-4 sm:gap-6">
         {/* Input Section - 3 columns */}
         <div className="md:col-span-3 space-y-6">
-          {/* Initial Deposit */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-green-600" />
-              Starting Amount
-            </h3>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Initial Deposit ($)
-              </label>
-              <input
-                type="number"
-                value={inputs.initialDeposit || ''}
-                onChange={(e) => setInputs({ ...inputs, initialDeposit: parseFloat(e.target.value) || 0 })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-lg font-semibold"
-                placeholder="1000"
-                step="100"
-                min="0"
-              />
-              <p className="text-xs text-gray-500 mt-2">One-time starting deposit</p>
-            </div>
-          </div>
-
-          {/* Monthly Savings */}
+          {/* ✅ 基础信息卡片 - 始终显示 */}
           <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
             <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <PiggyBank className="w-5 h-5 text-blue-600" />
-              Monthly Contributions
+              Basic Information
             </h3>
             <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Initial Deposit ($)
+                </label>
+                <input
+                  type="number"
+                  value={inputs.initialDeposit || ''}
+                  onChange={(e) => setInputs({ ...inputs, initialDeposit: parseFloat(e.target.value) || 0 })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg font-semibold"
+                  placeholder="1000"
+                  step="100"
+                  min="0"
+                />
+                <p className="text-xs text-gray-500 mt-2">One-time starting deposit</p>
+              </div>
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Monthly Deposit ($)
@@ -269,39 +257,15 @@ export function SavingsCalculator() {
                   type="number"
                   value={inputs.annualInterestRate || ''}
                   onChange={(e) => setInputs({ ...inputs, annualInterestRate: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg font-semibold"
                   placeholder="5"
                   step="0.1"
                   min="0"
                   max="30"
                 />
-                <p className="text-xs text-gray-500 mt-2">Expected annual return (typical savings: 3-5%)</p>
+                <p className="text-xs text-gray-500 mt-2">Expected annual return (typical: 3-5%)</p>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Compounding Frequency
-                </label>
-                <select
-                  value={inputs.compoundingFrequency}
-                  onChange={(e) => setInputs({ ...inputs, compoundingFrequency: e.target.value as any })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                  <option value="monthly">Monthly (Most Common)</option>
-                  <option value="quarterly">Quarterly</option>
-                  <option value="annually">Annually</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          {/* Time Frame */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-purple-600" />
-              Time Frame & Inflation
-            </h3>
-            <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Savings Period (Years)
@@ -310,7 +274,7 @@ export function SavingsCalculator() {
                   type="number"
                   value={inputs.years || ''}
                   onChange={(e) => setInputs({ ...inputs, years: parseInt(e.target.value) || 1 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-lg font-semibold"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg font-semibold"
                   placeholder="10"
                   min="1"
                   max="50"
@@ -318,24 +282,80 @@ export function SavingsCalculator() {
                 <p className="text-xs text-gray-500 mt-2">How long to save</p>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Expected Inflation Rate (%)
-                </label>
-                <input
-                  type="number"
-                  value={inputs.inflationRate || ''}
-                  onChange={(e) => setInputs({ ...inputs, inflationRate: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  placeholder="2.5"
-                  step="0.1"
-                  min="0"
-                  max="10"
-                />
-                <p className="text-xs text-gray-500 mt-2">US historical average: 2-3%</p>
-              </div>
+              {/* 展开高级选项按钮 */}
+              <button
+                onClick={() => setShowAdvanced(!showAdvanced)}
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all text-sm font-medium text-gray-700 hover:text-blue-700 flex items-center justify-center gap-2"
+              >
+                {showAdvanced ? (
+                  <>
+                    <span>Hide Advanced Options</span>
+                    <span className="text-lg">▲</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Show Advanced Options</span>
+                    <span className="text-lg">▼</span>
+                  </>
+                )}
+              </button>
             </div>
           </div>
+
+          {/* ⚡ 高级选项 - 条件显示 */}
+          {showAdvanced && (
+            <>
+              {/* Advanced Settings */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-green-600" />
+                  Advanced Settings (Optional)
+                </h3>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Compounding Frequency
+                    </label>
+                    <select
+                      value={inputs.compoundingFrequency}
+                      onChange={(e) => setInputs({ ...inputs, compoundingFrequency: e.target.value as any })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    >
+                      <option value="monthly">Monthly (Most Common)</option>
+                      <option value="quarterly">Quarterly</option>
+                      <option value="annually">Annually</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Expected Inflation Rate (%)
+                    </label>
+                    <input
+                      type="number"
+                      value={inputs.inflationRate || ''}
+                      onChange={(e) => setInputs({ ...inputs, inflationRate: parseFloat(e.target.value) || 0 })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      placeholder="2.5"
+                      step="0.1"
+                      min="0"
+                      max="10"
+                    />
+                    <p className="text-xs text-gray-500 mt-2">US historical average: 2-3%</p>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* 🎯 计算按钮 - 始终在底部 */}
+          <button
+            onClick={calculateSavings}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 rounded-lg shadow-lg transition-colors flex items-center justify-center gap-2"
+          >
+            <DollarSign className="h-5 w-5" />
+            Calculate Savings
+          </button>
         </div>
 
         {/* Results Section - 2 columns */}
@@ -351,7 +371,7 @@ export function SavingsCalculator() {
                 {/* Future Value */}
                 <div className="bg-white rounded-lg p-6 mb-4 border border-green-200 text-center">
                   <div className="text-sm text-gray-600 mb-2">Future Value</div>
-                  <div className="text-4xl font-bold text-green-600 mb-2">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-green-600 mb-2 break-all">
                     ${result.futureValue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </div>
                   <div className="text-sm text-gray-500">In {inputs.years} years</div>

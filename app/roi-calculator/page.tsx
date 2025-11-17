@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: 'Free ROI Calculator - Calculate Return on Investment',
     description: 'Calculate investment returns, ROI percentage, annualized returns, and net profit. Analyze investment performance with detailed breakdowns and recommendations.',
     type: 'website',
-    url: 'https://aicalculator.com/roi-calculator',
+    url: 'https://aicalculator.pro/roi-calculator',
     siteName: 'AICalculator',
   },
   twitter: {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     site: '@AICalculator',
   },
   alternates: {
-    canonical: 'https://aicalculator.com/roi-calculator',
+    canonical: 'https://aicalculator.pro/roi-calculator',
   },
   robots: {
     index: true,
@@ -61,7 +61,7 @@ export default function ROICalculatorPage() {
       {
         '@type': 'WebApplication',
         name: 'ROI Calculator',
-        url: 'https://aicalculator.com/roi-calculator',
+        url: 'https://aicalculator.pro/roi-calculator',
         description:
           'Calculate Return on Investment (ROI) with our free calculator. Get ROI percentage, annualized returns, net profit analysis, and investment recommendations.',
         applicationCategory: 'FinanceApplication',
@@ -90,19 +90,19 @@ export default function ROICalculatorPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.com',
+            item: 'https://aicalculator.pro',
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Financial',
-            item: 'https://aicalculator.com/financial',
+            item: 'https://aicalculator.pro/financial',
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'ROI Calculator',
-            item: 'https://aicalculator.com/roi-calculator',
+            item: 'https://aicalculator.pro/roi-calculator',
           },
         ],
       },

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description:
       "Calculate all circle properties from any known value. Find area, circumference, diameter, and radius with step-by-step solutions.",
     type: "website",
-    url: "https://aicalculator.com/circle-calculator",
+    url: "https://aicalculator.pro/circle-calculator",
     siteName: "AI Calculator",
   },
   twitter: {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/circle-calculator",
+    canonical: "https://aicalculator.pro/circle-calculator",
   },
   robots: {
     index: true,
@@ -60,7 +60,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Circle Calculator",
-      "url": "https://aicalculator.com/circle-calculator",
+      "url": "https://aicalculator.pro/circle-calculator",
       "description": "Calculate circle area, circumference, diameter, and radius from any known value. Includes step-by-step solutions and visual representations.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Any",
@@ -87,19 +87,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.com"
+          "item": "https://aicalculator.pro"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Math & Numbers",
-          "item": "https://aicalculator.com/math-numbers"
+          "item": "https://aicalculator.pro/math-numbers"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Circle Calculator",
-          "item": "https://aicalculator.com/circle-calculator"
+          "item": "https://aicalculator.pro/circle-calculator"
         }
       ]
     },

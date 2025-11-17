@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Payment Calculator - Calculate Any Loan Payment",
     description: "Free payment calculator for car loans, personal loans & more. Calculate monthly payments, see total interest, and explore extra payment benefits.",
     type: "website",
-    url: "https://aicalculator.com/payment-calculator",
+    url: "https://aicalculator.pro/payment-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description: "Calculate payments for any loan. See how extra payments can save thousands in interest!",
   },
   alternates: {
-    canonical: "https://aicalculator.com/payment-calculator",
+    canonical: "https://aicalculator.pro/payment-calculator",
   },
   robots: {
     index: true,
@@ -57,7 +57,7 @@ export default function PaymentCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Payment Calculator",
-        "url": "https://aicalculator.com/payment-calculator",
+        "url": "https://aicalculator.pro/payment-calculator",
         "description": "Calculate loan payments for any type of installment loan including car loans, personal loans, mortgages, and credit cards. Compare payment frequencies, see extra payment impact, and explore different payment structures.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -86,19 +86,19 @@ export default function PaymentCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.com/financial"
+            "item": "https://aicalculator.pro/financial"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Payment Calculator",
-            "item": "https://aicalculator.com/payment-calculator"
+            "item": "https://aicalculator.pro/payment-calculator"
           }
         ]
       },

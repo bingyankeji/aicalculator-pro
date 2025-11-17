@@ -1,25 +1,72 @@
 import { Metadata } from 'next';
 import { SavingsCalculator } from '@/components/Calculator/SavingsCalculator';
+import { 
+  getUrl, 
+  getOgImage, 
+  getBreadcrumbId, 
+  getWebAppId, 
+  getFaqId, 
+  getHowToId, 
+  getArticleId,
+  getStepUrl 
+} from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Savings Calculator - Free Compound Savings Calculator with Goal Planning | AICalculator",
   description: "Calculate your savings growth with our free savings calculator. Features compound interest, inflation adjustment, target goal planning, and monthly/yearly projections. Plan your financial future today.",
-  keywords: ["savings calculator", "compound savings calculator", "savings goal calculator", "money savings calculator", "savings planner", "savings account calculator", "interest calculator savings", "savings growth calculator", "retirement savings calculator", "emergency fund calculator", "financial planning calculator", "future value calculator"],
+  keywords: [
+    "savings calculator",
+    "compound savings calculator",
+    "savings goal calculator",
+    "money savings calculator",
+    "savings planner",
+    "savings account calculator",
+    "interest calculator savings",
+    "savings growth calculator",
+    "retirement savings calculator",
+    "emergency fund calculator",
+    "financial planning calculator",
+    "future value calculator",
+    "savings estimator",
+    "monthly savings calculator",
+    "savings plan calculator",
+    "savings projection calculator",
+    "high yield savings calculator",
+    "savings interest calculator",
+    "savings target calculator",
+    "wealth building calculator",
+    "nest egg calculator",
+    "savings accumulation calculator"
+  ],
+  authors: [{ name: 'AICalculator.pro Team' }],
+  creator: 'AICalculator.pro',
+  publisher: 'AICalculator.pro',
   openGraph: {
     title: "Free Savings Calculator - Plan Your Financial Goals",
     description: "Calculate savings growth with compound interest and inflation adjustment. Set target goals and see how much you need to save monthly. Free savings calculator.",
     type: "website",
-    url: "https://aicalculator.com/savings-calculator",
+    url: getUrl('/savings-calculator'),
     siteName: "AICalculator",
+    locale: 'en_US',
+    images: [
+      {
+        url: getOgImage('savings'),
+        width: 1200,
+        height: 630,
+        alt: 'Savings Calculator',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Savings Calculator - Compound Interest & Goal Planning",
     description: "Calculate your savings growth and plan financial goals. Free calculator with inflation adjustment.",
+    images: [getOgImage('savings')],
     site: "@AICalculator",
+    creator: '@aicalculator',
   },
   alternates: {
-    canonical: "https://aicalculator.com/savings-calculator",
+    canonical: getUrl('/savings-calculator'),
   },
   robots: {
     index: true,
@@ -44,7 +91,8 @@ export default function SavingsCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Savings Calculator",
-        "url": "https://aicalculator.com/savings-calculator",
+        "@id": getWebAppId('/savings-calculator'),
+        "url": getUrl('/savings-calculator'),
         "description": "Free online savings calculator to calculate compound savings growth, plan financial goals, and adjust for inflation. Features target goal calculator and growth projections.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -68,29 +116,31 @@ export default function SavingsCalculatorPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "@id": getBreadcrumbId('/savings-calculator'),
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.com/financial"
+            "item": getUrl('/financial')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Savings Calculator",
-            "item": "https://aicalculator.com/savings-calculator"
+            "item": getUrl('/savings-calculator')
           }
         ]
       },
       {
         "@type": "FAQPage",
+        "@id": getFaqId('/savings-calculator'),
         "mainEntity": [
           {
             "@type": "Question",
@@ -160,34 +210,72 @@ export default function SavingsCalculatorPage() {
       },
       {
         "@type": "HowTo",
+        "@id": getHowToId('/savings-calculator'),
         "name": "How to Use the Savings Calculator",
+        "totalTime": "PT5M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "tool": {
+          "@type": "HowToTool",
+          "name": "Savings Calculator"
+        },
         "description": "Calculate your savings growth and plan financial goals in 4 steps",
         "step": [
           {
             "@type": "HowToStep",
             "position": 1,
             "name": "Enter Starting Amount",
-            "text": "Input your initial deposit amount. This is the lump sum you're starting with. It could be $0 if you're starting fresh or an existing balance."
+            "text": "Input your initial deposit amount. This is the lump sum you're starting with. It could be $0 if you're starting fresh or an existing balance.",
+            "url": getStepUrl('/savings-calculator', 1)
           },
           {
             "@type": "HowToStep",
             "position": 2,
             "name": "Set Monthly Contribution",
-            "text": "Enter how much you'll save each month. Also set your expected annual interest rate (check current rates for your account type) and choose compounding frequency (usually monthly for savings accounts)."
+            "text": "Enter how much you'll save each month. Also set your expected annual interest rate (check current rates for your account type) and choose compounding frequency (usually monthly for savings accounts).",
+            "url": getStepUrl('/savings-calculator', 2)
           },
           {
             "@type": "HowToStep",
             "position": 3,
             "name": "Choose Time Frame",
-            "text": "Select how many years you plan to save. Also enter expected inflation rate (US historical average is 2-3%) to see real purchasing power."
+            "text": "Select how many years you plan to save. Also enter expected inflation rate (US historical average is 2-3%) to see real purchasing power.",
+            "url": getStepUrl('/savings-calculator', 3)
           },
           {
             "@type": "HowToStep",
             "position": 4,
             "name": "View Results & Plan",
-            "text": "See your projected future value, total deposits, interest earned, and inflation-adjusted real value. Use the Target Goal Calculator to determine required monthly savings for specific goals."
+            "text": "See your projected future value, total deposits, interest earned, and inflation-adjusted real value. Use the Target Goal Calculator to determine required monthly savings for specific goals.",
+            "url": getStepUrl('/savings-calculator', 4)
           }
         ]
+      },
+      {
+        "@type": "Article",
+        "@id": getArticleId('/savings-calculator'),
+        "headline": "Savings Calculator - Complete Guide to Building Wealth with Compound Interest",
+        "description": "Comprehensive guide to savings planning with free calculator. Learn how to maximize compound interest, set achievable savings goals, and build long-term wealth.",
+        "author": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "url": getUrl('/')
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": getUrl('/logo.png')
+          }
+        },
+        "datePublished": "2025-11-16",
+        "dateModified": "2025-11-16",
+        "image": getOgImage('savings'),
+        "articleBody": "Build wealth through consistent savings and compound interest. Use our calculator to plan emergency funds, retirement savings, and financial goals with realistic projections and inflation adjustments."
       }
     ]
   };

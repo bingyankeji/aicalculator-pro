@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Free Running Pace Calculator - Calculate Pace, Time & Distance",
     description: "Calculate your running pace, finish time, or distance. Get split times and race predictions for all major race distances.",
     type: "website",
-    url: "https://aicalculator.com/pace-calculator",
+    url: "https://aicalculator.pro/pace-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/pace-calculator",
+    canonical: "https://aicalculator.pro/pace-calculator",
   },
   robots: {
     index: true,
@@ -60,7 +60,7 @@ export default function PaceCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Pace Calculator",
-        "url": "https://aicalculator.com/pace-calculator",
+        "url": "https://aicalculator.pro/pace-calculator",
         "description": "Free online running pace calculator to calculate pace per mile/km, finish time, or distance covered. Get split times and race predictions for 5K, 10K, half marathon, marathon, and ultra distances.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
@@ -87,19 +87,19 @@ export default function PaceCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Calculators",
-            "item": "https://aicalculator.com/calculators"
+            "item": "https://aicalculator.pro/calculators"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Pace Calculator",
-            "item": "https://aicalculator.com/pace-calculator"
+            "item": "https://aicalculator.pro/pace-calculator"
           }
         ]
       },

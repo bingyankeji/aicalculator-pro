@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Percentage Calculator - Instant Percentage Calculations",
     description: "Calculate percentages with ease. Find what percent of X is Y, calculate X% of Y, or increase/decrease values. Free online calculator with formulas.",
     type: "website",
-    url: "https://aicalculator.com/percentage-calculator",
+    url: "https://aicalculator.pro/percentage-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/percentage-calculator",
+    canonical: "https://aicalculator.pro/percentage-calculator",
   },
   robots: {
     index: true,
@@ -58,7 +58,7 @@ export default function PercentageCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Percentage Calculator",
-        "url": "https://aicalculator.com/percentage-calculator",
+        "url": "https://aicalculator.pro/percentage-calculator",
         "description": "Free online percentage calculator with multiple calculation modes, formulas, and instant results.",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
@@ -88,19 +88,19 @@ export default function PercentageCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Math & Numbers",
-            "item": "https://aicalculator.com/math-numbers"
+            "item": "https://aicalculator.pro/math-numbers"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Percentage Calculator",
-            "item": "https://aicalculator.com/percentage-calculator"
+            "item": "https://aicalculator.pro/percentage-calculator"
           }
         ]
       },

@@ -360,10 +360,10 @@ export default function IdealWeightCalculator() {
   });
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-8">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid xl:grid-cols-2 gap-8">
         {/* Left Side - Input Section */}
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
           <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
             <Heart className="w-6 h-6 text-red-500" />
             Ideal Weight Calculator
@@ -373,7 +373,7 @@ export default function IdealWeightCalculator() {
             {/* Unit Selection */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-3">Measurement Unit</label>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <button
                   onClick={() => updateInput('unit', 'metric')}
                   className={`p-3 rounded-lg border-2 transition-all ${
@@ -424,7 +424,7 @@ export default function IdealWeightCalculator() {
             {/* Gender Selection */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-3">Gender</label>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <button
                   onClick={() => updateInput('gender', 'male')}
                   className={`p-3 rounded-lg border-2 transition-all ${
@@ -479,7 +479,7 @@ export default function IdealWeightCalculator() {
             {/* Quick Presets */}
             <div>
               <h4 className="text-lg font-semibold text-gray-900 mb-4">🎯 Quick Presets</h4>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {weightPresets.map((preset) => (
                   <button
                     key={preset.name}
@@ -551,10 +551,10 @@ export default function IdealWeightCalculator() {
               </h4>
 
               {/* Summary Cards */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200">
                   <div className="text-sm text-green-700 font-medium mb-1">Average Ideal Weight</div>
-                  <div className="text-2xl font-bold text-green-900">{formatWeight(result.averageWeight, inputs.unit)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-900 break-all">{formatWeight(result.averageWeight, inputs.unit)}</div>
                   <div className="text-xs text-green-600">Based on 6 formulas</div>
                 </div>
                 
@@ -664,7 +664,7 @@ export default function IdealWeightCalculator() {
               {/* Key Information */}
               <div>
                 <h5 className="text-lg font-bold text-gray-900 mb-4">📊 Analysis Details</h5>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                     <div className="text-sm text-gray-700 font-medium mb-1">Height</div>
                     <div className="text-lg font-bold text-gray-900">

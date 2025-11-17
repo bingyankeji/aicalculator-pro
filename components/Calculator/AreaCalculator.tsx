@@ -437,11 +437,11 @@ export function AreaCalculator() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-3 gap-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
         {/* Input Section */}
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 sticky top-6">
+        <div className="xl:col-span-1">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6 sticky top-6 space-y-4 sm:space-y-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               <Shapes className="w-6 h-6 text-blue-600" />
               Area Calculator
@@ -922,9 +922,9 @@ export function AreaCalculator() {
         </div>
 
         {/* Results Section */}
-        <div className="lg:col-span-2">
+        <div className="xl:col-span-2">
           {result ? (
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4 md:space-y-6">
               {/* Action Buttons */}
               <div className="flex justify-end gap-3">
                 <button
@@ -951,9 +951,9 @@ export function AreaCalculator() {
               </div>
 
               {/* Results Content */}
-              <div ref={resultRef} className="space-y-4 bg-white p-6 rounded-xl">
+              <div ref={resultRef} className="space-y-4 bg-white p-4 sm:p-6 rounded-xl">
                 {/* Main Result */}
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-200 p-6">
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-200 p-4 sm:p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                     {getShapeIcon(result.shape)}
                     <span className="capitalize">{result.shape} Area</span>
@@ -961,7 +961,7 @@ export function AreaCalculator() {
 
                   <div className="bg-white rounded-lg p-6 mb-4 border-2 border-blue-300">
                     <div className="text-sm text-gray-600 mb-2 font-semibold">Area</div>
-                    <div className="text-5xl font-bold text-blue-600 mb-2">
+                    <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 mb-2 break-all">
                       {result.area.toFixed(2)}
                     </div>
                     <div className="text-lg text-gray-700">
@@ -973,13 +973,13 @@ export function AreaCalculator() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-white rounded-lg p-4 border border-gray-200">
                       <div className="text-xs text-gray-600 mb-1">Square Feet</div>
-                      <div className="text-2xl font-bold text-gray-900">
+                      <div className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 break-all">
                         {result.areaSqFt.toFixed(2)}
                       </div>
                     </div>
                     <div className="bg-white rounded-lg p-4 border border-gray-200">
                       <div className="text-xs text-gray-600 mb-1">Square Meters</div>
-                      <div className="text-2xl font-bold text-gray-900">
+                      <div className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 break-all">
                         {result.areaSqM.toFixed(2)}
                       </div>
                     </div>
@@ -987,16 +987,16 @@ export function AreaCalculator() {
                 </div>
 
                 {/* Formula */}
-                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-200 p-6">
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-200 p-3 sm:p-4 md:p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-3">📐 Calculation Formula</h3>
-                  <div className="bg-white rounded-lg p-4 border border-purple-200">
-                    <code className="text-sm font-mono text-gray-800">{result.formula}</code>
+                  <div className="bg-white rounded-lg p-3 sm:p-4 border border-purple-200">
+                    <code className="text-xs sm:text-sm font-mono text-gray-800 break-all">{result.formula}</code>
                   </div>
                   <p className="text-sm text-gray-700 mt-3">{result.explanation}</p>
                 </div>
 
                 {/* Recommendations */}
-                <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200 p-6">
+                <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200 p-3 sm:p-4 md:p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
                     <span>💡</span>
                     Tips & Recommendations
@@ -1013,28 +1013,28 @@ export function AreaCalculator() {
 
                 {/* Material Calculations */}
                 {result.materialCalculations && (
-                  <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl border border-orange-200 p-6">
+                  <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-xl border border-orange-200 p-3 sm:p-4 md:p-6">
                     <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
                       🏗️ Material Calculator Results
                     </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                       <div className="bg-white rounded-lg p-4 border border-orange-200">
                         <div className="text-sm text-gray-600 mb-1">Material Needed</div>
-                        <div className="text-2xl font-bold text-gray-900">
+                        <div className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 break-all">
                           {result.materialCalculations.quantity}
                         </div>
                         <div className="text-sm text-gray-500">{result.materialCalculations.unit}</div>
                       </div>
                       <div className="bg-white rounded-lg p-4 border border-orange-200">
                         <div className="text-sm text-gray-600 mb-1">With Wastage</div>
-                        <div className="text-2xl font-bold text-gray-900">
+                        <div className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 break-all">
                           {result.materialCalculations.finalQuantity}
                         </div>
                         <div className="text-sm text-gray-500">{result.materialCalculations.unit}</div>
                       </div>
                       <div className="bg-white rounded-lg p-4 border border-orange-200">
                         <div className="text-sm text-gray-600 mb-1">Estimated Cost</div>
-                        <div className="text-2xl font-bold text-green-600">
+                        <div className="text-lg sm:text-xl md:text-2xl font-bold text-green-600 break-all">
                           ${result.materialCalculations.totalCost}
                         </div>
                         <div className="text-sm text-gray-500">Total project cost</div>
@@ -1053,7 +1053,7 @@ export function AreaCalculator() {
           ) : (
             <div className="bg-gray-50 rounded-xl border-2 border-dashed border-gray-300 p-12 text-center">
               <div className="text-6xl mb-4">📐</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Ready to Calculate Area?</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2 hidden lg:block">Ready to Calculate Area?</h3>
               <p className="text-gray-600 mb-4">
                 Select a shape, enter dimensions, and click "Calculate Area" to get instant results
               </p>

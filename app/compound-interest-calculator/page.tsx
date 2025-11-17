@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 import CompoundInterestCalculator from "@/components/Calculator/CompoundInterestCalculator";
 import Link from "next/link";
+import {
+  getUrl,
+  getOgImage,
+  getBreadcrumbId,
+  getWebAppId,
+  getFaqId,
+  getHowToId,
+  getArticleId,
+  getStepUrl
+} from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Compound Interest Calculator - Save & Compare Investment Scenarios | AI Calculator",
@@ -24,24 +34,44 @@ export const metadata: Metadata = {
     "investment comparison tool",
     "wealth building calculator",
     "money growth calculator",
+    "compound interest formula calculator",
+    "daily compound interest calculator",
+    "monthly compound interest calculator",
+    "annual compound interest calculator",
+    "compound interest investment calculator",
+    "compound interest savings calculator"
   ],
+  authors: [{ name: 'AICalculator.pro Team' }],
+  creator: 'AICalculator.pro',
+  publisher: 'AICalculator.pro',
   openGraph: {
     title: "Compound Interest Calculator - Save & Compare Investment Scenarios",
     description:
       "Advanced compound interest calculator with scenario saving and comparison. Calculate investment growth, save multiple plans, and compare different investment strategies with detailed analysis.",
     type: "website",
-    url: "https://aicalculator.com/compound-interest-calculator",
+    url: getUrl('/compound-interest-calculator'),
     siteName: "AI Calculator",
+    locale: 'en_US',
+    images: [
+      {
+        url: getOgImage('compound-interest'),
+        width: 1200,
+        height: 630,
+        alt: 'Compound Interest Calculator',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Compound Interest Calculator - Investment Growth Tool",
     description:
       "Free calculator for compound interest and investment growth. Plan your financial future with detailed projections.",
+    images: [getOgImage('compound-interest')],
     site: "@AICalculator",
+    creator: '@aicalculator',
   },
   alternates: {
-    canonical: "https://aicalculator.com/compound-interest-calculator",
+    canonical: getUrl('/compound-interest-calculator'),
   },
   robots: {
     index: true,
@@ -61,8 +91,9 @@ const structuredData = {
   "@graph": [
     {
       "@type": "WebApplication",
+      "@id": getWebAppId('/compound-interest-calculator'),
       "name": "Compound Interest Calculator",
-      "url": "https://aicalculator.com/compound-interest-calculator",
+      "url": getUrl('/compound-interest-calculator'),
       "description": "Advanced compound interest calculator with scenario saving and comparison features. Calculate investment growth with regular contributions, save multiple investment plans, and compare different strategies with detailed analysis.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Any",
@@ -88,29 +119,31 @@ const structuredData = {
     },
     {
       "@type": "BreadcrumbList",
+      "@id": getBreadcrumbId('/compound-interest-calculator'),
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.com"
+          "item": getUrl('/')
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Financial",
-          "item": "https://aicalculator.com/financial"
+          "item": getUrl('/financial')
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Compound Interest Calculator",
-          "item": "https://aicalculator.com/compound-interest-calculator"
+          "item": getUrl('/compound-interest-calculator')
         }
       ]
     },
     {
       "@type": "FAQPage",
+      "@id": getFaqId('/compound-interest-calculator'),
       "mainEntity": [
         {
           "@type": "Question",
@@ -164,34 +197,72 @@ const structuredData = {
     },
     {
       "@type": "HowTo",
+      "@id": getHowToId('/compound-interest-calculator'),
       "name": "How to Calculate Compound Interest",
       "description": "Step-by-step guide to calculate compound interest for investment planning",
+      "totalTime": "PT5M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": "0"
+      },
+      "tool": {
+        "@type": "HowToTool",
+        "name": "Compound Interest Calculator"
+      },
       "step": [
         {
           "@type": "HowToStep",
           "position": 1,
           "name": "Gather Investment Information",
-          "text": "Collect your initial principal amount, expected annual interest rate, investment time period, and planned regular contributions."
+          "text": "Collect your initial principal amount, expected annual interest rate, investment time period, and planned regular contributions.",
+          "url": getStepUrl('/compound-interest-calculator', 1)
         },
         {
           "@type": "HowToStep",
           "position": 2,
           "name": "Choose Compounding Frequency",
-          "text": "Determine how often interest compounds: annually, semi-annually, quarterly, monthly, weekly, or daily. More frequent compounding generally yields higher returns."
+          "text": "Determine how often interest compounds: annually, semi-annually, quarterly, monthly, weekly, or daily. More frequent compounding generally yields higher returns.",
+          "url": getStepUrl('/compound-interest-calculator', 2)
         },
         {
           "@type": "HowToStep",
           "position": 3,
           "name": "Apply the Compound Interest Formula",
-          "text": "Use A = P(1 + r/n)^(nt) for basic compound interest, or use a calculator for complex scenarios with regular contributions and varying rates."
+          "text": "Use A = P(1 + r/n)^(nt) for basic compound interest, or use a calculator for complex scenarios with regular contributions and varying rates.",
+          "url": getStepUrl('/compound-interest-calculator', 3)
         },
         {
           "@type": "HowToStep",
           "position": 4,
           "name": "Analyze and Plan",
-          "text": "Review the results, compare different scenarios, and adjust your investment strategy based on your financial goals and risk tolerance."
+          "text": "Review the results, compare different scenarios, and adjust your investment strategy based on your financial goals and risk tolerance.",
+          "url": getStepUrl('/compound-interest-calculator', 4)
         }
       ]
+    },
+    {
+      "@type": "Article",
+      "@id": getArticleId('/compound-interest-calculator'),
+      "headline": "Compound Interest Calculator - Complete Guide to Investment Growth",
+      "description": "Comprehensive guide to compound interest with free calculator. Learn how compound interest works, compare investment scenarios, and maximize your wealth building strategy.",
+      "author": {
+        "@type": "Organization",
+        "name": "AICalculator.pro",
+        "url": getUrl('/')
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AICalculator.pro",
+        "logo": {
+          "@type": "ImageObject",
+          "url": getUrl('/logo.png')
+        }
+      },
+      "datePublished": "2025-11-16",
+      "dateModified": "2025-11-16",
+      "image": getOgImage('compound-interest'),
+      "articleBody": "Master compound interest calculations with our advanced calculator. Save and compare multiple investment scenarios, visualize growth over time, and understand the power of compounding for long-term wealth building."
     }
   ]
 } as const;

@@ -308,12 +308,12 @@ export function SquareRootCalculator() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
         {/* LEFT: Input Section */}
         <div className="space-y-6">
-          <div className="bg-white rounded-xl shadow-lg border p-6">
-            <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+          <div className="bg-white rounded-xl shadow-lg border p-4 sm:p-6">
+            <h3 className="text-lg font-bold mb-4 flex items-center gap-2 hidden lg:block">
               <Square className="w-5 h-5 text-purple-600" />
               Square Root Calculator
             </h3>
@@ -413,7 +413,7 @@ export function SquareRootCalculator() {
                        inputs.calculationType === 'nth-root' ? `${inputs.nthRoot}th Root` : 
                        'Perfect Square Check'}
                     </p>
-                    <p className="text-4xl font-bold text-purple-600">
+                    <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-purple-600 break-all">
                       {inputs.calculationType === 'perfect-square' 
                         ? (result.isPerfectSquare ? 'YES' : 'NO')
                         : result.result.toFixed(6)

@@ -376,9 +376,9 @@ export default function PythagoreanCalculator() {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-8">
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 sm:space-y-4 md:space-y-6">
       {/* Input Section */}
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
         <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
           <Triangle className="w-6 h-6 text-blue-600" />
           Pythagorean Theorem Calculator
@@ -388,7 +388,7 @@ export default function PythagoreanCalculator() {
           {/* Calculation Mode Selection */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-3">What do you want to calculate?</label>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
               {calculationModes.map((option) => (
                 <button
                   key={option.value}
@@ -489,34 +489,34 @@ export default function PythagoreanCalculator() {
               </div>
 
               {/* Main Results */}
-              <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div className="grid md:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-4 mb-6">
                 <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200">
                   <div className="text-sm text-green-700 font-medium mb-1">Side a</div>
-                  <div className="text-2xl font-bold text-green-900">{formatNumber(result.a)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-green-900 break-all">{formatNumber(result.a)}</div>
                   <div className="text-xs text-green-600">units</div>
                 </div>
                 <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200">
                   <div className="text-sm text-green-700 font-medium mb-1">Side b</div>
-                  <div className="text-2xl font-bold text-green-900">{formatNumber(result.b)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-green-900 break-all">{formatNumber(result.b)}</div>
                   <div className="text-xs text-green-600">units</div>
                 </div>
                 <div className="bg-gradient-to-br from-red-50 to-red-100 p-4 rounded-lg border border-red-200">
                   <div className="text-sm text-red-700 font-medium mb-1">Hypotenuse c</div>
-                  <div className="text-2xl font-bold text-red-900">{formatNumber(result.c)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-red-900 break-all">{formatNumber(result.c)}</div>
                   <div className="text-xs text-red-600">units</div>
                 </div>
               </div>
 
               {/* Additional Properties */}
-              <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div className="grid md:grid-cols-2 xl:grid-cols-2 gap-3 sm:gap-4 mb-6">
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
                   <div className="text-sm text-blue-700 font-medium mb-1">Area</div>
-                  <div className="text-2xl font-bold text-blue-900">{formatNumber(result.area)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-900 break-all">{formatNumber(result.area)}</div>
                   <div className="text-xs text-blue-600">square units</div>
                 </div>
                 <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200">
                   <div className="text-sm text-purple-700 font-medium mb-1">Perimeter</div>
-                  <div className="text-2xl font-bold text-purple-900">{formatNumber(result.perimeter)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-purple-900 break-all">{formatNumber(result.perimeter)}</div>
                   <div className="text-xs text-purple-600">units</div>
                 </div>
               </div>

@@ -158,12 +158,12 @@ export function SquareFootageCalculator() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="grid md:grid-cols-5 gap-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid xl:grid-cols-5 gap-3 sm:gap-4 md:gap-6">
         {/* Input Section - 3 columns */}
-        <div className="md:col-span-3 space-y-6">
+        <div className="xl:col-span-3 space-y-6">
           {/* Rooms */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
                 <Home className="w-5 h-5 text-blue-600" />
@@ -171,7 +171,7 @@ export function SquareFootageCalculator() {
               </h3>
               <button
                 onClick={addRoom}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center gap-2 text-sm"
+                className="px-3 sm:px-4 py-3 min-h-[44px] bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center gap-2 text-sm"
               >
                 <Plus className="w-4 h-4" />
                 Add Room
@@ -186,7 +186,7 @@ export function SquareFootageCalculator() {
                       type="text"
                       value={room.name}
                       onChange={(e) => updateRoom(room.id, 'name', e.target.value)}
-                      className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-semibold"
+                      className="flex-1 px-3 py-2 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-semibold"
                       placeholder="Room name"
                     />
                     {rooms.length > 1 && (
@@ -209,7 +209,7 @@ export function SquareFootageCalculator() {
                         type="number"
                         value={room.length || ''}
                         onChange={(e) => updateRoom(room.id, 'length', parseFloat(e.target.value) || 0)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 py-2 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="15"
                         step="0.1"
                         min="0"
@@ -223,7 +223,7 @@ export function SquareFootageCalculator() {
                         type="number"
                         value={room.width || ''}
                         onChange={(e) => updateRoom(room.id, 'width', parseFloat(e.target.value) || 0)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 py-2 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="12"
                         step="0.1"
                         min="0"
@@ -236,7 +236,7 @@ export function SquareFootageCalculator() {
                       <select
                         value={room.unit}
                         onChange={(e) => updateRoom(room.id, 'unit', e.target.value as 'feet' | 'meters')}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 py-2 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       >
                         <option value="feet">Feet</option>
                         <option value="meters">Meters</option>
@@ -260,13 +260,13 @@ export function SquareFootageCalculator() {
           </div>
 
           {/* Material Settings */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
             <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <Package className="w-5 h-5 text-green-600" />
               Material Settings
             </h3>
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Waste Factor (%)
@@ -275,7 +275,7 @@ export function SquareFootageCalculator() {
                     type="number"
                     value={wasteFactor || ''}
                     onChange={(e) => setWasteFactor(parseFloat(e.target.value) || 0)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="10"
                     step="1"
                     min="0"
@@ -294,7 +294,7 @@ export function SquareFootageCalculator() {
                     type="number"
                     value={ceilingHeight || ''}
                     onChange={(e) => setCeilingHeight(parseFloat(e.target.value) || 0)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="8"
                     step="0.5"
                     min="0"
@@ -305,7 +305,7 @@ export function SquareFootageCalculator() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Paint Coats
@@ -314,7 +314,7 @@ export function SquareFootageCalculator() {
                     type="number"
                     value={paintCoats || ''}
                     onChange={(e) => setPaintCoats(parseInt(e.target.value) || 1)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="2"
                     min="1"
                     max="5"
@@ -329,7 +329,7 @@ export function SquareFootageCalculator() {
                     type="number"
                     value={paintCoverage || ''}
                     onChange={(e) => setPaintCoverage(parseInt(e.target.value) || 350)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="350"
                     min="200"
                     max="500"
@@ -343,12 +343,12 @@ export function SquareFootageCalculator() {
           </div>
 
           {/* Material Prices */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
             <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <DollarSign className="w-5 h-5 text-purple-600" />
               Material Prices (Optional)
             </h3>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Flooring ($/sq ft)
@@ -357,7 +357,7 @@ export function SquareFootageCalculator() {
                   type="number"
                   value={materialPrices.flooringPerSqFt || ''}
                   onChange={(e) => setMaterialPrices({ ...materialPrices, flooringPerSqFt: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="3.50"
                   step="0.1"
                   min="0"
@@ -372,7 +372,7 @@ export function SquareFootageCalculator() {
                   type="number"
                   value={materialPrices.paintPerGallon || ''}
                   onChange={(e) => setMaterialPrices({ ...materialPrices, paintPerGallon: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="35"
                   step="1"
                   min="0"
@@ -387,7 +387,7 @@ export function SquareFootageCalculator() {
                   type="number"
                   value={materialPrices.carpetPerSqYd || ''}
                   onChange={(e) => setMaterialPrices({ ...materialPrices, carpetPerSqYd: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="25"
                   step="1"
                   min="0"
@@ -398,7 +398,7 @@ export function SquareFootageCalculator() {
         </div>
 
         {/* Results Section - 2 columns */}
-        <div className="md:col-span-2 space-y-6">
+        <div className="xl:col-span-2 space-y-6">
           {materials && (
             <>
               <div id="sqft-result" className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg border border-blue-200 p-6">
@@ -410,7 +410,7 @@ export function SquareFootageCalculator() {
                 {/* Total Area */}
                 <div className="bg-white rounded-lg p-5 mb-4 border-2 border-blue-300">
                   <div className="text-xs text-gray-600 mb-2 font-semibold">Total Square Footage</div>
-                  <div className="text-4xl font-bold text-blue-600 mb-2">
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-600 mb-2 break-all">
                     {totalArea.toFixed(0)} sq ft
                   </div>
                   <div className="text-sm text-gray-600">
@@ -512,7 +512,7 @@ export function SquareFootageCalculator() {
                   </div>
                   <div className="flex justify-between items-center pt-2 border-t border-green-300">
                     <span className="font-bold text-gray-900">Grand Total:</span>
-                    <span className="text-2xl font-bold text-green-600">
+                    <span className="text-xl sm:text-2xl font-bold text-green-600 break-all">
                       ${(
                         materials.flooring.sqft * materialPrices.flooringPerSqFt +
                         materials.paint.gallons * materialPrices.paintPerGallon +
@@ -524,7 +524,7 @@ export function SquareFootageCalculator() {
               </div>
 
               {/* Action Buttons */}
-              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
                 <h3 className="text-sm font-semibold text-gray-700 mb-4">Actions</h3>
                 <div className="space-y-3">
                   <button

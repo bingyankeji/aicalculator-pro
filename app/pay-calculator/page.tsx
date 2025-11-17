@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Paycheck Calculator - Calculate Your Take-Home Pay",
     description: "Free paycheck calculator to calculate net pay after taxes and deductions. See your actual take-home pay by pay frequency.",
     type: "website",
-    url: "https://aicalculator.com/pay-calculator",
+    url: "https://aicalculator.pro/pay-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     site: "@aicalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/pay-calculator",
+    canonical: "https://aicalculator.pro/pay-calculator",
   },
   robots: {
     index: true,
@@ -61,7 +61,7 @@ export default function PayCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Paycheck Calculator",
-        "url": "https://aicalculator.com/pay-calculator",
+        "url": "https://aicalculator.pro/pay-calculator",
         "description": "Free online paycheck calculator to calculate your net pay (take-home pay) after federal tax, state tax, FICA (Social Security and Medicare), 401(k) contributions, health insurance, and other deductions.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -90,19 +90,19 @@ export default function PayCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.com/financial"
+            "item": "https://aicalculator.pro/financial"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Paycheck Calculator",
-            "item": "https://aicalculator.com/pay-calculator"
+            "item": "https://aicalculator.pro/pay-calculator"
           }
         ]
       },

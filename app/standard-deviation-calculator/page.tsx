@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "Free Standard Deviation Calculator - Calculate Variance & Statistics",
     description: "Calculate standard deviation, variance, and mean with step-by-step formulas. Perfect for students and data analysis.",
     type: "website",
-    url: "https://aicalculator.com/standard-deviation-calculator",
+    url: "https://aicalculator.pro/standard-deviation-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/standard-deviation-calculator",
+    canonical: "https://aicalculator.pro/standard-deviation-calculator",
   },
   robots: {
     index: true,
@@ -62,7 +62,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Standard Deviation Calculator",
-      "url": "https://aicalculator.com/standard-deviation-calculator",
+      "url": "https://aicalculator.pro/standard-deviation-calculator",
       "description": "Free online standard deviation calculator to calculate sample and population standard deviation, variance, mean, and detect outliers. Features step-by-step calculation formulas, automatic outlier detection using IQR method, and comprehensive statistical analysis for educational and professional use.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Any",
@@ -91,19 +91,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.com"
+          "item": "https://aicalculator.pro"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Math & Numbers",
-          "item": "https://aicalculator.com/math-numbers"
+          "item": "https://aicalculator.pro/math-numbers"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Standard Deviation Calculator",
-          "item": "https://aicalculator.com/standard-deviation-calculator"
+          "item": "https://aicalculator.pro/standard-deviation-calculator"
         }
       ]
     },

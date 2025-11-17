@@ -39,7 +39,7 @@ export default function DateTimePage() {
     "@type": "CollectionPage",
     "name": "Date & Time Calculators",
     "description": "Free online date and time calculators for age, date differences, time zones, and more. 10+ precise time tools.",
-    "url": "https://aicalculator.com/date-time",
+    "url": "https://aicalculator.pro/date-time",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -47,13 +47,13 @@ export default function DateTimePage() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.com"
+          "item": "https://aicalculator.pro"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Date & Time Calculators",
-          "item": "https://aicalculator.com/date-time"
+          "item": "https://aicalculator.pro/date-time"
         }
       ]
     }

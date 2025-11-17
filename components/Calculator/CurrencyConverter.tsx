@@ -202,7 +202,7 @@ export function CurrencyConverter() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Exchange Rate Status Banner */}
       <div className="mb-4 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-3">
         <div className="flex items-center justify-between text-sm">
@@ -233,12 +233,12 @@ export function CurrencyConverter() {
       </div>
 
       {/* Converter */}
-      <div className="grid lg:grid-cols-2 gap-6">
+      <div className="grid xl:grid-cols-2 gap-6">
         {/* Left: Input */}
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Convert Currency</h2>
+        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
+          <h2 className="text-xl font-bold text-gray-900 mb-4 hidden lg:block">Convert Currency</h2>
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {/* From Currency */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">From</label>
@@ -330,20 +330,20 @@ export function CurrencyConverter() {
             </h3>
 
             {convertedAmount ? (
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {/* Main Result */}
                 <div className="bg-white rounded-lg p-6 border-2 border-green-300">
                   <div className="text-center">
                     <div className="text-sm text-gray-600 mb-2">You Send</div>
-                    <div className="text-2xl font-bold text-gray-900 mb-4">
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 break-all">
                       {fromCurrencyData?.flag} {fromCurrencyData?.symbol}
                       {parseFloat(amount).toLocaleString()} {fromCurrency}
                     </div>
 
-                    <div className="text-3xl text-green-600 mb-4">=</div>
+                    <div className="text-2xl sm:text-3xl text-green-600 mb-4">=</div>
 
                     <div className="text-sm text-gray-600 mb-2">They Receive</div>
-                    <div className="text-3xl font-bold text-green-600">
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-600 break-all">
                       {toCurrencyData?.flag} {toCurrencyData?.symbol}
                       {parseFloat(convertedAmount).toLocaleString()} {toCurrency}
                     </div>
@@ -413,7 +413,7 @@ export function CurrencyConverter() {
           <h3 className="text-lg font-bold text-gray-900 mb-4">
             {amount} {fromCurrency} in Popular Currencies
           </h3>
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-3">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {currencies.slice(0, 12).map((currency) => {
               if (currency.code === fromCurrency) return null;
 

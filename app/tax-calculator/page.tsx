@@ -1,6 +1,16 @@
 import { Metadata } from "next";
 import { IncomeTaxCalculator } from "@/components/Calculator/IncomeTaxCalculator";
 import Link from "next/link";
+import { 
+  getUrl, 
+  getOgImage, 
+  getBreadcrumbId, 
+  getWebAppId, 
+  getFaqId, 
+  getHowToId, 
+  getArticleId,
+  getStepUrl 
+} from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Income Tax Calculator - Free Federal & State Tax Calculator with Deductions",
@@ -29,21 +39,35 @@ export const metadata: Metadata = {
     "medicare tax calculator",
     "tax refund calculator",
   ],
+  authors: [{ name: 'AICalculator.pro Team' }],
+  creator: 'AICalculator.pro',
+  publisher: 'AICalculator.pro',
   openGraph: {
     title: "Income Tax Calculator - Free Federal & State Tax Calculator",
     description: "Calculate your income taxes instantly. Federal tax, state tax, FICA, AGI, and take-home pay. Free tax calculator with tax brackets, deductions, and credits.",
     type: "website",
-    url: "https://aicalculator.com/tax-calculator",
+    url: getUrl('/tax-calculator'),
     siteName: "Calculator Online - AICalculator",
+    locale: 'en_US',
+    images: [
+      {
+        url: getOgImage('tax'),
+        width: 1200,
+        height: 630,
+        alt: 'Income Tax Calculator',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Income Tax Calculator - Federal & State Tax Calculator",
     description: "Calculate your income taxes, take-home pay, and effective tax rate. Free tax calculator with federal and state tax estimates.",
+    images: [getOgImage('tax')],
     site: "@AICalculator",
+    creator: '@aicalculator',
   },
   alternates: {
-    canonical: "https://aicalculator.com/tax-calculator",
+    canonical: getUrl('/tax-calculator'),
   },
   robots: {
     index: true,
@@ -69,8 +93,9 @@ export default function IncomeTaxCalculatorPage() {
       // WebApplication Schema
       {
         "@type": "WebApplication",
+        "@id": getWebAppId('/tax-calculator'),
         "name": "Income Tax Calculator",
-        "url": "https://aicalculator.com/tax-calculator",
+        "url": getUrl('/tax-calculator'),
         "description": "Free online income tax calculator. Calculate federal income tax, state tax, FICA tax, AGI, taxable income with ATL/BTL deductions, tax credits (Child Tax Credit, Education Credits), and take-home pay. Includes One Big Beautiful Bill provisions.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -96,30 +121,32 @@ export default function IncomeTaxCalculatorPage() {
       // BreadcrumbList Schema
       {
         "@type": "BreadcrumbList",
+        "@id": getBreadcrumbId('/tax-calculator'),
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.com/financial"
+            "item": getUrl('/financial')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Income Tax Calculator",
-            "item": "https://aicalculator.com/tax-calculator"
+            "item": getUrl('/tax-calculator')
           }
         ]
       },
       // FAQPage Schema
       {
         "@type": "FAQPage",
+        "@id": getFaqId('/tax-calculator'),
         "mainEntity": [
           {
             "@type": "Question",
@@ -166,34 +193,73 @@ export default function IncomeTaxCalculatorPage() {
       // HowTo Schema
       {
         "@type": "HowTo",
+        "@id": getHowToId('/tax-calculator'),
         "name": "How to Use the Income Tax Calculator",
         "description": "Calculate your income tax and take-home pay in 4 simple steps",
+        "totalTime": "PT5M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "tool": {
+          "@type": "HowToTool",
+          "name": "Income Tax Calculator"
+        },
         "step": [
           {
             "@type": "HowToStep",
             "position": 1,
             "name": "Enter Your Annual Income",
-            "text": "Input your gross annual income (before taxes). This is your total salary or wages before any deductions."
+            "text": "Input your gross annual income (before taxes). This is your total salary or wages before any deductions.",
+            "url": getStepUrl('/tax-calculator', 1)
           },
           {
             "@type": "HowToStep",
             "position": 2,
             "name": "Select Filing Status",
-            "text": "Choose Single, Married Filing Jointly, or Head of Household. Your filing status affects tax brackets and standard deductions."
+            "text": "Choose Single, Married Filing Jointly, or Head of Household. Your filing status affects tax brackets and standard deductions.",
+            "url": getStepUrl('/tax-calculator', 2)
           },
           {
             "@type": "HowToStep",
             "position": 3,
             "name": "Enter State+Local Tax Rate",
-            "text": "Enter your state and local income tax rate percentage. You can find this on your previous tax return or state tax website. If you live in a state with no income tax (AK, FL, NV, SD, TN, TX, WA, WY, NH), enter 0."
+            "text": "Enter your state and local income tax rate percentage. You can find this on your previous tax return or state tax website. If you live in a state with no income tax (AK, FL, NV, SD, TN, TX, WA, WY, NH), enter 0.",
+            "url": getStepUrl('/tax-calculator', 3)
           },
           {
             "@type": "HowToStep",
             "position": 4,
             "name": "View Your Tax Estimate",
-            "text": "Click 'Calculate Taxes' to see your federal tax, state tax, FICA tax, total tax liability, take-home pay, effective tax rate, and tax saving tips."
+            "text": "Click 'Calculate Taxes' to see your federal tax, state tax, FICA tax, total tax liability, take-home pay, effective tax rate, and tax saving tips.",
+            "url": getStepUrl('/tax-calculator', 4)
           }
         ]
+      },
+      // Article Schema
+      {
+        "@type": "Article",
+        "@id": getArticleId('/tax-calculator'),
+        "headline": "Income Tax Calculator - Complete Guide to Federal & State Tax Calculation",
+        "description": "Comprehensive guide to income tax calculation with free calculator. Learn how to calculate federal tax, state tax, FICA, understand tax brackets, deductions, and credits to optimize your tax strategy.",
+        "author": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "url": getUrl('/')
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": getUrl('/logo.png')
+          }
+        },
+        "datePublished": "2025-11-16",
+        "dateModified": "2025-11-16",
+        "image": getOgImage('tax'),
+        "articleBody": "Calculate your income taxes accurately with our free tax calculator. Understand federal tax brackets, state taxes, FICA contributions, and learn how to maximize deductions and credits to reduce your tax liability and increase your take-home pay."
       }
     ]
   };

@@ -1,6 +1,16 @@
 import { Metadata } from "next";
 import { InterestCalculator } from "@/components/Calculator/InterestCalculator";
 import Link from "next/link";
+import { 
+  getUrl, 
+  getOgImage, 
+  getBreadcrumbId, 
+  getWebAppId, 
+  getFaqId, 
+  getHowToId, 
+  getArticleId,
+  getStepUrl 
+} from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Compound Interest Calculator - Free Investment Growth Calculator",
@@ -32,21 +42,35 @@ export const metadata: Metadata = {
     "real return calculator",
     "buying power calculator",
   ],
+  authors: [{ name: 'AICalculator.pro Team' }],
+  creator: 'AICalculator.pro',
+  publisher: 'AICalculator.pro',
   openGraph: {
     title: "Compound Interest Calculator - Free Investment Growth Calculator",
     description: "Calculate compound interest and investment growth. Free calculator with regular contributions, multiple compounding frequencies, and year-by-year breakdown.",
     type: "website",
-    url: "https://aicalculator.com/interest-calculator",
+    url: getUrl('/interest-calculator'),
     siteName: "Calculator Online - AICalculator",
+    locale: 'en_US',
+    images: [
+      {
+        url: getOgImage('interest'),
+        width: 1200,
+        height: 630,
+        alt: 'Interest Calculator',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Compound Interest Calculator - Investment Growth Calculator",
     description: "Calculate compound interest, investment growth, and savings with regular contributions. Free calculator with detailed breakdown.",
+    images: [getOgImage('interest')],
     site: "@AICalculator",
+    creator: '@aicalculator',
   },
   alternates: {
-    canonical: "https://aicalculator.com/interest-calculator",
+    canonical: getUrl('/interest-calculator'),
   },
   robots: {
     index: true,
@@ -73,7 +97,8 @@ export default function InterestCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Compound Interest Calculator",
-        "url": "https://aicalculator.com/interest-calculator",
+        "@id": getWebAppId('/interest-calculator'),
+        "url": getUrl('/interest-calculator'),
         "description": "Free online compound interest calculator. Calculate investment growth with compound interest, regular contributions, different compounding frequencies (daily, monthly, quarterly, annually, continuously), effective annual rate (EAR), and year-by-year breakdown.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -96,30 +121,32 @@ export default function InterestCalculatorPage() {
       // BreadcrumbList Schema
       {
         "@type": "BreadcrumbList",
+        "@id": getBreadcrumbId('/interest-calculator'),
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.com/financial"
+            "item": getUrl('/financial')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Compound Interest Calculator",
-            "item": "https://aicalculator.com/interest-calculator"
+            "item": getUrl('/interest-calculator')
           }
         ]
       },
       // FAQPage Schema
       {
         "@type": "FAQPage",
+        "@id": getFaqId('/interest-calculator'),
         "mainEntity": [
           {
             "@type": "Question",
@@ -190,46 +217,87 @@ export default function InterestCalculatorPage() {
       // HowTo Schema
       {
         "@type": "HowTo",
+        "@id": getHowToId('/interest-calculator'),
         "name": "How to Use the Compound Interest Calculator",
         "description": "Step-by-step guide to calculating compound interest and investment growth",
+        "totalTime": "PT5M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "tool": {
+          "@type": "HowToTool",
+          "name": "Compound Interest Calculator"
+        },
         "step": [
           {
             "@type": "HowToStep",
             "position": 1,
             "name": "Enter Initial Principal",
-            "text": "Enter your starting investment amount in dollars. This is the initial sum you're investing or have saved."
+            "text": "Enter your starting investment amount in dollars. This is the initial sum you're investing or have saved.",
+            "url": getStepUrl('/interest-calculator', 1)
           },
           {
             "@type": "HowToStep",
             "position": 2,
             "name": "Set Interest Rate",
-            "text": "Enter the annual interest rate as a percentage. For example, enter 5 for 5% annual interest."
+            "text": "Enter the annual interest rate as a percentage. For example, enter 5 for 5% annual interest.",
+            "url": getStepUrl('/interest-calculator', 2)
           },
           {
             "@type": "HowToStep",
             "position": 3,
             "name": "Choose Time Period",
-            "text": "Enter the investment duration and select years or months from the dropdown."
+            "text": "Enter the investment duration and select years or months from the dropdown.",
+            "url": getStepUrl('/interest-calculator', 3)
           },
           {
             "@type": "HowToStep",
             "position": 4,
             "name": "Select Compounding Frequency",
-            "text": "Choose how often interest compounds: annually, semi-annually, quarterly, monthly, daily, or continuously. More frequent compounding yields higher returns."
+            "text": "Choose how often interest compounds: annually, semi-annually, quarterly, monthly, daily, or continuously. More frequent compounding yields higher returns.",
+            "url": getStepUrl('/interest-calculator', 4)
           },
           {
             "@type": "HowToStep",
             "position": 5,
             "name": "Add Regular Contributions (Optional)",
-            "text": "Enter an amount for regular contributions and select monthly or yearly frequency. This simulates consistent investing."
+            "text": "Enter an amount for regular contributions and select monthly or yearly frequency. This simulates consistent investing.",
+            "url": getStepUrl('/interest-calculator', 5)
           },
           {
             "@type": "HowToStep",
             "position": 6,
             "name": "Calculate and Review Results",
-            "text": "Click 'Calculate Compound Interest' to see your future value, total interest earned, effective annual rate, and year-by-year breakdown. Share or export your results as needed."
+            "text": "Click 'Calculate Compound Interest' to see your future value, total interest earned, effective annual rate, and year-by-year breakdown. Share or export your results as needed.",
+            "url": getStepUrl('/interest-calculator', 6)
           }
         ]
+      },
+      // Article Schema
+      {
+        "@type": "Article",
+        "@id": getArticleId('/interest-calculator'),
+        "headline": "Compound Interest Calculator - Complete Guide to Investment Growth",
+        "description": "Comprehensive guide to compound interest calculations with free calculator. Learn how compound interest works, understand different compounding frequencies, and maximize your investment returns.",
+        "author": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "url": getUrl('/')
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": getUrl('/logo.png')
+          }
+        },
+        "datePublished": "2025-11-16",
+        "dateModified": "2025-11-16",
+        "image": getOgImage('interest'),
+        "articleBody": "Compound interest is the eighth wonder of the world. Use our calculator to see how your investments grow over time with compound interest, regular contributions, and different compounding frequencies. Understand the power of time and consistent investing for building wealth."
       }
     ]
   };

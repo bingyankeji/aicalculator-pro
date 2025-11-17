@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Scientific Calculator - Free Advanced Math Calculator",
     description: "Powerful online scientific calculator with trigonometry, logarithms, memory functions, and more. Free to use for students and professionals.",
     type: "website",
-    url: "https://aicalculator.com/scientific-calculator",
+    url: "https://aicalculator.pro/scientific-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description: "Advanced scientific calculator with trig functions, logs, exponentials, and memory. Free online tool for complex calculations.",
   },
   alternates: {
-    canonical: "https://aicalculator.com/scientific-calculator",
+    canonical: "https://aicalculator.pro/scientific-calculator",
   },
   robots: {
     index: true,
@@ -57,7 +57,7 @@ export default function ScientificCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Scientific Calculator",
-        "url": "https://aicalculator.com/scientific-calculator",
+        "url": "https://aicalculator.pro/scientific-calculator",
         "description": "Advanced online scientific calculator with trigonometric functions, logarithms, exponentials, memory functions, and calculation history. Supports both degree and radian modes for angle measurements.",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
@@ -87,19 +87,19 @@ export default function ScientificCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Math & Numbers",
-            "item": "https://aicalculator.com/math-numbers"
+            "item": "https://aicalculator.pro/math-numbers"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Scientific Calculator",
-            "item": "https://aicalculator.com/scientific-calculator"
+            "item": "https://aicalculator.pro/scientific-calculator"
           }
         ]
       },

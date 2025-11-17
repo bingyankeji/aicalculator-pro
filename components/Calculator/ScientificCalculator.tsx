@@ -219,15 +219,15 @@ export function ScientificCalculator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl p-4 md:p-6">
         
         {/* Display */}
-        <div className="bg-gray-950 rounded-xl p-4 mb-4">
+        <div className="bg-gray-950 rounded-xl p-3 sm:p-4 mb-4">
           {expression && (
             <div className="text-gray-400 text-sm mb-1 font-mono">{expression}</div>
           )}
-          <div className="text-white text-right text-4xl font-bold font-mono break-all">
+          <div className="text-white text-right text-2xl sm:text-3xl md:text-4xl font-bold font-mono break-all">
             {display}
           </div>
           <div className="flex justify-between items-center mt-2">

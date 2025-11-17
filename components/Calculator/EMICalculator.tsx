@@ -67,7 +67,7 @@ export function EMICalculator() {
     const P = inputs.loanAmount;
     const annualRate = inputs.interestRate;
     const R = annualRate / 12 / 100; // Monthly interest rate
-    const N = inputs.tenureType === 'years' ? inputs.loanTenure * 12 : inputs.loanTenure;
+    const N = inputs.loanTenure * 12; // Always in years now, convert to months
 
     if (P <= 0 || annualRate <= 0 || N <= 0) {
       return null;
@@ -191,11 +191,11 @@ export function EMICalculator() {
 
   return (
     <div className="w-full">
-      <div className="grid lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-5 gap-6">
         {/* Left: Input Form (3 columns) */}
-        <div className="lg:col-span-3 space-y-6">
+        <div className="xl:col-span-3 space-y-4 sm:space-y-6">
           {/* Loan Details Card */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
             <h3 className="text-lg font-bold text-gray-900 mb-4">Loan Details</h3>
             
             {/* Loan Amount */}
@@ -236,26 +236,22 @@ export function EMICalculator() {
             {/* Loan Tenure */}
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Loan Tenure
+                Loan Tenure (years)
               </label>
-              <div className="flex gap-3">
-                <input
-                  type="number"
-                  value={inputs.loanTenure}
-                  onChange={(e) => setInputs({ ...inputs, loanTenure: parseFloat(e.target.value) || 0 })}
-                  className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="20"
-                  min="1"
-                />
-                <select
-                  value={inputs.tenureType}
-                  onChange={(e) => setInputs({ ...inputs, tenureType: e.target.value as 'months' | 'years' })}
-                  className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
-                >
-                  <option value="years">Years</option>
-                  <option value="months">Months</option>
-                </select>
-              </div>
+              <input
+                type="number"
+                value={inputs.tenureType === 'years' ? inputs.loanTenure : (inputs.loanTenure / 12)}
+                onChange={(e) => setInputs({
+                  ...inputs,
+                  loanTenure: inputs.tenureType === 'years' ? parseFloat(e.target.value) || 0 : (parseFloat(e.target.value) || 0) * 12,
+                  tenureType: 'years'
+                })}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="20"
+                min="1"
+                max="30"
+                step="1"
+              />
               <p className="text-xs text-gray-500 mt-1">Home loans: 15-30 years, Car loans: 3-7 years</p>
             </div>
 
@@ -297,8 +293,8 @@ export function EMICalculator() {
         </div>
 
         {/* Right: Results (2 columns) */}
-        <div className="lg:col-span-2">
-          <div className="sticky top-4 space-y-6">
+        <div className="xl:col-span-2">
+          <div className="sticky top-4 space-y-4 sm:space-y-6">
             {!result ? (
               <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border-2 border-dashed border-gray-300 p-12 text-center">
                 <Calculator className="w-16 h-16 text-gray-400 mx-auto mb-4" />
@@ -309,28 +305,28 @@ export function EMICalculator() {
             ) : (
               <div ref={resultRef} className="space-y-6">
                 {/* Main EMI Result */}
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200 p-6">
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200 p-4 sm:p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-4">Your EMI Details</h3>
 
                   <div className="space-y-3">
                     <div className="flex justify-between items-center p-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg">
                       <span className="text-white font-bold">Monthly EMI</span>
-                      <span className="text-2xl font-bold text-white">${result.emi.toLocaleString('en-US')}</span>
+                      <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white break-all">${result.emi.toLocaleString('en-US')}</span>
                     </div>
 
                     <div className="flex justify-between items-center p-3 bg-white rounded-lg">
                       <span className="text-gray-700 font-medium">Principal Amount</span>
-                      <span className="text-xl font-bold text-gray-900">${result.loanAmount.toLocaleString('en-US')}</span>
+                      <span className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 break-all">${result.loanAmount.toLocaleString('en-US')}</span>
                     </div>
 
                     <div className="flex justify-between items-center p-3 bg-white rounded-lg">
                       <span className="text-gray-700 font-medium">Total Interest</span>
-                      <span className="text-xl font-bold text-red-600">${result.totalInterest.toLocaleString('en-US')}</span>
+                      <span className="text-lg sm:text-xl md:text-2xl font-bold text-red-600 break-all">${result.totalInterest.toLocaleString('en-US')}</span>
                     </div>
 
                     <div className="flex justify-between items-center p-3 bg-white rounded-lg">
                       <span className="text-gray-700 font-medium">Total Payment</span>
-                      <span className="text-xl font-bold text-gray-900">${result.totalPayment.toLocaleString('en-US')}</span>
+                      <span className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 break-all">${result.totalPayment.toLocaleString('en-US')}</span>
                     </div>
 
                     <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
@@ -344,7 +340,7 @@ export function EMICalculator() {
 
                 {/* DTI Analysis */}
                 {inputs.monthlyIncome > 0 && (
-                  <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+                  <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
                     <h3 className="text-lg font-bold text-gray-900 mb-4">Affordability Analysis</h3>
 
                     <div
@@ -360,7 +356,7 @@ export function EMICalculator() {
                     >
                       <div className="flex justify-between items-center mb-2">
                         <span className="font-semibold text-gray-900">Debt-to-Income Ratio</span>
-                        <span className="text-2xl font-bold text-gray-900">{result.dtiRatio}%</span>
+                        <span className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 break-all">{result.dtiRatio}%</span>
                       </div>
                       <p className="text-sm text-gray-700">
                         {result.dtiCategory === 'excellent' && '✅ Excellent! Your EMI is well within affordable range.'}
@@ -379,7 +375,7 @@ export function EMICalculator() {
                 )}
 
                 {/* Principal vs Interest Breakdown */}
-                <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+                <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-4">Payment Breakdown</h3>
                   
                   <div className="space-y-4">
@@ -443,7 +439,7 @@ export function EMICalculator() {
 
       {/* Amortization Schedule */}
       {result && (
-        <div className="mt-8 bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+        <div className="mt-8 bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <FileText className="w-5 h-5 text-blue-600" />
@@ -458,30 +454,30 @@ export function EMICalculator() {
           </div>
 
           {showSchedule && (
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm">
+            <div className="overflow-x-auto overflow-y-hidden">
+              <table className="w-full text-left text-xs sm:text-sm min-w-[350px]">
                 <thead className="bg-gray-100 border-b-2 border-gray-300">
                   <tr>
-                    <th className="px-4 py-3 font-bold text-gray-900">Month</th>
-                    <th className="px-4 py-3 font-bold text-gray-900">EMI</th>
-                    <th className="px-4 py-3 font-bold text-gray-900">Principal</th>
-                    <th className="px-4 py-3 font-bold text-gray-900">Interest</th>
-                    <th className="px-4 py-3 font-bold text-gray-900">Balance</th>
+                    <th className="px-2 sm:px-4 py-3 font-bold text-gray-900">Month</th>
+                    <th className="px-2 sm:px-4 py-3 font-bold text-gray-900">EMI</th>
+                    <th className="px-2 sm:px-4 py-3 font-bold text-gray-900">Principal</th>
+                    <th className="px-2 sm:px-4 py-3 font-bold text-gray-900">Interest</th>
+                    <th className="px-2 sm:px-4 py-3 font-bold text-gray-900">Balance</th>
                   </tr>
                 </thead>
                 <tbody>
                   {amortizationSchedule.slice(0, 12).map((row) => (
                     <tr key={row.month} className="border-b border-gray-200 hover:bg-gray-50">
-                      <td className="px-4 py-3 text-gray-700">{row.month}</td>
-                      <td className="px-4 py-3 text-gray-700">${row.emiAmount.toLocaleString('en-US')}</td>
-                      <td className="px-4 py-3 text-blue-700 font-semibold">${row.principal.toLocaleString('en-US')}</td>
-                      <td className="px-4 py-3 text-red-600 font-semibold">${row.interest.toLocaleString('en-US')}</td>
-                      <td className="px-4 py-3 text-gray-900 font-semibold">${row.balance.toLocaleString('en-US')}</td>
+                      <td className="px-2 sm:px-4 py-3 text-gray-700">{row.month}</td>
+                      <td className="px-2 sm:px-4 py-3 text-gray-700">${row.emiAmount.toLocaleString('en-US')}</td>
+                      <td className="px-2 sm:px-4 py-3 text-blue-700 font-semibold">${row.principal.toLocaleString('en-US')}</td>
+                      <td className="px-2 sm:px-4 py-3 text-red-600 font-semibold">${row.interest.toLocaleString('en-US')}</td>
+                      <td className="px-2 sm:px-4 py-3 text-gray-900 font-semibold">${row.balance.toLocaleString('en-US')}</td>
                     </tr>
                   ))}
                   {amortizationSchedule.length > 12 && (
                     <tr className="border-b border-gray-200 bg-gray-50">
-                      <td colSpan={5} className="px-4 py-3 text-center text-gray-600 italic">
+                      <td colSpan={5} className="px-2 sm:px-4 py-3 text-center text-gray-600 italic">
                         ... showing first 12 months of {result.monthsTotal} months ...
                       </td>
                     </tr>

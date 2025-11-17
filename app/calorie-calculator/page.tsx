@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Calorie Calculator - Calculate Daily Calorie Needs for Your Goals",
     description: "Free calorie calculator with BMR and TDEE calculation. Get personalized calorie goals and macro recommendations for weight loss, maintenance, or muscle gain.",
     type: "website",
-    url: "https://aicalculator.com/calorie-calculator",
+    url: "https://aicalculator.pro/calorie-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/calorie-calculator",
+    canonical: "https://aicalculator.pro/calorie-calculator",
   },
   robots: {
     index: true,
@@ -66,7 +66,7 @@ export default function CalorieCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Calorie Calculator",
-        "url": "https://aicalculator.com/calorie-calculator",
+        "url": "https://aicalculator.pro/calorie-calculator",
         "description": "Free online calorie calculator with BMR and TDEE calculation, personalized macronutrient recommendations, and smart nutrition analysis.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
@@ -96,19 +96,19 @@ export default function CalorieCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Health & Fitness",
-            "item": "https://aicalculator.com/health-fitness"
+            "item": "https://aicalculator.pro/health-fitness"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Calorie Calculator",
-            "item": "https://aicalculator.com/calorie-calculator"
+            "item": "https://aicalculator.pro/calorie-calculator"
           }
         ]
       },

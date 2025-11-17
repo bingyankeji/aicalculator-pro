@@ -622,12 +622,12 @@ export function MortgageCalculatorV2() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
         {/* Input Form */}
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">Mortgage Calculator</h2>
+        <div className="xl:col-span-1">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-6 hidden lg:block">Mortgage Calculator</h2>
             
              {/* Tooltip Component */}
              {(() => {
@@ -646,11 +646,11 @@ export function MortgageCalculatorV2() {
                return null;
              })()}
 
-             {/* Basic Inputs - Horizontal Layout */}
-             <div className="space-y-2.5">
+             {/* Basic Inputs - Responsive Layout */}
+             <div className="space-y-3 sm:space-y-2.5">
                {/* Home Price */}
-               <div className="flex items-center gap-3">
-                 <label className="text-sm font-medium text-gray-700 w-32 flex items-center flex-shrink-0">
+               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                 <label className="text-sm font-medium text-gray-700 sm:w-32 flex items-center sm:flex-shrink-0">
                    Home Price
                    <div className="group relative inline-block ml-1">
                      <span className="cursor-help text-gray-400 hover:text-gray-600 text-xs border border-gray-300 rounded-full w-4 h-4 inline-flex items-center justify-center">?</span>
@@ -672,8 +672,8 @@ export function MortgageCalculatorV2() {
                </div>
 
                {/* Down Payment */}
-               <div className="flex items-center gap-3">
-                 <label className="text-sm font-medium text-gray-700 w-32 flex items-center flex-shrink-0">
+               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                 <label className="text-sm font-medium text-gray-700 sm:w-32 flex items-center sm:flex-shrink-0">
                    Down Payment
                    <div className="group relative inline-block ml-1">
                      <span className="cursor-help text-gray-400 hover:text-gray-600 text-xs border border-gray-300 rounded-full w-4 h-4 inline-flex items-center justify-center">?</span>
@@ -710,8 +710,8 @@ export function MortgageCalculatorV2() {
                </div>
 
                {/* Loan Term */}
-               <div className="flex items-center gap-3">
-                 <label className="text-sm font-medium text-gray-700 w-32 flex items-center flex-shrink-0">
+               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                 <label className="text-sm font-medium text-gray-700 sm:w-32 flex items-center sm:flex-shrink-0">
                    Loan Term
                    <div className="group relative inline-block ml-1">
                      <span className="cursor-help text-gray-400 hover:text-gray-600 text-xs border border-gray-300 rounded-full w-4 h-4 inline-flex items-center justify-center">?</span>
@@ -733,8 +733,8 @@ export function MortgageCalculatorV2() {
                </div>
 
                {/* Interest Rate */}
-               <div className="flex items-center gap-3">
-                 <label className="text-sm font-medium text-gray-700 w-32 flex items-center flex-shrink-0">
+               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                 <label className="text-sm font-medium text-gray-700 sm:w-32 flex items-center sm:flex-shrink-0">
                    Interest Rate
                    <div className="group relative inline-block ml-1">
                      <span className="cursor-help text-gray-400 hover:text-gray-600 text-xs border border-gray-300 rounded-full w-4 h-4 inline-flex items-center justify-center">?</span>
@@ -757,8 +757,8 @@ export function MortgageCalculatorV2() {
               </div>
 
              {/* Start Date */}
-               <div className="flex items-center gap-3">
-                 <label className="text-sm font-medium text-gray-700 w-32 flex items-center flex-shrink-0">
+               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                 <label className="text-sm font-medium text-gray-700 sm:w-32 flex items-center sm:flex-shrink-0">
                    Start Date
                    <div className="group relative inline-block ml-1">
                      <span className="cursor-help text-gray-400 hover:text-gray-600 text-xs border border-gray-300 rounded-full w-4 h-4 inline-flex items-center justify-center">?</span>
@@ -807,8 +807,8 @@ export function MortgageCalculatorV2() {
                      <div className="text-sm font-semibold text-gray-900 mb-2">Annual Tax & Cost</div>
                      
                      {/* Property Taxes */}
-                     <div className="flex items-center gap-3">
-                       <label className="text-sm font-medium text-gray-700 w-32 flex items-center flex-shrink-0">
+                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                       <label className="text-sm font-medium text-gray-700 sm:w-32 flex items-center sm:flex-shrink-0">
                          Property Taxes
                          <div className="group relative inline-block ml-1">
                            <span className="cursor-help text-gray-400 hover:text-gray-600 text-xs border border-gray-300 rounded-full w-4 h-4 inline-flex items-center justify-center">?</span>
@@ -838,8 +838,8 @@ export function MortgageCalculatorV2() {
                      </div>
 
                      {/* Home Insurance */}
-                     <div className="flex items-center gap-3">
-                       <label className="text-sm font-medium text-gray-700 w-32 flex items-center flex-shrink-0">
+                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                       <label className="text-sm font-medium text-gray-700 sm:w-32 flex items-center sm:flex-shrink-0">
                          Home Insurance
                          <div className="group relative inline-block ml-1">
                            <span className="cursor-help text-gray-400 hover:text-gray-600 text-xs border border-gray-300 rounded-full w-4 h-4 inline-flex items-center justify-center">?</span>
@@ -869,8 +869,8 @@ export function MortgageCalculatorV2() {
                      </div>
 
                      {/* PMI Insurance */}
-                     <div className="flex items-center gap-3">
-                       <label className="text-sm font-medium text-gray-700 w-32 flex items-center flex-shrink-0">
+                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                       <label className="text-sm font-medium text-gray-700 sm:w-32 flex items-center sm:flex-shrink-0">
                          PMI Insurance
                          <div className="group relative inline-block ml-1">
                            <span className="cursor-help text-gray-400 hover:text-gray-600 text-xs border border-gray-300 rounded-full w-4 h-4 inline-flex items-center justify-center">?</span>
@@ -901,8 +901,8 @@ export function MortgageCalculatorV2() {
                      </div>
 
                      {/* HOA Fee */}
-                     <div className="flex items-center gap-3">
-                       <label className="text-sm font-medium text-gray-700 w-32 flex items-center flex-shrink-0">
+                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                       <label className="text-sm font-medium text-gray-700 sm:w-32 flex items-center sm:flex-shrink-0">
                          HOA Fee
                          <div className="group relative inline-block ml-1">
                            <span className="cursor-help text-gray-400 hover:text-gray-600 text-xs border border-gray-300 rounded-full w-4 h-4 inline-flex items-center justify-center">?</span>
@@ -933,8 +933,8 @@ export function MortgageCalculatorV2() {
                      </div>
 
                      {/* Other Costs */}
-                     <div className="flex items-center gap-3">
-                       <label className="text-sm font-medium text-gray-700 w-32 flex items-center flex-shrink-0">
+                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                       <label className="text-sm font-medium text-gray-700 sm:w-32 flex items-center sm:flex-shrink-0">
                          Other Costs
                          <div className="group relative inline-block ml-1">
                            <span className="cursor-help text-gray-400 hover:text-gray-600 text-xs border border-gray-300 rounded-full w-4 h-4 inline-flex items-center justify-center">?</span>
@@ -1186,9 +1186,9 @@ export function MortgageCalculatorV2() {
         </div>
 
          {/* Results */}
-         <div className="lg:col-span-2">
+         <div className="xl:col-span-2">
            {calculatedResult ? (
-             <div className="space-y-4">
+             <div className="space-y-4 sm:space-y-6">
                {/* Export & Share Buttons */}
                <div className="flex gap-3 justify-end mb-4 flex-wrap">
                  <button
@@ -1241,7 +1241,7 @@ export function MortgageCalculatorV2() {
                          <div className="text-lg font-semibold">Mortgage Payment</div>
                        </div>
                        <div className="text-xs opacity-75 mb-3">Principal & Interest Only</div>
-                       <div className="text-4xl font-bold">{formatCurrency(calculatedResult.principalAndInterest)}</div>
+                       <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">{formatCurrency(calculatedResult.principalAndInterest)}</div>
                      </div>
                      <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2 text-center">
                        <div className="text-xs opacity-90">per month</div>
@@ -1253,7 +1253,7 @@ export function MortgageCalculatorV2() {
                  {(calculatedResult.monthlyTax > 0 || calculatedResult.monthlyInsurance > 0 || calculatedResult.monthlyOther > 0) && (
                    <div className="flex items-center justify-center">
                      <div className="flex items-center gap-4 text-gray-600 text-sm">
-                       <span className="text-2xl font-bold">+</span>
+                       <span className="text-lg sm:text-xl md:text-2xl font-bold">+</span>
                        <div className="flex gap-2 flex-wrap">
                          {calculatedResult.monthlyTax > 0 && (
                            <span className="bg-gray-100 px-3 py-1 rounded-full">Tax: {formatCurrency(calculatedResult.monthlyTax)}</span>
@@ -1283,8 +1283,8 @@ export function MortgageCalculatorV2() {
                            <span className="text-3xl">💰</span>
                            <div className="text-lg font-semibold">Total Monthly Payment</div>
                          </div>
-                         <div className="text-xs opacity-75 mb-3">Including All Taxes & Costs</div>
-                         <div className="text-5xl font-bold">{formatCurrency(calculatedResult.monthlyPayment)}</div>
+                         <div className="text-xs opacity-75 mb-2 sm:mb-3">Including All Taxes & Costs</div>
+                         <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold break-all">{formatCurrency(calculatedResult.monthlyPayment)}</div>
                        </div>
                        <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2 text-center">
                          <div className="text-xs opacity-90">per month</div>
@@ -1644,8 +1644,8 @@ export function MortgageCalculatorV2() {
                const scenario2 = savedScenarios.find(s => s.id === selectedScenarios[1])!;
                
                return (
-                 <div className="overflow-x-auto">
-                   <table className="w-full text-sm">
+                 <div className="overflow-x-auto overflow-y-hidden">
+                   <table className="w-full min-w-[400px] text-xs sm:text-sm">
                      <thead className="bg-gray-100">
                        <tr>
                          <th className="px-4 py-3 text-left font-semibold">Metric</th>
@@ -1951,7 +1951,7 @@ export function MortgageCalculatorV2() {
                {/* Monthly Payment */}
                <div className="bg-green-600 rounded-xl shadow-xl p-6 text-white">
                  <div className="text-lg mb-2">Monthly Pay:</div>
-                 <div className="text-5xl font-bold">{formatCurrency(viewingScenario.result.monthlyPayment)}</div>
+                 <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold">{formatCurrency(viewingScenario.result.monthlyPayment)}</div>
                </div>
 
                {/* Input Summary */}
@@ -1978,8 +1978,8 @@ export function MortgageCalculatorV2() {
                </div>
 
                {/* Detailed Results Table */}
-               <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-                 <table className="w-full text-sm">
+               <div className="bg-white rounded-xl border border-gray-200 overflow-x-auto overflow-y-hidden">
+                 <table className="w-full min-w-[350px] text-xs sm:text-sm">
                    <thead className="bg-gray-100">
                      <tr>
                        <th className="px-4 py-3 text-left font-semibold"></th>

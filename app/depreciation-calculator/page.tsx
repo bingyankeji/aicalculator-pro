@@ -1,5 +1,15 @@
 import type { Metadata } from 'next';
 import DepreciationCalculator from '@/components/Calculator/DepreciationCalculator';
+import {
+  getUrl,
+  getOgImage,
+  getBreadcrumbId,
+  getWebAppId,
+  getFaqId,
+  getHowToId,
+  getArticleId,
+  getStepUrl
+} from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Depreciation Calculator - Straight Line, Double Declining & Tax Savings | Free Tool',
@@ -26,9 +36,9 @@ export const metadata: Metadata = {
     'depreciation analysis',
     'business tax calculator'
   ],
-  authors: [{ name: 'Calculator Tools Team' }],
-  creator: 'Calculator Tools',
-  publisher: 'Calculator Tools',
+  authors: [{ name: 'AICalculator.pro Team' }],
+  creator: 'AICalculator.pro',
+  publisher: 'AICalculator.pro',
   robots: {
     index: true,
     follow: true,
@@ -43,13 +53,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Free Depreciation Calculator - All Methods & Tax Savings',
     description: 'Calculate depreciation using straight-line, double declining, and other methods. Generate schedules and analyze tax savings for business assets.',
-    url: 'https://calculator-tools.com/depreciation-calculator',
-    siteName: 'Calculator Tools',
+    url: getUrl('/depreciation-calculator'),
+    siteName: 'AICalculator',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://calculator-tools.com/images/depreciation-calculator-og.jpg',
+        url: getOgImage('depreciation'),
         width: 1200,
         height: 630,
         alt: 'Depreciation Calculator - Asset Depreciation and Tax Savings Tool',
@@ -60,11 +70,12 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Free Depreciation Calculator - All Methods',
     description: 'Calculate asset depreciation with multiple methods. Generate schedules and analyze tax savings for business planning.',
-    images: ['https://calculator-tools.com/images/depreciation-calculator-twitter.jpg'],
-    creator: '@CalculatorTools',
+    images: [getOgImage('depreciation')],
+    site: '@AICalculator',
+    creator: '@aicalculator',
   },
   alternates: {
-    canonical: 'https://calculator-tools.com/depreciation-calculator',
+    canonical: getUrl('/depreciation-calculator'),
   },
   other: {
     'last-modified': new Date().toISOString(),
@@ -76,10 +87,10 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebApplication',
-      '@id': 'https://calculator-tools.com/depreciation-calculator#webapp',
+      '@id': getWebAppId('/depreciation-calculator'),
       name: 'Depreciation Calculator',
       description: 'Professional depreciation calculator supporting multiple methods including straight-line, double declining balance, sum of years digits, and units of production with tax savings analysis.',
-      url: 'https://calculator-tools.com/depreciation-calculator',
+      url: getUrl('/depreciation-calculator'),
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Any',
       permissions: 'browser',
@@ -108,31 +119,31 @@ const jsonLd = {
     },
     {
       '@type': 'BreadcrumbList',
-      '@id': 'https://calculator-tools.com/depreciation-calculator#breadcrumb',
+      '@id': getBreadcrumbId('/depreciation-calculator'),
       itemListElement: [
         {
           '@type': 'ListItem',
           position: 1,
           name: 'Calculator Tools',
-          item: 'https://calculator-tools.com',
+          item: getUrl('/'),
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Financial Calculators',
-          item: 'https://calculator-tools.com/financial',
+          item: getUrl('/financial'),
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Depreciation Calculator',
-          item: 'https://calculator-tools.com/depreciation-calculator',
+          item: getUrl('/depreciation-calculator'),
         },
       ],
     },
     {
       '@type': 'FAQPage',
-      '@id': 'https://calculator-tools.com/depreciation-calculator#faq',
+      '@id': getFaqId('/depreciation-calculator'),
       mainEntity: [
         {
           '@type': 'Question',
@@ -186,36 +197,79 @@ const jsonLd = {
     },
     {
       '@type': 'HowTo',
-      '@id': 'https://calculator-tools.com/depreciation-calculator#howto',
+      '@id': getHowToId('/depreciation-calculator'),
       name: 'How to Calculate Asset Depreciation and Tax Savings',
       description: 'Step-by-step guide to calculate depreciation using different methods and analyze tax benefits',
+      totalTime: 'PT5M',
+      estimatedCost: {
+        '@type': 'MonetaryAmount',
+        currency: 'USD',
+        value: '0'
+      },
+      tool: {
+        '@type': 'HowToTool',
+        name: 'Depreciation Calculator'
+      },
       step: [
         {
           '@type': 'HowToStep',
+          position: 1,
           name: 'Enter Asset Information',
           text: 'Input the asset cost, salvage value, and useful life. The asset cost is the total purchase price including setup costs. Salvage value is the estimated value at the end of useful life.',
+          url: getStepUrl('/depreciation-calculator', 1)
         },
         {
           '@type': 'HowToStep',
+          position: 2,
           name: 'Select Depreciation Method',
           text: 'Choose from straight-line, double declining balance, sum of years digits, or units of production. Consider your cash flow needs and tax strategy when selecting the method.',
+          url: getStepUrl('/depreciation-calculator', 2)
         },
         {
           '@type': 'HowToStep',
+          position: 3,
           name: 'Set Tax Rate',
           text: 'Enter your business tax rate to calculate tax savings. This should include federal, state, and local tax rates that apply to your business income.',
+          url: getStepUrl('/depreciation-calculator', 3)
         },
         {
           '@type': 'HowToStep',
+          position: 4,
           name: 'Review Depreciation Schedule',
           text: 'Examine the year-by-year depreciation schedule showing annual depreciation, accumulated depreciation, and tax savings for each period.',
+          url: getStepUrl('/depreciation-calculator', 4)
         },
         {
           '@type': 'HowToStep',
+          position: 5,
           name: 'Analyze Results',
           text: 'Compare total tax savings, cash flow timing, and method recommendations to optimize your depreciation strategy for tax and financial planning.',
+          url: getStepUrl('/depreciation-calculator', 5)
         },
       ],
+    },
+    {
+      '@type': 'Article',
+      '@id': getArticleId('/depreciation-calculator'),
+      headline: 'Depreciation Calculator - Complete Guide to Asset Depreciation & Tax Savings',
+      description: 'Comprehensive guide to asset depreciation with free calculator. Learn all depreciation methods, create schedules, and maximize tax deductions for business assets.',
+      author: {
+        '@type': 'Organization',
+        name: 'AICalculator.pro',
+        url: getUrl('/')
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'AICalculator.pro',
+        logo: {
+          '@type': 'ImageObject',
+          url: getUrl('/logo.png')
+        }
+      },
+      datePublished: '2025-11-16',
+      dateModified: '2025-11-16',
+      image: getOgImage('depreciation'),
+      articleBody: 'Master asset depreciation with our comprehensive calculator. Compare straight-line, double declining balance, sum of years digits, and units of production methods. Generate detailed depreciation schedules, calculate tax savings, and optimize your business tax strategy.'
     },
   ],
 };

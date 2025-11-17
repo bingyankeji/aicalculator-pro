@@ -224,8 +224,8 @@ export function QuadraticCalculator() {
   });
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-8">
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3 sm:space-y-4 md:space-y-6">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
         <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
           <Calculator className="w-6 h-6 text-blue-600" />
           Quadratic Formula Calculator (ax² + bx + c = 0)
@@ -254,7 +254,7 @@ export function QuadraticCalculator() {
       </div>
 
       {result && (
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
           <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
             <Sigma className="w-5 h-5 text-green-600" /> Results
           </h4>
@@ -262,7 +262,7 @@ export function QuadraticCalculator() {
           <div className="grid md:grid-cols-3 gap-4 mb-6">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
               <div className="text-sm text-blue-700 font-medium mb-1">Discriminant (D)</div>
-              <div className="text-2xl font-bold text-blue-900">{formatNumber(result.discriminant)}</div>
+              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-900 break-all">{formatNumber(result.discriminant)}</div>
               <div className="text-xs text-blue-600 mt-1">
                 {result.discriminant > 0 ? '2 real roots' : result.discriminant === 0 ? '1 repeated root' : '2 complex roots'}
               </div>
@@ -280,7 +280,7 @@ export function QuadraticCalculator() {
           {/* Parabola Properties */}
           <div className="mb-6">
             <h5 className="text-lg font-bold text-gray-900 mb-4">📊 Parabola Properties</h5>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-3 sm:gap-4">
               <div className="bg-gradient-to-br from-teal-50 to-teal-100 p-4 rounded-lg border border-teal-200">
                 <div className="text-sm text-teal-700 font-medium mb-1">Vertex</div>
                 <div className="text-lg font-bold text-teal-900">
@@ -327,7 +327,7 @@ export function QuadraticCalculator() {
           {/* Domain and Range */}
           <div className="mb-6">
             <h5 className="text-lg font-bold text-gray-900 mb-4">🎯 Domain & Range</h5>
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 xl:grid-cols-2 gap-3 sm:gap-4">
               <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 p-4 rounded-lg border border-cyan-200">
                 <div className="text-sm text-cyan-700 font-medium mb-1">Domain</div>
                 <div className="text-lg font-bold text-cyan-900">{result.domainRange.domain}</div>
@@ -353,14 +353,14 @@ export function QuadraticCalculator() {
       )}
 
       {/* Smart Examples - Positioned after results */}
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
         <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
           🎯 Try These Examples & Applications
         </h4>
         <p className="text-sm text-gray-600 mb-4">
           Click any example below to automatically load the coefficients and see real-world applications of quadratic equations.
         </p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3 sm:gap-4">
           {smartExamples.map((example, index) => (
             <div 
               key={index} 

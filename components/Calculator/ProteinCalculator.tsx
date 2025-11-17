@@ -355,12 +355,12 @@ export function ProteinCalculator() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-3 gap-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
         {/* Input Section */}
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 sticky top-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+        <div className="xl:col-span-1">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6 sticky top-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2 hidden lg:block">
               <Beef className="w-6 h-6 text-red-600" />
               Protein Calculator
             </h2>
@@ -616,7 +616,7 @@ export function ProteinCalculator() {
 
                   <div className="bg-white rounded-lg p-6 mb-4 border-2 border-red-300">
                     <div className="text-sm text-gray-600 mb-2 font-semibold">Daily Protein</div>
-                    <div className="text-5xl font-bold text-red-600 mb-2">
+                    <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-red-600 mb-2 break-all">
                       {result.dailyProtein.toFixed(0)}g
                     </div>
                     <div className="text-lg text-gray-700">

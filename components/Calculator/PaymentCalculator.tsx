@@ -217,15 +217,15 @@ export function PaymentCalculator() {
                         inputs.paymentFrequency === 'bi-weekly' ? 'bi-week' : 'week';
 
   return (
-    <div className="w-full max-w-7xl mx-auto space-y-6">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
       {/* Input Section */}
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 md:p-8">
-        <div className="flex items-center gap-3 mb-6">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6 md:p-8">
+        <div className="flex items-center gap-3 mb-6 hidden lg:block">
           <DollarSign className="w-8 h-8 text-blue-600" />
           <h2 className="text-2xl font-bold text-gray-900">Payment Calculator</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Loan Amount */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -360,10 +360,10 @@ export function PaymentCalculator() {
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6 md:p-8">
             <h3 className="text-xl font-bold text-gray-900 mb-6">Your Payment Schedule</h3>
 
-            <div className="grid md:grid-cols-4 gap-4 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
               <div className="bg-white rounded-lg p-4 border border-blue-200">
                 <div className="text-sm text-gray-600 mb-1">Payment Amount</div>
-                <div className="text-2xl font-bold text-blue-600">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 break-all">
                   ${result.regularPayment.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </div>
                 <div className="text-xs text-gray-500 mt-1">per {frequencyLabel}</div>
@@ -371,7 +371,7 @@ export function PaymentCalculator() {
 
               <div className="bg-white rounded-lg p-4 border border-blue-200">
                 <div className="text-sm text-gray-600 mb-1">Total Interest</div>
-                <div className="text-2xl font-bold text-orange-600">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-orange-600 break-all">
                   ${result.totalInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </div>
                 <div className="text-xs text-gray-500 mt-1">over loan term</div>
@@ -379,7 +379,7 @@ export function PaymentCalculator() {
 
               <div className="bg-white rounded-lg p-4 border border-blue-200">
                 <div className="text-sm text-gray-600 mb-1">Total Paid</div>
-                <div className="text-2xl font-bold text-gray-900">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 break-all">
                   ${result.totalPaid.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </div>
                 <div className="text-xs text-gray-500 mt-1">principal + interest</div>
@@ -424,7 +424,7 @@ export function PaymentCalculator() {
                 Impact of Extra Payments
               </h3>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Without Extra Payment */}
                 <div className="bg-gray-50 rounded-lg p-6 border-2 border-gray-200">
                   <h4 className="font-semibold text-gray-900 mb-4">Regular Schedule</h4>
@@ -479,16 +479,16 @@ export function PaymentCalculator() {
               {/* Savings Summary */}
               <div className="mt-6 bg-gradient-to-r from-green-600 to-emerald-600 rounded-lg p-6 text-white">
                 <h4 className="font-bold text-lg mb-3">💰 Your Savings</h4>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <div className="text-sm opacity-90 mb-1">Interest Saved</div>
-                    <div className="text-3xl font-bold">
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold break-all">
                       ${result.withExtraPayment.interestSaved.toLocaleString('en-US', { minimumFractionDigits: 2 })}
                     </div>
                   </div>
                   <div>
                     <div className="text-sm opacity-90 mb-1">Time Saved</div>
-                    <div className="text-3xl font-bold">{result.withExtraPayment.timeSaved}</div>
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold break-all">{result.withExtraPayment.timeSaved}</div>
                   </div>
                 </div>
               </div>
@@ -536,7 +536,7 @@ export function PaymentCalculator() {
               <div className="pt-4 border-t-2 border-gray-200">
                 <div className="flex justify-between">
                   <span className="text-lg font-bold text-gray-900">Total Amount Paid</span>
-                  <span className="text-2xl font-bold text-gray-900">
+                  <span className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 break-all">
                     ${result.totalPaid.toLocaleString('en-US', { minimumFractionDigits: 2 })}
                   </span>
                 </div>

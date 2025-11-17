@@ -1,6 +1,16 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { InflationCalculator } from '@/components/Calculator/InflationCalculator';
+import {
+  getUrl,
+  getOgImage,
+  getBreadcrumbId,
+  getWebAppId,
+  getFaqId,
+  getHowToId,
+  getArticleId,
+  getStepUrl
+} from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Inflation Calculator - Free Purchasing Power Calculator with Historical Data | AICalculator',
@@ -21,22 +31,43 @@ export const metadata: Metadata = {
     'inflation hedge',
     'inflation protected investments',
     'real value calculator',
+    'inflation adjusted calculator',
+    'inflation erosion calculator',
+    'price inflation calculator',
+    'inflation comparison calculator',
+    'inflation over time calculator',
+    'inflation investment calculator',
+    'beat inflation calculator'
   ],
+  authors: [{ name: 'AICalculator.pro Team' }],
+  creator: 'AICalculator.pro',
+  publisher: 'AICalculator.pro',
   openGraph: {
     title: 'Free Inflation Calculator - Calculate Purchasing Power & Money Value',
     description: 'Calculate how inflation affects your money over time. See purchasing power loss, future value projections, and get recommendations to protect wealth from inflation.',
     type: 'website',
-    url: 'https://aicalculator.com/inflation-calculator',
+    url: getUrl('/inflation-calculator'),
     siteName: 'AICalculator',
+    locale: 'en_US',
+    images: [
+      {
+        url: getOgImage('inflation'),
+        width: 1200,
+        height: 630,
+        alt: 'Inflation Calculator',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Inflation Calculator - Purchasing Power & Money Value',
     description: 'Calculate inflation impact on money value. Get purchasing power analysis and investment recommendations to beat inflation.',
+    images: [getOgImage('inflation')],
     site: '@AICalculator',
+    creator: '@aicalculator',
   },
   alternates: {
-    canonical: 'https://aicalculator.com/inflation-calculator',
+    canonical: getUrl('/inflation-calculator'),
   },
   robots: {
     index: true,
@@ -60,8 +91,9 @@ export default function InflationCalculatorPage() {
     '@graph': [
       {
         '@type': 'WebApplication',
+        '@id': getWebAppId('/inflation-calculator'),
         name: 'Inflation Calculator',
-        url: 'https://aicalculator.com/inflation-calculator',
+        url: getUrl('/inflation-calculator'),
         description:
           'Calculate inflation impact on purchasing power. See how much money loses value over time and get investment recommendations to beat inflation.',
         applicationCategory: 'FinanceApplication',
@@ -85,29 +117,31 @@ export default function InflationCalculatorPage() {
       },
       {
         '@type': 'BreadcrumbList',
+        '@id': getBreadcrumbId('/inflation-calculator'),
         itemListElement: [
           {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.com',
+            item: getUrl('/'),
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Financial',
-            item: 'https://aicalculator.com/financial',
+            item: getUrl('/financial'),
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'Inflation Calculator',
-            item: 'https://aicalculator.com/inflation-calculator',
+            item: getUrl('/inflation-calculator'),
           },
         ],
       },
       {
         '@type': 'FAQPage',
+        '@id': getFaqId('/inflation-calculator'),
         mainEntity: [
           {
             '@type': 'Question',
@@ -177,40 +211,79 @@ export default function InflationCalculatorPage() {
       },
       {
         '@type': 'HowTo',
+        '@id': getHowToId('/inflation-calculator'),
         name: 'How to Calculate Inflation and Purchasing Power',
         description: 'Step-by-step guide to understanding inflation impact on money value',
+        totalTime: 'PT5M',
+        estimatedCost: {
+          '@type': 'MonetaryAmount',
+          currency: 'USD',
+          value: '0'
+        },
+        tool: {
+          '@type': 'HowToTool',
+          name: 'Inflation Calculator'
+        },
         step: [
           {
             '@type': 'HowToStep',
             position: 1,
             name: 'Enter Starting Amount',
             text: 'Input the amount of money you had in the past or have today. This is your baseline for comparison.',
+            url: getStepUrl('/inflation-calculator', 1)
           },
           {
             '@type': 'HowToStep',
             position: 2,
             name: 'Set Time Period',
             text: 'Choose start year (when you had the money) and end year (target comparison year, often current year).',
+            url: getStepUrl('/inflation-calculator', 2)
           },
           {
             '@type': 'HowToStep',
             position: 3,
             name: 'Select Inflation Rate',
             text: 'Enter average annual inflation rate. Use 2% (Fed target), 3.3% (U.S. historical average), or custom rate. Quick presets available.',
+            url: getStepUrl('/inflation-calculator', 3)
           },
           {
             '@type': 'HowToStep',
             position: 4,
             name: 'Choose Calculation Type',
             text: 'Select: Purchasing Power Loss (see how much value was lost), Future Value Needed (amount needed to match current purchasing power), or Inflation Impact (total effect).',
+            url: getStepUrl('/inflation-calculator', 4)
           },
           {
             '@type': 'HowToStep',
             position: 5,
             name: 'Analyze Results',
             text: 'Review inflation-adjusted value, purchasing power loss percentage, yearly breakdown, and personalized investment recommendations to protect wealth.',
+            url: getStepUrl('/inflation-calculator', 5)
           },
         ],
+      },
+      {
+        '@type': 'Article',
+        '@id': getArticleId('/inflation-calculator'),
+        headline: 'Inflation Calculator - Complete Guide to Purchasing Power and Money Value',
+        description: 'Comprehensive guide to inflation with free calculator. Learn how inflation erodes purchasing power, protect your wealth, and make smart investment decisions.',
+        author: {
+          '@type': 'Organization',
+          name: 'AICalculator.pro',
+          url: getUrl('/')
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'AICalculator.pro',
+          logo: {
+            '@type': 'ImageObject',
+            url: getUrl('/logo.png')
+          }
+        },
+        datePublished: '2025-11-16',
+        dateModified: '2025-11-16',
+        image: getOgImage('inflation'),
+        articleBody: 'Understand inflation impact on your money with our comprehensive calculator. Calculate purchasing power loss, compare historical inflation rates, and discover investment strategies to protect and grow your wealth during inflationary periods.'
       },
     ],
   };

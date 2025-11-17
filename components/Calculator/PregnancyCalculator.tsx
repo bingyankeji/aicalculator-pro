@@ -225,12 +225,12 @@ export function PregnancyCalculator() {
   const getTrimesterColor = (t: number) => t === 1 ? 'text-pink-600 bg-pink-50' : t === 2 ? 'text-purple-600 bg-purple-50' : 'text-blue-600 bg-blue-50';
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
         {/* LEFT: Input Section */}
         <div className="space-y-6">
-      <div className="bg-white rounded-xl shadow-lg border p-6 mb-6">
-        <h3 className="text-lg font-bold mb-4 flex items-center gap-2"><Baby className="w-5 h-5 text-pink-600" />Pregnancy Calculator</h3>
+      <div className="bg-white rounded-xl shadow-lg border p-4 sm:p-6 mb-6">
+        <h3 className="text-lg font-bold mb-4 flex items-center gap-2 hidden lg:block"><Baby className="w-5 h-5 text-pink-600" />Pregnancy Calculator</h3>
         <div className="mb-4"><label className="block text-sm font-semibold mb-2">Calculation Method</label>
           <div className="grid grid-cols-3 gap-3">
             {['lmp', 'conception', 'ultrasound'].map(m => (
@@ -283,7 +283,7 @@ export function PregnancyCalculator() {
                   <span className="text-sm font-bold">Trimester {result.trimester}</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Your Due Date</h3>
-                <p className="text-4xl font-bold text-pink-600 mb-2">{result.dueDate}</p>
+                <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-pink-600 mb-2 break-all">{result.dueDate}</p>
                 <p className="text-lg text-gray-700">
                   <span className="font-bold text-pink-600">{result.currentWeek} weeks</span> and{' '}
                   <span className="font-bold text-pink-600">{result.currentDay} days</span> pregnant
@@ -396,7 +396,7 @@ export function PregnancyCalculator() {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg border p-6 mb-6">
+        <div className="bg-white rounded-xl shadow-lg border p-4 sm:p-6 mb-6">
           <h3 className="text-lg font-bold mb-4 flex items-center gap-2"><Baby className="w-5 h-5 text-pink-600" />Milestones</h3>
           <div className="space-y-3">
             {result.milestones.map((m,i) => (

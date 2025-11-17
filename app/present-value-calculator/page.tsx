@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description:
       "Calculate present value and NPV with investment decision support. Analyze single amounts, annuities, and cash flows with detailed financial recommendations.",
     type: "website",
-    url: "https://aicalculator.com/present-value-calculator",
+    url: "https://aicalculator.pro/present-value-calculator",
     siteName: "AI Calculator",
   },
   twitter: {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/present-value-calculator",
+    canonical: "https://aicalculator.pro/present-value-calculator",
   },
   robots: {
     index: true,
@@ -61,7 +61,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Present Value Calculator",
-      "url": "https://aicalculator.com/present-value-calculator",
+      "url": "https://aicalculator.pro/present-value-calculator",
       "description": "Advanced present value calculator with NPV analysis and investment decision support. Calculate PV of single amounts, annuities, and cash flows with detailed financial analysis, profitability index, and investment recommendations.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Any",
@@ -94,19 +94,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.com"
+          "item": "https://aicalculator.pro"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Financial",
-          "item": "https://aicalculator.com/financial"
+          "item": "https://aicalculator.pro/financial"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Present Value Calculator",
-          "item": "https://aicalculator.com/present-value-calculator"
+          "item": "https://aicalculator.pro/present-value-calculator"
         }
       ]
     },

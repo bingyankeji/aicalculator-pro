@@ -1,5 +1,16 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { MortgageCalculatorV2 } from "@/components/Calculator/MortgageCalculatorV2";
+import { 
+  getUrl, 
+  getOgImage, 
+  getBreadcrumbId, 
+  getWebAppId, 
+  getFaqId, 
+  getHowToId, 
+  getArticleId,
+  getStepUrl 
+} from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Mortgage Calculator - Free Home Loan Payment Calculator with Affordability Analysis",
@@ -19,23 +30,45 @@ export const metadata: Metadata = {
     "PMI calculator",
     "DTI calculator",
     "debt to income ratio calculator",
-    "mortgage payment estimator"
+    "mortgage payment estimator",
+    "monthly mortgage payment",
+    "home mortgage calculator",
+    "mortgage amortization calculator",
+    "refinance calculator",
+    "mortgage interest calculator",
+    "home loan estimator",
+    "mortgage cost calculator",
+    "house loan calculator"
   ],
+  authors: [{ name: 'AICalculator.pro Team' }],
+  creator: 'AICalculator.pro',
+  publisher: 'AICalculator.pro',
   openGraph: {
     title: "Mortgage Calculator - Instant Affordability Analysis",
     description: "Calculate mortgage payments and get detailed affordability analysis, risk assessment, and personalized home buying recommendations.",
     type: "website",
-    url: "https://aicalculator.com/mortgage-calculator",
+    url: getUrl('/mortgage-calculator'),
     siteName: "AICalculator",
+    locale: 'en_US',
+    images: [
+      {
+        url: getOgImage('mortgage'),
+        width: 1200,
+        height: 630,
+        alt: 'Mortgage Calculator',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Mortgage Calculator with Affordability Analysis",
     description: "Calculate mortgage payments and discover how much house you can afford with detailed insights and recommendations.",
+    images: [getOgImage('mortgage')],
     site: "@AICalculator",
+    creator: '@aicalculator',
   },
   alternates: {
-    canonical: "https://aicalculator.com/mortgage-calculator",
+    canonical: getUrl('/mortgage-calculator'),
   },
   robots: {
     index: true,
@@ -60,8 +93,9 @@ export default function MortgageCalculatorPage() {
     "@graph": [
       {
         "@type": "WebApplication",
+        "@id": getWebAppId('/mortgage-calculator'),
         "name": "Mortgage Calculator",
-        "url": "https://aicalculator.com/mortgage-calculator",
+        "url": getUrl('/mortgage-calculator'),
         "description": "Free mortgage calculator with detailed affordability analysis, DTI ratio calculation, and personalized recommendations for home buyers.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -82,29 +116,31 @@ export default function MortgageCalculatorPage() {
       },
       {
         "@type": "BreadcrumbList",
+        "@id": getBreadcrumbId('/mortgage-calculator'),
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.com/financial"
+            "item": getUrl('/financial')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Mortgage Calculator",
-            "item": "https://aicalculator.com/mortgage-calculator"
+            "item": getUrl('/mortgage-calculator')
           }
         ]
       },
       {
         "@type": "FAQPage",
+        "@id": getFaqId('/mortgage-calculator'),
         "mainEntity": [
           {
             "@type": "Question",
@@ -145,51 +181,115 @@ export default function MortgageCalculatorPage() {
               "@type": "Answer",
               "text": "You can save money by: 1) Increasing your down payment to 20% to eliminate PMI, 2) Choosing a shorter loan term (15 vs 30 years), 3) Making extra principal payments monthly, 4) Shopping around for the best interest rates, and 5) Considering bi-weekly payments instead of monthly payments."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "What credit score do I need for a mortgage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most conventional loans require a minimum credit score of 620, though you'll get better interest rates with scores above 740. FHA loans may accept scores as low as 580 with a 3.5% down payment, or 500-579 with 10% down. VA and USDA loans typically require scores of 620 or higher. Higher credit scores can save you thousands in interest over the life of your loan."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I choose a 15-year or 30-year mortgage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A 15-year mortgage has higher monthly payments but significantly lower total interest costs and builds equity faster. A 30-year mortgage offers lower monthly payments and more financial flexibility but costs more in interest over time. Choose 15-year if you can afford higher payments and want to pay off your home faster. Choose 30-year if you need lower payments or want to invest the difference elsewhere."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is included in my monthly mortgage payment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your monthly mortgage payment typically includes four components (PITI): Principal (loan amount repayment), Interest (cost of borrowing), property Taxes (paid to local government), and Insurance (homeowners insurance). If your down payment is less than 20%, you'll also pay PMI (Private Mortgage Insurance). Some payments may include HOA fees if applicable."
+            }
           }
         ]
       },
       {
         "@type": "HowTo",
+        "@id": getHowToId('/mortgage-calculator'),
         "name": "How to Use a Mortgage Calculator",
         "description": "Step-by-step guide to calculating your mortgage payment and affordability",
+        "totalTime": "PT5M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "tool": {
+          "@type": "HowToTool",
+          "name": "Mortgage Calculator"
+        },
         "step": [
           {
             "@type": "HowToStep",
             "position": 1,
             "name": "Enter Home Price",
-            "text": "Input the purchase price of the home you're considering buying."
+            "text": "Input the purchase price of the home you're considering buying. This is the total cost before your down payment.",
+            "url": getStepUrl('/mortgage-calculator', 1)
           },
           {
             "@type": "HowToStep",
             "position": 2,
             "name": "Set Down Payment",
-            "text": "Enter your down payment as a percentage or dollar amount. 20% is recommended to avoid PMI."
+            "text": "Enter your down payment as a percentage or dollar amount. 20% is recommended to avoid PMI (Private Mortgage Insurance).",
+            "url": getStepUrl('/mortgage-calculator', 2)
           },
           {
             "@type": "HowToStep",
             "position": 3,
             "name": "Choose Loan Term",
-            "text": "Select your loan term, typically 15 or 30 years."
+            "text": "Select your loan term, typically 15 or 30 years. Shorter terms have higher monthly payments but lower total interest.",
+            "url": getStepUrl('/mortgage-calculator', 3)
           },
           {
             "@type": "HowToStep",
             "position": 4,
             "name": "Enter Interest Rate",
-            "text": "Input the annual interest rate offered by your lender."
+            "text": "Input the annual interest rate offered by your lender. Current rates vary based on credit score and market conditions.",
+            "url": getStepUrl('/mortgage-calculator', 4)
           },
           {
             "@type": "HowToStep",
             "position": 5,
             "name": "Add Property Taxes and Insurance",
-            "text": "Include annual property taxes, home insurance, PMI (if applicable), HOA fees, and other costs."
+            "text": "Include annual property taxes, home insurance, PMI (if down payment is less than 20%), HOA fees, and other costs.",
+            "url": getStepUrl('/mortgage-calculator', 5)
           },
           {
             "@type": "HowToStep",
             "position": 6,
             "name": "Calculate and Analyze",
-            "text": "Click Calculate to see your monthly payment, total costs, amortization schedule, and affordability analysis."
+            "text": "Click Calculate to see your monthly payment, total costs, amortization schedule, and affordability analysis with DTI ratio.",
+            "url": getStepUrl('/mortgage-calculator', 6)
           }
         ]
+      },
+      {
+        "@type": "Article",
+        "@id": getArticleId('/mortgage-calculator'),
+        "headline": "Mortgage Calculator - Complete Guide to Home Loan Payments & Affordability",
+        "description": "Comprehensive guide to mortgage calculations with free calculator. Learn how to calculate monthly payments, understand amortization, analyze affordability, and make informed home buying decisions.",
+        "author": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+            "url": getUrl('/')
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AICalculator.pro",
+          "logo": {
+            "@type": "ImageObject",
+            "url": getUrl('/logo.png')
+          }
+        },
+        "datePublished": "2025-11-16",
+        "dateModified": "2025-11-16",
+        "image": getOgImage('mortgage'),
+        "articleBody": "A mortgage calculator helps you estimate your monthly home loan payment including principal, interest, property taxes, insurance, and PMI. Understanding your mortgage payment is crucial for home buying decisions. Use our calculator to analyze affordability, compare loan terms, and plan your home purchase budget."
       }
     ]
   };
@@ -210,16 +310,16 @@ export default function MortgageCalculatorPage() {
         <div className="container mx-auto px-4 py-3">
           <ol className="flex items-center space-x-2 text-sm text-gray-600" itemScope itemType="https://schema.org/BreadcrumbList">
             <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <a href="/" itemProp="item" className="hover:text-blue-600 transition-colors">
+              <Link href="/" itemProp="item" className="hover:text-blue-600 transition-colors">
                 <span itemProp="name">Home</span>
-              </a>
+              </Link>
               <meta itemProp="position" content="1" />
             </li>
             <li className="text-gray-400">/</li>
             <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <a href="/financial" itemProp="item" className="hover:text-blue-600 transition-colors">
+              <Link href="/financial" itemProp="item" className="hover:text-blue-600 transition-colors">
                 <span itemProp="name">Financial</span>
-              </a>
+              </Link>
               <meta itemProp="position" content="2" />
             </li>
             <li className="text-gray-400">/</li>
@@ -729,21 +829,21 @@ export default function MortgageCalculatorPage() {
                 Related Calculators
               </h3>
               <div className="grid md:grid-cols-3 gap-4">
-                <a href="/" className="block p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                <Link href="/" className="block p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
                   <div className="text-2xl mb-2">🧮</div>
                   <div className="font-semibold text-gray-900">Basic Calculator</div>
                   <p className="text-xs text-gray-600 mt-1">Scientific and basic calculations</p>
-                </a>
-                <a href="/calculators" className="block p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                </Link>
+                <Link href="/calculators" className="block p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
                   <div className="text-2xl mb-2">📱</div>
                   <div className="font-semibold text-gray-900">All Calculators</div>
                   <p className="text-xs text-gray-600 mt-1">Browse all calculator tools</p>
-                </a>
-                <a href="/blog" className="block p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                </Link>
+                <Link href="/blog" className="block p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
                   <div className="text-2xl mb-2">📚</div>
                   <div className="font-semibold text-gray-900">Financial Blog</div>
                   <p className="text-xs text-gray-600 mt-1">Tips and guides for home buying</p>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

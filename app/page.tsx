@@ -115,7 +115,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com",
+    canonical: "https://aicalculator.pro",
   },
   robots: {
     index: true,
@@ -283,19 +283,31 @@ export default function HomePage() {
                   🔥 Most Popular Tools
                 </h4>
                 <div className="grid grid-cols-2 gap-3">
-                  <Link href="/mortgage-calculator" className="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition-colors text-center">
+                  <Link
+                    href="/mortgage-calculator"
+                    className="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition-all duration-200 text-center block cursor-pointer border border-transparent hover:border-blue-300"
+                  >
                     <div className="text-2xl mb-1">🏠</div>
                     <div className="text-sm font-medium text-gray-900">Mortgage</div>
                   </Link>
-                  <Link href="/bmi-calculator" className="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition-colors text-center">
+                  <Link
+                    href="/bmi-calculator"
+                    className="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition-all duration-200 text-center block cursor-pointer border border-transparent hover:border-blue-300"
+                  >
                     <div className="text-2xl mb-1">⚖️</div>
                     <div className="text-sm font-medium text-gray-900">BMI</div>
                   </Link>
-                  <Link href="/loan-calculator" className="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition-colors text-center">
+                  <Link
+                    href="/loan-calculator"
+                    className="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition-all duration-200 text-center block cursor-pointer border border-transparent hover:border-blue-300"
+                  >
                     <div className="text-2xl mb-1">💰</div>
                     <div className="text-sm font-medium text-gray-900">Loan</div>
                   </Link>
-                  <Link href="/percentage-calculator" className="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition-colors text-center">
+                  <Link
+                    href="/percentage-calculator"
+                    className="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition-all duration-200 text-center block cursor-pointer border border-transparent hover:border-blue-300"
+                  >
                     <div className="text-2xl mb-1">%</div>
                     <div className="text-sm font-medium text-gray-900">Percentage</div>
                   </Link>
@@ -338,7 +350,7 @@ export default function HomePage() {
         {/* SEO Content Section */}
         <section className="mt-16 max-w-6xl mx-auto" aria-label="About Our Calculators">
           <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center hidden lg:block">
               Why Use Our Online Calculator? (Better than Google Calculator)
             </h2>
             
@@ -481,7 +493,7 @@ export default function HomePage() {
         {/* Quick Links for SEO */}
         <section className="mt-12 mb-8">
           <div className="max-w-6xl mx-auto bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl border border-blue-200 p-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
+            <h3 className="text-xl font-bold text-gray-900 mb-4 text-center hidden lg:block">
               Quick Access to Popular Calculators
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">

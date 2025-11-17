@@ -1,5 +1,15 @@
 import type { Metadata } from 'next';
 import AmortizationCalculator from '@/components/Calculator/AmortizationCalculator';
+import {
+  getUrl,
+  getOgImage,
+  getBreadcrumbId,
+  getWebAppId,
+  getFaqId,
+  getHowToId,
+  getArticleId,
+  getStepUrl
+} from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Amortization Calculator - Loan Payment Schedule & Extra Payment Analysis | Free Tool',
@@ -26,9 +36,9 @@ export const metadata: Metadata = {
     'interest savings calculator',
     'refinance analysis'
   ],
-  authors: [{ name: 'Calculator Tools Team' }],
-  creator: 'Calculator Tools',
-  publisher: 'Calculator Tools',
+  authors: [{ name: 'AICalculator.pro Team' }],
+  creator: 'AICalculator.pro',
+  publisher: 'AICalculator.pro',
   robots: {
     index: true,
     follow: true,
@@ -43,13 +53,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Free Amortization Calculator - Loan Payment Schedules',
     description: 'Calculate loan amortization schedules with extra payment analysis. See payment breakdowns, interest savings, and payoff dates.',
-    url: 'https://calculator-tools.com/amortization-calculator',
-    siteName: 'Calculator Tools',
+    url: getUrl('/amortization-calculator'),
+    siteName: 'AICalculator',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://calculator-tools.com/images/amortization-calculator-og.jpg',
+        url: getOgImage('amortization'),
         width: 1200,
         height: 630,
         alt: 'Amortization Calculator - Loan Payment Schedule Analysis Tool',
@@ -60,11 +70,12 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Free Amortization Calculator - Payment Schedules',
     description: 'Calculate loan amortization with extra payment analysis. See detailed payment schedules and interest savings.',
-    images: ['https://calculator-tools.com/images/amortization-calculator-twitter.jpg'],
-    creator: '@CalculatorTools',
+    images: [getOgImage('amortization')],
+    site: '@AICalculator',
+    creator: '@aicalculator',
   },
   alternates: {
-    canonical: 'https://calculator-tools.com/amortization-calculator',
+    canonical: getUrl('/amortization-calculator'),
   },
   other: {
     'last-modified': new Date().toISOString(),
@@ -76,10 +87,10 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'WebApplication',
-      '@id': 'https://calculator-tools.com/amortization-calculator#webapp',
+      '@id': getWebAppId('/amortization-calculator'),
       name: 'Amortization Calculator',
       description: 'Professional amortization calculator for generating detailed loan payment schedules with extra payment analysis and interest savings calculations.',
-      url: 'https://calculator-tools.com/amortization-calculator',
+      url: getUrl('/amortization-calculator'),
       applicationCategory: 'FinanceApplication',
       operatingSystem: 'Any',
       permissions: 'browser',
@@ -108,31 +119,31 @@ const jsonLd = {
     },
     {
       '@type': 'BreadcrumbList',
-      '@id': 'https://calculator-tools.com/amortization-calculator#breadcrumb',
+      '@id': getBreadcrumbId('/amortization-calculator'),
       itemListElement: [
         {
           '@type': 'ListItem',
           position: 1,
           name: 'Calculator Tools',
-          item: 'https://calculator-tools.com',
+          item: getUrl('/'),
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Financial Calculators',
-          item: 'https://calculator-tools.com/financial',
+          item: getUrl('/financial'),
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Amortization Calculator',
-          item: 'https://calculator-tools.com/amortization-calculator',
+          item: getUrl('/amortization-calculator'),
         },
       ],
     },
     {
       '@type': 'FAQPage',
-      '@id': 'https://calculator-tools.com/amortization-calculator#faq',
+      '@id': getFaqId('/amortization-calculator'),
       mainEntity: [
         {
           '@type': 'Question',
@@ -186,36 +197,79 @@ const jsonLd = {
     },
     {
       '@type': 'HowTo',
-      '@id': 'https://calculator-tools.com/amortization-calculator#howto',
+      '@id': getHowToId('/amortization-calculator'),
       name: 'How to Create and Analyze Loan Amortization Schedules',
       description: 'Step-by-step guide to calculate loan payments and analyze amortization schedules with extra payment benefits',
+      totalTime: 'PT5M',
+      estimatedCost: {
+        '@type': 'MonetaryAmount',
+        currency: 'USD',
+        value: '0'
+      },
+      tool: {
+        '@type': 'HowToTool',
+        name: 'Amortization Calculator'
+      },
       step: [
         {
           '@type': 'HowToStep',
+          position: 1,
           name: 'Enter Loan Details',
           text: 'Input the loan amount, annual interest rate, and loan term in years. These three values determine your base payment amount and total loan cost.',
+          url: getStepUrl('/amortization-calculator', 1)
         },
         {
           '@type': 'HowToStep',
+          position: 2,
           name: 'Choose Payment Frequency',
           text: 'Select monthly, bi-weekly, or weekly payments. Bi-weekly and weekly payments can significantly reduce interest costs and loan term.',
+          url: getStepUrl('/amortization-calculator', 2)
         },
         {
           '@type': 'HowToStep',
+          position: 3,
           name: 'Add Extra Payments (Optional)',
           text: 'Enter any extra payment amount to see the impact on interest savings and payoff time. Even small extra payments can have large long-term benefits.',
+          url: getStepUrl('/amortization-calculator', 3)
         },
         {
           '@type': 'HowToStep',
+          position: 4,
           name: 'Review Payment Schedule',
           text: 'Examine the detailed amortization schedule showing payment breakdown, remaining balance, and cumulative interest for each payment period.',
+          url: getStepUrl('/amortization-calculator', 4)
         },
         {
           '@type': 'HowToStep',
+          position: 5,
           name: 'Analyze Savings Opportunities',
           text: 'Compare different payment strategies and extra payment amounts to optimize your loan payoff strategy and maximize interest savings.',
+          url: getStepUrl('/amortization-calculator', 5)
         },
       ],
+    },
+    {
+      '@type': 'Article',
+      '@id': getArticleId('/amortization-calculator'),
+      headline: 'Amortization Calculator - Complete Guide to Loan Payment Schedules',
+      description: 'Comprehensive guide to loan amortization with free calculator. Learn how to create payment schedules, analyze extra payments, and save thousands in interest.',
+      author: {
+        '@type': 'Organization',
+        name: 'AICalculator.pro',
+        url: getUrl('/')
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'AICalculator.pro',
+        logo: {
+          '@type': 'ImageObject',
+          url: getUrl('/logo.png')
+        }
+      },
+      datePublished: '2025-11-16',
+      dateModified: '2025-11-16',
+      image: getOgImage('amortization'),
+      articleBody: 'Master loan amortization with our comprehensive calculator. Create detailed payment schedules, analyze the impact of extra payments, compare different payment frequencies, and discover strategies to save thousands in interest and pay off loans faster.'
     },
   ],
 };
@@ -272,17 +326,6 @@ export default function AmortizationCalculatorPage() {
 
         {/* Calculator Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Amortization Calculator
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Generate detailed loan payment schedules and analyze the impact of 
-              extra payments. See how different payment frequencies can save you 
-              thousands in interest and years of payments.
-            </p>
-          </div>
-
           <AmortizationCalculator />
         </div>
 

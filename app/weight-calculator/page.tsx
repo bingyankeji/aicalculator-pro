@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: "Ideal Weight Calculator - Calculate Your Target Weight",
     description: "Free ideal weight calculator using 4 proven formulas. Get your healthy weight range and personalized recommendations.",
     type: "website",
-    url: "https://aicalculator.com/weight-calculator",
+    url: "https://aicalculator.pro/weight-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description: "Calculate ideal weight with Robinson, Miller, Devine & Hamwi formulas. Get your healthy weight range now!",
   },
   alternates: {
-    canonical: "https://aicalculator.com/weight-calculator",
+    canonical: "https://aicalculator.pro/weight-calculator",
   },
   robots: {
     index: true,
@@ -58,7 +58,7 @@ export default function WeightCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Ideal Weight Calculator",
-        "url": "https://aicalculator.com/weight-calculator",
+        "url": "https://aicalculator.pro/weight-calculator",
         "description": "Calculate your ideal body weight using Robinson, Miller, Devine, and Hamwi formulas. Get personalized weight analysis and healthy weight range based on your height, gender, and frame size.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
@@ -87,19 +87,19 @@ export default function WeightCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Health & Fitness",
-            "item": "https://aicalculator.com/health-fitness"
+            "item": "https://aicalculator.pro/health-fitness"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Weight Calculator",
-            "item": "https://aicalculator.com/weight-calculator"
+            "item": "https://aicalculator.pro/weight-calculator"
           }
         ]
       },

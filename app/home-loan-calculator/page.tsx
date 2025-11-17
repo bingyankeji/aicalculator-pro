@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: 'Home Loan Calculator - Compare Mortgage Options',
     description: 'Free tool to analyze and compare home loan options. Get personalized recommendations and approval probability.',
     type: 'website',
-    url: 'https://aicalculator.com/home-loan-calculator',
+    url: 'https://aicalculator.pro/home-loan-calculator',
     siteName: 'AICalculator',
   },
   twitter: {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     site: '@AICalculator',
   },
   alternates: {
-    canonical: 'https://aicalculator.com/home-loan-calculator',
+    canonical: 'https://aicalculator.pro/home-loan-calculator',
   },
   robots: {
     index: true,
@@ -60,9 +60,9 @@ const structuredData = {
   "@graph": [
     {
       "@type": "WebApplication",
-      "@id": "https://aicalculator.com/home-loan-calculator#webapp",
+      "@id": "https://aicalculator.pro/home-loan-calculator#webapp",
       "name": "Home Loan Calculator",
-      "url": "https://aicalculator.com/home-loan-calculator",
+      "url": "https://aicalculator.pro/home-loan-calculator",
       "description": "Professional home loan calculator that analyzes mortgage options, compares loan programs, checks eligibility, and provides personalized recommendations with approval probability.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Any",
@@ -82,35 +82,35 @@ const structuredData = {
         "Program-specific recommendations",
         "Professional loan guidance"
       ],
-      "screenshot": "https://aicalculator.com/images/home-loan-calculator-screenshot.png"
+      "screenshot": "https://aicalculator.pro/images/home-loan-calculator-screenshot.png"
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://aicalculator.com/home-loan-calculator#breadcrumb",
+      "@id": "https://aicalculator.pro/home-loan-calculator#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.com"
+          "item": "https://aicalculator.pro"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Financial",
-          "item": "https://aicalculator.com/financial"
+          "item": "https://aicalculator.pro/financial"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Home Loan Calculator",
-          "item": "https://aicalculator.com/home-loan-calculator"
+          "item": "https://aicalculator.pro/home-loan-calculator"
         }
       ]
     },
     {
       "@type": "FAQPage",
-      "@id": "https://aicalculator.com/home-loan-calculator#faq",
+      "@id": "https://aicalculator.pro/home-loan-calculator#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -180,7 +180,7 @@ const structuredData = {
     },
     {
       "@type": "HowTo",
-      "@id": "https://aicalculator.com/home-loan-calculator#howto",
+      "@id": "https://aicalculator.pro/home-loan-calculator#howto",
       "name": "How to Use the Home Loan Calculator",
       "description": "Step-by-step guide to analyze home loan options and find the best mortgage program for your situation.",
       "step": [

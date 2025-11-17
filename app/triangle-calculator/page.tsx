@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description:
       "Calculate triangle area, perimeter, angles, and sides using SSS, SAS, ASA methods. Includes step-by-step solutions and triangle type identification.",
     type: "website",
-    url: "https://aicalculator.com/triangle-calculator",
+    url: "https://aicalculator.pro/triangle-calculator",
     siteName: "AI Calculator",
   },
   twitter: {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/triangle-calculator",
+    canonical: "https://aicalculator.pro/triangle-calculator",
   },
   robots: {
     index: true,
@@ -60,7 +60,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Triangle Calculator",
-      "url": "https://aicalculator.com/triangle-calculator",
+      "url": "https://aicalculator.pro/triangle-calculator",
       "description": "Solve any triangle using SSS, SAS, ASA methods. Calculate area, perimeter, angles, and sides with step-by-step mathematical solutions.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Any",
@@ -87,19 +87,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.com"
+          "item": "https://aicalculator.pro"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Math & Numbers",
-          "item": "https://aicalculator.com/math-numbers"
+          "item": "https://aicalculator.pro/math-numbers"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Triangle Calculator",
-          "item": "https://aicalculator.com/triangle-calculator"
+          "item": "https://aicalculator.pro/triangle-calculator"
         }
       ]
     },

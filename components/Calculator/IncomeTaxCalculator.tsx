@@ -431,7 +431,7 @@ export function IncomeTaxCalculator() {
           <p className="text-center text-sm">ℹ️ Modify the values and click the Calculate button to use</p>
         </div>
         
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Income Tax Calculator</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-6 hidden lg:block">Income Tax Calculator</h2>
         
         {/* File Status */}
         <div className="grid md:grid-cols-4 gap-4 mb-6">

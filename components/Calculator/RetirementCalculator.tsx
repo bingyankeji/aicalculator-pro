@@ -35,6 +35,10 @@ interface RetirementResult {
 }
 
 export function RetirementCalculator() {
+  // 渐进式披露状态管理
+  const [showAdvanced, setShowAdvanced] = useState(false);
+  const [hasCalculated, setHasCalculated] = useState(false);
+  
   const [inputs, setInputs] = useState<RetirementInputs>({
     currentAge: 30,
     retirementAge: 65,
@@ -53,6 +57,8 @@ export function RetirementCalculator() {
   const [activeTab, setActiveTab] = useState<'summary' | 'growth' | 'income'>('summary');
 
   const calculateRetirement = () => {
+    setHasCalculated(true);
+    
     const {
       currentAge,
       retirementAge,
@@ -155,11 +161,7 @@ export function RetirementCalculator() {
     });
   };
 
-  useEffect(() => {
-    if (inputs.retirementAge > inputs.currentAge && inputs.lifeExpectancy > inputs.retirementAge) {
-      calculateRetirement();
-    }
-  }, [inputs]);
+  // 移除自动计算 - 改为手动点击计算按钮
 
   // Share functionality
   const { showShareModal, shareUrl, shareText, handleShare, closeShareModal } = useShare({
@@ -199,212 +201,202 @@ export function RetirementCalculator() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="grid md:grid-cols-5 gap-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid md:grid-cols-5 xl:grid-cols-5 gap-4 sm:gap-6">
         {/* Input Section - 3 columns */}
         <div className="md:col-span-3 space-y-6">
-          {/* Personal Information */}
+          {/* ✅ 基础信息卡片 - 始终显示 */}
           <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
             <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <Calendar className="w-5 h-5 text-blue-600" />
-              Personal Information
-            </h3>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Current Age
-                </label>
-                <input
-                  type="number"
-                  value={inputs.currentAge || ''}
-                  onChange={(e) => setInputs({ ...inputs, currentAge: parseInt(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg font-semibold"
-                  placeholder="30"
-                  min="18"
-                  max="80"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Retirement Age
-                </label>
-                <input
-                  type="number"
-                  value={inputs.retirementAge || ''}
-                  onChange={(e) => setInputs({ ...inputs, retirementAge: parseInt(e.target.value) || 65 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg font-semibold"
-                  placeholder="65"
-                  min="50"
-                  max="80"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Life Expectancy
-                </label>
-                <input
-                  type="number"
-                  value={inputs.lifeExpectancy || ''}
-                  onChange={(e) => setInputs({ ...inputs, lifeExpectancy: parseInt(e.target.value) || 85 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg font-semibold"
-                  placeholder="85"
-                  min="60"
-                  max="100"
-                />
-              </div>
-            </div>
-            <p className="text-xs text-gray-500 mt-3">
-              Average US life expectancy: 76 (men), 81 (women). Plan for longer to be safe.
-            </p>
-          </div>
-
-          {/* Current Savings & Contributions */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <Banknote className="w-5 h-5 text-green-600" />
-              Current Savings & Contributions
+              Basic Information
             </h3>
             <div className="space-y-4">
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Current Age
+                  </label>
+                  <input
+                    type="number"
+                    value={inputs.currentAge || ''}
+                    onChange={(e) => setInputs({ ...inputs, currentAge: parseInt(e.target.value) || 0 })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="30"
+                    min="18"
+                    max="80"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Retirement Age
+                  </label>
+                  <input
+                    type="number"
+                    value={inputs.retirementAge || ''}
+                    onChange={(e) => setInputs({ ...inputs, retirementAge: parseInt(e.target.value) || 65 })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="65"
+                    min="50"
+                    max="80"
+                  />
+                </div>
+              </div>
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Current Retirement Savings ($)
+                  Monthly Contribution ($)
+                </label>
+                <input
+                  type="number"
+                  value={inputs.monthlyContribution || ''}
+                  onChange={(e) => setInputs({ ...inputs, monthlyContribution: parseFloat(e.target.value) || 0 })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg font-semibold"
+                  placeholder="500"
+                  step="50"
+                  min="0"
+                />
+                <p className="text-xs text-gray-500 mt-2">
+                  Aim for 15% of gross income
+                </p>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Current Savings ($)
                 </label>
                 <input
                   type="number"
                   value={inputs.currentSavings || ''}
                   onChange={(e) => setInputs({ ...inputs, currentSavings: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-lg font-semibold"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="50000"
                   step="5000"
                   min="0"
                 />
-                <p className="text-xs text-gray-500 mt-2">
-                  Total in 401(k), IRA, and other retirement accounts
-                </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Monthly Contribution ($)
-                  </label>
-                  <input
-                    type="number"
-                    value={inputs.monthlyContribution || ''}
-                    onChange={(e) => setInputs({ ...inputs, monthlyContribution: parseFloat(e.target.value) || 0 })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-lg font-semibold"
-                    placeholder="500"
-                    step="50"
-                    min="0"
-                  />
-                  <p className="text-xs text-gray-500 mt-2">
-                    Aim for 15% of gross income
-                  </p>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Employer Match ($)
-                  </label>
-                  <input
-                    type="number"
-                    value={inputs.employerMatch || ''}
-                    onChange={(e) => setInputs({ ...inputs, employerMatch: parseFloat(e.target.value) || 0 })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-lg font-semibold"
-                    placeholder="50"
-                    step="25"
-                    min="0"
-                  />
-                  <p className="text-xs text-gray-500 mt-2">
-                    Free money - always max out!
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-700">Total Monthly Savings:</span>
-                  <span className="font-bold text-blue-600">
-                    ${(inputs.monthlyContribution + inputs.employerMatch).toLocaleString()}/month
-                  </span>
-                </div>
-                <div className="flex justify-between text-sm mt-1">
-                  <span className="text-gray-700">Annual Savings:</span>
-                  <span className="font-bold text-blue-600">
-                    ${((inputs.monthlyContribution + inputs.employerMatch) * 12).toLocaleString()}/year
-                  </span>
-                </div>
-              </div>
+              {/* 展开高级选项按钮 */}
+              <button
+                onClick={() => setShowAdvanced(!showAdvanced)}
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all text-sm font-medium text-gray-700 hover:text-blue-700 flex items-center justify-center gap-2"
+              >
+                {showAdvanced ? (
+                  <>
+                    <span>Hide Advanced Options</span>
+                    <span className="text-lg">▲</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Show Advanced Options</span>
+                    <span className="text-lg">▼</span>
+                  </>
+                )}
+              </button>
             </div>
           </div>
 
-          {/* Investment & Economic Assumptions */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-purple-600" />
-              Investment & Economic Assumptions
-            </h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Expected Annual Return (%)
-                </label>
-                <input
-                  type="number"
-                  value={inputs.annualReturn || ''}
-                  onChange={(e) => setInputs({ ...inputs, annualReturn: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-lg font-semibold"
-                  placeholder="7"
-                  step="0.5"
-                  min="0"
-                  max="15"
-                />
-                <p className="text-xs text-gray-500 mt-2">
-                  Historical average: 7-10% (stocks), 3-5% (bonds)
-                </p>
+          {/* ⚡ 高级选项 - 条件显示 */}
+          {showAdvanced && (
+            <>
+              {/* Additional Settings */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <Banknote className="w-5 h-5 text-green-600" />
+                  Additional Settings (Optional)
+                </h3>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Life Expectancy
+                    </label>
+                    <input
+                      type="number"
+                      value={inputs.lifeExpectancy || ''}
+                      onChange={(e) => setInputs({ ...inputs, lifeExpectancy: parseInt(e.target.value) || 85 })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      placeholder="85"
+                      min="60"
+                      max="100"
+                    />
+                    <p className="text-xs text-gray-500 mt-2">
+                      Average: 76 (men), 81 (women). Plan for longer.
+                    </p>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Employer Match ($)
+                    </label>
+                    <input
+                      type="number"
+                      value={inputs.employerMatch || ''}
+                      onChange={(e) => setInputs({ ...inputs, employerMatch: parseFloat(e.target.value) || 0 })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      placeholder="50"
+                      step="25"
+                      min="0"
+                    />
+                    <p className="text-xs text-gray-500 mt-2">
+                      Free money - always max out!
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Annual Return (%)
+                      </label>
+                      <input
+                        type="number"
+                        value={inputs.annualReturn || ''}
+                        onChange={(e) => setInputs({ ...inputs, annualReturn: parseFloat(e.target.value) || 0 })}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        placeholder="7"
+                        step="0.5"
+                        min="0"
+                        max="15"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Inflation Rate (%)
+                      </label>
+                      <input
+                        type="number"
+                        value={inputs.inflationRate || ''}
+                        onChange={(e) => setInputs({ ...inputs, inflationRate: parseFloat(e.target.value) || 0 })}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        placeholder="3"
+                        step="0.1"
+                        min="0"
+                        max="10"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Inflation Rate (%)
-                </label>
-                <input
-                  type="number"
-                  value={inputs.inflationRate || ''}
-                  onChange={(e) => setInputs({ ...inputs, inflationRate: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-lg font-semibold"
-                  placeholder="3"
-                  step="0.1"
-                  min="0"
-                  max="10"
-                />
-                <p className="text-xs text-gray-500 mt-2">
-                  Historical average: 2-3% per year
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Retirement Income Needs */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <Target className="w-5 h-5 text-orange-600" />
-              Retirement Income Needs
-            </h3>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Desired Monthly Income (Today's Dollars) ($)
-                </label>
-                <input
-                  type="number"
-                  value={inputs.desiredMonthlyIncome || ''}
-                  onChange={(e) => setInputs({ ...inputs, desiredMonthlyIncome: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg font-semibold"
-                  placeholder="5000"
-                  step="100"
+              {/* Retirement Income Needs */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <Target className="w-5 h-5 text-orange-600" />
+                  Retirement Income Needs (Optional)
+                </h3>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Desired Monthly Income ($)
+                    </label>
+                    <input
+                      type="number"
+                      value={inputs.desiredMonthlyIncome || ''}
+                      onChange={(e) => setInputs({ ...inputs, desiredMonthlyIncome: parseFloat(e.target.value) || 0 })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      placeholder="5000"
+                      step="100"
                   min="0"
                 />
                 <p className="text-xs text-gray-500 mt-2">
@@ -412,10 +404,10 @@ export function RetirementCalculator() {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Expected Social Security ($)
+                    Social Security ($)
                   </label>
                   <input
                     type="number"
@@ -426,14 +418,11 @@ export function RetirementCalculator() {
                     step="100"
                     min="0"
                   />
-                  <p className="text-xs text-gray-500 mt-2">
-                    Average: $1,800/month (check <a href="https://www.ssa.gov" target="_blank" rel="noopener" className="text-blue-600 underline">SSA.gov</a>)
-                  </p>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Expected Pension ($)
+                    Pension ($)
                   </label>
                   <input
                     type="number"
@@ -444,13 +433,21 @@ export function RetirementCalculator() {
                     step="100"
                     min="0"
                   />
-                  <p className="text-xs text-gray-500 mt-2">
-                    Enter 0 if you don't have a pension
-                  </p>
                 </div>
               </div>
             </div>
           </div>
+            </>
+          )}
+
+          {/* 🎯 计算按钮 - 始终在底部 */}
+          <button
+            onClick={calculateRetirement}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 rounded-lg shadow-lg transition-colors flex items-center justify-center gap-2"
+          >
+            <Calendar className="h-5 w-5" />
+            Calculate Retirement Plan
+          </button>
         </div>
 
         {/* Results Section - 2 columns */}
@@ -479,7 +476,7 @@ export function RetirementCalculator() {
                 {/* Savings at Retirement */}
                 <div className="bg-white rounded-lg p-6 mb-4 border border-gray-200 text-center">
                   <div className="text-sm text-gray-600 mb-2">Projected Savings at Age {inputs.retirementAge}</div>
-                  <div className="text-4xl font-bold text-blue-600 mb-2">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-blue-600 mb-2 break-all">
                     ${(result.totalSavingsAtRetirement / 1000000).toFixed(2)}M
                   </div>
                   <div className="text-sm text-gray-500">
@@ -538,7 +535,7 @@ export function RetirementCalculator() {
                         <AlertCircle className="w-4 h-4" />
                         Monthly Shortfall:
                       </div>
-                      <div className="text-2xl font-bold text-orange-600 mb-3">
+                      <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-orange-600 mb-3 break-all">
                         ${result.shortfall.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                       </div>
                       <div className="text-xs text-gray-700 space-y-2">
@@ -560,7 +557,7 @@ export function RetirementCalculator() {
                         <span className="text-lg">🎉</span>
                         Monthly Surplus:
                       </div>
-                      <div className="text-2xl font-bold text-green-600 mb-2">
+                      <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-green-600 mb-2 break-all">
                         ${Math.abs(result.shortfall).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                       </div>
                       <p className="text-xs text-gray-700">

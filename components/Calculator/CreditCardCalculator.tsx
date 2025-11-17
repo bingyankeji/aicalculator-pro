@@ -291,12 +291,12 @@ export function CreditCardCalculator() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-3 gap-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
         {/* Input Section */}
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 sticky top-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+        <div className="xl:col-span-1">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6 sticky top-6 space-y-4 sm:space-y-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 hidden lg:block flex items-center gap-2">
               <CreditCard className="w-6 h-6 text-blue-600" />
               Credit Card Details
             </h2>
@@ -447,9 +447,9 @@ export function CreditCardCalculator() {
         </div>
 
         {/* Results Section */}
-        <div className="lg:col-span-2">
+        <div className="xl:col-span-2">
           {result ? (
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4 md:space-y-6">
               {/* Action Buttons */}
               <div className="flex justify-end gap-3">
                 <button
@@ -480,7 +480,7 @@ export function CreditCardCalculator() {
               </div>
 
               {/* Results Content (for export) */}
-              <div ref={resultRef} className="space-y-4 bg-white p-6 rounded-xl">
+              <div ref={resultRef} className="space-y-4 bg-white p-4 sm:p-6 rounded-xl">
                 {/* Export Header */}
                 <div className="border-b-2 border-gray-200 pb-4 mb-4">
                   <h2 className="text-2xl font-bold text-gray-900 mb-2">Credit Card Payoff Analysis</h2>
@@ -490,8 +490,8 @@ export function CreditCardCalculator() {
                 </div>
 
                 {/* Payment Strategies Comparison */}
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-200 p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-200 p-3 sm:p-4 md:p-6">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 flex items-center gap-2">
                     <span>📊</span>
                     Payment Strategies Comparison
                   </h3>
@@ -519,28 +519,28 @@ export function CreditCardCalculator() {
                             )}
                           </div>
                           <div className="text-right">
-                            <div className="text-2xl font-bold text-blue-600">
-                              ${strategy.monthlyPayment.toFixed(0)}<span className="text-sm">/mo</span>
+                            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 break-all">
+                              ${strategy.monthlyPayment.toFixed(0)}<span className="text-xs sm:text-sm">/mo</span>
                             </div>
                           </div>
                         </div>
                         
-                        <div className="grid grid-cols-3 gap-4 mt-4 pt-4 border-t border-gray-200">
+                        <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-4 pt-4 border-t border-gray-200">
                           <div>
                             <div className="text-xs text-gray-600">Payoff Time</div>
-                            <div className="text-lg font-bold text-gray-900">
+                            <div className="text-sm sm:text-lg font-bold text-gray-900 break-all">
                               {strategy.totalMonths > 999 ? '50+ years' : `${Math.floor(strategy.totalMonths / 12)}y ${strategy.totalMonths % 12}m`}
                             </div>
                           </div>
                           <div>
                             <div className="text-xs text-gray-600">Total Interest</div>
-                            <div className="text-lg font-bold text-red-600">
+                            <div className="text-sm sm:text-lg font-bold text-red-600 break-all">
                               ${strategy.totalInterest > 999999 ? '999K+' : strategy.totalInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                             </div>
                           </div>
                           <div>
                             <div className="text-xs text-gray-600">Total Paid</div>
-                            <div className="text-lg font-bold text-gray-900">
+                            <div className="text-sm sm:text-lg font-bold text-gray-900 break-all">
                               ${strategy.totalPaid > 999999 ? '999K+' : strategy.totalPaid.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                             </div>
                           </div>
@@ -552,21 +552,21 @@ export function CreditCardCalculator() {
 
                 {/* Savings Highlight */}
                 {result.interestSaved > 0 && (
-                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-2 border-green-300 p-6">
+                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-2 border-green-300 p-3 sm:p-4 md:p-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                       <span>💰</span>
                       Your Savings vs Minimum Payment
                     </h3>
-                    <div className="grid md:grid-cols-2 gap-6">
+                    <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                       <div className="text-center p-4 bg-white rounded-lg">
                         <div className="text-sm text-gray-600 mb-2">Interest Saved</div>
-                        <div className="text-3xl font-bold text-green-600">
+                        <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-600 break-all">
                           ${result.interestSaved.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                         </div>
                       </div>
                       <div className="text-center p-4 bg-white rounded-lg">
                         <div className="text-sm text-gray-600 mb-2">Time Saved</div>
-                        <div className="text-3xl font-bold text-blue-600">
+                        <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 break-all">
                           {Math.floor(result.timeSaved / 12)} years {result.timeSaved % 12} months
                         </div>
                       </div>
@@ -575,7 +575,7 @@ export function CreditCardCalculator() {
                 )}
 
                 {/* Recommendations */}
-                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-indigo-200 p-6">
+                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-indigo-200 p-3 sm:p-4 md:p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                     <span>💡</span>
                     Personalized Recommendations

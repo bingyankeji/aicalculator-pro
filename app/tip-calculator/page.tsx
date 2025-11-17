@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Free Tip Calculator - Split Bills & Calculate Gratuity",
     description: "Calculate restaurant tips and split bills easily. Get service quality recommendations and tipping guidelines. Free online tip calculator with bill splitting.",
     type: "website",
-    url: "https://aicalculator.com/tip-calculator",
+    url: "https://aicalculator.pro/tip-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/tip-calculator",
+    canonical: "https://aicalculator.pro/tip-calculator",
   },
   robots: {
     index: true,
@@ -44,7 +44,7 @@ export default function TipCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Tip Calculator",
-        "url": "https://aicalculator.com/tip-calculator",
+        "url": "https://aicalculator.pro/tip-calculator",
         "description": "Free online tip calculator to calculate restaurant tips, split bills among friends, and get service quality recommendations. Supports tip before/after tax calculations.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -73,19 +73,19 @@ export default function TipCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.com/financial"
+            "item": "https://aicalculator.pro/financial"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Tip Calculator",
-            "item": "https://aicalculator.com/tip-calculator"
+            "item": "https://aicalculator.pro/tip-calculator"
           }
         ]
       },

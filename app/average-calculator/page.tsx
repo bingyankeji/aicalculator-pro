@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Free Average Calculator - Mean, Median, Mode & More",
     description: "Calculate mean, median, mode, range, variance, and standard deviation instantly. Perfect for students and data analysis.",
     type: "website",
-    url: "https://aicalculator.com/average-calculator",
+    url: "https://aicalculator.pro/average-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/average-calculator",
+    canonical: "https://aicalculator.pro/average-calculator",
   },
   robots: {
     index: true,
@@ -60,7 +60,7 @@ export default function AverageCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Average Calculator",
-        "url": "https://aicalculator.com/average-calculator",
+        "url": "https://aicalculator.pro/average-calculator",
         "description": "Free online average calculator to calculate mean, median, mode, range, variance, standard deviation, and other statistical measures. Features automatic sorting, multiple calculations, and step-by-step formulas for educational purposes.",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Any",
@@ -90,19 +90,19 @@ export default function AverageCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Calculators",
-            "item": "https://aicalculator.com/calculators"
+            "item": "https://aicalculator.pro/calculators"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Average Calculator",
-            "item": "https://aicalculator.com/average-calculator"
+            "item": "https://aicalculator.pro/average-calculator"
           }
         ]
       },

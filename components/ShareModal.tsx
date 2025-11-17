@@ -29,7 +29,7 @@ export function ShareModal({ isOpen, onClose, shareUrl, shareText, calculatorNam
   const handleSocialShare = (platform: 'facebook' | 'twitter' | 'whatsapp' | 'email') => {
     const encodedText = encodeURIComponent(shareText);
     const encodedUrl = encodeURIComponent(shareUrl);
-    
+
     let url = '';
     switch (platform) {
       case 'facebook':
@@ -45,7 +45,7 @@ export function ShareModal({ isOpen, onClose, shareUrl, shareText, calculatorNam
         url = `mailto:?subject=${encodeURIComponent(`My ${calculatorName} Result`)}&body=${encodedText}%0A%0A${encodedUrl}`;
         break;
     }
-    
+
     window.open(url, '_blank', 'width=600,height=400');
   };
 

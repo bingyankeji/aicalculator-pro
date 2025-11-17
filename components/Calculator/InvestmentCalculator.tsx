@@ -39,6 +39,9 @@ interface InvestmentResult {
 }
 
 export function InvestmentCalculator() {
+  // 渐进式披露状态管理
+  const [showAdvanced, setShowAdvanced] = useState(false);
+  
   const [inputs, setInputs] = useState<InvestmentInputs>({
     investmentType: 'both',
     initialInvestment: 10000,
@@ -163,9 +166,7 @@ export function InvestmentCalculator() {
     });
   };
 
-  useEffect(() => {
-    calculateInvestment();
-  }, [inputs]);
+  // 移除自动计算 - 改为手动点击计算按钮
 
   // Share functionality
   const { showShareModal, shareUrl, shareText, handleShare, closeShareModal } = useShare({
@@ -210,61 +211,11 @@ export function InvestmentCalculator() {
       <div className="grid md:grid-cols-5 gap-6">
         {/* Input Section - 3 columns */}
         <div className="md:col-span-3 space-y-6">
-          {/* Investment Strategy */}
+          {/* ✅ 基础信息卡片 - 始终显示 */}
           <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
             <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-blue-600" />
-              Investment Strategy
-            </h3>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Compare Strategy
-                </label>
-                <div className="grid grid-cols-3 gap-3">
-                  <button
-                    onClick={() => setInputs({ ...inputs, investmentType: 'lump-sum' })}
-                    className={`px-4 py-3 rounded-lg font-semibold text-sm transition-all ${
-                      inputs.investmentType === 'lump-sum'
-                        ? 'bg-blue-600 text-white shadow-lg'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    }`}
-                  >
-                    Lump Sum
-                  </button>
-                  <button
-                    onClick={() => setInputs({ ...inputs, investmentType: 'dca' })}
-                    className={`px-4 py-3 rounded-lg font-semibold text-sm transition-all ${
-                      inputs.investmentType === 'dca'
-                        ? 'bg-green-600 text-white shadow-lg'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    }`}
-                  >
-                    DCA
-                  </button>
-                  <button
-                    onClick={() => setInputs({ ...inputs, investmentType: 'both' })}
-                    className={`px-4 py-3 rounded-lg font-semibold text-sm transition-all ${
-                      inputs.investmentType === 'both'
-                        ? 'bg-purple-600 text-white shadow-lg'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    }`}
-                  >
-                    Both
-                  </button>
-                </div>
-                <p className="text-xs text-gray-500 mt-2">
-                  Lump Sum: Invest all at once | DCA: Invest monthly | Both: Compare strategies
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Investment Amounts */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-green-600" />
-              Investment Amounts
+              <DollarSign className="w-5 h-5 text-blue-600" />
+              Basic Information
             </h3>
             <div className="space-y-4">
               <div>
@@ -275,7 +226,7 @@ export function InvestmentCalculator() {
                   type="number"
                   value={inputs.initialInvestment || ''}
                   onChange={(e) => setInputs({ ...inputs, initialInvestment: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-lg font-semibold"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg font-semibold"
                   placeholder="10000"
                   step="1000"
                   min="0"
@@ -285,35 +236,6 @@ export function InvestmentCalculator() {
                 </p>
               </div>
 
-              {(inputs.investmentType === 'dca' || inputs.investmentType === 'both') && (
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Monthly Contribution ($)
-                  </label>
-                  <input
-                    type="number"
-                    value={inputs.monthlyContribution || ''}
-                    onChange={(e) => setInputs({ ...inputs, monthlyContribution: parseFloat(e.target.value) || 0 })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-lg font-semibold"
-                    placeholder="500"
-                    step="50"
-                    min="0"
-                  />
-                  <p className="text-xs text-gray-500 mt-2">
-                    Amount to invest each month (Dollar-Cost Averaging)
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Time & Returns */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-purple-600" />
-              Time & Returns
-            </h3>
-            <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Investment Period (Years)
@@ -322,7 +244,7 @@ export function InvestmentCalculator() {
                   type="number"
                   value={inputs.investmentPeriod || ''}
                   onChange={(e) => setInputs({ ...inputs, investmentPeriod: parseInt(e.target.value) || 1 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-lg font-semibold"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg font-semibold"
                   placeholder="20"
                   min="1"
                   max="50"
@@ -348,37 +270,146 @@ export function InvestmentCalculator() {
                   type="number"
                   value={inputs.expectedReturn || ''}
                   onChange={(e) => setInputs({ ...inputs, expectedReturn: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-lg font-semibold"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg font-semibold"
                   placeholder="8"
                   step="0.5"
                   min="0"
                   max="30"
                 />
                 <p className="text-xs text-gray-500 mt-2">
-                  S&P 500 historical: ~10% | Conservative: 6-7% | Aggressive: 10-12%
+                  S&P 500 historical: ~10% | Conservative: 6-7%
                 </p>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Expected Inflation Rate (%)
-                </label>
-                <input
-                  type="number"
-                  value={inputs.inflationRate || ''}
-                  onChange={(e) => setInputs({ ...inputs, inflationRate: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  placeholder="3"
-                  step="0.1"
-                  min="0"
-                  max="10"
-                />
-                <p className="text-xs text-gray-500 mt-2">
-                  Historical average: 2-3% per year
-                </p>
-              </div>
+              {/* 展开高级选项按钮 */}
+              <button
+                onClick={() => setShowAdvanced(!showAdvanced)}
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all text-sm font-medium text-gray-700 hover:text-blue-700 flex items-center justify-center gap-2"
+              >
+                {showAdvanced ? (
+                  <>
+                    <span>Hide Advanced Options</span>
+                    <span className="text-lg">▲</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Show Advanced Options</span>
+                    <span className="text-lg">▼</span>
+                  </>
+                )}
+              </button>
             </div>
           </div>
+
+          {/* ⚡ 高级选项 - 条件显示 */}
+          {showAdvanced && (
+            <>
+              {/* Investment Strategy & DCA */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-green-600" />
+                  Investment Strategy (Optional)
+                </h3>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Compare Strategy
+                    </label>
+                    <div className="grid grid-cols-3 gap-3">
+                      <button
+                        onClick={() => setInputs({ ...inputs, investmentType: 'lump-sum' })}
+                        className={`px-4 py-3 rounded-lg font-semibold text-sm transition-all ${
+                          inputs.investmentType === 'lump-sum'
+                            ? 'bg-blue-600 text-white shadow-lg'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        }`}
+                      >
+                        Lump Sum
+                      </button>
+                      <button
+                        onClick={() => setInputs({ ...inputs, investmentType: 'dca' })}
+                        className={`px-4 py-3 rounded-lg font-semibold text-sm transition-all ${
+                          inputs.investmentType === 'dca'
+                            ? 'bg-green-600 text-white shadow-lg'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        }`}
+                      >
+                        DCA
+                      </button>
+                      <button
+                        onClick={() => setInputs({ ...inputs, investmentType: 'both' })}
+                        className={`px-4 py-3 rounded-lg font-semibold text-sm transition-all ${
+                          inputs.investmentType === 'both'
+                            ? 'bg-purple-600 text-white shadow-lg'
+                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        }`}
+                      >
+                        Both
+                      </button>
+                    </div>
+                    <p className="text-xs text-gray-500 mt-2">
+                      Lump Sum: Invest all at once | DCA: Invest monthly
+                    </p>
+                  </div>
+
+                  {(inputs.investmentType === 'dca' || inputs.investmentType === 'both') && (
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Monthly Contribution ($)
+                      </label>
+                      <input
+                        type="number"
+                        value={inputs.monthlyContribution || ''}
+                        onChange={(e) => setInputs({ ...inputs, monthlyContribution: parseFloat(e.target.value) || 0 })}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        placeholder="500"
+                        step="50"
+                        min="0"
+                      />
+                      <p className="text-xs text-gray-500 mt-2">
+                        Amount to invest each month (Dollar-Cost Averaging)
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Inflation Adjustment */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <Calendar className="w-5 h-5 text-purple-600" />
+                  Inflation Adjustment (Optional)
+                </h3>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Expected Inflation Rate (%)
+                  </label>
+                  <input
+                    type="number"
+                    value={inputs.inflationRate || ''}
+                    onChange={(e) => setInputs({ ...inputs, inflationRate: parseFloat(e.target.value) || 0 })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder="3"
+                    step="0.1"
+                    min="0"
+                    max="10"
+                  />
+                  <p className="text-xs text-gray-500 mt-2">
+                    Historical average: 2-3% per year
+                  </p>
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* 🎯 计算按钮 - 始终在底部 */}
+          <button
+            onClick={calculateInvestment}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 rounded-lg shadow-lg transition-colors flex items-center justify-center gap-2"
+          >
+            <BarChart3 className="h-5 w-5" />
+            Calculate Investment
+          </button>
         </div>
 
         {/* Results Section - 2 columns */}

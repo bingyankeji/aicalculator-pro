@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     title: 'Free Graphing Calculator - Plot Functions & Analyze Graphs Online',
     description: 'Advanced online graphing calculator with function plotting, equation solving, and graph analysis. Free tool for students and professionals.',
     type: 'website',
-    url: 'https://aicalculator.com/graphing-calculator',
+    url: 'https://aicalculator.pro/graphing-calculator',
     siteName: 'AICalculator',
   },
   twitter: {
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     site: '@AICalculator',
   },
   alternates: {
-    canonical: 'https://aicalculator.com/graphing-calculator',
+    canonical: 'https://aicalculator.pro/graphing-calculator',
   },
   robots: {
     index: true,
@@ -71,10 +71,10 @@ const structuredData = {
   '@graph': [
     {
       '@type': 'WebApplication',
-      '@id': 'https://aicalculator.com/graphing-calculator#webapp',
+      '@id': 'https://aicalculator.pro/graphing-calculator#webapp',
       name: 'Graphing Calculator',
       description: 'Free online graphing calculator to plot functions, solve equations, and analyze graphs with advanced features.',
-      url: 'https://aicalculator.com/graphing-calculator',
+      url: 'https://aicalculator.pro/graphing-calculator',
       applicationCategory: 'EducationalApplication',
       operatingSystem: 'Any',
       permissions: 'browser',
@@ -98,31 +98,31 @@ const structuredData = {
     },
     {
       '@type': 'BreadcrumbList',
-      '@id': 'https://aicalculator.com/graphing-calculator#breadcrumb',
+      '@id': 'https://aicalculator.pro/graphing-calculator#breadcrumb',
       itemListElement: [
         {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://aicalculator.com',
+          item: 'https://aicalculator.pro',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Math & Numbers',
-          item: 'https://aicalculator.com/math-calculators',
+          item: 'https://aicalculator.pro/math-calculators',
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Graphing Calculator',
-          item: 'https://aicalculator.com/graphing-calculator',
+          item: 'https://aicalculator.pro/graphing-calculator',
         },
       ],
     },
     {
       '@type': 'FAQPage',
-      '@id': 'https://aicalculator.com/graphing-calculator#faq',
+      '@id': 'https://aicalculator.pro/graphing-calculator#faq',
       mainEntity: [
         {
           '@type': 'Question',
@@ -192,7 +192,7 @@ const structuredData = {
     },
     {
       '@type': 'HowTo',
-      '@id': 'https://aicalculator.com/graphing-calculator#howto',
+      '@id': 'https://aicalculator.pro/graphing-calculator#howto',
       name: 'How to Use the Graphing Calculator',
       description: 'Step-by-step guide to plotting and analyzing functions with our online graphing calculator.',
       step: [

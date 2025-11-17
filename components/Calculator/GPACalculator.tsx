@@ -207,7 +207,7 @@ export function GPACalculator() {
   const maxScale = scale === '4.0' ? 4.0 : 5.0;
 
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Scale Selector */}
       <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 mb-6">
         <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
@@ -238,7 +238,7 @@ export function GPACalculator() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-5 gap-6">
+      <div className="grid md:grid-cols-5 xl:grid-cols-5 gap-4 sm:gap-6">
         {/* Courses Input - 3 columns */}
         <div className="md:col-span-3 space-y-6">
           <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
@@ -328,7 +328,7 @@ export function GPACalculator() {
           {/* Grade Scale Reference */}
           <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl border border-purple-200 p-6">
             <h3 className="text-sm font-semibold text-gray-900 mb-3">{scale} Grade Scale</h3>
-            <div className="grid grid-cols-2 gap-2 text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
               {gradeScales[scale].map((g) => (
                 <div key={g.grade} className="flex justify-between bg-white rounded px-3 py-2">
                   <span className="font-semibold">{g.grade}</span>
@@ -353,7 +353,7 @@ export function GPACalculator() {
                 {/* GPA Value */}
                 <div className="bg-white rounded-lg p-6 mb-4 border border-purple-200 text-center">
                   <div className="text-sm text-gray-600 mb-2">Cumulative GPA</div>
-                  <div className="text-5xl font-bold text-purple-600 mb-2">
+                  <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-purple-600 mb-2 break-all">
                     {result.currentGPA.toFixed(2)}
                   </div>
                   <div className="text-lg font-semibold text-gray-700">
@@ -480,7 +480,7 @@ export function GPACalculator() {
                         <div className="text-sm text-gray-700 mb-2">
                           To reach <strong>{targetGPA.toFixed(2)} GPA</strong>, you need:
                         </div>
-                        <div className="text-2xl font-bold text-gray-900">
+                        <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 break-all">
                           {requiredGPA.toFixed(2)} GPA
                         </div>
                         <div className="text-xs text-gray-600 mt-2">

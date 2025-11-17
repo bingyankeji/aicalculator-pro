@@ -32,6 +32,7 @@ export function AgeCalculator() {
   const [birthDate, setBirthDate] = useState<string>('');
   const [currentDate, setCurrentDate] = useState<string>(new Date().toISOString().split('T')[0]);
   const [result, setResult] = useState<AgeResult | null>(null);
+  const [isCalculating, setIsCalculating] = useState(false);
 
   // Share functionality
   const { showShareModal, shareUrl, shareText, handleShare, closeShareModal } = useShare({
@@ -96,7 +97,7 @@ export function AgeCalculator() {
     return 'Senior';
   };
 
-  const calculateAge = (birth: string, current: string) => {
+  const calculateAge = async (birth: string, current: string) => {
     if (!birth) {
       alert('Please enter your birth date');
       return;
@@ -109,6 +110,13 @@ export function AgeCalculator() {
       alert('Birth date cannot be in the future');
       return;
     }
+
+    setIsCalculating(true);
+
+    // Simulate calculation time for better UX
+    await new Promise(resolve => setTimeout(resolve, 200));
+
+    try {
 
     // Calculate exact age
     let years = currentDateTime.getFullYear() - birthDateTime.getFullYear();
@@ -176,6 +184,12 @@ export function AgeCalculator() {
       heartbeats,
       breaths,
     });
+    } catch (error) {
+      console.error('Calculation error:', error);
+      alert('An error occurred during age calculation. Please try again.');
+    } finally {
+      setIsCalculating(false);
+    }
   };
 
   const handleCalculate = () => {
@@ -203,10 +217,10 @@ export function AgeCalculator() {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Calculator Card */}
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 md:p-8 mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Calculate Your Age</h2>
+      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6 md:p-8 mb-6">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6 hidden lg:block">Calculate Your Age</h2>
         
         {/* Input Fields */}
         <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -243,9 +257,19 @@ export function AgeCalculator() {
         {/* Calculate Button */}
         <button
           onClick={handleCalculate}
-          className="w-full md:w-auto px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium shadow-md"
+          disabled={isCalculating}
+          className="w-full md:w-auto px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          aria-label="Calculate Age"
+          aria-busy={isCalculating}
         >
-          Calculate Age
+          {isCalculating ? (
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              Calculating...
+            </div>
+          ) : (
+            'Calculate Age'
+          )}
         </button>
       </div>
 
@@ -254,18 +278,18 @@ export function AgeCalculator() {
         <div id="age-result" className="space-y-6">
           {/* Main Age Result */}
           <div className="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 rounded-xl p-6 md:p-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Your Exact Age</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-4 hidden lg:block">Your Exact Age</h3>
             <div className="grid grid-cols-3 gap-4 mb-6">
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600">{result.years}</div>
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-blue-600 break-all">{result.years}</div>
                 <div className="text-sm text-gray-600 mt-1">Years</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600">{result.months}</div>
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-blue-600 break-all">{result.months}</div>
                 <div className="text-sm text-gray-600 mt-1">Months</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600">{result.days}</div>
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-blue-600 break-all">{result.days}</div>
                 <div className="text-sm text-gray-600 mt-1">Days</div>
               </div>
             </div>

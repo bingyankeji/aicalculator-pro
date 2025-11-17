@@ -52,6 +52,9 @@ interface FourZeroOneKResult {
 }
 
 export function FourZeroOneKCalculator() {
+  // 渐进式披露状态管理
+  const [showAdvanced, setShowAdvanced] = useState(false);
+  
   const [inputs, setInputs] = useState<FourZeroOneKInputs>({
     accountType: 'traditional',
     currentAge: 30,
@@ -68,8 +71,11 @@ export function FourZeroOneKCalculator() {
 
   const [result, setResult] = useState<FourZeroOneKResult | null>(null);
   const [activeTab, setActiveTab] = useState<'comparison' | 'growth' | 'breakdown'>('comparison');
+  const [hasCalculated, setHasCalculated] = useState(false);
 
   const calculateFourZeroOneK = () => {
+    setHasCalculated(true);
+    
     const {
       currentAge,
       retirementAge,
@@ -203,9 +209,7 @@ export function FourZeroOneKCalculator() {
     });
   };
 
-  useEffect(() => {
-    calculateFourZeroOneK();
-  }, [inputs]);
+  // 移除自动计算 - 改为手动点击计算按钮
 
   // Share functionality
   const { showShareModal, shareUrl, shareText, handleShare, closeShareModal } = useShare({
@@ -287,91 +291,54 @@ export function FourZeroOneKCalculator() {
             </p>
           </div>
 
-          {/* Basic Information */}
+          {/* ✅ 基础信息卡片 - 始终显示 */}
           <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
             <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
               <Target className="w-5 h-5 text-purple-600" />
-              Timeline & Balance
-            </h3>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Current Age
-                </label>
-                <input
-                  type="number"
-                  value={inputs.currentAge || ''}
-                  onChange={(e) => setInputs({ ...inputs, currentAge: parseInt(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  placeholder="30"
-                  min="18"
-                  max="100"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Retirement Age
-                </label>
-                <input
-                  type="number"
-                  value={inputs.retirementAge || ''}
-                  onChange={(e) => setInputs({ ...inputs, retirementAge: parseInt(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  placeholder="65"
-                  min="50"
-                  max="80"
-                />
-              </div>
-
-              <div className="col-span-2">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Current 401k Balance ($)
-                </label>
-                <input
-                  type="number"
-                  value={inputs.currentBalance || ''}
-                  onChange={(e) => setInputs({ ...inputs, currentBalance: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-lg font-semibold"
-                  placeholder="10000"
-                  step="1000"
-                  min="0"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Contributions */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-green-600" />
-              Contributions
+              Basic Information
             </h3>
             <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Annual Salary ($)
-                </label>
-                <input
-                  type="number"
-                  value={inputs.annualSalary || ''}
-                  onChange={(e) => setInputs({ ...inputs, annualSalary: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  placeholder="75000"
-                  step="1000"
-                  min="0"
-                />
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Current Age
+                  </label>
+                  <input
+                    type="number"
+                    value={inputs.currentAge || ''}
+                    onChange={(e) => setInputs({ ...inputs, currentAge: parseInt(e.target.value) || 0 })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder="30"
+                    min="18"
+                    max="100"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Retirement Age
+                  </label>
+                  <input
+                    type="number"
+                    value={inputs.retirementAge || ''}
+                    onChange={(e) => setInputs({ ...inputs, retirementAge: parseInt(e.target.value) || 0 })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder="65"
+                    min="50"
+                    max="80"
+                  />
+                </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Your Annual Contribution ($)
+                  Annual Contribution ($)
                 </label>
                 <input
                   type="number"
                   value={inputs.annualContribution || ''}
                   onChange={(e) => setInputs({ ...inputs, annualContribution: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-lg font-semibold"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-lg font-semibold"
                   placeholder="10000"
                   step="500"
                   min="0"
@@ -382,121 +349,200 @@ export function FourZeroOneKCalculator() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Employer Match (%)
-                  </label>
-                  <input
-                    type="number"
-                    value={inputs.employerMatch || ''}
-                    onChange={(e) => setInputs({ ...inputs, employerMatch: parseFloat(e.target.value) || 0 })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="50"
-                    step="5"
-                    min="0"
-                    max="100"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Match Up To (% of salary)
-                  </label>
-                  <input
-                    type="number"
-                    value={inputs.employerMatchLimit || ''}
-                    onChange={(e) => setInputs({ ...inputs, employerMatchLimit: parseFloat(e.target.value) || 0 })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="6"
-                    step="1"
-                    min="0"
-                    max="15"
-                  />
-                </div>
-              </div>
-              <p className="text-xs text-gray-600 bg-blue-50 border border-blue-200 rounded p-3">
-                <strong>Example:</strong> 50% match up to 6% of salary = If you contribute 6% ($4,500), employer adds 3% ($2,250)
-              </p>
-            </div>
-          </div>
-
-          {/* Returns & Taxes */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <Percent className="w-5 h-5 text-orange-600" />
-              Returns & Tax Rates
-            </h3>
-            <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Expected Annual Return (%)
+                  Current 401k Balance ($)
                 </label>
                 <input
                   type="number"
-                  value={inputs.annualReturn || ''}
-                  onChange={(e) => setInputs({ ...inputs, annualReturn: parseFloat(e.target.value) || 0 })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                  placeholder="7"
-                  step="0.5"
+                  value={inputs.currentBalance || ''}
+                  onChange={(e) => setInputs({ ...inputs, currentBalance: parseFloat(e.target.value) || 0 })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  placeholder="10000"
+                  step="1000"
                   min="0"
-                  max="20"
                 />
-                <p className="text-xs text-gray-500 mt-2">
-                  Historical average: 7-10% for diversified portfolios
-                </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Current Tax Rate (%)
-                  </label>
-                  <input
-                    type="number"
-                    value={inputs.currentTaxRate || ''}
-                    onChange={(e) => setInputs({ ...inputs, currentTaxRate: parseFloat(e.target.value) || 0 })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                    placeholder="22"
-                    step="1"
-                    min="0"
-                    max="37"
-                  />
-                  <p className="text-xs text-gray-500 mt-1">
-                    Your marginal rate now
-                  </p>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Retirement Tax Rate (%)
-                  </label>
-                  <input
-                    type="number"
-                    value={inputs.retirementTaxRate || ''}
-                    onChange={(e) => setInputs({ ...inputs, retirementTaxRate: parseFloat(e.target.value) || 0 })}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                    placeholder="15"
-                    step="1"
-                    min="0"
-                    max="37"
-                  />
-                  <p className="text-xs text-gray-500 mt-1">
-                    Expected rate at withdrawal
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-yellow-50 border border-yellow-200 rounded p-3 text-xs text-gray-700">
-                <strong>Tax Rate Guidance:</strong> 10%, 12%, 22%, 24%, 32%, 35%, 37% are current federal brackets. Most retirees are in 12-22% range.
-              </div>
+              {/* 展开高级选项按钮 */}
+              <button
+                onClick={() => setShowAdvanced(!showAdvanced)}
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all text-sm font-medium text-gray-700 hover:text-blue-700 flex items-center justify-center gap-2"
+              >
+                {showAdvanced ? (
+                  <>
+                    <span>Hide Advanced Options</span>
+                    <span className="text-lg">▲</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Show Advanced Options</span>
+                    <span className="text-lg">▼</span>
+                  </>
+                )}
+              </button>
             </div>
           </div>
+
+          {/* ⚡ 高级选项 - 条件显示 */}
+          {showAdvanced && (
+            <>
+              {/* Employer Match & Salary */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <DollarSign className="w-5 h-5 text-green-600" />
+                  Employer Match (Optional)
+                </h3>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Annual Salary ($)
+                    </label>
+                    <input
+                      type="number"
+                      value={inputs.annualSalary || ''}
+                      onChange={(e) => setInputs({ ...inputs, annualSalary: parseFloat(e.target.value) || 0 })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                      placeholder="75000"
+                      step="1000"
+                      min="0"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Employer Match (%)
+                      </label>
+                      <input
+                        type="number"
+                        value={inputs.employerMatch || ''}
+                        onChange={(e) => setInputs({ ...inputs, employerMatch: parseFloat(e.target.value) || 0 })}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        placeholder="50"
+                        step="5"
+                        min="0"
+                        max="100"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Match Up To (% of salary)
+                      </label>
+                      <input
+                        type="number"
+                        value={inputs.employerMatchLimit || ''}
+                        onChange={(e) => setInputs({ ...inputs, employerMatchLimit: parseFloat(e.target.value) || 0 })}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        placeholder="6"
+                        step="1"
+                        min="0"
+                        max="15"
+                      />
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-600 bg-blue-50 border border-blue-200 rounded p-3">
+                    <strong>Example:</strong> 50% match up to 6% of salary = If you contribute 6% ($4,500), employer adds 3% ($2,250)
+                  </p>
+                </div>
+              </div>
+
+              {/* Returns & Taxes */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <Percent className="w-5 h-5 text-orange-600" />
+                  Returns & Tax Rates (Optional)
+                </h3>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Expected Annual Return (%)
+                    </label>
+                    <input
+                      type="number"
+                      value={inputs.annualReturn || ''}
+                      onChange={(e) => setInputs({ ...inputs, annualReturn: parseFloat(e.target.value) || 0 })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      placeholder="7"
+                      step="0.5"
+                      min="0"
+                      max="20"
+                    />
+                    <p className="text-xs text-gray-500 mt-2">
+                      Historical average: 7-10% for diversified portfolios
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Current Tax Rate (%)
+                      </label>
+                      <input
+                        type="number"
+                        value={inputs.currentTaxRate || ''}
+                        onChange={(e) => setInputs({ ...inputs, currentTaxRate: parseFloat(e.target.value) || 0 })}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        placeholder="22"
+                        step="1"
+                        min="0"
+                        max="37"
+                      />
+                      <p className="text-xs text-gray-500 mt-1">
+                        Your marginal rate now
+                      </p>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Retirement Tax Rate (%)
+                      </label>
+                      <input
+                        type="number"
+                        value={inputs.retirementTaxRate || ''}
+                        onChange={(e) => setInputs({ ...inputs, retirementTaxRate: parseFloat(e.target.value) || 0 })}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        placeholder="15"
+                        step="1"
+                        min="0"
+                        max="37"
+                      />
+                      <p className="text-xs text-gray-500 mt-1">
+                        Expected rate at withdrawal
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="bg-yellow-50 border border-yellow-200 rounded p-3 text-xs text-gray-700">
+                    <strong>Tax Rate Guidance:</strong> 10%, 12%, 22%, 24%, 32%, 35%, 37% are current federal brackets. Most retirees are in 12-22% range.
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* ⭐ 计算按钮 - 始终在所有输入字段的最底部 */}
+          <button
+            onClick={calculateFourZeroOneK}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-lg transition-colors flex items-center justify-center gap-2 min-h-[44px]"
+          >
+            <PiggyBank className="h-5 w-5" />
+            Calculate 401k Retirement
+          </button>
         </div>
 
         {/* Results Section - 2 columns */}
         <div className="md:col-span-2 space-y-6">
-          {result && (
+          {!hasCalculated ? (
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-12 text-center">
+              <PiggyBank className="h-16 w-16 text-gray-300 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Ready to Calculate</h3>
+              <p className="text-gray-600">
+                Enter your 401k information and click "Calculate 401k Retirement" to see your retirement projection and Traditional vs Roth comparison.
+              </p>
+            </div>
+          ) : result && (
             <>
               <div id="401k-result" className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg border border-blue-200 p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
@@ -801,6 +847,13 @@ export function FourZeroOneKCalculator() {
                   <Bar dataKey="Gains" fill="#a855f7" />
                 </BarChart>
               </ResponsiveContainer>
+            </div>
+          )}
+
+          {hasCalculated && !result && (
+            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 text-center">
+              <AlertCircle className="h-12 w-12 text-yellow-600 mx-auto mb-3" />
+              <p className="text-gray-700">Please check your inputs and try again.</p>
             </div>
           )}
         </div>

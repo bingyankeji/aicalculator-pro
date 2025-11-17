@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Free GPA Calculator - Calculate Cumulative GPA & Target Goals",
     description: "Calculate your college GPA with multiple courses. Supports 4.0/5.0 scales, target GPA planning, and scholarship eligibility. Free GPA calculator for students.",
     type: "website",
-    url: "https://aicalculator.com/gpa-calculator",
+    url: "https://aicalculator.pro/gpa-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/gpa-calculator",
+    canonical: "https://aicalculator.pro/gpa-calculator",
   },
   robots: {
     index: true,
@@ -44,7 +44,7 @@ export default function GPACalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "GPA Calculator",
-        "url": "https://aicalculator.com/gpa-calculator",
+        "url": "https://aicalculator.pro/gpa-calculator",
         "description": "Free online GPA calculator to calculate cumulative GPA with multiple courses. Supports 4.0 and 5.0 scales, target GPA planning, and academic standing analysis.",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Any",
@@ -73,19 +73,19 @@ export default function GPACalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Math & Numbers",
-            "item": "https://aicalculator.com/math-numbers"
+            "item": "https://aicalculator.pro/math-numbers"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "GPA Calculator",
-            "item": "https://aicalculator.com/gpa-calculator"
+            "item": "https://aicalculator.pro/gpa-calculator"
           }
         ]
       },

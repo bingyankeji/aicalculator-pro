@@ -184,8 +184,8 @@ export function AutoLoanCalculator() {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="grid md:grid-cols-5 gap-6">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid md:grid-cols-5 xl:grid-cols-5 gap-4 sm:gap-6">
         {/* Input Section - 3 columns */}
         <div className="md:col-span-3 space-y-6">
           {/* Vehicle Details */}
@@ -214,7 +214,7 @@ export function AutoLoanCalculator() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Vehicle Condition
                 </label>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <button
                     onClick={() => setInputs({ ...inputs, vehicleAge: 0 })}
                     className={`px-4 py-3 rounded-lg font-semibold transition-all ${
@@ -328,7 +328,7 @@ export function AutoLoanCalculator() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Loan Term
                 </label>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                   {loanTermOptions.map((option) => (
                     <button
                       key={option.months}
@@ -373,7 +373,7 @@ export function AutoLoanCalculator() {
                 {/* Monthly Payment */}
                 <div className="bg-white rounded-lg p-6 mb-4 border border-blue-200 text-center">
                   <div className="text-sm text-gray-600 mb-2">Monthly Payment</div>
-                  <div className="text-4xl font-bold text-blue-600 mb-2">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-blue-600 mb-2 break-all">
                     ${result.monthlyPayment.toFixed(2)}
                   </div>
                   <div className="text-sm text-gray-500">For {inputs.loanTerm} months</div>

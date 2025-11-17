@@ -207,8 +207,13 @@ export default function AmortizationCalculator() {
     paymentFrequency: 'monthly'
   });
 
-  const result = useMemo(() => calculateAmortization(inputs), [inputs]);
+  const [result, setResult] = useState<AmortizationResult | null>(null);
   const resultRef = useRef<HTMLDivElement>(null);
+
+  const handleCalculate = () => {
+    const calculatedResult = calculateAmortization(inputs);
+    setResult(calculatedResult);
+  };
 
   const handleSaveAsImage = async () => {
     if (!resultRef.current || !result) return;
@@ -345,10 +350,20 @@ export default function AmortizationCalculator() {
               </div>
             </div>
 
+            {/* Calculate Button */}
+            <button
+              onClick={handleCalculate}
+              className="w-full flex items-center justify-center gap-2 px-6 py-3 mb-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium shadow-lg min-h-[44px]"
+            >
+              <Calculator className="w-5 h-5" />
+              Calculate Amortization
+            </button>
+
+            {/* Save as Image Button */}
             <button
               onClick={handleSaveAsImage}
               disabled={!result}
-              className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+              className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
               <Download className="w-4 h-4" />
               Save as Image

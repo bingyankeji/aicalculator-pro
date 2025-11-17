@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Ratio Calculator - Simplify Ratios & Solve Proportions",
     description: "Free online ratio calculator to simplify ratios, solve proportions, and compare ratios with step-by-step solutions and real-world examples.",
     type: "website",
-    url: "https://aicalculator.com/ratio-calculator",
+    url: "https://aicalculator.pro/ratio-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/ratio-calculator",
+    canonical: "https://aicalculator.pro/ratio-calculator",
   },
   robots: {
     index: true,
@@ -58,7 +58,7 @@ export default function RatioCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Ratio Calculator",
-        "url": "https://aicalculator.com/ratio-calculator",
+        "url": "https://aicalculator.pro/ratio-calculator",
         "description": "Free online ratio calculator to simplify ratios, solve proportions, and compare ratios with step-by-step solutions and real-world applications.",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Any",
@@ -85,19 +85,19 @@ export default function RatioCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Math Calculators",
-            "item": "https://aicalculator.com/math-numbers"
+            "item": "https://aicalculator.pro/math-numbers"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Ratio Calculator",
-            "item": "https://aicalculator.com/ratio-calculator"
+            "item": "https://aicalculator.pro/ratio-calculator"
           }
         ]
       },

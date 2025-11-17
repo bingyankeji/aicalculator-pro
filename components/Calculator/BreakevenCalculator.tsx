@@ -369,11 +369,11 @@ export default function BreakevenCalculator() {
   });
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-8">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid xl:grid-cols-2 gap-8">
         {/* Left Side - Input Section */}
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2 hidden lg:block">
             <Target className="w-6 h-6 text-blue-500" />
             Break-even Calculator
           </h3>
@@ -382,7 +382,7 @@ export default function BreakevenCalculator() {
             {/* Analysis Type Selection */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-3">Analysis Type</label>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <button
                   onClick={() => updateInput('analysisType', 'basic')}
                   className={`p-3 rounded-lg border-2 transition-all ${
@@ -411,7 +411,7 @@ export default function BreakevenCalculator() {
             {/* Time Frame */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-3">Time Frame</label>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <button
                   onClick={() => updateInput('timeFrame', 'monthly')}
                   className={`p-3 rounded-lg border-2 transition-all ${
@@ -456,7 +456,7 @@ export default function BreakevenCalculator() {
                   <p className="text-xs text-gray-500 mt-1">Rent, salaries, insurance, etc.</p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Variable Cost per Unit
@@ -488,7 +488,7 @@ export default function BreakevenCalculator() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Target Profit ({inputs.timeFrame})
@@ -613,16 +613,16 @@ export default function BreakevenCalculator() {
               </div>
 
               {/* Core Metrics */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
                   <div className="text-sm text-blue-700 font-medium mb-1">Break-even Units</div>
-                  <div className="text-3xl font-bold text-blue-900">{formatNumber(result.breakevenUnits)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-900 break-all">{formatNumber(result.breakevenUnits)}</div>
                   <div className="text-xs text-blue-600">{inputs.timeFrame} sales needed</div>
                 </div>
                 
                 <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg border border-green-200">
                   <div className="text-sm text-green-700 font-medium mb-1">Break-even Revenue</div>
-                  <div className="text-3xl font-bold text-green-900">{formatCurrency(result.breakevenRevenue)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-900 break-all">{formatCurrency(result.breakevenRevenue)}</div>
                   <div className="text-xs text-green-600">{inputs.timeFrame} revenue target</div>
                 </div>
               </div>
@@ -633,7 +633,7 @@ export default function BreakevenCalculator() {
                   {/* Contribution Margin Analysis */}
                   <div>
                     <h5 className="text-lg font-bold text-gray-900 mb-4">📊 Contribution Analysis</h5>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                         <div className="text-sm text-gray-700 font-medium mb-1">Contribution Margin</div>
                         <div className="text-lg font-bold text-gray-900">
@@ -656,7 +656,7 @@ export default function BreakevenCalculator() {
                   {result.targetProfitUnits && (
                     <div>
                       <h5 className="text-lg font-bold text-gray-900 mb-4">🎯 Target Profit Analysis</h5>
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
                           <div className="text-sm text-purple-700 font-medium mb-1">Units for Target Profit</div>
                           <div className="text-lg font-bold text-purple-900">
@@ -752,7 +752,7 @@ export default function BreakevenCalculator() {
                   {/* Business Insights */}
                   <div>
                     <h5 className="text-lg font-bold text-gray-900 mb-4">🔍 Business Insights</h5>
-                    <div className="grid md:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                       <div className="bg-green-50 rounded-lg p-4 border border-green-200">
                         <h6 className="font-bold text-green-900 mb-2">✅ Strengths</h6>
                         <ul className="text-green-800 text-sm space-y-1">

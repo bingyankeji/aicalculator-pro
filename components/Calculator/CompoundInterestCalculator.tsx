@@ -235,11 +235,11 @@ export default function CompoundInterestCalculator() {
   });
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-8">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid xl:grid-cols-2 gap-8">
         {/* Left Side - Input Section */}
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2 hidden lg:block">
             <TrendingUp className="w-6 h-6 text-blue-600" />
             Compound Interest Calculator
           </h3>
@@ -364,7 +364,7 @@ export default function CompoundInterestCalculator() {
             {/* Quick Presets */}
             <div>
               <h4 className="text-lg font-semibold text-gray-900 mb-4">🎯 Quick Presets</h4>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {investmentPresets.map((preset) => (
                   <button
                     key={preset.name}
@@ -439,28 +439,28 @@ export default function CompoundInterestCalculator() {
               </h4>
 
               {/* Summary Cards */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200">
                   <div className="text-sm text-green-700 font-medium mb-1">Final Amount</div>
-                  <div className="text-2xl font-bold text-green-900">{formatCurrency(result.finalAmount)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-900 break-all">{formatCurrency(result.finalAmount)}</div>
                   <div className="text-xs text-green-600">After {inputs.years} years</div>
                 </div>
                 
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
                   <div className="text-sm text-blue-700 font-medium mb-1">Total Interest</div>
-                  <div className="text-2xl font-bold text-blue-900">{formatCurrency(result.totalInterest)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-900 break-all">{formatCurrency(result.totalInterest)}</div>
                   <div className="text-xs text-blue-600">Interest earned</div>
                 </div>
                 
                 <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200">
                   <div className="text-sm text-purple-700 font-medium mb-1">Total Invested</div>
-                  <div className="text-2xl font-bold text-purple-900">{formatCurrency(inputs.principal + result.totalContributions)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-900 break-all">{formatCurrency(inputs.principal + result.totalContributions)}</div>
                   <div className="text-xs text-purple-600">Your contributions</div>
                 </div>
                 
                 <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border border-orange-200">
                   <div className="text-sm text-orange-700 font-medium mb-1">Compound Advantage</div>
-                  <div className="text-2xl font-bold text-orange-900">{formatCurrency(compoundAdvantage)}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-orange-900 break-all">{formatCurrency(compoundAdvantage)}</div>
                   <div className="text-xs text-orange-600">vs Simple Interest</div>
                 </div>
               </div>

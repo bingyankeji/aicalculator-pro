@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "EMI Calculator - Calculate Monthly Loan Payments",
     description: "Free EMI calculator for home loans, car loans, and personal loans. Get instant EMI calculations with detailed principal and interest breakup.",
     type: "website",
-    url: "https://aicalculator.com/emi-calculator",
+    url: "https://aicalculator.pro/emi-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     site: "@aicalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/emi-calculator",
+    canonical: "https://aicalculator.pro/emi-calculator",
   },
   robots: {
     index: true,
@@ -61,7 +61,7 @@ export default function EMICalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "EMI Calculator",
-        "url": "https://aicalculator.com/emi-calculator",
+        "url": "https://aicalculator.pro/emi-calculator",
         "description": "Free online EMI calculator to compute Equated Monthly Installment for home loans, car loans, and personal loans with detailed amortization schedule and affordability analysis.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -90,19 +90,19 @@ export default function EMICalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.com/financial"
+            "item": "https://aicalculator.pro/financial"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "EMI Calculator",
-            "item": "https://aicalculator.com/emi-calculator"
+            "item": "https://aicalculator.pro/emi-calculator"
           }
         ]
       },

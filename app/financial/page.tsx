@@ -14,7 +14,7 @@ const financialCalculators = [
   { name: "Mortgage Payoff Calculator", url: "/mortgage-payoff-calculator" },
         { name: "Payment Calculator", url: "/payment-calculator" },
         { name: "Auto Loan Calculator", url: "/auto-loan-calculator" },
-  { name: "Student Loan Calculator", url: "#" },
+  { name: "Student Loan Calculator", url: "/student-loan-calculator" },
   { name: "Personal Loan Calculator", url: "#" },
   { name: "FHA Loan Calculator", url: "#" },
   { name: "VA Mortgage Calculator", url: "#" },
@@ -51,22 +51,22 @@ const financialCalculators = [
   { name: "Federal Tax Calculator", url: "/tax-calculator" },
   { name: "Property Tax Calculator", url: "#" },
   { name: "Capital Gains Tax Calculator", url: "#" },
-  { name: "Social Security Calculator", url: "#" },
-  { name: "Estate Tax Calculator", url: "#" },
-  { name: "VAT Calculator", url: "#" },
-  { name: "Pension Calculator", url: "#" },
-  { name: "Commission Calculator", url: "#" },
-  { name: "Hourly to Salary Calculator", url: "#" },
+  { name: "Social Security Calculator", url: "/social-security-calculator" },
+  { name: "Estate Tax Calculator", url: "/estate-tax-calculator" },
+  { name: "VAT Calculator", url: "/vat-calculator" },
+  { name: "Pension Calculator", url: "/pension-calculator" },
+  { name: "Commission Calculator", url: "/commission-calculator" },
+  { name: "Hourly to Salary Calculator", url: "/hourly-to-salary-calculator" },
   
   // Credit Card & Debt (10个)
   { name: "Credit Card Calculator", url: "/credit-card-calculator" },
-  { name: "Credit Card Payoff Calculator", url: "/credit-card-calculator" },
+  { name: "Credit Card Payoff Calculator", url: "/credit-card-payoff-calculator" },
   { name: "Debt Payoff Calculator", url: "/debt-payoff-calculator" },
-  { name: "Debt-to-Income Ratio Calculator", url: "#" },
-  { name: "Minimum Payment Calculator", url: "#" },
-  { name: "Balance Transfer Calculator", url: "#" },
-  { name: "APR vs APY Calculator", url: "#" },
-  { name: "Late Fee Calculator", url: "#" },
+  { name: "Debt-to-Income Ratio Calculator", url: "/dti-calculator" },
+  { name: "Minimum Payment Calculator", url: "/minimum-payment-calculator" },
+  { name: "Balance Transfer Calculator", url: "/balance-transfer-calculator" },
+  { name: "APR vs APY Calculator", url: "/apr-vs-apy-calculator" },
+  { name: "Late Fee Calculator", url: "/late-fee-calculator" },
   { name: "Credit Utilization Calculator", url: "#" },
   { name: "FICO Score Estimator", url: "#" },
   
@@ -127,7 +127,7 @@ export default function FinancialPage() {
     "@type": "CollectionPage",
     "name": "Financial Calculators",
     "description": "Free online financial calculators for mortgage, loans, taxes, investments, and more. 80+ professional financial planning tools.",
-    "url": "https://aicalculator.com/financial",
+    "url": "https://aicalculator.pro/financial",
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -135,13 +135,13 @@ export default function FinancialPage() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.com"
+          "item": "https://aicalculator.pro"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Financial Calculators",
-          "item": "https://aicalculator.com/financial"
+          "item": "https://aicalculator.pro/financial"
         }
       ]
     }

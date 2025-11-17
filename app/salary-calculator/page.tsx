@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Salary Calculator - Convert Hourly to Annual Salary",
     description: "Convert between hourly, monthly, and annual salary instantly. Calculate adjusted pay with holidays and vacation days.",
     type: "website",
-    url: "https://aicalculator.com/salary-calculator",
+    url: "https://aicalculator.pro/salary-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     site: "@aicalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/salary-calculator",
+    canonical: "https://aicalculator.pro/salary-calculator",
   },
   robots: {
     index: true,
@@ -61,7 +61,7 @@ export default function SalaryCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Salary Calculator",
-        "url": "https://aicalculator.com/salary-calculator",
+        "url": "https://aicalculator.pro/salary-calculator",
         "description": "Free online salary calculator to convert between hourly, daily, weekly, monthly, and annual pay rates with holiday and vacation adjustments.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -88,19 +88,19 @@ export default function SalaryCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.com/financial"
+            "item": "https://aicalculator.pro/financial"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Salary Calculator",
-            "item": "https://aicalculator.com/salary-calculator"
+            "item": "https://aicalculator.pro/salary-calculator"
           }
         ]
       },
@@ -252,12 +252,7 @@ export default function SalaryCalculatorPage() {
       {/* Calculator Section */}
       <section className="py-8 md:py-12" aria-label="Salary Calculator Tool">
         <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">💰 Salary Calculator</h2>
-            <p className="text-lg text-gray-600">
-              Convert between hourly, daily, weekly, monthly, and annual salary with holiday and vacation adjustments.
-            </p>
-          </div>
+          <h2 className="sr-only">Salary Calculator - Convert between hourly, daily, weekly, monthly, and annual salary with holiday and vacation adjustments.</h2>
           <SalaryCalculator />
         </div>
       </section>

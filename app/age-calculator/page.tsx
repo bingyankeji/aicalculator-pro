@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "Age Calculator - Calculate Your Exact Age Online (Free)",
     description: "Calculate your exact age in years, months, days, hours, and minutes. Find your zodiac sign, next birthday countdown, and fun lifetime statistics. Free and accurate age calculator.",
     type: "website",
-    url: "https://aicalculator.com/age-calculator",
+    url: "https://aicalculator.pro/age-calculator",
     siteName: "Calculator Online - AICalculator",
   },
   twitter: {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/age-calculator",
+    canonical: "https://aicalculator.pro/age-calculator",
   },
   robots: {
     index: true,
@@ -68,7 +68,7 @@ export default function AgeCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Age Calculator",
-        "url": "https://aicalculator.com/age-calculator",
+        "url": "https://aicalculator.pro/age-calculator",
         "description": "Free online age calculator to calculate exact age in years, months, days, hours, and minutes from date of birth. Includes next birthday countdown, zodiac signs, and lifetime statistics.",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
@@ -96,19 +96,19 @@ export default function AgeCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Date & Time",
-            "item": "https://aicalculator.com/date-time"
+            "item": "https://aicalculator.pro/date-time"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Age Calculator",
-            "item": "https://aicalculator.com/age-calculator"
+            "item": "https://aicalculator.pro/age-calculator"
           }
         ]
       },
@@ -432,17 +432,17 @@ export default function AgeCalculatorPage() {
                 Related Calculators
               </h3>
               <div className="grid md:grid-cols-3 gap-4">
-                <Link href="/date-calculator" 
+                <Link href="/date-calculator"
                       className="block p-4 bg-white rounded-lg border hover:shadow-md transition">
                   <div className="font-semibold text-gray-900">Date Calculator</div>
                   <p className="text-xs text-gray-600 mt-1">Calculate days between dates</p>
                 </Link>
-                <Link href="/time-calculator" 
+                <Link href="/time-calculator"
                       className="block p-4 bg-white rounded-lg border hover:shadow-md transition">
                   <div className="font-semibold text-gray-900">Time Calculator</div>
                   <p className="text-xs text-gray-600 mt-1">Add or subtract time</p>
                 </Link>
-                <Link href="/percentage-calculator" 
+                <Link href="/percentage-calculator"
                       className="block p-4 bg-white rounded-lg border hover:shadow-md transition">
                   <div className="font-semibold text-gray-900">Percentage Calculator</div>
                   <p className="text-xs text-gray-600 mt-1">Calculate percentages easily</p>

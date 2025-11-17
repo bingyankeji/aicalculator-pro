@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Free Fraction Calculator - Add, Subtract, Multiply & Divide Fractions",
     description: "Calculate fractions with automatic simplification and step-by-step solutions. Convert to decimals and mixed numbers instantly.",
     type: "website",
-    url: "https://aicalculator.com/fraction-calculator",
+    url: "https://aicalculator.pro/fraction-calculator",
     siteName: "AICalculator",
   },
   twitter: {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/fraction-calculator",
+    canonical: "https://aicalculator.pro/fraction-calculator",
   },
   robots: {
     index: true,
@@ -60,7 +60,7 @@ export default function FractionCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Fraction Calculator",
-        "url": "https://aicalculator.com/fraction-calculator",
+        "url": "https://aicalculator.pro/fraction-calculator",
         "description": "Free online fraction calculator to add, subtract, multiply, and divide fractions. Features automatic simplification, mixed number conversion, decimal conversion, and step-by-step solutions for all fraction operations.",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Any",
@@ -88,19 +88,19 @@ export default function FractionCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.com"
+            "item": "https://aicalculator.pro"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Calculators",
-            "item": "https://aicalculator.com/calculators"
+            "item": "https://aicalculator.pro/calculators"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Fraction Calculator",
-            "item": "https://aicalculator.com/fraction-calculator"
+            "item": "https://aicalculator.pro/fraction-calculator"
           }
         ]
       },

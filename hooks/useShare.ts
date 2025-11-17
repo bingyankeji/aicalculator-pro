@@ -6,7 +6,7 @@ import { trackShare } from '@/lib/analytics';
 interface UseShareProps {
   calculatorPath: string; // e.g., '/calorie-calculator'
   getShareParams: () => Record<string, string>; // Function to generate URL params
-  getShareText: () => string; // Function to generate share text
+  getShareText: () => string | undefined; // Function to generate share text
 }
 
 export function useShare({ calculatorPath, getShareParams, getShareText }: UseShareProps) {
@@ -16,17 +16,20 @@ export function useShare({ calculatorPath, getShareParams, getShareText }: UseSh
 
   const handleShare = () => {
     if (typeof window === 'undefined') return;
-    
+
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || window.location.origin;
     const params = new URLSearchParams(getShareParams());
     const url = `${baseUrl}${calculatorPath}?${params.toString()}`;
-    
+
     // 跟踪分享事件
     const calculatorName = calculatorPath.replace('/', '').replace('-', ' ');
     trackShare(calculatorName, 'share_button');
-    
+
+    // 确保 getShareText 总是返回字符串
+    const shareTextValue = getShareText() || 'Check out this calculation!';
+
     setShareUrl(url);
-    setShareText(getShareText());
+    setShareText(shareTextValue);
     setShowShareModal(true);
   };
 

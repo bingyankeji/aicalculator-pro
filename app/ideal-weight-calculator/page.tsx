@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description:
       "Calculate your ideal weight using 6 proven formulas. Get personalized health recommendations and body type analysis for optimal wellness.",
     type: "website",
-    url: "https://aicalculator.com/ideal-weight-calculator",
+    url: "https://aicalculator.pro/ideal-weight-calculator",
     siteName: "AI Calculator",
   },
   twitter: {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.com/ideal-weight-calculator",
+    canonical: "https://aicalculator.pro/ideal-weight-calculator",
   },
   robots: {
     index: true,
@@ -65,7 +65,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Ideal Weight Calculator",
-      "url": "https://aicalculator.com/ideal-weight-calculator",
+      "url": "https://aicalculator.pro/ideal-weight-calculator",
       "description": "Advanced ideal weight calculator using 6 scientific formulas including Robinson, Miller, Devine, and Hamwi methods. Provides personalized weight goals, BMI analysis, body type assessment, and health recommendations based on height, gender, and body frame size.",
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Any",
@@ -101,19 +101,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.com"
+          "item": "https://aicalculator.pro"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Health & Fitness",
-          "item": "https://aicalculator.com/health-fitness"
+          "item": "https://aicalculator.pro/health-fitness"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Ideal Weight Calculator",
-          "item": "https://aicalculator.com/ideal-weight-calculator"
+          "item": "https://aicalculator.pro/ideal-weight-calculator"
         }
       ]
     },

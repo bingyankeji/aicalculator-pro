@@ -283,15 +283,15 @@ export function InterestCalculator() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-[400px_1fr] gap-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 xl:grid-cols-[400px_1fr] gap-3 sm:gap-4 md:gap-6">
         {/* Left Side - Input Card */}
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-5">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">
+        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-3 sm:p-4 md:p-5">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
             Compound Interest Calculator
           </h2>
-          
-          <div className="space-y-3">
+
+          <div className="space-y-3 sm:space-y-4">
             {/* Initial Investment */}
             <div>
               <label className="block text-xs font-medium text-gray-700 mb-1">
@@ -500,17 +500,17 @@ export function InterestCalculator() {
         </div>
 
         {/* Right Side - Results */}
-        <div className="lg:col-span-1">
+        <div className="xl:col-span-1">
           {result ? (
-            <div id="interest-result" className="space-y-4">
+            <div id="interest-result" className="space-y-3 sm:space-y-4">
               {/* Main Results Card */}
-              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-5">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Results</h3>
-                
-                <div className="space-y-3 text-sm">
-                  <div className="flex justify-between items-center pb-3 border-b-2 border-green-600">
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-3 sm:p-4 md:p-5">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Results</h3>
+
+                <div className="space-y-3 text-xs sm:text-sm">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center pb-3 border-b-2 border-green-600">
                     <span className="text-gray-700 font-medium">Ending balance</span>
-                    <span className="text-2xl font-bold text-green-600">{formatCurrency(result.futureValue)}</span>
+                    <span className="text-xl sm:text-2xl font-bold text-green-600 break-all">{formatCurrency(result.futureValue)}</span>
                   </div>
                   <div className="flex justify-between items-center py-2">
                     <span className="text-gray-600">Total principal</span>
@@ -560,24 +560,24 @@ export function InterestCalculator() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap gap-2 print:hidden">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 print:hidden">
                 <button
                   onClick={handleShare}
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded transition-colors"
+                  className="flex items-center justify-center gap-2 px-3 py-3 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded transition-colors min-h-[44px]"
                 >
                   <Share2 className="w-4 h-4" />
                   Share
                 </button>
                 <button
                   onClick={handleSaveAsImage}
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white text-sm font-medium rounded transition-colors"
+                  className="flex items-center justify-center gap-2 px-3 py-3 bg-gray-600 hover:bg-gray-700 text-white text-sm font-medium rounded transition-colors min-h-[44px]"
                 >
                   <Download className="w-4 h-4" />
                   Save
                 </button>
                 <button
                   onClick={handlePrint}
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white text-sm font-medium rounded transition-colors"
+                  className="flex items-center justify-center gap-2 px-3 py-3 bg-gray-600 hover:bg-gray-700 text-white text-sm font-medium rounded transition-colors min-h-[44px]"
                 >
                   <Printer className="w-4 h-4" />
                   Print
@@ -585,9 +585,9 @@ export function InterestCalculator() {
               </div>
 
               {/* Pie Chart */}
-              <div className="bg-white rounded-xl p-4 mt-4 border border-gray-200">
+              <div className="bg-white rounded-xl p-3 sm:p-4 mt-3 sm:mt-4 border border-gray-200">
                 <h4 className="text-sm font-semibold text-gray-700 mb-3 text-center">Balance Breakdown</h4>
-                <ResponsiveContainer width="100%" height={240}>
+                <ResponsiveContainer width="100%" height={200} minHeight={180}>
                   <PieChart>
                     <Pie
                       data={[
@@ -667,11 +667,11 @@ export function InterestCalculator() {
       {/* Charts and Analysis - Full Width Below */}
       {result && (
         <>
-          <div className="mt-6 grid lg:grid-cols-2 gap-6">
+          <div className="mt-3 sm:mt-6 grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
             {/* Bar Chart */}
-            <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-5">
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-3 sm:p-4 md:p-5">
               <h3 className="text-lg font-bold text-gray-900 mb-3">Growth Over Time</h3>
-              <ResponsiveContainer width="100%" height={300}>
+              <ResponsiveContainer width="100%" height={200} minHeight={180}>
                 <BarChart data={result.yearlyBreakdown.slice(0, 5).map(row => ({
                   year: row.year,
                   'Initial investment': parseFloat(principal),
@@ -691,9 +691,9 @@ export function InterestCalculator() {
             </div>
 
             {/* Intelligent Analysis */}
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg border border-blue-200 p-5">
+            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg border border-blue-200 p-3 sm:p-4 md:p-5">
               <h3 className="text-lg font-bold text-gray-900 mb-3">💡 Smart Analysis</h3>
-              <div className="space-y-3 text-sm">
+              <div className="space-y-3 text-xs sm:text-sm">
                 {/* Interest Efficiency */}
                 <div className="bg-white rounded-lg p-3">
                   <div className="font-semibold text-gray-900 mb-1">Interest Efficiency</div>
@@ -748,26 +748,26 @@ export function InterestCalculator() {
           </div>
 
           {/* Yearly Breakdown Table */}
-          <div className="mt-6 bg-white rounded-xl shadow-lg border border-gray-200 p-5">
+          <div className="mt-3 sm:mt-6 bg-white rounded-xl shadow-lg border border-gray-200 p-3 sm:p-4 md:p-5">
             <h3 className="text-lg font-bold text-gray-900 mb-3">Accumulation Schedule</h3>
-            
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
+
+            <div className="overflow-x-auto overflow-y-hidden">
+              <table className="w-full min-w-[350px] text-xs sm:text-sm">
                 <thead>
                   <tr className="border-b border-gray-300">
-                    <th className="px-3 py-2 text-left font-semibold text-gray-700">Year</th>
-                    <th className="px-3 py-2 text-right font-semibold text-gray-700">Deposit</th>
-                    <th className="px-3 py-2 text-right font-semibold text-gray-700">Interest</th>
-                    <th className="px-3 py-2 text-right font-semibold text-gray-700">Ending balance</th>
+                    <th className="px-2 sm:px-3 py-2 text-left font-semibold text-gray-700">Year</th>
+                    <th className="px-2 sm:px-3 py-2 text-right font-semibold text-gray-700">Deposit</th>
+                    <th className="px-2 sm:px-3 py-2 text-right font-semibold text-gray-700">Interest</th>
+                    <th className="px-2 sm:px-3 py-2 text-right font-semibold text-gray-700">Ending balance</th>
                   </tr>
                 </thead>
                 <tbody>
                   {result.yearlyBreakdown.map((row) => (
                     <tr key={row.year} className="border-b border-gray-100">
-                      <td className="px-3 py-2 text-gray-900">{row.year}</td>
-                      <td className="px-3 py-2 text-right text-gray-900">{formatCurrency(row.principal)}</td>
-                      <td className="px-3 py-2 text-right text-gray-900">{formatCurrency(row.interest)}</td>
-                      <td className="px-3 py-2 text-right text-gray-900 font-semibold">{formatCurrency(row.balance)}</td>
+                      <td className="px-2 sm:px-3 py-2 text-gray-900">{row.year}</td>
+                      <td className="px-2 sm:px-3 py-2 text-right text-gray-900">{formatCurrency(row.principal)}</td>
+                      <td className="px-2 sm:px-3 py-2 text-right text-gray-900">{formatCurrency(row.interest)}</td>
+                      <td className="px-2 sm:px-3 py-2 text-right text-gray-900 font-semibold">{formatCurrency(row.balance)}</td>
                     </tr>
                   ))}
                 </tbody>

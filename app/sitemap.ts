@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { calculatorData } from '@/lib/calculatorData';
+import { allCalculators } from '@/lib/calculatorData';
 
 /**
  * 动态Sitemap生成器
@@ -62,7 +62,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // 从 calculatorData.ts 自动生成所有计算器路由
-  const calculatorPages: MetadataRoute.Sitemap = calculatorData.map((calculator) => {
+  const calculatorPages: MetadataRoute.Sitemap = allCalculators.map((calculator) => {
     // 根据分类设置优先级
     let priority = 0.8;
     let changeFrequency: 'weekly' | 'daily' | 'monthly' = 'weekly';

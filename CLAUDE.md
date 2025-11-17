@@ -398,9 +398,11 @@ Every calculator page must include:
    - 正确的 position 顺序
 
 3. ✅ **FAQPage Schema** (必需)
-   - 8-10个高质量问题和答案
+   - 5-6个高质量问题和答案（不超过8个）
    - 每个问题都是用户真实搜索的关键词
-   - 答案详细且有价值（100-200字）
+   - 答案简洁且有价值（150-200字）
+   - FAQ总字数控制在800-1,000字以内
+   - 原则：直接回答问题，不堆砌内容
 
 4. ✅ **HowTo Schema** (必需 - 提升CTR 10-20%)
    - 描述如何使用计算器的步骤
@@ -421,7 +423,7 @@ Every calculator page must include:
 
 **内容质量标准:**
 - **教育内容**: 每页2000+字的原创有价值内容
-- **FAQ部分**: 包含schema.org标记的8-10个常见问题
+- **FAQ部分**: 包含schema.org标记的5-6个常见问题（总字数800-1,000字）
 - **内部链接**: 4-8个相关计算器链接（详见"内链和外链规范"）
 - **外部链接**: 3-5个权威网站链接（详见"内链和外链规范"）
 - **E-E-A-T**: 展示专业性、经验、权威性、可信度
@@ -582,6 +584,177 @@ export function CalculatorComponent() {
 - [ ] H1标签包含主要关键词
 - [ ] 计算器组件内不添加可见的标题框
 - [ ] 界面简洁，直接展示计算器功能
+
+#### FAQ撰写规范 ⭐ **核心原则：简洁 > 详细**
+
+**问题：** 工具站的FAQ应该多长？是否越详细越好？
+
+**答案：** 不是！根据Google对工具站的建议：
+- ✅ **高价值、问题导向、非废话** - 直接回答问题
+- ✅ **避免自动生成的大段文字** - 过长内容会被判定为低质量
+- ✅ **总字数控制** - 每页FAQ不超过800-1,000字
+- ✅ **拆分策略** - 复杂主题拆成独立文章（如 `/blog/what-is-apr`）
+
+**设计原则：**
+1. ✅ **高价值** - 回答用户真实搜索的问题
+2. ✅ **问题导向** - 直接回答，不绕弯子
+3. ✅ **简洁明了** - 150-200字足够，不要堆砌
+4. ✅ **总量控制** - 5-6个FAQ，总字数800-1,000字
+5. ✅ **避免部署错误** - 超长文本可能导致解析失败
+
+**撰写标准：**
+
+| 项目 | 标准 | 说明 |
+|------|------|------|
+| **数量** | 5-6个 | 最多不超过8个 |
+| **每个长度** | 150-200字 | 简洁有力，不拖沓 |
+| **总字数** | 800-1,000字 | 6个×150字=900字（理想） |
+| **问题类型** | 用户真实搜索 | 不要自己编造问题 |
+| **答案风格** | 直接回答 | 不要长篇大论 |
+
+**实现示例：**
+
+**✅ 好的FAQ（简洁有力）：**
+```tsx
+{
+  '@type': 'Question',
+  name: 'How is property tax calculated?',
+  acceptedAnswer: {
+    '@type': 'Answer',
+    text: 'Property tax is calculated using the formula: Assessed Value × Tax Rate. The assessed value is typically a percentage of your home\'s market value (e.g., 80-100%), set by your local assessor. The tax rate is expressed as a percentage or per $1,000 of assessed value. For example, a $400,000 home with 100% assessment ratio and 1.2% tax rate would pay $4,800 annually ($400,000 × 1.2% = $4,800). Rates vary significantly by location, from 0.3% in Hawaii to 2.5% in New Jersey. Visit your county assessor\'s website for local rates.'
+    // ✅ 约180字 - 简洁、有数据、有示例、有来源
+  }
+}
+```
+
+**❌ 不好的FAQ（过于详细）：**
+```tsx
+{
+  '@type': 'Question',
+  name: 'How is property tax calculated?',
+  acceptedAnswer: {
+    '@type': 'Answer',
+    text: 'Property tax calculation is a complex process that involves multiple steps and considerations. First, your local county assessor determines your property\'s market value through various methods including comparable sales analysis, cost approach, and income approach if applicable. The comparable sales approach looks at recent sales of similar properties in your area, adjusting for differences in size, condition, location, and features. The cost approach estimates what it would cost to rebuild your property from scratch, then subtracts depreciation. The income approach is used primarily for investment properties and calculates value based on rental income potential. Once the market value is determined, the assessor applies an assessment ratio, which is a percentage set by state law that can range from as low as 10% in some states to 100% in others. This assessment ratio is intended to standardize property valuations across different jurisdictions...'
+    // ❌ 超过500字 - 太长了！像在写论文！可能导致部署错误！
+  }
+}
+```
+
+**FAQ结构模板：**
+
+每个计算器页面应包含以下结构：
+
+```tsx
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    // ... 其他 Schema
+    {
+      '@type': 'FAQPage',
+      '@id': getFaqId('/calculator-name'),
+      mainEntity: [
+        // ✅ FAQ 1: 核心功能问题（150-200字）
+        {
+          '@type': 'Question',
+          name: 'What is [Calculator Name] and how does it work?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: '简洁解释计算器功能、工作原理、适用场景。包含关键公式或逻辑。约150-200字。'
+          }
+        },
+        // ✅ FAQ 2: 使用方法问题（150-200字）
+        {
+          '@type': 'Question',
+          name: 'How do I use the [Calculator Name]?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: '简洁的使用步骤：1) 输入X 2) 选择Y 3) 点击计算 4) 查看结果。约150-200字。'
+          }
+        },
+        // ✅ FAQ 3: 关键概念解释（150-200字）
+        {
+          '@type': 'Question',
+          name: 'What is [Key Concept] and why is it important?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: '解释关键概念、重要性、影响因素。包含简单示例。约150-200字。'
+          }
+        },
+        // ✅ FAQ 4: 实际应用场景（150-200字）
+        {
+          '@type': 'Question',
+          name: 'When should I use [Calculator Name]?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: '适用场景、最佳实践、常见用例。约150-200字。'
+          }
+        },
+        // ✅ FAQ 5: 结果解读问题（150-200字）
+        {
+          '@type': 'Question',
+          name: 'How do I interpret the results?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: '如何理解结果、什么是好/坏结果、下一步行动建议。约150-200字。'
+          }
+        },
+        // ✅ FAQ 6: 权威来源或延伸（150-200字，可选）
+        {
+          '@type': 'Question',
+          name: 'Where can I find more information?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: '提供权威网站链接（.gov, .edu）、相关工具推荐、延伸阅读。约150-200字。'
+          }
+        }
+      ]
+    }
+  ]
+};
+```
+
+**检查清单：**
+- [ ] FAQ数量：5-6个（不超过8个）
+- [ ] 每个FAQ：150-200字（不超过250字）
+- [ ] 总字数：800-1,000字（不超过1,200字）
+- [ ] 直接回答问题，不绕弯子
+- [ ] 没有超长段落（避免部署解析错误）
+- [ ] 包含必要的数据和示例
+- [ ] 包含权威来源链接（如适用）
+- [ ] 问题是用户真实搜索的关键词
+- [ ] 答案简洁有力，不像AI生成的堆砌内容
+
+**常见错误（必须避免）：**
+
+```tsx
+// ❌ 错误1：FAQ过多
+mainEntity: [
+  // 12个FAQ... 太多了！
+]
+
+// ❌ 错误2：单个FAQ过长
+text: '超过500字的长篇大论...' // 部署可能失败！
+
+// ❌ 错误3：总字数超标
+// 10个FAQ × 300字 = 3,000字 // 远超1,000字限制！
+
+// ❌ 错误4：像在写论文
+text: 'First, we need to understand the historical context of property taxation dating back to ancient civilizations...' // 不要这样！
+
+// ❌ 错误5：没有实际价值
+name: 'What color is the calculate button?' // 无意义问题
+```
+
+**SEO效果对比：**
+
+| 方面 | 8-10个FAQ (长) | 5-6个FAQ (简洁) |
+|------|---------------|----------------|
+| **总字数** | 1,600-2,000字 | 800-1,000字 |
+| **Google评价** | ⚠️ 疑似堆砌 | ✅ 高质量 |
+| **用户体验** | ⚠️ 信息过载 | ✅ 快速找到答案 |
+| **部署稳定性** | ⚠️ 可能解析失败 | ✅ 稳定 |
+| **维护成本** | ⚠️ 高 | ✅ 低 |
+| **SEO效果** | ⚠️ 一般 | ✅ 优秀 |
 
 #### 计算器输入字段设计规范 ⭐ **核心原则：透明度 > 简洁性**
 

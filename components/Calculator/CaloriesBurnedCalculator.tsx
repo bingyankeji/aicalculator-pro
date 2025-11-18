@@ -436,7 +436,7 @@ export default function CaloriesBurnedCalculator() {
 
               {/* User Info */}
               <div className="space-y-3 border-t pt-4">
-                <h3 className="font-semibold text-gray-900 text-sm">👤 Your Information</h3>
+                <h3 className="font-semibold text-gray-900 text-sm">👤 Basic Information</h3>
                 <div>
                   <Label htmlFor="weight" className="text-xs">
                     Body Weight <span className="text-red-500">*</span>

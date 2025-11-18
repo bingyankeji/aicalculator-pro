@@ -218,7 +218,7 @@ export function BMRCalculator() {
 
       {/* Input Form */}
       <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-6">Your Information</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-6">Calculate Your BMR</h3>
 
         <div className="space-y-6">
           {/* Gender */}

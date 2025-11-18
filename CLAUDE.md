@@ -2200,6 +2200,551 @@ const handleShare = async () => {
 
 ---
 
+### 🔄 方案保存与对比功能
+
+**适用场景：** 某些计算器特别适合方案保存和对比功能，让用户可以保存多个计算结果，然后并排对比差异。
+
+#### ✅ 适合使用方案对比的计算器
+
+**金融投资类**（对比不同投资选择）：
+- ✅ Bond Calculator - 对比不同债券的价格、收益率、久期
+- ✅ Mortgage Calculator - 对比不同贷款方案（利率、期限）
+- ✅ Investment Calculator - 对比不同投资策略
+- ✅ Retirement Calculator - 对比不同储蓄计划
+- ✅ Loan Comparison Calculator - 对比多个贷款选项
+- ✅ CD Calculator - 对比不同存款期限和利率
+
+**房地产类**（对比不同房产）：
+- ✅ Rental Property Calculator - 对比多个投资物业
+- ✅ Property Tax Calculator - 对比不同地区税费
+
+**保险类**（对比不同保险计划）：
+- ✅ Health Insurance Calculator - 对比不同保险计划
+- ✅ Life Insurance Calculator - 对比保险方案
+
+**教育类**（对比不同选择）：
+- ✅ College Savings Calculator - 对比不同储蓄策略
+- ✅ Student Loan Calculator - 对比还款计划
+
+#### ❌ 不适合方案对比的计算器
+
+**简单单次计算**（一次性结果）：
+- ❌ BMI Calculator - 无需对比，只关心当前体重
+- ❌ Age Calculator - 单纯计算年龄
+- ❌ Tip Calculator - 当次用餐小费
+- ❌ Unit Converter - 单位转换
+- ❌ Percentage Calculator - 简单百分比计算
+
+**实时工具**（即时反馈）：
+- ❌ Time Zone Converter - 实时查看时区
+- ❌ Date Calculator - 日期计算
+
+**健康工具**（个人当前状态）：
+- ❌ Calorie Calculator - 关注当前热量需求
+- ❌ Heart Rate Calculator - 当前心率
+
+---
+
+#### 核心设计原则
+
+**1. 数据结构**
+
+```typescript
+interface SavedScenario {
+  id: string;                     // 唯一标识
+  name: string;                   // 用户自定义名称
+  inputs: YourInputsInterface;    // 保存输入参数
+  result: CalculationResult;      // 保存完整计算结果（重点！）
+  savedAt: Date;                  // 保存时间
+}
+```
+
+**⭐ 关键：必须保存完整的 `result` 对象，而不仅仅是输入参数**
+- ✅ 对比的重点是**计算结果**（价格、收益率、总成本等）
+- ✅ 不是对比输入参数（用户已经知道输入了什么）
+
+**2. 状态管理**
+
+```typescript
+const [savedScenarios, setSavedScenarios] = useState<SavedScenario[]>([]);
+const [selectedScenarios, setSelectedScenarios] = useState<string[]>([]);
+const [showComparison, setShowComparison] = useState(false);
+const [scenarioName, setScenarioName] = useState('');
+const [showSaveDialog, setShowSaveDialog] = useState(false);
+
+// 从 localStorage 加载已保存方案
+useEffect(() => {
+  const saved = localStorage.getItem('yourCalculatorScenarios');
+  if (saved) {
+    const parsed = JSON.parse(saved);
+    setSavedScenarios(parsed.map((s: SavedScenario) => ({
+      ...s,
+      savedAt: new Date(s.savedAt)  // 转换日期对象
+    })));
+  }
+}, []);
+
+// 保存到 localStorage
+useEffect(() => {
+  if (savedScenarios.length > 0) {
+    localStorage.setItem('yourCalculatorScenarios', JSON.stringify(savedScenarios));
+  }
+}, [savedScenarios]);
+```
+
+**3. 核心功能实现**
+
+```typescript
+// ✅ 保存方案
+const handleSaveScenario = () => {
+  if (!result) {
+    alert('Please calculate first.');
+    return;
+  }
+  if (!scenarioName.trim()) {
+    alert('Please enter a scenario name.');
+    return;
+  }
+  
+  const newScenario: SavedScenario = {
+    id: Date.now().toString(),
+    name: scenarioName.trim(),
+    inputs: { ...inputs },      // 保存输入
+    result: { ...result },      // ⭐ 保存完整结果
+    savedAt: new Date(),
+  };
+  
+  setSavedScenarios(prev => [...prev, newScenario]);
+  setScenarioName('');
+  setShowSaveDialog(false);
+};
+
+// ✅ 删除方案
+const handleDeleteScenario = (id: string) => {
+  if (confirm('Delete this scenario?')) {
+    setSavedScenarios(prev => prev.filter(s => s.id !== id));
+    setSelectedScenarios(prev => prev.filter(sid => sid !== id));
+  }
+};
+
+// ✅ 加载方案
+const handleLoadScenario = (scenario: SavedScenario) => {
+  setInputs(scenario.inputs);
+  setResult(scenario.result);
+  setShowComparison(false);
+};
+
+// ✅ 选择/取消选择方案（用于对比）
+const toggleScenarioSelection = (id: string) => {
+  setSelectedScenarios(prev => {
+    if (prev.includes(id)) {
+      return prev.filter(sid => sid !== id);
+    } else if (prev.length < 4) {  // 限制最多4个
+      return [...prev, id];
+    } else {
+      alert('Maximum 4 scenarios for comparison.');
+      return prev;
+    }
+  });
+};
+```
+
+**4. UI 布局 - 方案卡片列表**
+
+```tsx
+{/* 底部：保存的方案网格 */}
+{savedScenarios.length > 0 && (
+  <div className="mt-8">
+    <div className="flex items-center justify-between mb-4">
+      <h3 className="text-lg font-semibold text-gray-900">
+        Saved Scenarios ({savedScenarios.length})
+      </h3>
+      {selectedScenarios.length >= 2 && (
+        <Button onClick={() => setShowComparison(true)}>
+          <BarChart3 className="h-4 w-4 mr-2" />
+          Compare {selectedScenarios.length} Scenarios
+        </Button>
+      )}
+    </div>
+    
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      {savedScenarios.map((scenario) => (
+        <Card 
+          key={scenario.id}
+          className={`cursor-pointer transition-all ${
+            selectedScenarios.includes(scenario.id)
+              ? 'border-blue-500 border-2 bg-blue-50'
+              : 'border-gray-200 hover:border-gray-300 hover:shadow-sm'
+          }`}
+          onClick={() => toggleScenarioSelection(scenario.id)}
+        >
+          <CardContent className="p-4">
+            <div className="flex items-start justify-between mb-3">
+              {/* ⭐ Checkbox 只用于展示，点击整个卡片即可选择 */}
+              <input
+                type="checkbox"
+                checked={selectedScenarios.includes(scenario.id)}
+                onChange={() => {}}
+                className="mt-1 pointer-events-none"
+                readOnly
+              />
+              <Button
+                onClick={(e) => {
+                  e.stopPropagation();  // ⭐ 阻止冒泡，避免触发卡片点击
+                  handleDeleteScenario(scenario.id);
+                }}
+                variant="ghost"
+                size="sm"
+              >
+                <Trash2 className="h-3 w-3" />
+              </Button>
+            </div>
+            
+            <h4 className="font-semibold text-gray-900 mb-2">
+              {scenario.name}
+            </h4>
+            
+            {/* ⭐ 显示关键计算结果，不是输入参数 */}
+            <div className="space-y-1 text-xs text-gray-600 mb-3">
+              <div className="flex justify-between">
+                <span>Price:</span>
+                <span className="font-semibold text-blue-700">
+                  ${scenario.result.price.toFixed(2)}
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span>YTM:</span>
+                <span className="font-semibold">
+                  {scenario.result.yieldToMaturity.toFixed(2)}%
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span>Duration:</span>
+                <span className="font-semibold">
+                  {scenario.result.modifiedDuration.toFixed(2)}y
+                </span>
+              </div>
+            </div>
+            
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();  // ⭐ 阻止冒泡
+                handleLoadScenario(scenario);
+              }}
+              variant="outline"
+              size="sm"
+              className="w-full text-xs"
+            >
+              Load
+            </Button>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </div>
+)}
+```
+
+**⭐ UI 交互关键点：**
+- ✅ **点击整个卡片即可选择/取消选择**（使用 `onClick` 在 Card 上）
+- ✅ Checkbox 设为 `readOnly` 和 `pointer-events-none`，只用于视觉展示
+- ✅ Delete 和 Load 按钮使用 `e.stopPropagation()` 阻止事件冒泡
+- ✅ 选中状态用 `border-blue-500 border-2 bg-blue-50` 明确标识
+- ✅ 最多允许选择 4 个方案对比
+
+**5. 对比视图 - 全屏模式**
+
+```tsx
+// ⭐ 对比模式：全屏覆盖层
+if (showComparison && selectedScenarios.length >= 2) {
+  const comparisonScenarios = savedScenarios.filter(s => 
+    selectedScenarios.includes(s.id)
+  );
+  
+  return (
+    <div className="fixed inset-0 bg-white z-50 overflow-y-auto">
+      <div className="max-w-7xl mx-auto px-4 py-6">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-6 pb-4 border-b">
+          <h2 className="text-2xl font-bold text-gray-900">
+            Scenario Comparison ({selectedScenarios.length} scenarios)
+          </h2>
+          <Button onClick={() => setShowComparison(false)}>
+            <X className="h-4 w-4 mr-2" />
+            Close Comparison
+          </Button>
+        </div>
+
+        <div className="space-y-8">
+          {/* ⭐ 1. 详细对比表格 - 并排显示所有关键结果 */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Key Metrics Comparison</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b-2">
+                    <th className="text-left py-3">Metric</th>
+                    {comparisonScenarios.map(s => (
+                      <th key={s.id} className="text-right py-3">{s.name}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* ⭐ 对比计算结果，不是输入参数 */}
+                  <tr className="border-b">
+                    <td className="py-3 font-medium">Bond Price</td>
+                    {comparisonScenarios.map(s => (
+                      <td key={s.id} className="text-right font-semibold text-blue-700">
+                        ${s.result.price.toFixed(2)}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-3 font-medium">YTM</td>
+                    {comparisonScenarios.map(s => (
+                      <td key={s.id} className="text-right">
+                        {s.result.yieldToMaturity.toFixed(2)}%
+                      </td>
+                    ))}
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-3 font-medium">Duration</td>
+                    {comparisonScenarios.map(s => (
+                      <td key={s.id} className="text-right">
+                        {s.result.modifiedDuration.toFixed(2)}y
+                      </td>
+                    ))}
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-3 font-medium">Total Return</td>
+                    {comparisonScenarios.map(s => (
+                      <td key={s.id} className="text-right text-green-700 font-semibold">
+                        {s.result.totalReturn.toFixed(2)}%
+                      </td>
+                    ))}
+                  </tr>
+                  {/* ... 更多关键指标 */}
+                </tbody>
+              </table>
+            </CardContent>
+          </Card>
+
+          {/* ⭐ 2. 可视化对比图表 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* 柱状图：价格对比 */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Price Comparison</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={300}>
+                  <BarChart data={comparisonScenarios.map(s => ({
+                    name: s.name.substring(0, 12),
+                    price: s.result.price,
+                    duration: s.result.modifiedDuration * 100,
+                  }))}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis yAxisId="left" />
+                    <YAxis yAxisId="right" orientation="right" />
+                    <Tooltip />
+                    <Legend />
+                    <Bar yAxisId="left" dataKey="price" fill="#1e40af" name="Price" />
+                    <Bar yAxisId="right" dataKey="duration" fill="#64748b" name="Duration (x100)" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+
+            {/* 收益对比 */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Return Comparison</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={300}>
+                  <BarChart data={comparisonScenarios.map(s => ({
+                    name: s.name.substring(0, 12),
+                    ytm: s.result.yieldToMaturity,
+                    totalReturn: s.result.totalReturn,
+                  }))}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="ytm" fill="#1e40af" name="YTM" />
+                    <Bar dataKey="totalReturn" fill="#059669" name="Total Return" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* ⭐ 3. 叠加曲线对比（如价格-收益率曲线）*/}
+          <Card>
+            <CardHeader>
+              <CardTitle>Price-Yield Curves Comparison</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ResponsiveContainer width="100%" height={350}>
+                <LineChart>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis 
+                    dataKey="yield" 
+                    type="number"
+                    label={{ value: 'Yield (%)', position: 'insideBottom' }}
+                  />
+                  <YAxis label={{ value: 'Price ($)', angle: -90 }} />
+                  <Tooltip />
+                  <Legend />
+                  {/* ⭐ 每个方案一条线，不同颜色 */}
+                  {comparisonScenarios.map((scenario, idx) => {
+                    const colors = ['#1e40af', '#059669', '#d97706', '#dc2626'];
+                    return (
+                      <Line
+                        key={scenario.id}
+                        data={scenario.result.priceYieldCurve}
+                        type="monotone"
+                        dataKey="price"
+                        stroke={colors[idx % colors.length]}
+                        strokeWidth={2}
+                        name={scenario.name.substring(0, 15)}
+                        dot={false}
+                      />
+                    );
+                  })}
+                </LineChart>
+              </ResponsiveContainer>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+#### 检查清单
+
+**核心功能：**
+- [ ] 保存方案功能（包含完整的 result 对象）
+- [ ] 从 localStorage 加载/保存方案
+- [ ] 删除方案功能
+- [ ] 加载方案到计算器
+- [ ] 点击卡片即可选择（不需要精确点击 checkbox）
+- [ ] 最多选择 4 个方案对比
+- [ ] 全屏对比视图
+
+**对比内容（重点！）：**
+- [ ] ⭐ 详细对比表格：并排显示所有关键**计算结果**
+- [ ] ⭐ 可视化图表：柱状图、折线图对比
+- [ ] ⭐ 叠加曲线：如价格-收益率曲线、增长曲线等
+- [ ] 突出差异：用颜色和粗体标识最优/最差值
+
+**UI/UX：**
+- [ ] 方案卡片显示核心结果（不是输入参数）
+- [ ] 选中状态明显（蓝色边框+背景）
+- [ ] Delete 和 Load 按钮使用 `e.stopPropagation()`
+- [ ] 对比视图有 "Close Comparison" 按钮
+- [ ] 至少选择 2 个方案才显示 "Compare" 按钮
+
+**性能：**
+- [ ] 使用 localStorage 持久化存储
+- [ ] 日期字符串正确转换为 Date 对象
+- [ ] 删除方案时同步更新选择列表
+
+---
+
+#### 常见错误（必须避免）
+
+```tsx
+// ❌ 错误1：只保存输入参数，不保存计算结果
+const newScenario = {
+  id: Date.now().toString(),
+  name: scenarioName,
+  inputs: { ...inputs },
+  // 缺少 result: { ...result }
+};
+// ✅ 正确：必须保存完整的 result
+
+// ❌ 错误2：对比视图只显示输入参数
+<tr>
+  <td>Face Value</td>
+  {scenarios.map(s => <td>${s.inputs.faceValue}</td>)}
+</tr>
+// ✅ 正确：应该对比计算结果
+<tr>
+  <td>Bond Price</td>
+  {scenarios.map(s => <td>${s.result.price.toFixed(2)}</td>)}
+</tr>
+
+// ❌ 错误3：需要精确点击 checkbox 才能选择
+<input 
+  type="checkbox"
+  onChange={() => toggleScenarioSelection(id)}
+/>
+// ✅ 正确：点击整个卡片即可
+<Card onClick={() => toggleScenarioSelection(id)}>
+  <input 
+    type="checkbox"
+    readOnly
+    className="pointer-events-none"
+  />
+</Card>
+
+// ❌ 错误4：Delete 和 Load 按钮触发卡片点击
+<Button onClick={() => handleDeleteScenario(id)}>
+  Delete
+</Button>
+// ✅ 正确：阻止事件冒泡
+<Button onClick={(e) => {
+  e.stopPropagation();
+  handleDeleteScenario(id);
+}}>
+  Delete
+</Button>
+
+// ❌ 错误5：对比视图只是简单列表，没有可视化
+{scenarios.map(s => <div>{s.name}: {s.result.price}</div>)}
+// ✅ 正确：使用表格 + 图表
+<table>...</table>
+<BarChart>...</BarChart>
+<LineChart>...</LineChart>
+```
+
+---
+
+#### 实际应用示例（Bond Calculator）
+
+**用户使用流程：**
+1. 用户输入债券参数，计算得到价格、YTM、久期等结果
+2. 点击 "Save Scenario"，命名为 "公司债 10年 5%"
+3. 修改参数（如 YTM 改为 5%），重新计算
+4. 再次保存为 "公司债 10年 5% - 低利率"
+5. 重复保存 3-4 个不同方案
+6. 在底部卡片网格中，**点击卡片**选择要对比的方案（2-4个）
+7. 点击 "Compare X Scenarios" 进入全屏对比视图
+8. 查看：
+   - 详细对比表格：价格、YTM、久期、凸性、总收益等
+   - 价格 & 久期对比图（双Y轴柱状图）
+   - 收益率对比图
+   - **价格-收益率曲线叠加**（4条不同颜色的线）
+   - 现金流总额对比
+9. 点击 "Close Comparison" 返回主界面
+
+**关键价值：**
+- ✅ 用户可以直观看出哪个债券收益更高
+- ✅ 用户可以看出哪个债券对利率更敏感（久期、凸性）
+- ✅ 用户可以对比总收益和风险等级
+- ✅ 价格-收益率曲线叠加展示相对敏感性
+
+---
+
 #### 效果对比
 
 | 功能 | 没有实现 | 正确实现 |

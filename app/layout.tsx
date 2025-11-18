@@ -7,10 +7,10 @@ import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: {
-    default: "Calculator Online - Free Online Calculator Tools (250+ Calculators)",
+    default: "AICalculator (Free, No signup) - 250+ Online Calculators",
     template: "%s | AICalculator.pro"
   },
-  description: "Best free online calculator tools with AI-powered analysis. Access 250+ calculators online including tax, mortgage, loan, BMI, age, percentage, and more. Instant results with detailed explanations.",
+  description: "Free online calculator with no sign-up required. Access 250+ calculators including tax, mortgage, loan, BMI, age, percentage, and more. Instant results with AI-powered analysis, detailed explanations, and charts. 100% free, unlimited use, no registration needed.",
   keywords: ["calculator online", "online calculator", "free online calculator", "calculator tools", "AI calculator", "tax calculator", "mortgage calculator", "loan calculator", "BMI calculator", "percentage calculator"],
   authors: [{ name: "AICalculator.pro Team" }],
   creator: "AICalculator.pro",
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://aicalculator.pro",
-    title: "Calculator Online - Best Free Online Calculator (250+ Tools)",
-    description: "The best online calculator with 250+ free tools. Tax, mortgage, loan, BMI, age, percentage calculators and more. More powerful than Google calculator.",
+    title: "AICalculator (Free, No signup) - 250+ Online Calculators",
+    description: "Free online calculator with no sign-up required. 250+ tools including tax, mortgage, loan, BMI, age, percentage calculators and more. More powerful than Google calculator with AI analysis and instant results. 100% free, unlimited use.",
     siteName: "AICalculator.pro",
     images: [
       {
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
   // Twitter
   twitter: {
     card: "summary_large_image",
-    title: "Calculator Online - 250+ Free Online Calculators",
-    description: "Best online calculator tools: tax, mortgage, loan, BMI, age, percentage & more. Better than Google calculator with AI analysis.",
+    title: "AICalculator (Free, No signup) - 250+ Online Calculators",
+    description: "Free online calculator with no sign-up required. Tax, mortgage, loan, BMI, age, percentage & more. Better than Google calculator with AI analysis and instant results. 100% free, unlimited use.",
     images: ["/og-image.png"],
     site: "@AICalculatorPro",
   },
@@ -81,9 +81,9 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "AICalculator.pro - Online Calculator",
+    "name": "AICalculator - Free Online Calculator (No Sign-up Required)",
     "url": process.env.NEXT_PUBLIC_SITE_URL || "https://aicalculator.pro",
-    "description": "Best free online calculator with 250+ tools including tax, mortgage, loan, BMI, age, percentage calculators and more. AI-powered analysis and instant results.",
+    "description": "Free online calculator with no sign-up required. 250+ tools including tax, mortgage, loan, BMI, age, percentage calculators and more. AI-powered analysis, instant results, 100% free, unlimited use.",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Any",
     "offers": {

@@ -1,799 +1,592 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Calculator, Copy, Share2, Printer, Download, TrendingUp, TrendingDown, AlertTriangle } from 'lucide-react';
-import html2canvas from 'html2canvas';
+import { Calculator, Share2, Download, Printer } from 'lucide-react';
 import { ShareModal } from '@/components/ShareModal';
 import { useShare } from '@/hooks/useShare';
-
-interface BudgetResult {
-  monthlyIncome: number;
-  totalExpenses: number;
-  remainingBalance: number;
-  savingsRate: number;
-  needsTotal: number;
-  wantsTotal: number;
-  savingsTotal: number;
-  needsPercentage: number;
-  wantsPercentage: number;
-  savingsPercentage: number;
-  recommended503020: {
-    needs: number;
-    wants: number;
-    savings: number;
-  };
-  financialHealth: {
-    score: number;
-    rating: string;
-    color: string;
-    recommendations: string[];
-  };
-}
+import html2canvas from 'html2canvas';
 
 export default function BudgetCalculator() {
-  // Income
-  const [salary, setSalary] = useState('');
-  const [otherIncome, setOtherIncome] = useState('');
+  // 收入
+  const [salary, setSalary] = useState(80000);
+  const [salaryPeriod, setSalaryPeriod] = useState<'Year' | 'Month'>('Year');
+  const [pension, setPension] = useState(0);
+  const [pensionPeriod, setPensionPeriod] = useState<'Year' | 'Month'>('Year');
+  const [investments, setInvestments] = useState(1000);
+  const [investmentsPeriod, setInvestmentsPeriod] = useState<'Year' | 'Month'>('Year');
+  const [otherIncome, setOtherIncome] = useState(2000);
+  const [otherIncomePeriod, setOtherIncomePeriod] = useState<'Year' | 'Month'>('Year');
+  const [taxRate, setTaxRate] = useState(28);
 
-  // Needs (50%)
-  const [housing, setHousing] = useState('');
-  const [utilities, setUtilities] = useState('');
-  const [groceries, setGroceries] = useState('');
-  const [transportation, setTransportation] = useState('');
-  const [insurance, setInsurance] = useState('');
+  // Housing & Utilities
+  const [mortgage, setMortgage] = useState(0);
+  const [mortgagePeriod, setMortgagePeriod] = useState<'Year' | 'Month'>('Month');
+  const [propertyTax, setPropertyTax] = useState(0);
+  const [propertyTaxPeriod, setPropertyTaxPeriod] = useState<'Year' | 'Month'>('Year');
+  const [rental, setRental] = useState(1400);
+  const [rentalPeriod, setRentalPeriod] = useState<'Year' | 'Month'>('Month');
+  const [insurance, setInsurance] = useState(200);
+  const [insurancePeriod, setInsurancePeriod] = useState<'Year' | 'Month'>('Year');
+  const [hoaFee, setHoaFee] = useState(0);
+  const [hoaFeePeriod, setHoaFeePeriod] = useState<'Year' | 'Month'>('Year');
+  const [homeMaintenance, setHomeMaintenance] = useState(0);
+  const [homeMaintenancePeriod, setHomeMaintenancePeriod] = useState<'Year' | 'Month'>('Month');
+  const [utilities, setUtilities] = useState(250);
+  const [utilitiesPeriod, setUtilitiesPeriod] = useState<'Year' | 'Month'>('Month');
 
-  // Wants (30%)
-  const [entertainment, setEntertainment] = useState('');
-  const [diningOut, setDiningOut] = useState('');
-  const [shopping, setShopping] = useState('');
-  const [subscriptions, setSubscriptions] = useState('');
+  // Transportation
+  const [autoLoan, setAutoLoan] = useState(250);
+  const [autoLoanPeriod, setAutoLoanPeriod] = useState<'Year' | 'Month'>('Month');
+  const [autoInsurance, setAutoInsurance] = useState(700);
+  const [autoInsurancePeriod, setAutoInsurancePeriod] = useState<'Year' | 'Month'>('Year');
+  const [gasoline, setGasoline] = useState(100);
+  const [gasolinePeriod, setGasolinePeriod] = useState<'Year' | 'Month'>('Month');
+  const [autoMaintenance, setAutoMaintenance] = useState(600);
+  const [autoMaintenancePeriod, setAutoMaintenancePeriod] = useState<'Year' | 'Month'>('Year');
+  const [parking, setParking] = useState(20);
+  const [parkingPeriod, setParkingPeriod] = useState<'Year' | 'Month'>('Month');
+  const [otherTransport, setOtherTransport] = useState(0);
+  const [otherTransportPeriod, setOtherTransportPeriod] = useState<'Year' | 'Month'>('Month');
 
-  // Savings & Debt (20%)
-  const [savings, setSavings] = useState('');
-  const [debtPayment, setDebtPayment] = useState('');
-  const [investment, setInvestment] = useState('');
+  // Debt & Loan Payments
+  const [creditCard, setCreditCard] = useState(0);
+  const [creditCardPeriod, setCreditCardPeriod] = useState<'Year' | 'Month'>('Month');
+  const [studentLoan, setStudentLoan] = useState(250);
+  const [studentLoanPeriod, setStudentLoanPeriod] = useState<'Year' | 'Month'>('Month');
+  const [otherLoans, setOtherLoans] = useState(0);
+  const [otherLoansPeriod, setOtherLoansPeriod] = useState<'Year' | 'Month'>('Month');
 
-  const [result, setResult] = useState<BudgetResult | null>(null);
+  // Living Expenses
+  const [food, setFood] = useState(400);
+  const [foodPeriod, setFoodPeriod] = useState<'Year' | 'Month'>('Month');
+  const [clothing, setClothing] = useState(100);
+  const [clothingPeriod, setClothingPeriod] = useState<'Year' | 'Month'>('Month');
+  const [household, setHousehold] = useState(100);
+  const [householdPeriod, setHouseholdPeriod] = useState<'Year' | 'Month'>('Month');
+  const [mealsOut, setMealsOut] = useState(200);
+  const [mealsOutPeriod, setMealsOutPeriod] = useState<'Year' | 'Month'>('Month');
+  const [livingOther, setLivingOther] = useState(200);
+  const [livingOtherPeriod, setLivingOtherPeriod] = useState<'Year' | 'Month'>('Month');
+
+  // Healthcare
+  const [medicalInsurance, setMedicalInsurance] = useState(0);
+  const [medicalInsurancePeriod, setMedicalInsurancePeriod] = useState<'Year' | 'Month'>('Month');
+  const [medicalSpending, setMedicalSpending] = useState(200);
+  const [medicalSpendingPeriod, setMedicalSpendingPeriod] = useState<'Year' | 'Month'>('Month');
+
+  // Children & Education
+  const [childCare, setChildCare] = useState(0);
+  const [childCarePeriod, setChildCarePeriod] = useState<'Year' | 'Month'>('Month');
+  const [tuition, setTuition] = useState(0);
+  const [tuitionPeriod, setTuitionPeriod] = useState<'Year' | 'Month'>('Month');
+  const [childSupport, setChildSupport] = useState(0);
+  const [childSupportPeriod, setChildSupportPeriod] = useState<'Year' | 'Month'>('Month');
+  const [educationOther, setEducationOther] = useState(100);
+  const [educationOtherPeriod, setEducationOtherPeriod] = useState<'Year' | 'Month'>('Month');
+
+  // Savings & Investments
+  const [retirement401k, setRetirement401k] = useState(10000);
+  const [retirement401kPeriod, setRetirement401kPeriod] = useState<'Year' | 'Month'>('Year');
+  const [collegeSaving, setCollegeSaving] = useState(0);
+  const [collegeSavingPeriod, setCollegeSavingPeriod] = useState<'Year' | 'Month'>('Year');
+  const [investmentsSavings, setInvestmentsSavings] = useState(0);
+  const [investmentsSavingsPeriod, setInvestmentsSavingsPeriod] = useState<'Year' | 'Month'>('Year');
+  const [emergencyFund, setEmergencyFund] = useState(0);
+  const [emergencyFundPeriod, setEmergencyFundPeriod] = useState<'Year' | 'Month'>('Month');
+
+  // Miscellaneous
+  const [pet, setPet] = useState(200);
+  const [petPeriod, setPetPeriod] = useState<'Year' | 'Month'>('Month');
+  const [gifts, setGifts] = useState(300);
+  const [giftsPeriod, setGiftsPeriod] = useState<'Year' | 'Month'>('Year');
+  const [hobbies, setHobbies] = useState(100);
+  const [hobbiesPeriod, setHobbiesPeriod] = useState<'Year' | 'Month'>('Month');
+  const [entertainment, setEntertainment] = useState(100);
+  const [entertainmentPeriod, setEntertainmentPeriod] = useState<'Year' | 'Month'>('Month');
+  const [travel, setTravel] = useState(2000);
+  const [travelPeriod, setTravelPeriod] = useState<'Year' | 'Month'>('Year');
+  const [miscOther, setMiscOther] = useState(100);
+  const [miscOtherPeriod, setMiscOtherPeriod] = useState<'Year' | 'Month'>('Month');
+
+  const [result, setResult] = useState<any>(null);
   const resultRef = useRef<HTMLDivElement>(null);
 
-  // Share functionality
+  // 分享功能
   const { showShareModal, shareUrl, shareText, handleShare, closeShareModal } = useShare({
     calculatorPath: '/budget-calculator',
-    getShareParams: () => ({
-      s: salary || '',
-      o: otherIncome || '',
-      h: housing || '',
-      u: utilities || '',
-      g: groceries || '',
-      t: transportation || '',
-      i: insurance || '',
-    }),
+    getShareParams: () => {
+      if (!result) return {};
+      return {
+        income: result.totalBeforeTaxAnnual.toString(),
+        expenses: result.totalExpensesAnnual.toString(),
+      };
+    },
     getShareText: () => {
-      return result
-        ? `Budget Calculator: Income $${result.monthlyIncome.toLocaleString()}/mo | Expenses $${result.totalExpenses.toLocaleString()} | Balance $${result.remainingBalance.toLocaleString()} | Financial Health: ${result.financialHealth.rating}`
-        : 'Plan your budget with the 50/30/20 rule and get personalized financial advice!';
+      if (!result) return 'Create your budget with this professional calculator!';
+      return `My budget: $${result.totalAfterTaxAnnual.toFixed(0)}/year income, $${result.totalExpensesAnnual.toFixed(0)} expenses. DTI: ${result.dtiRatio.toFixed(1)}%`;
     },
   });
 
-  const calculate = () => {
-    // Calculate income
-    const monthlyIncome = (parseFloat(salary) || 0) + (parseFloat(otherIncome) || 0);
+  // 转换为年度金额
+  const toAnnual = (amount: number, period: 'Year' | 'Month') => {
+    return period === 'Month' ? amount * 12 : amount;
+  };
 
-    if (monthlyIncome <= 0) {
-      alert('Please enter your monthly income.');
-      return;
-    }
+  // 计算
+  const handleCalculate = () => {
+    // 收入（年度）
+    const salaryAnnual = toAnnual(salary, salaryPeriod);
+    const pensionAnnual = toAnnual(pension, pensionPeriod);
+    const investmentsAnnual = toAnnual(investments, investmentsPeriod);
+    const otherIncomeAnnual = toAnnual(otherIncome, otherIncomePeriod);
+    const totalBeforeTaxAnnual = salaryAnnual + pensionAnnual + investmentsAnnual + otherIncomeAnnual;
+    const taxAmount = totalBeforeTaxAnnual * (taxRate / 100);
+    const totalAfterTaxAnnual = totalBeforeTaxAnnual - taxAmount;
 
-    // Calculate needs (50%)
-    const needsTotal = 
-      (parseFloat(housing) || 0) +
-      (parseFloat(utilities) || 0) +
-      (parseFloat(groceries) || 0) +
-      (parseFloat(transportation) || 0) +
-      (parseFloat(insurance) || 0);
+    // 支出（年度）
+    const housingAnnual = toAnnual(mortgage, mortgagePeriod) + toAnnual(propertyTax, propertyTaxPeriod) +
+      toAnnual(rental, rentalPeriod) + toAnnual(insurance, insurancePeriod) +
+      toAnnual(hoaFee, hoaFeePeriod) + toAnnual(homeMaintenance, homeMaintenancePeriod) +
+      toAnnual(utilities, utilitiesPeriod);
 
-    // Calculate wants (30%)
-    const wantsTotal = 
-      (parseFloat(entertainment) || 0) +
-      (parseFloat(diningOut) || 0) +
-      (parseFloat(shopping) || 0) +
-      (parseFloat(subscriptions) || 0);
+    const transportAnnual = toAnnual(autoLoan, autoLoanPeriod) + toAnnual(autoInsurance, autoInsurancePeriod) +
+      toAnnual(gasoline, gasolinePeriod) + toAnnual(autoMaintenance, autoMaintenancePeriod) +
+      toAnnual(parking, parkingPeriod) + toAnnual(otherTransport, otherTransportPeriod);
 
-    // Calculate savings & debt (20%)
-    const savingsTotal = 
-      (parseFloat(savings) || 0) +
-      (parseFloat(debtPayment) || 0) +
-      (parseFloat(investment) || 0);
+    const debtAnnual = toAnnual(creditCard, creditCardPeriod) + toAnnual(studentLoan, studentLoanPeriod) +
+      toAnnual(otherLoans, otherLoansPeriod);
 
-    const totalExpenses = needsTotal + wantsTotal + savingsTotal;
-    const remainingBalance = monthlyIncome - totalExpenses;
-    const savingsRate = (savingsTotal / monthlyIncome) * 100;
+    const livingAnnual = toAnnual(food, foodPeriod) + toAnnual(clothing, clothingPeriod) +
+      toAnnual(household, householdPeriod) + toAnnual(mealsOut, mealsOutPeriod) +
+      toAnnual(livingOther, livingOtherPeriod);
 
-    // Calculate percentages
-    const needsPercentage = (needsTotal / monthlyIncome) * 100;
-    const wantsPercentage = (wantsTotal / monthlyIncome) * 100;
-    const savingsPercentage = (savingsTotal / monthlyIncome) * 100;
+    const healthcareAnnual = toAnnual(medicalInsurance, medicalInsurancePeriod) +
+      toAnnual(medicalSpending, medicalSpendingPeriod);
 
-    // Recommended 50/30/20 amounts
-    const recommended503020 = {
-      needs: monthlyIncome * 0.5,
-      wants: monthlyIncome * 0.3,
-      savings: monthlyIncome * 0.2
-    };
+    const childrenAnnual = toAnnual(childCare, childCarePeriod) + toAnnual(tuition, tuitionPeriod) +
+      toAnnual(childSupport, childSupportPeriod) + toAnnual(educationOther, educationOtherPeriod);
 
-    // Financial health score and recommendations
-    const financialHealth = calculateFinancialHealth(
-      monthlyIncome,
-      needsPercentage,
-      wantsPercentage,
-      savingsPercentage,
-      remainingBalance
-    );
+    const savingsAnnual = toAnnual(retirement401k, retirement401kPeriod) +
+      toAnnual(collegeSaving, collegeSavingPeriod) + toAnnual(investmentsSavings, investmentsSavingsPeriod) +
+      toAnnual(emergencyFund, emergencyFundPeriod);
+
+    const miscAnnual = toAnnual(pet, petPeriod) + toAnnual(gifts, giftsPeriod) +
+      toAnnual(hobbies, hobbiesPeriod) + toAnnual(entertainment, entertainmentPeriod) +
+      toAnnual(travel, travelPeriod) + toAnnual(miscOther, miscOtherPeriod);
+
+    const totalExpensesAnnual = housingAnnual + transportAnnual + debtAnnual + livingAnnual +
+      healthcareAnnual + childrenAnnual + savingsAnnual + miscAnnual;
+
+    const netAnnual = totalAfterTaxAnnual - totalExpensesAnnual;
+
+    // DTI计算
+    const monthlyDebt = debtAnnual / 12;
+    const monthlyGrossIncome = totalBeforeTaxAnnual / 12;
+    const monthlyHousing = housingAnnual / 12;
+    const dtiRatio = (monthlyDebt / monthlyGrossIncome) * 100;
+    const frontEndDTI = (monthlyHousing / monthlyGrossIncome) * 100;
+
+    // 支出分类
+    const categories = [
+      { name: 'Housing & Utilities', annual: housingAnnual, color: '#4A90E2' },
+      { name: 'Transportation', annual: transportAnnual, color: '#E27A4A' },
+      { name: 'Other Debt & Loan Payments', annual: debtAnnual, color: '#C73E4A' },
+      { name: 'Living Expenses', annual: livingAnnual, color: '#5BC0EB' },
+      { name: 'Healthcare', annual: healthcareAnnual, color: '#E24A7A' },
+      { name: 'Children & Education', annual: childrenAnnual, color: '#C44AE2' },
+      { name: 'Savings & Investments', annual: savingsAnnual, color: '#4AE282' },
+      { name: 'Miscellaneous Expenses', annual: miscAnnual, color: '#9B9B9B' },
+    ].filter(cat => cat.annual > 0).map(cat => ({
+      ...cat,
+      percent: (cat.annual / totalExpensesAnnual) * 100,
+      percentOfIncome: (cat.annual / totalBeforeTaxAnnual) * 100,
+    }));
+
+    // 特殊项（Food & Meals Out）
+    const foodAndMealsOutAnnual = toAnnual(food, foodPeriod) + toAnnual(mealsOut, mealsOutPeriod);
 
     setResult({
-      monthlyIncome,
-      totalExpenses,
-      remainingBalance,
-      savingsRate,
-      needsTotal,
-      wantsTotal,
-      savingsTotal,
-      needsPercentage,
-      wantsPercentage,
-      savingsPercentage,
-      recommended503020,
-      financialHealth
+      totalBeforeTaxAnnual,
+      totalAfterTaxAnnual,
+      totalExpensesAnnual,
+      netAnnual,
+      dtiRatio,
+      frontEndDTI,
+      categories,
+      housingAnnual,
+      transportAnnual,
+      livingAnnual,
+      foodAndMealsOutAnnual,
+      debtAnnual,
+      healthcareAnnual,
+      childrenAnnual,
+      savingsAnnual,
+      miscAnnual,
     });
   };
 
-  const calculateFinancialHealth = (
-    income: number,
-    needsPct: number,
-    wantsPct: number,
-    savingsPct: number,
-    balance: number
-  ): BudgetResult['financialHealth'] => {
-    let score = 100;
-    const recommendations: string[] = [];
-
-    // Check needs percentage (ideal: ≤50%)
-    if (needsPct > 60) {
-      score -= 25;
-      recommendations.push('⚠️ Essential expenses exceed 60%. Consider reducing housing costs or finding ways to lower utilities.');
-    } else if (needsPct > 50) {
-      score -= 10;
-      recommendations.push('💡 Essential expenses are above 50%. Try to find savings in transportation or grocery costs.');
-    }
-
-    // Check wants percentage (ideal: ≤30%)
-    if (wantsPct > 40) {
-      score -= 20;
-      recommendations.push('⚠️ Discretionary spending exceeds 40%. Consider cutting back on entertainment, dining out, or subscriptions.');
-    } else if (wantsPct > 30) {
-      score -= 10;
-      recommendations.push('💡 Discretionary spending is above 30%. Review entertainment and shopping expenses.');
-    }
-
-    // Check savings percentage (ideal: ≥20%)
-    if (savingsPct < 10) {
-      score -= 30;
-      recommendations.push('🚨 Savings rate below 10% is concerning. Aim to save at least 20% of your income for financial security.');
-    } else if (savingsPct < 15) {
-      score -= 15;
-      recommendations.push('💡 Savings rate below 15%. Try to increase to 20% by cutting non-essential expenses.');
-    } else if (savingsPct >= 25) {
-      recommendations.push('✅ Excellent savings rate! You\'re building strong financial security.');
-    }
-
-    // Check remaining balance
-    if (balance < 0) {
-      score -= 25;
-      recommendations.push('🚨 Spending exceeds income! This is unsustainable. Immediately cut expenses or increase income.');
-    } else if (balance < income * 0.05) {
-      score -= 10;
-      recommendations.push('⚠️ Very little buffer remaining. Unexpected expenses could cause problems.');
-    }
-
-    // Ensure score is between 0-100
-    score = Math.max(0, Math.min(100, score));
-
-    // Determine rating
-    let rating: string;
-    let color: string;
-    if (score >= 80) {
-      rating = 'Excellent';
-      color = 'green';
-    } else if (score >= 60) {
-      rating = 'Good';
-      color = 'blue';
-    } else if (score >= 40) {
-      rating = 'Fair';
-      color = 'yellow';
-    } else {
-      rating = 'Needs Improvement';
-      color = 'red';
-    }
-
-    if (recommendations.length === 0 && score >= 80) {
-      recommendations.push('✅ Your budget is well-balanced! Keep up the good work.');
-    }
-
-    return { score, rating, color, recommendations };
+  // 格式化货币
+  const fc = (amount: number) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount);
   };
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    alert('Copied to clipboard!');
-  };
-
-  // Save as Image
+  // 保存为图片
   const handleSaveAsImage = async () => {
-    if (!resultRef.current) return;
-    
-    try {
-      await new Promise(resolve => setTimeout(resolve, 500));
-      
-      const canvas = await html2canvas(resultRef.current, {
-        scale: 2,
-        backgroundColor: '#ffffff',
-        logging: false,
-        useCORS: true,
-        allowTaint: true,
-      });
-      
+    if (resultRef.current) {
+      const canvas = await html2canvas(resultRef.current);
       const link = document.createElement('a');
-      link.download = `budget-calculator-${new Date().toISOString().split('T')[0]}.png`;
-      link.href = canvas.toDataURL('image/png', 1.0);
+      link.download = 'budget-report.png';
+      link.href = canvas.toDataURL();
       link.click();
-    } catch (error) {
-      console.error('Error saving image:', error);
-      alert('Failed to save image. Please try again.');
     }
   };
 
-  // Print Results
-  const handlePrint = async () => {
-    if (!resultRef.current) return;
-    
-    try {
-      await new Promise(resolve => setTimeout(resolve, 500));
-      
-      const canvas = await html2canvas(resultRef.current, {
-        scale: 2,
-        backgroundColor: '#ffffff',
-        logging: false,
-      });
-      
-      const imgData = canvas.toDataURL('image/png');
-      const printWindow = window.open('', '_blank');
-      if (printWindow) {
-        printWindow.document.write(`
-          <html>
-            <head>
-              <title>Budget Calculator Results</title>
-              <style>
-                body { margin: 0; padding: 20px; display: flex; justify-content: center; }
-                img { max-width: 100%; height: auto; }
-                @media print {
-                  body { padding: 0; }
-                  img { max-width: 100%; page-break-inside: avoid; }
-                }
-              </style>
-            </head>
-            <body>
-              <img src="${imgData}" onload="window.print();"/>
-            </body>
-          </html>
-        `);
-        printWindow.document.close();
-      }
-    } catch (error) {
-      console.error('Failed to print:', error);
-      alert('Failed to print. Please try again.');
-    }
+  // 打印
+  const handlePrint = () => {
+    window.print();
   };
+
+  // 输入组件
+  const InputRow = ({ 
+    label, 
+    value, 
+    onChange, 
+    period, 
+    onPeriodChange,
+    hint 
+  }: any) => (
+    <div className="grid grid-cols-[180px,1fr] gap-2 items-center">
+      <Label className="text-xs text-gray-700">{label}</Label>
+      <div className="flex gap-1 items-center">
+        <div className="relative flex-1">
+          <span className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-500 text-xs">$</span>
+          <Input
+            type="number"
+            value={value}
+            onChange={(e) => onChange(Number(e.target.value))}
+            className="h-8 text-xs pl-5 pr-1 bg-white border-gray-300"
+          />
+        </div>
+        <span className="text-gray-400 text-xs">/</span>
+        <select
+          value={period}
+          onChange={(e) => onPeriodChange(e.target.value)}
+          className="h-8 text-xs bg-white border border-gray-300 rounded px-2 min-w-[70px]"
+        >
+          <option>Month</option>
+          <option>Year</option>
+        </select>
+        {hint && <span className="text-xs text-gray-500 ml-2">{hint}</span>}
+      </div>
+    </div>
+  );
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6">
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-6">
-        {/* Left: Input Area (1 column) */}
-        <div className="xl:col-span-1">
-          <Card className="shadow-lg">
-            <CardHeader className="bg-gradient-to-r from-emerald-50 to-teal-50">
-              <CardTitle className="text-xl">Monthly Budget</CardTitle>
-              <p className="text-sm text-gray-600 mt-1">Enter your income and expenses</p>
-            </CardHeader>
-            <CardContent className="p-4 sm:p-6 space-y-6">
-              {/* Income Section */}
-              <div className="space-y-3">
-                <h3 className="font-semibold text-gray-900 text-sm">💰 Monthly Income</h3>
-                <div>
-                  <Label htmlFor="salary" className="text-xs">
-                    Salary/Wages <span className="text-red-500">*</span>
-                  </Label>
-                  <input
-                    id="salary"
-                    type="number"
-                    value={salary}
-                    onChange={(e) => setSalary(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
-                    placeholder="e.g., 5000"
-                    min="0"
-                    step="0.01"
-                  />
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-8">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="grid lg:grid-cols-[1fr,420px] gap-6">
+          {/* 左侧：输入 */}
+          <div className="space-y-4">
+            {/* 收入 */}
+            <Card>
+              <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 p-3">
+                <CardTitle className="text-white text-sm">Incomes (Before Tax)</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-4 space-y-2 bg-gray-100">
+                <InputRow label="Salary & Earned Income" value={salary} onChange={setSalary} period={salaryPeriod} onPeriodChange={setSalaryPeriod} />
+                <InputRow label="Pension & Social Security" value={pension} onChange={setPension} period={pensionPeriod} onPeriodChange={setPensionPeriod} />
+                <InputRow label="Investments & Savings" value={investments} onChange={setInvestments} period={investmentsPeriod} onPeriodChange={setInvestmentsPeriod} hint="interest, capital gain, dividend, rental income..." />
+                <InputRow label="Other Income" value={otherIncome} onChange={setOtherIncome} period={otherIncomePeriod} onPeriodChange={setOtherIncomePeriod} hint="gift, alimony, child support, tax return..." />
+                <div className="grid grid-cols-[180px,1fr] gap-2 items-center pt-2">
+                  <Label className="text-xs text-gray-700">Income Tax Rate:</Label>
+                  <div className="flex gap-2 items-center">
+                    <Input
+                      type="number"
+                      value={taxRate}
+                      onChange={(e) => setTaxRate(Number(e.target.value))}
+                      className="h-8 text-xs bg-white border-gray-300 w-20"
+                    />
+                    <span className="text-xs text-gray-600">% federal + state + local</span>
+                  </div>
                 </div>
-                <div>
-                  <Label htmlFor="otherIncome" className="text-xs">
-                    Other Income <span className="text-gray-400">- Optional</span>
-                  </Label>
-                  <input
-                    id="otherIncome"
-                    type="number"
-                    value={otherIncome}
-                    onChange={(e) => setOtherIncome(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
-                    placeholder="e.g., 500"
-                    min="0"
-                    step="0.01"
-                  />
-                  <p className="text-xs text-gray-500 mt-1">Freelance, investments, etc.</p>
-                </div>
-              </div>
+              </CardContent>
+            </Card>
 
-              {/* Needs Section (50%) */}
-              <div className="space-y-3 border-t pt-4">
-                <h3 className="font-semibold text-gray-900 text-sm">🏠 Needs (Target: 50%)</h3>
-                <div>
-                  <Label htmlFor="housing" className="text-xs">Housing (Rent/Mortgage)</Label>
-                  <input
-                    id="housing"
-                    type="number"
-                    value={housing}
-                    onChange={(e) => setHousing(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
-                    placeholder="e.g., 1500"
-                    min="0"
-                    step="0.01"
-                  />
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  <div>
-                    <Label htmlFor="utilities" className="text-xs">Utilities</Label>
-                    <input
-                      id="utilities"
-                      type="number"
-                      value={utilities}
-                      onChange={(e) => setUtilities(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
-                      placeholder="150"
-                      min="0"
-                      step="0.01"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="groceries" className="text-xs">Groceries</Label>
-                    <input
-                      id="groceries"
-                      type="number"
-                      value={groceries}
-                      onChange={(e) => setGroceries(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
-                      placeholder="400"
-                      min="0"
-                      step="0.01"
-                    />
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  <div>
-                    <Label htmlFor="transportation" className="text-xs">Transportation</Label>
-                    <input
-                      id="transportation"
-                      type="number"
-                      value={transportation}
-                      onChange={(e) => setTransportation(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
-                      placeholder="200"
-                      min="0"
-                      step="0.01"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="insurance" className="text-xs">Insurance</Label>
-                    <input
-                      id="insurance"
-                      type="number"
-                      value={insurance}
-                      onChange={(e) => setInsurance(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
-                      placeholder="250"
-                      min="0"
-                      step="0.01"
-                    />
-                  </div>
-                </div>
-              </div>
+            {/* Expenses标题 */}
+            <div className="bg-blue-600 text-white px-3 py-2 rounded">
+              <h3 className="text-sm font-semibold">Expenses</h3>
+            </div>
 
-              {/* Wants Section (30%) */}
-              <div className="space-y-3 border-t pt-4">
-                <h3 className="font-semibold text-gray-900 text-sm">🎉 Wants (Target: 30%)</h3>
-                <div className="grid grid-cols-2 gap-2">
-                  <div>
-                    <Label htmlFor="entertainment" className="text-xs">Entertainment</Label>
-                    <input
-                      id="entertainment"
-                      type="number"
-                      value={entertainment}
-                      onChange={(e) => setEntertainment(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
-                      placeholder="200"
-                      min="0"
-                      step="0.01"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="diningOut" className="text-xs">Dining Out</Label>
-                    <input
-                      id="diningOut"
-                      type="number"
-                      value={diningOut}
-                      onChange={(e) => setDiningOut(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
-                      placeholder="300"
-                      min="0"
-                      step="0.01"
-                    />
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  <div>
-                    <Label htmlFor="shopping" className="text-xs">Shopping</Label>
-                    <input
-                      id="shopping"
-                      type="number"
-                      value={shopping}
-                      onChange={(e) => setShopping(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
-                      placeholder="200"
-                      min="0"
-                      step="0.01"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="subscriptions" className="text-xs">Subscriptions</Label>
-                    <input
-                      id="subscriptions"
-                      type="number"
-                      value={subscriptions}
-                      onChange={(e) => setSubscriptions(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
-                      placeholder="50"
-                      min="0"
-                      step="0.01"
-                    />
-                  </div>
-                </div>
-              </div>
+            {/* Housing & Utilities */}
+            <Card>
+              <CardHeader className="bg-gray-700 p-2">
+                <CardTitle className="text-white text-xs">Housing & Utilities</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-3 space-y-2 bg-gray-100">
+                <InputRow label="Mortgage" value={mortgage} onChange={setMortgage} period={mortgagePeriod} onPeriodChange={setMortgagePeriod} />
+                <InputRow label="Property Tax" value={propertyTax} onChange={setPropertyTax} period={propertyTaxPeriod} onPeriodChange={setPropertyTaxPeriod} />
+                <InputRow label="Rental" value={rental} onChange={setRental} period={rentalPeriod} onPeriodChange={setRentalPeriod} />
+                <InputRow label="Insurance" value={insurance} onChange={setInsurance} period={insurancePeriod} onPeriodChange={setInsurancePeriod} hint="home owner, renters, home warranty, etc." />
+                <InputRow label="HOA/Co-Op Fee" value={hoaFee} onChange={setHoaFee} period={hoaFeePeriod} onPeriodChange={setHoaFeePeriod} />
+                <InputRow label="Home Maintenance" value={homeMaintenance} onChange={setHomeMaintenance} period={homeMaintenancePeriod} onPeriodChange={setHomeMaintenancePeriod} hint="repair, landscape, cleaning, furniture, appliance..." />
+                <InputRow label="Utilities" value={utilities} onChange={setUtilities} period={utilitiesPeriod} onPeriodChange={setUtilitiesPeriod} hint="electricity, gas, water, phone, cable, heating..." />
+              </CardContent>
+            </Card>
 
-              {/* Savings & Debt Section (20%) */}
-              <div className="space-y-3 border-t pt-4">
-                <h3 className="font-semibold text-gray-900 text-sm">💎 Savings & Debt (Target: 20%)</h3>
-                <div>
-                  <Label htmlFor="savings" className="text-xs">Savings/Emergency Fund</Label>
-                  <input
-                    id="savings"
-                    type="number"
-                    value={savings}
-                    onChange={(e) => setSavings(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
-                    placeholder="e.g., 500"
-                    min="0"
-                    step="0.01"
-                  />
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  <div>
-                    <Label htmlFor="debtPayment" className="text-xs">Debt Payment</Label>
-                    <input
-                      id="debtPayment"
-                      type="number"
-                      value={debtPayment}
-                      onChange={(e) => setDebtPayment(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
-                      placeholder="300"
-                      min="0"
-                      step="0.01"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="investment" className="text-xs">Investment</Label>
-                    <input
-                      id="investment"
-                      type="number"
-                      value={investment}
-                      onChange={(e) => setInvestment(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm"
-                      placeholder="200"
-                      min="0"
-                      step="0.01"
-                    />
-                  </div>
-                </div>
-              </div>
+            {/* Transportation */}
+            <Card>
+              <CardHeader className="bg-gray-700 p-2">
+                <CardTitle className="text-white text-xs">Transportation</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-3 space-y-2 bg-gray-100">
+                <InputRow label="Auto Loan" value={autoLoan} onChange={setAutoLoan} period={autoLoanPeriod} onPeriodChange={setAutoLoanPeriod} />
+                <InputRow label="Auto Insurance" value={autoInsurance} onChange={setAutoInsurance} period={autoInsurancePeriod} onPeriodChange={setAutoInsurancePeriod} />
+                <InputRow label="Gasoline" value={gasoline} onChange={setGasoline} period={gasolinePeriod} onPeriodChange={setGasolinePeriod} />
+                <InputRow label="Auto Maintenance" value={autoMaintenance} onChange={setAutoMaintenance} period={autoMaintenancePeriod} onPeriodChange={setAutoMaintenancePeriod} />
+                <InputRow label="Parking/Tolls" value={parking} onChange={setParking} period={parkingPeriod} onPeriodChange={setParkingPeriod} />
+                <InputRow label="Other Transportation Costs" value={otherTransport} onChange={setOtherTransport} period={otherTransportPeriod} onPeriodChange={setOtherTransportPeriod} hint="ticket, taxi, registration, etc." />
+              </CardContent>
+            </Card>
 
-              <Button
-                onClick={calculate}
-                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 min-h-[44px]"
-              >
-                <Calculator className="h-5 w-5 mr-2" />
-                Analyze Budget
+            {/* Other Debt & Loan Payments */}
+            <Card>
+              <CardHeader className="bg-gray-700 p-2">
+                <CardTitle className="text-white text-xs">Other Debt & Loan Payments</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-3 space-y-2 bg-gray-100">
+                <InputRow label="Credit Card" value={creditCard} onChange={setCreditCard} period={creditCardPeriod} onPeriodChange={setCreditCardPeriod} hint="the recurring part to payback balance only" />
+                <InputRow label="Student Loan" value={studentLoan} onChange={setStudentLoan} period={studentLoanPeriod} onPeriodChange={setStudentLoanPeriod} />
+                <InputRow label="Other Loans & Liabilities" value={otherLoans} onChange={setOtherLoans} period={otherLoansPeriod} onPeriodChange={setOtherLoansPeriod} hint="personal loan, store card, etc." />
+              </CardContent>
+            </Card>
+
+            {/* Living Expenses */}
+            <Card>
+              <CardHeader className="bg-gray-700 p-2">
+                <CardTitle className="text-white text-xs">Living Expenses</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-3 space-y-2 bg-gray-100">
+                <InputRow label="Food" value={food} onChange={setFood} period={foodPeriod} onPeriodChange={setFoodPeriod} />
+                <InputRow label="Clothing" value={clothing} onChange={setClothing} period={clothingPeriod} onPeriodChange={setClothingPeriod} />
+                <InputRow label="Household Supplies" value={household} onChange={setHousehold} period={householdPeriod} onPeriodChange={setHouseholdPeriod} />
+                <InputRow label="Meals Out" value={mealsOut} onChange={setMealsOut} period={mealsOutPeriod} onPeriodChange={setMealsOutPeriod} />
+                <InputRow label="Other" value={livingOther} onChange={setLivingOther} period={livingOtherPeriod} onPeriodChange={setLivingOtherPeriod} hint="laundry, barber, beauty, alcohol, tobacco, etc." />
+              </CardContent>
+            </Card>
+
+            {/* Healthcare */}
+            <Card>
+              <CardHeader className="bg-gray-700 p-2">
+                <CardTitle className="text-white text-xs">Healthcare</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-3 space-y-2 bg-gray-100">
+                <InputRow label="Medical Insurance" value={medicalInsurance} onChange={setMedicalInsurance} period={medicalInsurancePeriod} onPeriodChange={setMedicalInsurancePeriod} />
+                <InputRow label="Medical Spending" value={medicalSpending} onChange={setMedicalSpending} period={medicalSpendingPeriod} onPeriodChange={setMedicalSpendingPeriod} hint="copay, uncovered doctor visit or drugs, etc." />
+              </CardContent>
+            </Card>
+
+            {/* Children & Education */}
+            <Card>
+              <CardHeader className="bg-gray-700 p-2">
+                <CardTitle className="text-white text-xs">Children & Education</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-3 space-y-2 bg-gray-100">
+                <InputRow label="Child & Personal Care" value={childCare} onChange={setChildCare} period={childCarePeriod} onPeriodChange={setChildCarePeriod} />
+                <InputRow label="Tuition & Supplies" value={tuition} onChange={setTuition} period={tuitionPeriod} onPeriodChange={setTuitionPeriod} />
+                <InputRow label="Child Support Payments" value={childSupport} onChange={setChildSupport} period={childSupportPeriod} onPeriodChange={setChildSupportPeriod} />
+                <InputRow label="Other Spending" value={educationOther} onChange={setEducationOther} period={educationOtherPeriod} onPeriodChange={setEducationOtherPeriod} hint="book, software, magazine, device, etc." />
+              </CardContent>
+            </Card>
+
+            {/* Savings & Investments */}
+            <Card>
+              <CardHeader className="bg-gray-700 p-2">
+                <CardTitle className="text-white text-xs">Savings & Investments</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-3 space-y-2 bg-gray-100">
+                <InputRow label="401k & IRA" value={retirement401k} onChange={setRetirement401k} period={retirement401kPeriod} onPeriodChange={setRetirement401kPeriod} hint="before tax contribution" />
+                <InputRow label="College Saving" value={collegeSaving} onChange={setCollegeSaving} period={collegeSavingPeriod} onPeriodChange={setCollegeSavingPeriod} hint="before tax contribution" />
+                <InputRow label="Investments" value={investmentsSavings} onChange={setInvestmentsSavings} period={investmentsSavingsPeriod} onPeriodChange={setInvestmentsSavingsPeriod} hint="stock, bond, funds, real estate, etc." />
+                <InputRow label="Emergency Fund & Other" value={emergencyFund} onChange={setEmergencyFund} period={emergencyFundPeriod} onPeriodChange={setEmergencyFundPeriod} hint="savings, CD, house or major purchase, etc." />
+              </CardContent>
+            </Card>
+
+            {/* Miscellaneous Expenses */}
+            <Card>
+              <CardHeader className="bg-gray-700 p-2">
+                <CardTitle className="text-white text-xs">Miscellaneous Expenses</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-3 space-y-2 bg-gray-100">
+                <InputRow label="Pet" value={pet} onChange={setPet} period={petPeriod} onPeriodChange={setPetPeriod} />
+                <InputRow label="Gifts & Donations" value={gifts} onChange={setGifts} period={giftsPeriod} onPeriodChange={setGiftsPeriod} />
+                <InputRow label="Hobbies & Sports" value={hobbies} onChange={setHobbies} period={hobbiesPeriod} onPeriodChange={setHobbiesPeriod} hint="Including tickets, gym membership, etc." />
+                <InputRow label="Entertainment & Tickets" value={entertainment} onChange={setEntertainment} period={entertainmentPeriod} onPeriodChange={setEntertainmentPeriod} />
+                <InputRow label="Travel & Vacation" value={travel} onChange={setTravel} period={travelPeriod} onPeriodChange={setTravelPeriod} />
+                <InputRow label="Other Expenses" value={miscOther} onChange={setMiscOther} period={miscOtherPeriod} onPeriodChange={setMiscOtherPeriod} />
+              </CardContent>
+            </Card>
+
+            {/* 按钮 */}
+            <div className="flex gap-3 pt-4">
+              <Button onClick={handleCalculate} className="flex-1 bg-green-600 hover:bg-green-700 text-white">
+                <Calculator className="h-4 w-4 mr-2" />
+                Calculate
               </Button>
-            </CardContent>
-          </Card>
-        </div>
+              <Button onClick={() => window.location.reload()} variant="outline" className="px-8">
+                Clear
+              </Button>
+            </div>
+          </div>
 
-        {/* Right: Results Area (2 columns) */}
-        <div className="xl:col-span-2" ref={resultRef}>
-          <Card className="shadow-lg">
-            <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50">
-              <CardTitle className="text-xl">Budget Analysis</CardTitle>
-            </CardHeader>
-            <CardContent className="p-4 sm:p-6">
-              {result ? (
-                <div className="space-y-4">
-                  {/* Financial Health Score */}
-                  <div className={`rounded-lg border-2 p-4 ${
-                    result.financialHealth.color === 'green' ? 'bg-green-50 border-green-400' :
-                    result.financialHealth.color === 'blue' ? 'bg-blue-50 border-blue-400' :
-                    result.financialHealth.color === 'yellow' ? 'bg-yellow-50 border-yellow-400' :
-                    'bg-red-50 border-red-400'
-                  }`}>
-                    <div className="flex items-center justify-between mb-2">
-                      <p className="text-sm text-gray-600">Financial Health Score:</p>
-                      <span className="text-2xl font-bold">{result.financialHealth.score}/100</span>
+          {/* 右侧：结果 */}
+          {result && (
+            <div ref={resultRef} className="space-y-4">
+              <Card>
+                <CardHeader className="bg-green-600 p-3">
+                  <CardTitle className="flex items-center justify-between text-white">
+                    <span className="text-sm">Results</span>
+                    <div className="flex gap-1">
+                      <Button size="sm" variant="outline" onClick={handleSaveAsImage} className="h-7 px-2 bg-white/20 hover:bg-white/30 border-white/30 text-white">
+                        <Download className="h-3 w-3" />
+                      </Button>
+                      <Button size="sm" variant="outline" onClick={handlePrint} className="h-7 px-2 bg-white/20 hover:bg-white/30 border-white/30 text-white">
+                        <Printer className="h-3 w-3" />
+                      </Button>
+                      <Button size="sm" variant="outline" onClick={handleShare} className="h-7 px-2 bg-white/20 hover:bg-white/30 border-white/30 text-white">
+                        <Share2 className="h-3 w-3" />
+                      </Button>
                     </div>
-                    <p className={`text-xl font-bold ${
-                      result.financialHealth.color === 'green' ? 'text-green-700' :
-                      result.financialHealth.color === 'blue' ? 'text-blue-700' :
-                      result.financialHealth.color === 'yellow' ? 'text-yellow-700' :
-                      'text-red-700'
-                    }`}>
-                      {result.financialHealth.rating}
-                    </p>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-4 space-y-4">
+                  {/* Summary */}
+                  <div>
+                    <h3 className="font-semibold text-sm mb-2">Summary</h3>
+                    <table className="w-full text-xs">
+                      <thead>
+                        <tr className="bg-blue-600 text-white">
+                          <th className="p-2 text-left"></th>
+                          <th className="p-2 text-right">Annual</th>
+                          <th className="p-2 text-right">Monthly</th>
+                        </tr>
+                      </thead>
+                      <tbody className="text-xs">
+                        <tr className="bg-gray-50">
+                          <td className="p-2">Total Before Tax Income</td>
+                          <td className="p-2 text-right font-semibold">{fc(result.totalBeforeTaxAnnual)}</td>
+                          <td className="p-2 text-right font-semibold">{fc(result.totalBeforeTaxAnnual / 12)}</td>
+                        </tr>
+                        <tr>
+                          <td className="p-2">Total After Tax Income</td>
+                          <td className="p-2 text-right font-semibold">{fc(result.totalAfterTaxAnnual)}</td>
+                          <td className="p-2 text-right font-semibold">{fc(result.totalAfterTaxAnnual / 12)}</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="p-2">Total Expenses</td>
+                          <td className="p-2 text-right font-semibold">{fc(result.totalExpensesAnnual)}</td>
+                          <td className="p-2 text-right font-semibold">{fc(result.totalExpensesAnnual / 12)}</td>
+                        </tr>
+                        <tr className="border-t-2">
+                          <td className="p-2 font-bold">Net {result.netAnnual < 0 ? '(Deficit)' : ''}</td>
+                          <td className={`p-2 text-right font-bold ${result.netAnnual >= 0 ? 'text-blue-600' : 'text-red-600'}`}>{fc(result.netAnnual)}</td>
+                          <td className={`p-2 text-right font-bold ${result.netAnnual >= 0 ? 'text-blue-600' : 'text-red-600'}`}>{fc(result.netAnnual / 12)}</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
 
-                  {/* Income vs Expenses */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div className="bg-white rounded-lg border border-gray-200 p-4">
-                      <p className="text-xs text-gray-600 mb-1">Monthly Income:</p>
-                      <p className="font-mono text-xl font-bold text-green-700">
-                        ${result.monthlyIncome.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
-                      </p>
-                    </div>
-                    <div className="bg-white rounded-lg border border-gray-200 p-4">
-                      <p className="text-xs text-gray-600 mb-1">Total Expenses:</p>
-                      <p className="font-mono text-xl font-bold text-orange-700">
-                        ${result.totalExpenses.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
-                      </p>
-                    </div>
-                    <div className="bg-white rounded-lg border border-gray-200 p-4">
-                      <p className="text-xs text-gray-600 mb-1">Remaining:</p>
-                      <p className={`font-mono text-xl font-bold ${result.remainingBalance >= 0 ? 'text-emerald-700' : 'text-red-700'}`}>
-                        {result.remainingBalance >= 0 ? <TrendingUp className="inline h-5 w-5 mr-1" /> : <TrendingDown className="inline h-5 w-5 mr-1" />}
-                        ${Math.abs(result.remainingBalance).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Budget Breakdown - 50/30/20 Rule */}
-                  <div className="bg-white rounded-lg border-2 border-gray-200 p-4">
-                    <h3 className="font-semibold text-gray-900 mb-4">📊 50/30/20 Budget Rule Analysis</h3>
-                    
-                    {/* Needs */}
-                    <div className="mb-4">
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="text-sm font-medium">🏠 Needs</span>
-                        <span className="text-sm">
-                          ${result.needsTotal.toLocaleString(undefined, {minimumFractionDigits: 2})} 
-                          <span className={`ml-2 font-bold ${result.needsPercentage <= 50 ? 'text-green-600' : result.needsPercentage <= 60 ? 'text-yellow-600' : 'text-red-600'}`}>
-                            ({result.needsPercentage.toFixed(1)}%)
-                          </span>
-                        </span>
+                  {/* DTI */}
+                  <div>
+                    <h3 className="font-semibold text-sm mb-2">Debt-to-Income (DTI) Ratio</h3>
+                    <div className="space-y-1 text-xs">
+                      <div className="flex justify-between">
+                        <span>DTI Ratio</span>
+                        <span className="font-semibold">{result.dtiRatio.toFixed(2)}% <span className="text-gray-600">{result.dtiRatio < 36 ? 'Your DTI ratio is good.' : 'Your DTI ratio is high.'}</span></span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-3">
-                        <div 
-                          className={`h-3 rounded-full ${result.needsPercentage <= 50 ? 'bg-green-500' : result.needsPercentage <= 60 ? 'bg-yellow-500' : 'bg-red-500'}`}
-                          style={{ width: `${Math.min(result.needsPercentage, 100)}%` }}
-                        ></div>
+                      <div className="flex justify-between">
+                        <span>Front-End DTI Ratio</span>
+                        <span className="font-semibold">{result.frontEndDTI.toFixed(2)}% <span className="text-gray-600">housing costs by gross income</span></span>
                       </div>
-                      <p className="text-xs text-gray-500 mt-1">
-                        Target: ${result.recommended503020.needs.toLocaleString(undefined, {minimumFractionDigits: 2})} (50%)
-                      </p>
-                    </div>
-
-                    {/* Wants */}
-                    <div className="mb-4">
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="text-sm font-medium">🎉 Wants</span>
-                        <span className="text-sm">
-                          ${result.wantsTotal.toLocaleString(undefined, {minimumFractionDigits: 2})} 
-                          <span className={`ml-2 font-bold ${result.wantsPercentage <= 30 ? 'text-green-600' : result.wantsPercentage <= 40 ? 'text-yellow-600' : 'text-red-600'}`}>
-                            ({result.wantsPercentage.toFixed(1)}%)
-                          </span>
-                        </span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-3">
-                        <div 
-                          className={`h-3 rounded-full ${result.wantsPercentage <= 30 ? 'bg-green-500' : result.wantsPercentage <= 40 ? 'bg-yellow-500' : 'bg-red-500'}`}
-                          style={{ width: `${Math.min(result.wantsPercentage, 100)}%` }}
-                        ></div>
-                      </div>
-                      <p className="text-xs text-gray-500 mt-1">
-                        Target: ${result.recommended503020.wants.toLocaleString(undefined, {minimumFractionDigits: 2})} (30%)
-                      </p>
-                    </div>
-
-                    {/* Savings */}
-                    <div>
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="text-sm font-medium">💎 Savings & Debt</span>
-                        <span className="text-sm">
-                          ${result.savingsTotal.toLocaleString(undefined, {minimumFractionDigits: 2})} 
-                          <span className={`ml-2 font-bold ${result.savingsPercentage >= 20 ? 'text-green-600' : result.savingsPercentage >= 15 ? 'text-yellow-600' : 'text-red-600'}`}>
-                            ({result.savingsPercentage.toFixed(1)}%)
-                          </span>
-                        </span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-3">
-                        <div 
-                          className={`h-3 rounded-full ${result.savingsPercentage >= 20 ? 'bg-green-500' : result.savingsPercentage >= 15 ? 'bg-yellow-500' : 'bg-red-500'}`}
-                          style={{ width: `${Math.min(result.savingsPercentage, 100)}%` }}
-                        ></div>
-                      </div>
-                      <p className="text-xs text-gray-500 mt-1">
-                        Target: ${result.recommended503020.savings.toLocaleString(undefined, {minimumFractionDigits: 2})} (20%)
-                      </p>
                     </div>
                   </div>
 
-                  {/* Recommendations */}
-                  <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200 p-4">
-                    <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                      <AlertTriangle className="h-5 w-5 text-blue-600" />
-                      Personalized Recommendations
-                    </h3>
-                    <div className="space-y-2">
-                      {result.financialHealth.recommendations.map((rec, index) => (
-                        <p key={index} className="text-sm text-gray-700 leading-relaxed">
-                          {rec}
-                        </p>
+                  {/* 饼图 */}
+                  <div>
+                    <h3 className="font-semibold text-sm mb-3">Expenses Breakdown</h3>
+                    <div className="flex justify-center mb-4">
+                      <svg width="180" height="180" viewBox="0 0 180 180">
+                        {result.categories.reduce((acc: any[], cat: any, i: number) => {
+                          const prevPercent = i === 0 ? 0 : acc[i - 1].endPercent;
+                          const startAngle = (prevPercent / 100) * 360;
+                          const endAngle = startAngle + (cat.percent / 100) * 360;
+                          const startRad = (startAngle - 90) * Math.PI / 180;
+                          const endRad = (endAngle - 90) * Math.PI / 180;
+                          const x1 = 90 + 70 * Math.cos(startRad);
+                          const y1 = 90 + 70 * Math.sin(startRad);
+                          const x2 = 90 + 70 * Math.cos(endRad);
+                          const y2 = 90 + 70 * Math.sin(endRad);
+                          const largeArc = cat.percent > 50 ? 1 : 0;
+                          
+                          acc.push({
+                            ...cat,
+                            endPercent: prevPercent + cat.percent,
+                            path: `M 90 90 L ${x1} ${y1} A 70 70 0 ${largeArc} 1 ${x2} ${y2} Z`
+                          });
+                          return acc;
+                        }, []).map((cat, i) => (
+                          <path key={i} d={cat.path} fill={cat.color} />
+                        ))}
+                        <circle cx="90" cy="90" r="40" fill="white" />
+                      </svg>
+                    </div>
+                    <div className="grid grid-cols-2 gap-1 text-xs">
+                      {result.categories.map((cat: any, i: number) => (
+                        <div key={i} className="flex items-center gap-1">
+                          <div className="w-3 h-3 rounded" style={{ backgroundColor: cat.color }}></div>
+                          <span className="text-xs">{cat.name}</span>
+                        </div>
                       ))}
                     </div>
                   </div>
 
-                  {/* Savings Rate */}
-                  <div className="bg-purple-50 rounded-lg border border-purple-200 p-4">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-sm text-gray-600">Savings Rate:</p>
-                        <p className="text-2xl font-bold text-purple-700">
-                          {result.savingsRate.toFixed(1)}%
-                        </p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-xs text-gray-600">Annual Savings:</p>
-                        <p className="text-lg font-bold text-purple-700">
-                          ${(result.savingsTotal * 12).toLocaleString(undefined, {minimumFractionDigits: 2})}
-                        </p>
-                      </div>
-                    </div>
+                  {/* 详细支出表 */}
+                  <div>
+                    <table className="w-full text-xs">
+                      <thead>
+                        <tr className="bg-blue-600 text-white">
+                          <th className="p-2 text-left"></th>
+                          <th className="p-2 text-right">Annual</th>
+                          <th className="p-2 text-right">Monthly</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {result.categories.map((cat: any, i: number) => (
+                          <tr key={i} className={i % 2 === 0 ? 'bg-gray-50' : ''}>
+                            <td className="p-2">{cat.name}</td>
+                            <td className="p-2 text-right font-semibold">{fc(cat.annual)}</td>
+                            <td className="p-2 text-right">{fc(cat.annual / 12)} <span className="text-gray-600">{cat.percentOfIncome.toFixed(2)}% of income</span></td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
-                </div>
-              ) : (
-                <div className="flex items-center justify-center h-full min-h-[400px]">
-                  <div className="text-center text-gray-500">
-                    <Calculator className="h-16 w-16 mx-auto mb-4 opacity-20" />
-                    <p className="text-lg">Enter your budget and click Analyze</p>
-                  </div>
-                </div>
-              )}
-            </CardContent>
-          </Card>
+                </CardContent>
+              </Card>
+            </div>
+          )}
         </div>
       </div>
 
-      {/* Reference Card */}
-      <Card className="shadow-lg">
-        <CardHeader className="bg-gradient-to-r from-teal-50 to-cyan-50">
-          <CardTitle className="text-xl">50/30/20 Budget Rule</CardTitle>
-        </CardHeader>
-        <CardContent className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-lg border-2 border-green-200 p-4">
-              <h3 className="text-lg font-semibold text-green-700 mb-3">🏠 Needs (50%)</h3>
-              <p className="text-sm text-gray-700 mb-2">
-                Essential expenses you can't avoid:
-              </p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Housing (rent/mortgage)</li>
-                <li>• Utilities & phone</li>
-                <li>• Groceries</li>
-                <li>• Transportation</li>
-                <li>• Insurance</li>
-                <li>• Minimum debt payments</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg border-2 border-blue-200 p-4">
-              <h3 className="text-lg font-semibold text-blue-700 mb-3">🎉 Wants (30%)</h3>
-              <p className="text-sm text-gray-700 mb-2">
-                Discretionary spending:
-              </p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Entertainment</li>
-                <li>• Dining out</li>
-                <li>• Shopping</li>
-                <li>• Hobbies</li>
-                <li>• Subscriptions</li>
-                <li>• Vacations</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg border-2 border-purple-200 p-4">
-              <h3 className="text-lg font-semibold text-purple-700 mb-3">💎 Savings (20%)</h3>
-              <p className="text-sm text-gray-700 mb-2">
-                Future financial security:
-              </p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Emergency fund</li>
-                <li>• Retirement (401k, IRA)</li>
-                <li>• Investments</li>
-                <li>• Extra debt payments</li>
-                <li>• Down payment savings</li>
-                <li>• College fund</li>
-              </ul>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Action Buttons */}
-      <div className="flex flex-wrap gap-3 justify-center mt-6 print:hidden">
-        <Button 
-          onClick={handleSaveAsImage} 
-          variant="outline" 
-          className="gap-2"
-          disabled={!result}
-        >
-          <Download className="h-4 w-4" />
-          Save as Image
-        </Button>
-        
-        <Button 
-          onClick={handlePrint} 
-          variant="outline" 
-          className="gap-2"
-          disabled={!result}
-        >
-          <Printer className="h-4 w-4" />
-          Print Budget
-        </Button>
-        
-        <Button 
-          onClick={handleShare} 
-          variant="outline" 
-          className="gap-2"
-        >
-          <Share2 className="h-4 w-4" />
-          Share Calculator
-        </Button>
-      </div>
-
-      {/* Share Modal */}
-      <ShareModal 
+      <ShareModal
         isOpen={showShareModal}
         onClose={closeShareModal}
         shareUrl={shareUrl}
@@ -803,4 +596,3 @@ export default function BudgetCalculator() {
     </div>
   );
 }
-

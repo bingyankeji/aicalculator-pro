@@ -9,8 +9,8 @@ import { getTotalCalculatorsDescription } from "@/lib/categoryStats";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Calculator Online - Free Online Calculator Tools (250+ Calculators)",
-  description: "Best free online calculator tools with AI-powered analysis. Access 250+ calculators online including tax, mortgage, loan, BMI, age, percentage, and more. Instant results with detailed explanations and charts. Better than Google calculator with advanced features.",
+  title: "AICalculator (Free, No signup) - 250+ Online Calculators",
+  description: "Free online calculator with no sign-up required. Access 250+ calculators including tax, mortgage, loan, BMI, age, percentage, and more. Instant results with AI-powered analysis, detailed explanations, and charts. 100% free, unlimited use, no registration needed.",
   keywords: [
     // Top priority: Generic search terms (Google热度 Top 10)
     "calculator online",
@@ -95,8 +95,8 @@ export const metadata: Metadata = {
     "calculator for professionals",
   ],
   openGraph: {
-    title: "Calculator Online - Best Free Online Calculator (250+ Tools)",
-    description: "The best online calculator with 250+ free tools. Tax, mortgage, loan, BMI, age, percentage calculators and more. More powerful than Google calculator. Instant results with AI analysis, charts, and explanations.",
+    title: "AICalculator (Free, No signup) - 250+ Online Calculators",
+    description: "Free online calculator with no sign-up required. 250+ tools including tax, mortgage, loan, BMI, age, percentage calculators and more. More powerful than Google calculator with AI analysis, charts, and instant results. 100% free, unlimited use.",
     type: "website",
     url: "https://aicalculator.pro",
     siteName: "Calculator Online - AICalculator.pro",
@@ -111,8 +111,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Calculator Online - 250+ Free Online Calculators",
-    description: "Best online calculator tools: tax, mortgage, loan, BMI, age, percentage & more. Better than Google calculator with AI analysis and charts.",
+    title: "AICalculator (Free, No signup) - 250+ Online Calculators",
+    description: "Free online calculator with no sign-up required. Tax, mortgage, loan, BMI, age, percentage & more. Better than Google calculator with AI analysis, charts, and instant results. 100% free, unlimited use.",
     site: "@AICalculator",
   },
   alternates: {
@@ -141,10 +141,10 @@ export default function HomePage() {
     "@graph": [
       {
         "@type": "WebSite",
-        "name": "Calculator Online - AICalculator.pro",
-        "alternateName": ["Online Calculator", "Free Online Calculator", "Calculator Tools", "Web Calculator"],
+        "name": "AICalculator - Free Online Calculator (No Sign-up Required)",
+        "alternateName": ["Online Calculator", "Free Online Calculator", "Calculator Tools", "Web Calculator", "AICalculator.pro"],
         "url": "https://aicalculator.pro",
-        "description": "Best online calculator with 250+ free tools. More powerful than Google calculator with AI-powered analysis, charts, and detailed explanations for tax, mortgage, loan, BMI, age, percentage, and more.",
+        "description": "Free online calculator with no sign-up required. 250+ tools with AI-powered analysis, charts, and detailed explanations. More powerful than Google calculator for tax, mortgage, loan, BMI, age, percentage, and more. 100% free, unlimited use.",
         "potentialAction": {
           "@type": "SearchAction",
           "target": "https://aicalculator.pro/search?q={search_term_string}",
@@ -207,8 +207,8 @@ export default function HomePage() {
       },
       {
         "@type": "CollectionPage",
-        "name": "Free Online Calculator Tools",
-        "description": "Comprehensive collection of 250+ free calculator tools with AI-powered analysis and instant results",
+        "name": "Free Online Calculator Tools (No Sign-up Required)",
+        "description": "Comprehensive collection of 250+ free calculator tools with no sign-up required. AI-powered analysis, instant results, unlimited use, 100% free.",
         "url": "https://aicalculator.pro",
         "isPartOf": {
           "@type": "WebSite",
@@ -228,7 +228,7 @@ export default function HomePage() {
 
       {/* SEO: Hidden H1 */}
       <h1 className="sr-only">
-        Calculator Online - Best Free Online Calculator with 250+ Tools (Better than Google Calculator)
+        AICalculator - Free Online Calculator with No Sign-up Required (250+ Tools, Better than Google Calculator)
       </h1>
 
       <div className="container mx-auto px-4 py-6 md:py-8">
@@ -237,6 +237,17 @@ export default function HomePage() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Professional Calculator Suite
           </h2>
+          <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
+            <span className="inline-flex items-center px-4 py-2 rounded-full bg-green-100 text-green-800 font-semibold text-sm border border-green-300">
+              ✓ 100% Free
+            </span>
+            <span className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 font-semibold text-sm border border-blue-300">
+              ✓ Unlimited Use
+            </span>
+            <span className="inline-flex items-center px-4 py-2 rounded-full bg-purple-100 text-purple-800 font-semibold text-sm border border-purple-300">
+              ✓ No Sign-up Required
+            </span>
+          </div>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-8">
             {getTotalCalculatorsDescription()} with AI-powered analysis and professional insights. 
             Trusted by professionals for accurate calculations and detailed reporting.

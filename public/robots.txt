@@ -1,6 +1,10 @@
 User-agent: *
 Allow: /
 
+# Allow OG image API for social media crawlers
+Allow: /api/og
+
+# Disallow other API routes
 Disallow: /api/
 Disallow: /_next/
 

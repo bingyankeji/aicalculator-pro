@@ -2,10 +2,12 @@ import { Metadata } from "next";
 import { PercentageCalculator } from "@/components/Calculator/PercentageCalculator";
 
 export const metadata: Metadata = {
-  title: "Percentage Calculator - Free Online Percentage Calculator with Formulas",
-  description: "Calculate percentages instantly with our free online percentage calculator. Find what percent of X is Y, calculate X% of Y, or increase/decrease values by percentages. Includes formulas, examples, and instant results.",
+  title: "Percentage Calculator (Free, No signup) - Quick Math | AICalculator",
+  description: "Free percentage calculator with no sign-up required. Calculate percentages instantly. Find what percent of X is Y, calculate X% of Y, or increase/decrease values by percentages. Includes formulas, examples, and instant results.",
   keywords: [
     "percentage calculator",
+    "free percentage calculator",
+    "percentage calculator no signup",
     "percent calculator",
     "calculate percentage",
     "percentage formula",
@@ -15,20 +17,19 @@ export const metadata: Metadata = {
     "percentage decrease",
     "percentage change calculator",
     "percent difference",
-    "online percentage calculator",
-    "free percentage calculator"
+    "online percentage calculator"
   ],
   openGraph: {
-    title: "Percentage Calculator - Instant Percentage Calculations",
-    description: "Calculate percentages with ease. Find what percent of X is Y, calculate X% of Y, or increase/decrease values. Free online calculator with formulas.",
+    title: "Percentage Calculator (Free, No signup) - AICalculator",
+    description: "Free percentage calculator with no sign-up required. Calculate percentages with ease. Find what percent of X is Y, calculate X% of Y, or increase/decrease values.",
     type: "website",
     url: "https://aicalculator.pro/percentage-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Percentage Calculator - Free Online Tool",
-    description: "Calculate percentages instantly. Find what percent, calculate X% of Y, or change values by percentages with our free calculator.",
+    title: "Percentage Calculator (Free, No signup) - AICalculator",
+    description: "Free percentage calculator with no sign-up required. Calculate percentages instantly. Find what percent, calculate X% of Y, or change values by percentages.",
     site: "@AICalculator",
   },
   alternates: {

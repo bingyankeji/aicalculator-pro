@@ -12,10 +12,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "Retirement Calculator - Free Retirement Planning Calculator with Gap Analysis | AICalculator",
-  description: "Plan your retirement with our comprehensive retirement calculator. Calculate retirement savings needs, analyze income gaps, optimize contributions, and ensure financial security. Free retirement planning tool with Social Security and pension integration.",
+  title: "Retirement Calculator (Free, No signup) - Plan Ahead | AICalculator",
+  description: "Free retirement calculator with no sign-up required. Plan your retirement with our comprehensive retirement calculator. Calculate retirement savings needs, analyze income gaps, optimize contributions, and ensure financial security. Free retirement planning tool with Social Security and pension integration.",
   keywords: [
     "retirement calculator", 
+    "free retirement calculator",
+    "retirement calculator no signup",
     "retirement planning calculator", 
     "retirement savings calculator", 
     "401k calculator", 
@@ -42,8 +44,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: "Free Retirement Calculator - Retirement Savings & Gap Analysis",
-    description: "Calculate retirement savings needs with gap analysis. Plan for Social Security, pensions, and investment returns. Free comprehensive retirement calculator.",
+    title: "Retirement Calculator (Free, No signup) - AICalculator",
+    description: "Free retirement calculator with no sign-up required. Calculate retirement savings needs with gap analysis. Plan for Social Security, pensions, and investment returns.",
     type: "website",
     url: getUrl('/retirement-calculator'),
     siteName: "AICalculator",
@@ -53,14 +55,14 @@ export const metadata: Metadata = {
         url: getOgImage('retirement'),
         width: 1200,
         height: 630,
-        alt: 'Retirement Calculator',
+        alt: 'Free Retirement Calculator - No Sign-up Required',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Retirement Calculator - Plan Your Financial Future",
-    description: "Comprehensive retirement planning calculator with gap analysis, Social Security, and pension integration.",
+    title: "Retirement Calculator (Free, No signup) - AICalculator",
+    description: "Free retirement calculator with no sign-up required. Comprehensive retirement planning with gap analysis, Social Security, and pension integration.",
     images: [getOgImage('retirement')],
     site: "@AICalculator",
     creator: '@aicalculator',

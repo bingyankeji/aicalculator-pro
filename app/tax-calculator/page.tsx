@@ -13,10 +13,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "Income Tax Calculator - Free Federal & State Tax Calculator with Deductions",
-  description: "Free income tax calculator. Calculate federal tax, state tax, FICA, AGI, itemized vs standard deductions, and tax credits. Includes One Big Beautiful Bill provisions: tips deduction, overtime, car loan interest, seniors deduction. Get accurate tax estimates instantly.",
+  title: "Tax Calculator (Free, No signup) - Income Tax | AICalculator",
+  description: "Free income tax calculator with no sign-up required. Calculate federal tax, state tax, FICA, AGI, itemized vs standard deductions, and tax credits. Includes One Big Beautiful Bill provisions: tips deduction, overtime, car loan interest, seniors deduction. Get accurate tax estimates instantly.",
   keywords: [
     "income tax calculator",
+    "free tax calculator",
+    "tax calculator no signup",
     "income tax calculator 2025",
     "tax calculator",
     "federal income tax calculator",
@@ -31,7 +33,6 @@ export const metadata: Metadata = {
     "tax bracket calculator",
     "tax estimator",
     "income tax estimator",
-    "free tax calculator",
     "online tax calculator",
     "salary tax calculator",
     "tax deduction calculator",
@@ -43,8 +44,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: "Income Tax Calculator - Free Federal & State Tax Calculator",
-    description: "Calculate your income taxes instantly. Federal tax, state tax, FICA, AGI, and take-home pay. Free tax calculator with tax brackets, deductions, and credits.",
+    title: "Tax Calculator (Free, No signup) - AICalculator",
+    description: "Free income tax calculator with no sign-up required. Calculate your income taxes instantly. Federal tax, state tax, FICA, AGI, and take-home pay with tax brackets, deductions, and credits.",
     type: "website",
     url: getUrl('/tax-calculator'),
     siteName: "Calculator Online - AICalculator",
@@ -54,14 +55,14 @@ export const metadata: Metadata = {
         url: getOgImage('tax'),
         width: 1200,
         height: 630,
-        alt: 'Income Tax Calculator',
+        alt: 'Free Tax Calculator - No Sign-up Required',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Income Tax Calculator - Federal & State Tax Calculator",
-    description: "Calculate your income taxes, take-home pay, and effective tax rate. Free tax calculator with federal and state tax estimates.",
+    title: "Tax Calculator (Free, No signup) - AICalculator",
+    description: "Free income tax calculator with no sign-up required. Calculate your income taxes, take-home pay, and effective tax rate with federal and state tax estimates.",
     images: [getOgImage('tax')],
     site: "@AICalculator",
     creator: '@aicalculator',

@@ -13,10 +13,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "Mortgage Calculator - Free Home Loan Payment Calculator with Affordability Analysis",
-  description: "Calculate your monthly mortgage payment with our advanced calculator. Get instant affordability analysis, risk assessment, DTI ratio calculation, and personalized recommendations. Free mortgage calculator with PMI, property tax, and insurance.",
+  title: "Mortgage Calculator (Free, No signup) - Monthly Payments | AICalculator",
+  description: "Free mortgage calculator with no sign-up required. Calculate your monthly mortgage payment with our advanced calculator. Get instant affordability analysis, risk assessment, DTI ratio calculation, and personalized recommendations. Free mortgage calculator with PMI, property tax, and insurance.",
   keywords: [
     "mortgage calculator",
+    "free mortgage calculator",
+    "mortgage calculator no signup",
     "home loan calculator",
     "mortgage payment calculator",
     "house affordability calculator",
@@ -44,8 +46,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: "Mortgage Calculator - Instant Affordability Analysis",
-    description: "Calculate mortgage payments and get detailed affordability analysis, risk assessment, and personalized home buying recommendations.",
+    title: "Mortgage Calculator (Free, No signup) - AICalculator",
+    description: "Free mortgage calculator with no sign-up required. Calculate mortgage payments and get detailed affordability analysis, risk assessment, and personalized home buying recommendations.",
     type: "website",
     url: getUrl('/mortgage-calculator'),
     siteName: "AICalculator",
@@ -55,14 +57,14 @@ export const metadata: Metadata = {
         url: getOgImage('mortgage'),
         width: 1200,
         height: 630,
-        alt: 'Mortgage Calculator',
+        alt: 'Free Mortgage Calculator - No Sign-up Required',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mortgage Calculator with Affordability Analysis",
-    description: "Calculate mortgage payments and discover how much house you can afford with detailed insights and recommendations.",
+    title: "Mortgage Calculator (Free, No signup) - AICalculator",
+    description: "Free mortgage calculator with no sign-up required. Calculate mortgage payments and discover how much house you can afford with detailed insights and recommendations.",
     images: [getOgImage('mortgage')],
     site: "@AICalculator",
     creator: '@aicalculator',

@@ -3,10 +3,12 @@ import Link from "next/link";
 import { BMICalculator } from "@/components/Calculator/BMICalculator";
 
 export const metadata: Metadata = {
-  title: "BMI Calculator - Free Body Mass Index Calculator with Health Analysis",
-  description: "Calculate your BMI (Body Mass Index) instantly. Get personalized health analysis, ideal weight range, and recommendations. Free BMI calculator with charts for men, women, and children.",
+  title: "BMI Calculator (Free, No signup) - Check Your BMI | AICalculator",
+  description: "Free BMI calculator with no sign-up required. Calculate your BMI (Body Mass Index) instantly. Get personalized health analysis, ideal weight range, and recommendations. Free BMI calculator with charts for men, women, and children.",
   keywords: [
     "BMI calculator",
+    "free BMI calculator",
+    "BMI calculator no signup",
     "body mass index calculator",
     "BMI chart",
     "calculate BMI",
@@ -21,16 +23,16 @@ export const metadata: Metadata = {
     "body composition calculator"
   ],
   openGraph: {
-    title: "BMI Calculator - Calculate Your Body Mass Index",
-    description: "Free BMI calculator with personalized health analysis and recommendations. Calculate your ideal weight and get actionable health insights.",
+    title: "BMI Calculator (Free, No signup) - AICalculator",
+    description: "Free BMI calculator with no sign-up required. Get personalized health analysis and recommendations. Calculate your ideal weight and get actionable health insights.",
     type: "website",
     url: "https://aicalculator.pro/bmi-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "BMI Calculator - Body Mass Index Calculator",
-    description: "Calculate your BMI and get personalized health recommendations. Free, fast, and accurate BMI calculator.",
+    title: "BMI Calculator (Free, No signup) - AICalculator",
+    description: "Free BMI calculator with no sign-up required. Calculate your BMI and get personalized health recommendations. Fast and accurate.",
     site: "@AICalculator",
   },
   alternates: {

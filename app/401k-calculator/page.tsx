@@ -12,10 +12,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "401k Calculator - Traditional vs Roth 401k Comparison | AICalculator",
-  description: "Compare Traditional vs Roth 401k retirement accounts. Calculate future value, tax implications, and find the best 401k strategy. Free calculator with employer match.",
+  title: "401k Calculator (Free, No signup) - Retirement Savings | AICalculator",
+  description: "Free 401k calculator with no sign-up required. Compare Traditional vs Roth 401k retirement accounts. Calculate future value, tax implications, and find the best 401k strategy. Free calculator with employer match.",
   keywords: [
     "401k calculator", 
+    "free 401k calculator",
+    "401k calculator no signup",
     "roth 401k calculator", 
     "traditional 401k calculator", 
     "401k vs roth 401k", 
@@ -42,8 +44,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: "Free 401k Calculator - Traditional vs Roth Comparison",
-    description: "Compare 401k account types and calculate retirement savings with employer match and tax implications.",
+    title: "401k Calculator (Free, No signup) - AICalculator",
+    description: "Free 401k calculator with no sign-up required. Compare 401k account types and calculate retirement savings with employer match and tax implications.",
     type: "website",
     url: getUrl('/401k-calculator'),
     siteName: "AICalculator",
@@ -53,14 +55,14 @@ export const metadata: Metadata = {
         url: getOgImage('401k'),
         width: 1200,
         height: 630,
-        alt: '401k Calculator',
+        alt: 'Free 401k Calculator - No Sign-up Required',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "401k Calculator - Traditional vs Roth",
-    description: "Compare 401k retirement accounts and optimize your retirement savings strategy. Free calculator.",
+    title: "401k Calculator (Free, No signup) - AICalculator",
+    description: "Free 401k calculator with no sign-up required. Compare 401k retirement accounts and optimize your retirement savings strategy.",
     images: [getOgImage('401k')],
     site: "@AICalculator",
     creator: '@aicalculator',

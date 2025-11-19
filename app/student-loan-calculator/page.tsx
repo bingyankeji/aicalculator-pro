@@ -13,10 +13,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "Student Loan Calculator - Compare Repayment Plans & Find Best Options",
-  description: "Calculate your student loan payments with our comprehensive calculator. Compare Standard, Extended, Income-Driven, and PSLF repayment plans. Find the best repayment strategy, calculate forgiveness eligibility, and save money on student loans.",
+  title: "Student Loan Calculator (Free, No signup) - Repayment | AICalculator",
+  description: "Free student loan calculator with no sign-up required. Calculate your student loan payments with our comprehensive calculator. Compare Standard, Extended, Income-Driven, and PSLF repayment plans. Find the best repayment strategy, calculate forgiveness eligibility, and save money on student loans.",
   keywords: [
     "student loan calculator",
+    "free student loan calculator",
+    "student loan calculator no signup",
     "student loan repayment calculator",
     "PSLF calculator",
     "income driven repayment calculator",
@@ -45,16 +47,16 @@ export const metadata: Metadata = {
     "student loan terms calculator"
   ],
   openGraph: {
-    title: "Student Loan Calculator - Compare Repayment Plans & Save Money",
-    description: "Free student loan calculator with multiple repayment plans comparison. Find the best strategy for your federal student loans and calculate potential forgiveness.",
+    title: "Student Loan Calculator (Free, No signup) - AICalculator",
+    description: "Free student loan calculator with no sign-up required. Compare multiple repayment plans. Find the best strategy for your federal student loans and calculate potential forgiveness.",
     type: "website",
     url: getUrl('/student-loan-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Student Loan Calculator - Find Your Best Repayment Plan",
-    description: "Compare Standard, Income-Driven, and PSLF plans. Calculate monthly payments, total interest, and potential forgiveness for your student loans.",
+    title: "Student Loan Calculator (Free, No signup) - AICalculator",
+    description: "Free student loan calculator with no sign-up required. Compare Standard, Income-Driven, and PSLF plans. Calculate monthly payments, total interest, and potential forgiveness.",
     site: "@AICalculator",
   },
   alternates: {

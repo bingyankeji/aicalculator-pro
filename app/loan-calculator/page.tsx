@@ -12,10 +12,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "Loan Calculator - Free Monthly Payment Calculator with Affordability Analysis",
-  description: "Calculate your loan payments with our advanced calculator. Get instant affordability analysis, repayment strategies, DTI ratio calculation, and personalized recommendations. Free loan calculator with detailed amortization schedule.",
+  title: "Loan Calculator (Free, No signup) - Compare Rates | AICalculator",
+  description: "Free loan calculator with no sign-up required. Calculate your loan payments with our advanced calculator. Get instant affordability analysis, repayment strategies, DTI ratio calculation, and personalized recommendations. Free loan calculator with detailed amortization schedule.",
   keywords: [
     "loan calculator",
+    "free loan calculator",
+    "loan calculator no signup",
     "personal loan calculator",
     "loan payment calculator",
     "monthly payment calculator",
@@ -42,8 +44,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: "Loan Calculator - Instant Payment Analysis",
-    description: "Calculate loan payments and get detailed affordability analysis, repayment strategies, and personalized recommendations.",
+    title: "Loan Calculator (Free, No signup) - AICalculator",
+    description: "Free loan calculator with no sign-up required. Calculate loan payments and get detailed affordability analysis, repayment strategies, and personalized recommendations.",
     type: "website",
     url: getUrl('/loan-calculator'),
     siteName: "AICalculator",
@@ -53,14 +55,14 @@ export const metadata: Metadata = {
         url: getOgImage('loan'),
         width: 1200,
         height: 630,
-        alt: 'Loan Calculator',
+        alt: 'Free Loan Calculator - No Sign-up Required',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Loan Calculator with Affordability Analysis",
-    description: "Calculate loan payments and discover the best repayment strategy with detailed insights and recommendations.",
+    title: "Loan Calculator (Free, No signup) - AICalculator",
+    description: "Free loan calculator with no sign-up required. Calculate loan payments and discover the best repayment strategy with detailed insights and recommendations.",
     images: [getOgImage('loan')],
     site: "@AICalculator",
     creator: '@aicalculator',

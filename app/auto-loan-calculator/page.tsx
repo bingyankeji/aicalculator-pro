@@ -12,10 +12,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "Auto Loan Calculator - Free Car Loan Calculator with Depreciation Analysis | AICalculator",
-  description: "Calculate your car loan payments with our free auto loan calculator. Features vehicle depreciation tracking, trade-in value, down payment analysis, and monthly payment breakdown. Plan your car purchase wisely.",
+  title: "Auto Loan Calculator (Free, No signup) - Car Payments | AICalculator",
+  description: "Free auto loan calculator with no sign-up required. Calculate your car loan payments with our free auto loan calculator. Features vehicle depreciation tracking, trade-in value, down payment analysis, and monthly payment breakdown. Plan your car purchase wisely.",
   keywords: [
     "auto loan calculator",
+    "free auto loan calculator",
+    "auto loan calculator no signup",
     "car loan calculator",
     "vehicle loan calculator",
     "car payment calculator",
@@ -42,8 +44,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: "Free Auto Loan Calculator - Car Payment & Depreciation",
-    description: "Calculate car loan payments with depreciation analysis. Include trade-in value, down payment, and see total cost. Free auto loan calculator.",
+    title: "Auto Loan Calculator (Free, No signup) - AICalculator",
+    description: "Free auto loan calculator with no sign-up required. Calculate car loan payments with depreciation analysis. Include trade-in value, down payment, and see total cost.",
     type: "website",
     url: getUrl('/auto-loan-calculator'),
     siteName: "AICalculator",
@@ -53,14 +55,14 @@ export const metadata: Metadata = {
         url: getOgImage('auto-loan'),
         width: 1200,
         height: 630,
-        alt: 'Auto Loan Calculator',
+        alt: 'Free Auto Loan Calculator - No Sign-up Required',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Auto Loan Calculator - Car Payment Calculator",
-    description: "Calculate car loan payments with vehicle depreciation tracking. Free calculator with trade-in analysis.",
+    title: "Auto Loan Calculator (Free, No signup) - AICalculator",
+    description: "Free auto loan calculator with no sign-up required. Calculate car loan payments with vehicle depreciation tracking and trade-in analysis.",
     images: [getOgImage('auto-loan')],
     site: "@AICalculator",
     creator: '@aicalculator',

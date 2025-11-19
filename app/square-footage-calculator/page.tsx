@@ -2,20 +2,20 @@ import { Metadata } from 'next';
 import { SquareFootageCalculator } from '@/components/Calculator/SquareFootageCalculator';
 
 export const metadata: Metadata = {
-  title: "Square Footage Calculator - Free Room Area & Material Estimator | AICalculator",
-  description: "Calculate square footage for multiple rooms and estimate material costs. Free calculator for flooring, paint, carpet with waste factor. Perfect for home renovation and construction projects.",
-  keywords: ["square footage calculator", "room area calculator", "flooring calculator", "paint calculator", "material estimator", "square feet calculator", "room size calculator", "carpet calculator", "tile calculator", "construction calculator", "renovation calculator", "sq ft calculator"],
+  title: "Square Footage Calculator (Free, No signup) - Room Area | AICalculator",
+  description: "Free square footage calculator with no sign-up required. Calculate square footage for multiple rooms and estimate material costs. Free calculator for flooring, paint, carpet with waste factor. Perfect for home renovation and construction projects.",
+  keywords: ["square footage calculator", "free square footage calculator", "square footage calculator no signup", "room area calculator", "flooring calculator", "paint calculator", "material estimator", "square feet calculator", "room size calculator", "carpet calculator", "tile calculator", "construction calculator", "renovation calculator", "sq ft calculator"],
   openGraph: {
-    title: "Free Square Footage Calculator - Room Area & Materials",
-    description: "Calculate room areas and estimate materials for flooring, paint, and carpet. Free tool for home renovation projects.",
+    title: "Square Footage Calculator (Free, No signup) - AICalculator",
+    description: "Free square footage calculator with no sign-up required. Calculate room areas and estimate materials for flooring, paint, and carpet. Free tool for home renovation projects.",
     type: "website",
     url: "https://aicalculator.pro/square-footage-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Square Footage Calculator - Material Estimator",
-    description: "Calculate square footage and estimate materials. Free tool for homeowners and contractors.",
+    title: "Square Footage Calculator (Free, No signup) - AICalculator",
+    description: "Free square footage calculator with no sign-up required. Calculate square footage and estimate materials for homeowners and contractors.",
     site: "@AICalculator",
   },
   alternates: {

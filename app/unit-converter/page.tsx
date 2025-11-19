@@ -3,20 +3,20 @@ import Link from 'next/link';
 import { UnitConverter } from '@/components/Calculator/UnitConverter';
 
 export const metadata: Metadata = {
-  title: 'Unit Converter - Free Online Unit Conversion Calculator | Length, Weight, Temperature & More',
-  description: 'Convert units instantly with our free online unit converter. Support for length, weight, temperature, area, volume, and speed conversions. Accurate results with 30+ units. Mobile-friendly calculator.',
-  keywords: 'unit converter, conversion calculator, length converter, weight converter, temperature converter, metric converter, imperial converter, area converter, volume converter, speed converter, measurement converter, online unit conversion',
+  title: 'Unit Converter (Free, No signup) - Conversion Calculator | AICalculator',
+  description: 'Free unit converter with no sign-up required. Convert units instantly. Support for length, weight, temperature, area, volume, and speed conversions. Accurate results with 30+ units. Mobile-friendly calculator.',
+  keywords: 'unit converter, free unit converter, unit converter no signup, conversion calculator, length converter, weight converter, temperature converter, metric converter, imperial converter, area converter, volume converter, speed converter, measurement converter, online unit conversion',
   openGraph: {
-    title: 'Free Unit Converter - Convert Length, Weight, Temperature & More',
-    description: 'Accurate online unit converter supporting 30+ units across 6 categories. Convert length, weight, temperature, area, volume, and speed instantly.',
+    title: 'Unit Converter (Free, No signup) - AICalculator',
+    description: 'Free unit converter with no sign-up required. Accurate online unit converter supporting 30+ units across 6 categories. Convert length, weight, temperature, area, volume, and speed instantly.',
     type: 'website',
     url: 'https://aicalculator.io/unit-converter',
     siteName: 'AICalculator',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Unit Converter - Free Online Unit Conversion Tool',
-    description: 'Convert between 30+ units instantly. Supports length, weight, temperature, area, volume, and speed.',
+    title: 'Unit Converter (Free, No signup) - AICalculator',
+    description: 'Free unit converter with no sign-up required. Convert between 30+ units instantly. Supports length, weight, temperature, area, volume, and speed.',
   },
   alternates: {
     canonical: 'https://aicalculator.io/unit-converter',

@@ -2,20 +2,20 @@ import { Metadata } from 'next';
 import { TipCalculator } from '@/components/Calculator/TipCalculator';
 
 export const metadata: Metadata = {
-  title: "Tip Calculator - Free Restaurant Tip & Bill Splitter Calculator | AICalculator",
-  description: "Calculate restaurant tips instantly with our free tip calculator. Split bills among friends, calculate tip before or after tax, and get service quality recommendations. Easy-to-use 15%, 18%, 20% tip calculator.",
-  keywords: ["tip calculator", "restaurant tip calculator", "bill splitter", "gratuity calculator", "tip percentage calculator", "split bill calculator", "tip before tax", "tipping guide", "server tip calculator", "meal tip calculator", "dining tip calculator", "tip amount calculator", "calculate tip", "how much to tip", "tip calculator app"],
+  title: "Tip Calculator (Free, No signup) - Bill Splitter | AICalculator",
+  description: "Free tip calculator with no sign-up required. Calculate restaurant tips instantly. Split bills among friends, calculate tip before or after tax, and get service quality recommendations. Easy-to-use 15%, 18%, 20% tip calculator.",
+  keywords: ["tip calculator", "free tip calculator", "tip calculator no signup", "restaurant tip calculator", "bill splitter", "gratuity calculator", "tip percentage calculator", "split bill calculator", "tip before tax", "tipping guide", "server tip calculator", "meal tip calculator", "dining tip calculator", "tip amount calculator", "calculate tip", "how much to tip", "tip calculator app"],
   openGraph: {
-    title: "Free Tip Calculator - Split Bills & Calculate Gratuity",
-    description: "Calculate restaurant tips and split bills easily. Get service quality recommendations and tipping guidelines. Free online tip calculator with bill splitting.",
+    title: "Tip Calculator (Free, No signup) - AICalculator",
+    description: "Free tip calculator with no sign-up required. Calculate restaurant tips and split bills easily. Get service quality recommendations and tipping guidelines with bill splitting.",
     type: "website",
     url: "https://aicalculator.pro/tip-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tip Calculator - Restaurant Tip & Bill Splitter",
-    description: "Calculate tips and split bills instantly. Free tip calculator with service quality recommendations.",
+    title: "Tip Calculator (Free, No signup) - AICalculator",
+    description: "Free tip calculator with no sign-up required. Calculate tips and split bills instantly with service quality recommendations.",
     site: "@AICalculator",
   },
   alternates: {

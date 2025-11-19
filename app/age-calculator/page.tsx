@@ -3,10 +3,12 @@ import { AgeCalculator } from "@/components/Calculator/AgeCalculator";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Age Calculator - Calculate Your Exact Age in Years, Months, Days & Hours",
-  description: "Free age calculator to calculate your exact age in years, months, days, hours, and minutes. Find out when your next birthday is, your zodiac sign, Chinese zodiac, and fun statistics. Calculate age from date of birth instantly with our accurate age calculator online.",
+  title: "Age Calculator (Free, No signup) - Exact Age | AICalculator",
+  description: "Free age calculator with no sign-up required. Calculate your exact age in years, months, days, hours, and minutes. Find out when your next birthday is, your zodiac sign, Chinese zodiac, and fun statistics. Calculate age from date of birth instantly.",
   keywords: [
     "age calculator",
+    "free age calculator",
+    "age calculator no signup",
     "calculate age",
     "age calculator from date of birth",
     "how old am i",
@@ -14,7 +16,6 @@ export const metadata: Metadata = {
     "age in days calculator",
     "birthday calculator",
     "age calculator online",
-    "free age calculator",
     "date of birth calculator",
     "age finder",
     "age counter",
@@ -28,16 +29,16 @@ export const metadata: Metadata = {
     "age calculator with time",
   ],
   openGraph: {
-    title: "Age Calculator - Calculate Your Exact Age Online (Free)",
-    description: "Calculate your exact age in years, months, days, hours, and minutes. Find your zodiac sign, next birthday countdown, and fun lifetime statistics. Free and accurate age calculator.",
+    title: "Age Calculator (Free, No signup) - AICalculator",
+    description: "Free age calculator with no sign-up required. Calculate your exact age in years, months, days, hours, and minutes. Find your zodiac sign, next birthday countdown, and fun lifetime statistics.",
     type: "website",
     url: "https://aicalculator.pro/age-calculator",
     siteName: "Calculator Online - AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Age Calculator - Exact Age in Years, Months, Days",
-    description: "Calculate your exact age from date of birth. Get next birthday countdown, zodiac signs, and lifetime statistics. Free online age calculator.",
+    title: "Age Calculator (Free, No signup) - AICalculator",
+    description: "Free age calculator with no sign-up required. Calculate your exact age from date of birth. Get next birthday countdown, zodiac signs, and lifetime statistics.",
     site: "@AICalculator",
   },
   alternates: {

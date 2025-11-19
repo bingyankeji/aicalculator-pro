@@ -3,10 +3,12 @@ import RandomNumberGenerator from '@/components/Calculator/RandomNumberGenerator
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Random Number Generator - Generate Random Numbers Online | AICalculator',
-  description: 'Free random number generator with multiple distribution types. Generate integers, decimals, normal distribution, and uniform distribution numbers with custom ranges.',
+  title: 'Random Number Generator (Free, No signup) - Generate | AICalculator',
+  description: 'Free random number generator with no sign-up required. Generate random numbers with multiple distribution types. Generate integers, decimals, normal distribution, and uniform distribution numbers with custom ranges.',
   keywords: [
     'random number generator',
+    'free random number generator',
+    'random number generator no signup',
     'random number',
     'number generator',
     'random integer generator',
@@ -31,8 +33,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'Random Number Generator - Generate Random Numbers',
-    description: 'Generate random numbers with custom ranges, distributions, and options. Support for integers, decimals, normal and uniform distributions.',
+    title: 'Random Number Generator (Free, No signup) - AICalculator',
+    description: 'Free random number generator with no sign-up required. Generate random numbers with custom ranges, distributions, and options. Support for integers, decimals, normal and uniform distributions.',
     type: 'website',
     url: getUrl('/random-number-generator'),
     siteName: 'AICalculator',
@@ -42,14 +44,14 @@ export const metadata: Metadata = {
         url: getOgImage('random-number'),
         width: 1200,
         height: 630,
-        alt: 'Random Number Generator',
+        alt: 'Free Random Number Generator - No Sign-up Required',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Random Number Generator - Online Tool',
-    description: 'Generate random numbers instantly with custom ranges and distributions. Free online tool.',
+    title: 'Random Number Generator (Free, No signup) - AICalculator',
+    description: 'Free random number generator with no sign-up required. Generate random numbers instantly with custom ranges and distributions.',
     images: [getOgImage('random-number')],
     creator: '@aicalculator',
   },

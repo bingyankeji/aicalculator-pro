@@ -2,10 +2,12 @@ import { Metadata } from "next";
 import { GradeCalculator } from "@/components/Calculator/GradeCalculator";
 
 export const metadata: Metadata = {
-  title: "Grade Calculator - Free Weighted Grade & GPA Calculator | AICalculator",
-  description: "Calculate your weighted grade average, GPA, and letter grade instantly. Free grade calculator with assignment weights, percentage calculations, and academic performance analysis. Perfect for students and teachers.",
+  title: "Grade Calculator (Free, No signup) - Weighted Grade | AICalculator",
+  description: "Free grade calculator with no sign-up required. Calculate your weighted grade average, GPA, and letter grade instantly. Free grade calculator with assignment weights, percentage calculations, and academic performance analysis. Perfect for students and teachers.",
   keywords: [
     "grade calculator",
+    "free grade calculator",
+    "grade calculator no signup",
     "gpa calculator",
     "weighted grade calculator",
     "final grade calculator",
@@ -22,16 +24,16 @@ export const metadata: Metadata = {
     "course grade calculator",
   ],
   openGraph: {
-    title: "Grade Calculator - Calculate Your Weighted Grade & GPA",
-    description: "Free online grade calculator with weighted averages, GPA conversion, and performance analysis. Calculate your final grade instantly!",
+    title: "Grade Calculator (Free, No signup) - AICalculator",
+    description: "Free grade calculator with no sign-up required. Online grade calculator with weighted averages, GPA conversion, and performance analysis. Calculate your final grade instantly!",
     type: "website",
     url: "https://aicalculator.pro/grade-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Grade Calculator - Free Weighted Grade & GPA Calculator",
-    description: "Calculate your weighted grade average, GPA, and letter grade instantly. Perfect for students and teachers.",
+    title: "Grade Calculator (Free, No signup) - AICalculator",
+    description: "Free grade calculator with no sign-up required. Calculate your weighted grade average, GPA, and letter grade instantly. Perfect for students and teachers.",
     site: "@AICalculator",
   },
   alternates: {

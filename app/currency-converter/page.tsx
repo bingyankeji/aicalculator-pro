@@ -3,20 +3,20 @@ import Link from 'next/link';
 import { CurrencyConverter } from '@/components/Calculator/CurrencyConverter';
 
 export const metadata: Metadata = {
-  title: 'Currency Converter - Free Real-Time Currency Exchange Rate Calculator | 20+ Currencies',
-  description: 'Convert currencies instantly with real-time exchange rates. Support for USD, EUR, GBP, JPY, CNY and 15+ more currencies. Fast, accurate, and free online currency converter with live rates.',
-  keywords: 'currency converter, exchange rate, currency exchange, USD to EUR, currency calculator, foreign exchange, forex converter, money converter, international currency, real-time exchange rates',
+  title: 'Currency Converter (Free, No signup) - Exchange Rate | AICalculator',
+  description: 'Free currency converter with no sign-up required. Convert currencies instantly with real-time exchange rates. Support for USD, EUR, GBP, JPY, CNY and 15+ more currencies. Fast, accurate currency converter with live rates.',
+  keywords: 'currency converter, free currency converter, currency converter no signup, exchange rate, currency exchange, USD to EUR, currency calculator, foreign exchange, forex converter, money converter, international currency, real-time exchange rates',
   openGraph: {
-    title: 'Free Currency Converter - Convert 20+ Currencies with Real-Time Rates',
-    description: 'Accurate online currency converter with live exchange rates. Convert between USD, EUR, GBP, JPY, CNY and more. Fast and easy to use.',
+    title: 'Currency Converter (Free, No signup) - AICalculator',
+    description: 'Free currency converter with no sign-up required. Accurate online currency converter with live exchange rates. Convert between USD, EUR, GBP, JPY, CNY and more. Fast and easy to use.',
     type: 'website',
     url: 'https://aicalculator.io/currency-converter',
     siteName: 'AICalculator',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Currency Converter - Real-Time Exchange Rates',
-    description: 'Convert between 20+ currencies instantly. Live exchange rates for USD, EUR, GBP, JPY, CNY and more.',
+    title: 'Currency Converter (Free, No signup) - AICalculator',
+    description: 'Free currency converter with no sign-up required. Convert between 20+ currencies instantly. Live exchange rates for USD, EUR, GBP, JPY, CNY and more.',
   },
   alternates: {
     canonical: 'https://aicalculator.io/currency-converter',

@@ -3,10 +3,12 @@ import Link from "next/link";
 import { DateCalculator } from "@/components/Calculator/DateCalculator";
 
 export const metadata: Metadata = {
-  title: "Date Calculator - Calculate Date Difference, Add or Subtract Days Online Free",
-  description: "Free online date calculator to find the difference between dates, add or subtract days/months/years, and find weekdays. Calculate age, business days, and plan events with precision.",
+  title: "Date Calculator (Free, No signup) - Date Difference | AICalculator",
+  description: "Free date calculator with no sign-up required. Find the difference between dates, add or subtract days/months/years, and find weekdays. Calculate age, business days, and plan events with precision.",
   keywords: [
     "date calculator",
+    "free date calculator",
+    "date calculator no signup",
     "date difference calculator",
     "days between dates",
     "add days to date",
@@ -23,16 +25,16 @@ export const metadata: Metadata = {
     "work days calculator"
   ],
   openGraph: {
-    title: "Date Calculator - Calculate Date Difference & Add/Subtract Days",
-    description: "Calculate days between dates, add or subtract time, find weekdays, and plan events. Free, accurate, and easy-to-use date calculator.",
+    title: "Date Calculator (Free, No signup) - AICalculator",
+    description: "Free date calculator with no sign-up required. Calculate days between dates, add or subtract time, find weekdays, and plan events. Accurate and easy-to-use date calculator.",
     type: "website",
     url: "https://aicalculator.pro/date-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Date Calculator - Calculate Date Difference Online",
-    description: "Calculate days between dates, add or subtract time, and find weekdays easily.",
+    title: "Date Calculator (Free, No signup) - AICalculator",
+    description: "Free date calculator with no sign-up required. Calculate days between dates, add or subtract time, and find weekdays easily.",
     site: "@aicalculator",
   },
   alternates: {

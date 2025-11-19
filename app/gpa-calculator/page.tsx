@@ -2,20 +2,20 @@ import { Metadata } from 'next';
 import { GPACalculator } from '@/components/Calculator/GPACalculator';
 
 export const metadata: Metadata = {
-  title: "GPA Calculator - Free Cumulative GPA Calculator with Target GPA Planner | AICalculator",
-  description: "Calculate your GPA with our free GPA calculator. Supports 4.0 and 5.0 scales, multiple courses, target GPA planning, and scholarship eligibility check. Perfect for college students.",
-  keywords: ["gpa calculator", "cumulative gpa calculator", "college gpa calculator", "grade point average calculator", "4.0 gpa calculator", "weighted gpa calculator", "target gpa calculator", "gpa calculator college", "calculate gpa", "gpa scale", "semester gpa", "academic standing", "dean's list gpa", "scholarship gpa requirement"],
+  title: "GPA Calculator (Free, No signup) - Cumulative GPA | AICalculator",
+  description: "Free GPA calculator with no sign-up required. Calculate your GPA with our free GPA calculator. Supports 4.0 and 5.0 scales, multiple courses, target GPA planning, and scholarship eligibility check. Perfect for college students.",
+  keywords: ["gpa calculator", "free gpa calculator", "gpa calculator no signup", "cumulative gpa calculator", "college gpa calculator", "grade point average calculator", "4.0 gpa calculator", "weighted gpa calculator", "target gpa calculator", "gpa calculator college", "calculate gpa", "gpa scale", "semester gpa", "academic standing", "dean's list gpa", "scholarship gpa requirement"],
   openGraph: {
-    title: "Free GPA Calculator - Calculate Cumulative GPA & Target Goals",
-    description: "Calculate your college GPA with multiple courses. Supports 4.0/5.0 scales, target GPA planning, and scholarship eligibility. Free GPA calculator for students.",
+    title: "GPA Calculator (Free, No signup) - AICalculator",
+    description: "Free GPA calculator with no sign-up required. Calculate your college GPA with multiple courses. Supports 4.0/5.0 scales, target GPA planning, and scholarship eligibility.",
     type: "website",
     url: "https://aicalculator.pro/gpa-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "GPA Calculator - Cumulative GPA & Target Planner",
-    description: "Calculate your college GPA and plan target grades. Free GPA calculator with scholarship eligibility check.",
+    title: "GPA Calculator (Free, No signup) - AICalculator",
+    description: "Free GPA calculator with no sign-up required. Calculate your college GPA and plan target grades with scholarship eligibility check.",
     site: "@AICalculator",
   },
   alternates: {

@@ -3,10 +3,12 @@ import Link from "next/link";
 import { TimeCalculator } from "@/components/Calculator/TimeCalculator";
 
 export const metadata: Metadata = {
-  title: "Time Calculator - Add, Subtract & Convert Time Units Online Free",
-  description: "Free time calculator for adding, subtracting, and converting time units (seconds, minutes, hours, days). Calculate durations, dates, and plan schedules efficiently. Perfect for project planning and time management.",
+  title: "Time Calculator (Free, No signup) - Add/Subtract Time | AICalculator",
+  description: "Free time calculator with no sign-up required. Add, subtract, and convert time units (seconds, minutes, hours, days). Calculate durations, dates, and plan schedules efficiently. Perfect for project planning and time management.",
   keywords: [
     "time calculator",
+    "free time calculator",
+    "time calculator no signup",
     "add time",
     "subtract time",
     "time converter",
@@ -23,16 +25,16 @@ export const metadata: Metadata = {
     "hours to days"
   ],
   openGraph: {
-    title: "Time Calculator - Add, Subtract & Convert Time Online",
-    description: "Free time calculator with iOS design. Add/subtract time, convert units, calculate dates. Smart analysis + time management tips.",
+    title: "Time Calculator (Free, No signup) - AICalculator",
+    description: "Free time calculator with no sign-up required. Add/subtract time, convert units, calculate dates. Smart analysis with time management tips.",
     type: "website",
     url: "https://aicalculator.pro/time-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Time Calculator - Add, Subtract & Convert Time Online",
-    description: "Free time calculator for precise time calculations. Perfect for scheduling and project planning.",
+    title: "Time Calculator (Free, No signup) - AICalculator",
+    description: "Free time calculator with no sign-up required. Perfect for precise time calculations, scheduling and project planning.",
     site: "@aicalculator",
   },
   alternates: {

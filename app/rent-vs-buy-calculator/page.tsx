@@ -3,10 +3,12 @@ import RentVsBuyCalculator from '@/components/Calculator/RentVsBuyCalculator';
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Rent vs Buy Calculator - Compare Home Buying vs Renting Costs | AICalculator',
-  description: 'Free rent vs buy calculator with detailed cost comparison, break-even analysis, and home equity projections. Make informed housing decisions with interactive charts and personalized recommendations.',
+  title: 'Rent vs Buy (Free, No signup) - Better Option? | AICalculator',
+  description: 'Free rent vs buy calculator with no sign-up required. With detailed cost comparison, break-even analysis, and home equity projections. Make informed housing decisions with interactive charts and personalized recommendations.',
   keywords: [
     'rent vs buy calculator',
+    'free rent vs buy calculator',
+    'rent vs buy calculator no signup',
     'rent or buy home',
     'renting vs buying calculator',
     'home affordability calculator',
@@ -31,8 +33,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'Rent vs Buy Calculator - Compare Home Buying vs Renting',
-    description: 'Analyze rent vs buy scenarios with detailed cost breakdowns, break-even analysis, and equity projections. Get personalized recommendations for your housing decision.',
+    title: 'Rent vs Buy (Free, No signup) - AICalculator',
+    description: 'Free rent vs buy calculator with no sign-up required. Analyze rent vs buy scenarios with detailed cost breakdowns, break-even analysis, and equity projections. Get personalized recommendations for your housing decision.',
     type: 'website',
     url: getUrl('/rent-vs-buy-calculator'),
     siteName: 'AICalculator',
@@ -48,8 +50,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rent vs Buy Calculator - Housing Cost Comparison',
-    description: 'Compare renting vs buying with interactive analysis, charts, and personalized recommendations.',
+    title: 'Rent vs Buy (Free, No signup) - AICalculator',
+    description: 'Free rent vs buy calculator with no sign-up required. Compare renting vs buying with interactive analysis, charts, and personalized recommendations.',
     images: [getOgImage('rent-vs-buy')],
     creator: '@aicalculator',
   },

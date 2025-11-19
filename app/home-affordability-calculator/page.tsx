@@ -3,15 +3,15 @@ import HomeAffordabilityCalculator from '@/components/Calculator/HomeAffordabili
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Home Affordability Calculator - How Much House Can I Afford? | Free 2024',
-  description: 'Calculate how much house you can afford based on income, debts, and down payment. Use the 28/36 rule to determine your home buying budget. Free home affordability calculator with DTI analysis.',
-  keywords: ['home affordability calculator', 'how much house can i afford', 'home buying calculator', 'mortgage affordability calculator', 'house affordability calculator', 'home budget calculator', 'debt to income ratio calculator', '28/36 rule calculator', 'home loan affordability', 'mortgage payment calculator', 'home purchase calculator', 'housing budget calculator', 'first time home buyer calculator', 'home price calculator', 'affordable home calculator'],
+  title: 'Home Affordability (Free, No signup) - Can I Afford? | AICalculator',
+  description: 'Free home affordability calculator with no sign-up required. Calculate how much house you can afford based on income, debts, and down payment. Use the 28/36 rule to determine your home buying budget. With DTI analysis.',
+  keywords: ['home affordability calculator', 'free home affordability calculator', 'home affordability calculator no signup', 'how much house can i afford', 'home buying calculator', 'mortgage affordability calculator', 'house affordability calculator', 'home budget calculator', 'debt to income ratio calculator', '28/36 rule calculator', 'home loan affordability', 'mortgage payment calculator', 'home purchase calculator', 'housing budget calculator', 'first time home buyer calculator', 'home price calculator', 'affordable home calculator'],
   authors: [{ name: 'AICalculator.pro Team' }],
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'Home Affordability Calculator - How Much House Can I Afford?',
-    description: 'Calculate how much house you can afford using the 28/36 rule. Free home affordability calculator with DTI analysis.',
+    title: 'Home Affordability (Free, No signup) - AICalculator',
+    description: 'Free home affordability calculator with no sign-up required. Calculate how much house you can afford using the 28/36 rule. With DTI analysis.',
     type: 'website',
     url: getUrl('/home-affordability-calculator'),
     siteName: 'AICalculator',
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Home Affordability Calculator - How Much House Can I Afford?',
-    description: 'Calculate how much house you can afford using the 28/36 rule.',
+    title: 'Home Affordability (Free, No signup) - AICalculator',
+    description: 'Free home affordability calculator with no sign-up required. Calculate how much house you can afford using the 28/36 rule.',
     images: [getOgImage('home-affordability')],
     creator: '@aicalculator'
   },

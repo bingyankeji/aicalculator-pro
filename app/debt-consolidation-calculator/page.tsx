@@ -15,10 +15,12 @@ import {
 
 // Metadata for SEO
 export const metadata: Metadata = {
-  title: 'Debt Consolidation Calculator - Calculate Savings & Monthly Payments | Free 2024',
-  description: 'Calculate debt consolidation savings, compare monthly payments, analyze interest savings, and determine payoff timeline. Free calculator with break-even analysis and credit score impact assessment.',
+  title: 'Debt Consolidation (Free, No signup) - Simplify Debt | AICalculator',
+  description: 'Free debt consolidation calculator with no sign-up required. Calculate debt consolidation savings, compare monthly payments, analyze interest savings, and determine payoff timeline. With break-even analysis and credit score impact assessment.',
   keywords: [
     'debt consolidation calculator',
+    'free debt consolidation calculator',
+    'debt consolidation calculator no signup',
     'debt consolidation savings calculator',
     'consolidate debt calculator',
     'debt payoff calculator',
@@ -59,8 +61,8 @@ export const metadata: Metadata = {
     canonical: getUrl('/debt-consolidation-calculator'),
   },
   openGraph: {
-    title: 'Debt Consolidation Calculator - Calculate Savings & Monthly Payments',
-    description: 'Calculate debt consolidation savings, compare monthly payments, analyze interest savings, and determine payoff timeline with our free calculator.',
+    title: 'Debt Consolidation (Free, No signup) - AICalculator',
+    description: 'Free debt consolidation calculator with no sign-up required. Calculate debt consolidation savings, compare monthly payments, analyze interest savings, and determine payoff timeline.',
     url: getUrl('/debt-consolidation-calculator'),
     siteName: 'AICalculator',
     locale: 'en_US',
@@ -76,8 +78,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Debt Consolidation Calculator - Calculate Savings & Monthly Payments',
-    description: 'Calculate debt consolidation savings, compare monthly payments, and analyze interest savings with our free calculator.',
+    title: 'Debt Consolidation (Free, No signup) - AICalculator',
+    description: 'Free debt consolidation calculator with no sign-up required. Calculate debt consolidation savings, compare monthly payments, and analyze interest savings.',
     images: [getOgImage('debt-consolidation')],
     creator: '@aicalculator',
   },

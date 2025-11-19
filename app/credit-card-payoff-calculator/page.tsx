@@ -3,10 +3,12 @@ import CreditCardPayoffCalculator from '@/components/Calculator/CreditCardPayoff
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Credit Card Payoff Calculator - Debt Elimination Plan | Snowball vs Avalanche',
-  description: 'Free credit card payoff calculator with snowball and avalanche methods. Calculate interest savings, payoff time, and create your debt-free plan. Compare strategies for multiple cards.',
+  title: 'Credit Card Payoff (Free, No signup) - Pay Off Faster | AICalculator',
+  description: 'Free credit card payoff calculator with no sign-up required. With snowball and avalanche methods. Calculate interest savings, payoff time, and create your debt-free plan. Compare strategies for multiple cards.',
   keywords: [
     'credit card payoff calculator',
+    'free credit card payoff calculator',
+    'credit card payoff calculator no signup',
     'debt payoff calculator',
     'credit card calculator',
     'snowball method calculator',
@@ -31,8 +33,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'Credit Card Payoff Calculator - Snowball vs Avalanche Methods',
-    description: 'Calculate your credit card payoff strategy. Compare snowball and avalanche methods, see interest savings, and create your debt-free plan. Free and easy to use.',
+    title: 'Credit Card Payoff (Free, No signup) - AICalculator',
+    description: 'Free credit card payoff calculator with no sign-up required. Calculate your credit card payoff strategy. Compare snowball and avalanche methods, see interest savings, and create your debt-free plan.',
     type: 'website',
     url: getUrl('/credit-card-payoff-calculator'),
     siteName: 'AICalculator',
@@ -46,8 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Credit Card Payoff Calculator - Get Debt Free',
-    description: 'Compare snowball and avalanche debt payoff methods. Calculate interest savings and create your personalized debt elimination plan.',
+    title: 'Credit Card Payoff (Free, No signup) - AICalculator',
+    description: 'Free credit card payoff calculator with no sign-up required. Compare snowball and avalanche debt payoff methods. Calculate interest savings and create your personalized debt elimination plan.',
     images: [getOgImage('credit-card-payoff')],
     creator: '@aicalculator'
   },

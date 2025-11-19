@@ -13,10 +13,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "Personal Loan Calculator - Compare Rates & Calculate Monthly Payments",
-  description: "Calculate personal loan payments, compare offers from top lenders, and analyze affordability. Free calculator with APR comparison, amortization schedules, and loan qualification analysis.",
+  title: "Personal Loan (Free, No signup) - Monthly Payments | AICalculator",
+  description: "Free personal loan calculator with no sign-up required. Calculate personal loan payments, compare offers from top lenders, and analyze affordability. With APR comparison, amortization schedules, and loan qualification analysis.",
   keywords: [
     "personal loan calculator",
+    "free personal loan calculator",
+    "personal loan calculator no signup",
     "loan payment calculator",
     "APR calculator",
     "loan interest calculator",
@@ -43,8 +45,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: "Personal Loan Calculator - Compare Rates & Calculate Monthly Payments",
-    description: "Calculate personal loan payments, compare offers from top lenders, and analyze affordability.",
+    title: "Personal Loan (Free, No signup) - AICalculator",
+    description: "Free personal loan calculator with no sign-up required. Calculate personal loan payments, compare offers from top lenders, and analyze affordability.",
     type: "website",
     url: getUrl('/personal-loan-calculator'),
     siteName: "AICalculator.pro",
@@ -60,8 +62,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Personal Loan Calculator - Compare Rates & Calculate Payments',
-    description: 'Calculate personal loan payments, compare APRs, and analyze affordability with our free calculator.',
+    title: 'Personal Loan (Free, No signup) - AICalculator',
+    description: 'Free personal loan calculator with no sign-up required. Calculate personal loan payments, compare APRs, and analyze affordability.',
     images: [getOgImage('personal-loan')],
     creator: '@aicalculator',
   },

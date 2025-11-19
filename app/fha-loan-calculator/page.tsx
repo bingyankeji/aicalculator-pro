@@ -13,10 +13,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "FHA Loan Calculator - Calculate FHA Mortgage Payments & MIP",
-  description: "Free FHA mortgage calculator with MIP calculations. Calculate monthly payments, mortgage insurance premiums, and compare FHA vs conventional loans. Perfect for first-time homebuyers.",
+  title: "FHA Loan Calculator (Free, No signup) - FHA Mortgage | AICalculator",
+  description: "Free FHA mortgage calculator with no sign-up required. With MIP calculations. Calculate monthly payments, mortgage insurance premiums, and compare FHA vs conventional loans. Perfect for first-time homebuyers.",
   keywords: [
     "FHA loan calculator",
+    "free FHA loan calculator",
+    "FHA loan calculator no signup",
     "FHA mortgage calculator",
     "FHA payment calculator",
     "MIP calculator",
@@ -38,16 +40,16 @@ export const metadata: Metadata = {
     "FHA affordability calculator"
   ],
   openGraph: {
-    title: "FHA Loan Calculator - Calculate FHA Mortgage Payments & MIP",
-    description: "Free FHA mortgage calculator with MIP calculations. Calculate monthly payments, mortgage insurance premiums, and compare FHA vs conventional loans. Perfect for first-time homebuyers.",
+    title: "FHA Loan Calculator (Free, No signup) - AICalculator",
+    description: "Free FHA mortgage calculator with no sign-up required. With MIP calculations. Calculate monthly payments, mortgage insurance premiums, and compare FHA vs conventional loans. Perfect for first-time homebuyers.",
     type: "website",
     url: getUrl('/fha-loan-calculator'),
     siteName: "AICalculator.pro",
   },
   twitter: {
     card: "summary_large_image",
-    title: "FHA Loan Calculator - Calculate FHA Mortgage Payments & MIP",
-    description: "Free FHA mortgage calculator with MIP calculations. Perfect for first-time homebuyers with low down payments.",
+    title: "FHA Loan Calculator (Free, No signup) - AICalculator",
+    description: "Free FHA mortgage calculator with no sign-up required. With MIP calculations. Perfect for first-time homebuyers with low down payments.",
     site: "@AICalculatorPro",
   },
   alternates: {

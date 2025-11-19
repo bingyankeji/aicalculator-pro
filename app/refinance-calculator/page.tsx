@@ -2,10 +2,12 @@ import { Metadata } from "next";
 import { RefinanceCalculator } from "@/components/Calculator/RefinanceCalculator";
 
 export const metadata: Metadata = {
-  title: "Refinance Calculator - Should You Refinance Your Mortgage? | Free Tool",
-  description: "Free mortgage refinance calculator to see if refinancing saves money. Calculate monthly savings, break-even point, and lifetime savings. Compare current vs new loan rates instantly.",
+  title: "Refinance Calculator (Free, No signup) - Save Money | AICalculator",
+  description: "Free refinance calculator with no sign-up required. Mortgage refinance calculator to see if refinancing saves money. Calculate monthly savings, break-even point, and lifetime savings. Compare current vs new loan rates instantly.",
   keywords: [
     "refinance calculator",
+    "free refinance calculator",
+    "refinance calculator no signup",
     "mortgage refinance calculator",
     "should i refinance",
     "refinance savings calculator",
@@ -22,16 +24,16 @@ export const metadata: Metadata = {
     "home refinance calculator",
   ],
   openGraph: {
-    title: "Free Refinance Calculator - See If You Should Refinance",
-    description: "Calculate monthly savings and break-even point. See if refinancing your mortgage makes financial sense.",
+    title: "Refinance Calculator (Free, No signup) - AICalculator",
+    description: "Free refinance calculator with no sign-up required. Calculate monthly savings and break-even point. See if refinancing your mortgage makes financial sense.",
     type: "website",
     url: "https://aicalculator.pro/refinance-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Refinance Calculator - Calculate Refinancing Savings",
-    description: "Should you refinance your mortgage? Find out in seconds with our free calculator.",
+    title: "Refinance Calculator (Free, No signup) - AICalculator",
+    description: "Free refinance calculator with no sign-up required. Should you refinance your mortgage? Find out in seconds.",
     site: "@AICalculator",
   },
   alternates: {

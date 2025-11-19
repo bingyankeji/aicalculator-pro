@@ -15,10 +15,12 @@ import {
 
 // Metadata for SEO
 export const metadata: Metadata = {
-  title: 'Roth IRA Calculator - Calculate Tax-Free Retirement Growth | Free 2024',
-  description: 'Calculate Roth IRA tax-free retirement savings, contribution limits, MAGI eligibility, compound growth, and compare Roth vs Traditional IRA. Free calculator with backdoor Roth analysis.',
+  title: 'Roth IRA Calculator (Free, No signup) - Retirement | AICalculator',
+  description: 'Free Roth IRA calculator with no sign-up required. Calculate Roth IRA tax-free retirement savings, contribution limits, MAGI eligibility, compound growth, and compare Roth vs Traditional IRA. With backdoor Roth analysis.',
   keywords: [
     'roth ira calculator',
+    'free roth ira calculator',
+    'roth ira calculator no signup',
     'roth ira contribution calculator',
     'roth ira eligibility calculator',
     'roth ira vs traditional ira calculator',
@@ -59,8 +61,8 @@ export const metadata: Metadata = {
     canonical: getUrl('/roth-ira-calculator'),
   },
   openGraph: {
-    title: 'Roth IRA Calculator - Calculate Tax-Free Retirement Growth',
-    description: 'Calculate Roth IRA tax-free retirement savings, contribution limits, MAGI eligibility, and compare Roth vs Traditional IRA.',
+    title: 'Roth IRA Calculator (Free, No signup) - AICalculator',
+    description: 'Free Roth IRA calculator with no sign-up required. Calculate Roth IRA tax-free retirement savings, contribution limits, MAGI eligibility, and compare Roth vs Traditional IRA.',
     url: getUrl('/roth-ira-calculator'),
     siteName: 'AICalculator',
     locale: 'en_US',
@@ -76,8 +78,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Roth IRA Calculator - Calculate Tax-Free Retirement Growth',
-    description: 'Calculate Roth IRA tax-free retirement savings, contribution limits, and compare Roth vs Traditional IRA.',
+    title: 'Roth IRA Calculator (Free, No signup) - AICalculator',
+    description: 'Free Roth IRA calculator with no sign-up required. Calculate Roth IRA tax-free retirement savings, contribution limits, and compare Roth vs Traditional IRA.',
     images: [getOgImage('roth-ira')],
     creator: '@aicalculator',
   },

@@ -3,10 +3,12 @@ import Link from 'next/link';
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Real Estate Calculator - Mortgage, Affordability & Investment Tools | AICalculator',
-  description: 'Free real estate calculators for home buyers and investors. Calculate mortgage payments, affordability, ROI, rental income, down payments, refinancing options and more. Plan your real estate investment with confidence.',
+  title: 'Real Estate Calculator (Free, No signup) - Property Value | AICalculator',
+  description: 'Free real estate calculator with no sign-up required. Calculators for home buyers and investors. Calculate mortgage payments, affordability, ROI, rental income, down payments, refinancing options and more. Plan your real estate investment with confidence.',
   keywords: [
     'real estate calculator',
+    'free real estate calculator',
+    'real estate calculator no signup',
     'mortgage calculator',
     'home affordability calculator',
     'rental property calculator',
@@ -20,8 +22,8 @@ export const metadata: Metadata = {
     'refinance calculator',
   ],
   openGraph: {
-    title: 'Real Estate Calculator - Mortgage, Affordability & Investment Tools',
-    description: 'Free real estate calculators for home buyers and investors. Calculate mortgage, affordability, ROI, and more.',
+    title: 'Real Estate Calculator (Free, No signup) - AICalculator',
+    description: 'Free real estate calculator with no sign-up required. For home buyers and investors. Calculate mortgage, affordability, ROI, and more.',
     url: getUrl('/real-estate-calculator'),
     images: [getOgImage()],
   },

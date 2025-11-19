@@ -2,10 +2,12 @@ import { Metadata } from "next";
 import { DebtPayoffCalculator } from "@/components/Calculator/DebtPayoffCalculator";
 
 export const metadata: Metadata = {
-  title: "Debt Payoff Calculator - Avalanche vs Snowball Method | Free Debt Repayment Planner",
-  description: "Free debt payoff calculator to compare avalanche and snowball methods. Calculate debt-free date, total interest, and create a customized debt repayment plan. Pay off credit cards and loans faster.",
+  title: "Debt Payoff Calculator (Free, No signup) - Get Debt Free | AICalculator",
+  description: "Free debt payoff calculator with no sign-up required. Compare avalanche and snowball methods. Calculate debt-free date, total interest, and create a customized debt repayment plan. Pay off credit cards and loans faster.",
   keywords: [
     "debt payoff calculator",
+    "free debt payoff calculator",
+    "debt payoff calculator no signup",
     "debt repayment calculator",
     "avalanche method calculator",
     "snowball method calculator",
@@ -22,16 +24,16 @@ export const metadata: Metadata = {
     "credit card debt calculator",
   ],
   openGraph: {
-    title: "Free Debt Payoff Calculator - Avalanche vs Snowball Method",
-    description: "Compare debt repayment strategies and calculate your debt-free date. Find the fastest and cheapest way to pay off your debts.",
+    title: "Debt Payoff Calculator (Free, No signup) - AICalculator",
+    description: "Free debt payoff calculator with no sign-up required. Compare debt repayment strategies and calculate your debt-free date. Find the fastest and cheapest way to pay off your debts.",
     type: "website",
     url: "https://aicalculator.pro/debt-payoff-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Debt Payoff Calculator - Get Debt-Free Faster",
-    description: "Compare avalanche vs snowball methods and create your debt repayment plan. Free and easy to use.",
+    title: "Debt Payoff Calculator (Free, No signup) - AICalculator",
+    description: "Free debt payoff calculator with no sign-up required. Compare avalanche vs snowball methods and create your debt repayment plan.",
     site: "@AICalculator",
   },
   alternates: {

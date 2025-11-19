@@ -15,6 +15,8 @@
  * - 使用辅助函数（getUrl, getOgImage）生成完整 URL
  */
 
+import { allCalculators } from '@/lib/calculatorData';
+
 /**
  * 网站核心配置
  */
@@ -101,24 +103,89 @@ export function getUrl(path: string): string {
 }
 
 /**
- * 辅助函数：生成 Open Graph 图片 URL
+ * 辅助函数：根据 URL 或名称查找计算器信息
  * 
- * @param name - 图片名称（如 'mortgage' 或 'mortgage-calculator'）
- * @returns 完整的图片 URL（如 'https://aicalculator.pro/og-mortgage.png'）
+ * @param identifier - 计算器 URL 或名称（如 '/mortgage-calculator' 或 'mortgage'）
+ * @returns 计算器对象或 undefined
+ */
+function getCalculatorInfo(identifier: string | undefined) {
+  // 参数验证
+  if (!identifier || typeof identifier !== 'string') {
+    return undefined;
+  }
+  
+  // 标准化标识符
+  const normalized = identifier.startsWith('/') ? identifier : `/${identifier}`;
+  const withCalculator = normalized.includes('-calculator') ? normalized : `${normalized}-calculator`;
+  
+  // 查找计算器
+  return allCalculators.find(calc => 
+    calc.url === normalized || 
+    calc.url === withCalculator ||
+    calc.url.replace('-calculator', '') === normalized.replace('-calculator', '')
+  );
+}
+
+/**
+ * 辅助函数：生成 Open Graph 图片 URL（动态生成）
+ * 
+ * @param name - 图片名称或路径（如 'mortgage'、'mortgage-calculator'、'/mortgage-calculator' 或 'home'）
+ * @returns 完整的 OG 图片 API URL（动态生成）
  * 
  * @example
  * ```ts
  * getOgImage('mortgage')
- * // => 'https://aicalculator.pro/og-mortgage.png'
+ * // => 'https://aicalculator.pro/api/og?title=Mortgage%20Calculator&subtitle=Calculate%20monthly%20payments&icon=🏠&category=Financial'
  * 
- * getOgImage('mortgage-calculator')
- * // => 'https://aicalculator.pro/og-mortgage-calculator.png'
+ * getOgImage('home')
+ * // => 'https://aicalculator.pro/api/og?title=AICalculator.pro&subtitle=250%2B%20Free%20Online%20Calculators&icon=🧮&category=Calculator'
  * ```
  */
-export function getOgImage(name: string): string {
-  // 移除可能的 -calculator 后缀（如果需要）
-  // const cleanName = name.replace(/-calculator$/, '');
-  return `${siteConfig.url}/og-${name}.png`;
+export function getOgImage(name?: string): string {
+  // 参数验证
+  if (!name || typeof name !== 'string') {
+    const params = new URLSearchParams({
+      title: 'AICalculator.pro',
+      subtitle: 'Free Online Calculator',
+      icon: '🧮',
+      category: 'Calculator',
+    });
+    return `${siteConfig.url}/api/og?${params.toString()}`;
+  }
+  
+  // 特殊处理首页
+  if (name === 'home' || name === '' || name === '/') {
+    const params = new URLSearchParams({
+      title: 'AICalculator.pro',
+      subtitle: '250+ Free Online Calculators',
+      icon: '🧮',
+      category: 'Free Tools',
+    });
+    return `${siteConfig.url}/api/og?${params.toString()}`;
+  }
+  
+  // 查找计算器信息
+  const calculator = getCalculatorInfo(name);
+  
+  if (calculator) {
+    // 生成动态 OG 图片 URL
+    const params = new URLSearchParams({
+      title: calculator.name,
+      subtitle: 'Calculate instantly with AI-powered analysis',
+      icon: calculator.icon,
+      category: calculator.category,
+    });
+    return `${siteConfig.url}/api/og?${params.toString()}`;
+  }
+  
+  // 回退到默认图片（如果没有找到计算器信息）
+  const params = new URLSearchParams({
+    title: 'AICalculator.pro',
+    subtitle: 'Free Online Calculator',
+    icon: '🧮',
+    category: 'Calculator',
+  });
+  return `${siteConfig.url}/api/og?${params.toString()}`;
 }
 
 /**

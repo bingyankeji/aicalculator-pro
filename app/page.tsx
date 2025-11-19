@@ -6,6 +6,7 @@ import { CalculatorList } from "@/components/CalculatorList";
 import { SmartSearch } from "@/components/SmartSearch";
 import { CategoryShowcase } from "@/components/CategoryShowcase";
 import { getTotalCalculatorsDescription } from "@/lib/categoryStats";
+import { getOgImage } from "@/config/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -102,7 +103,7 @@ export const metadata: Metadata = {
     siteName: "Calculator Online - AICalculator.pro",
     images: [
       {
-        url: "https://aicalculator.pro/og-image.png",
+        url: getOgImage('home'),
         width: 1200,
         height: 630,
         alt: "AICalculator - Free Online Calculator Tools",

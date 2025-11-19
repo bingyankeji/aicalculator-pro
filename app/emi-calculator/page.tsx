@@ -3,10 +3,12 @@ import Link from "next/link";
 import { EMICalculator } from "@/components/Calculator/EMICalculator";
 
 export const metadata: Metadata = {
-  title: "EMI Calculator - Free Equated Monthly Installment Calculator for Home, Car & Personal Loans",
-  description: "Calculate EMI for home loans, car loans, and personal loans instantly. Get detailed breakup of principal and interest with amortization schedule. Includes DTI ratio analysis for affordability assessment.",
+  title: "EMI Calculator (Free, No signup) - Monthly EMI | AICalculator",
+  description: "Free EMI calculator with no sign-up required. Calculate EMI for home loans, car loans, and personal loans instantly. Get detailed breakup of principal and interest with amortization schedule. Includes DTI ratio analysis for affordability assessment.",
   keywords: [
     "emi calculator",
+    "free emi calculator",
+    "emi calculator no signup",
     "loan emi calculator",
     "home loan emi calculator",
     "car loan emi calculator",
@@ -23,16 +25,16 @@ export const metadata: Metadata = {
     "monthly loan payment calculator"
   ],
   openGraph: {
-    title: "EMI Calculator - Calculate Monthly Loan Payments",
-    description: "Free EMI calculator for home loans, car loans, and personal loans. Get instant EMI calculations with detailed principal and interest breakup.",
+    title: "EMI Calculator (Free, No signup) - AICalculator",
+    description: "Free EMI calculator with no sign-up required. For home loans, car loans, and personal loans. Get instant EMI calculations with detailed principal and interest breakup.",
     type: "website",
     url: "https://aicalculator.pro/emi-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "EMI Calculator - Calculate Your Loan EMI",
-    description: "Calculate EMI for all types of loans with detailed amortization schedule and affordability analysis.",
+    title: "EMI Calculator (Free, No signup) - AICalculator",
+    description: "Free EMI calculator with no sign-up required. Calculate EMI for all types of loans with detailed amortization schedule and affordability analysis.",
     site: "@aicalculator",
   },
   alternates: {

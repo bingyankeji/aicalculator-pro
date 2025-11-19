@@ -3,15 +3,15 @@ import RentCalculator from '@/components/Calculator/RentCalculator';
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Rent Calculator - Calculate Rent Affordability & Compare Rent vs Buy | Free 2024',
-  description: 'Calculate rent affordability using the 30% rule, compare rent vs buy costs, and analyze 5-year projections. Free rent calculator with move-in costs, inflation adjustment, and break-even analysis.',
-  keywords: ['rent calculator', 'rent affordability calculator', 'how much rent can i afford', 'rent to income ratio', '30% rent rule', 'rent vs buy calculator', 'apartment rent calculator', 'monthly rent calculator', 'rental affordability calculator', 'rent budget calculator', 'move in cost calculator', 'rent inflation calculator', 'break even rent vs buy'],
+  title: 'Rent Calculator (Free, No signup) - Rent Affordability | AICalculator',
+  description: 'Free rent calculator with no sign-up required. Calculate rent affordability using the 30% rule, compare rent vs buy costs, and analyze 5-year projections. With move-in costs, inflation adjustment, and break-even analysis.',
+  keywords: ['rent calculator', 'free rent calculator', 'rent calculator no signup', 'rent affordability calculator', 'how much rent can i afford', 'rent to income ratio', '30% rent rule', 'rent vs buy calculator', 'apartment rent calculator', 'monthly rent calculator', 'rental affordability calculator', 'rent budget calculator', 'move in cost calculator', 'rent inflation calculator', 'break even rent vs buy'],
   authors: [{ name: 'AICalculator.pro Team' }],
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'Rent Calculator - Calculate Rent Affordability & Compare Rent vs Buy',
-    description: 'Free rent calculator with 30% rule, rent vs buy comparison, and 5-year cost projections.',
+    title: 'Rent Calculator (Free, No signup) - AICalculator',
+    description: 'Free rent calculator with no sign-up required. With 30% rule, rent vs buy comparison, and 5-year cost projections.',
     type: 'website',
     url: getUrl('/rent-calculator'),
     siteName: 'AICalculator',
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rent Calculator - Rent Affordability & Rent vs Buy',
-    description: 'Calculate rent affordability and compare rent vs buy costs with 5-year projections.',
+    title: 'Rent Calculator (Free, No signup) - AICalculator',
+    description: 'Free rent calculator with no sign-up required. Calculate rent affordability and compare rent vs buy costs with 5-year projections.',
     images: [getOgImage('rent')],
     creator: '@aicalculator'
   },

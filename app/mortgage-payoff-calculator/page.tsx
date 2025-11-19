@@ -2,10 +2,12 @@ import { Metadata } from "next";
 import { MortgagePayoffCalculator } from "@/components/Calculator/MortgagePayoffCalculator";
 
 export const metadata: Metadata = {
-  title: "Mortgage Payoff Calculator - Calculate Early Mortgage Payoff Savings | Free Tool",
-  description: "Free mortgage payoff calculator to see how extra payments save interest and time. Calculate savings from lump sum payments or extra monthly payments. Get debt-free faster with our payoff strategies.",
+  title: "Mortgage Payoff (Free, No signup) - Early Payoff | AICalculator",
+  description: "Free mortgage payoff calculator with no sign-up required. See how extra payments save interest and time. Calculate savings from lump sum payments or extra monthly payments. Get debt-free faster with our payoff strategies.",
   keywords: [
     "mortgage payoff calculator",
+    "free mortgage payoff calculator",
+    "mortgage payoff calculator no signup",
     "early mortgage payoff",
     "extra payment calculator",
     "mortgage extra payment",
@@ -22,16 +24,16 @@ export const metadata: Metadata = {
     "home loan payoff calculator",
   ],
   openGraph: {
-    title: "Free Mortgage Payoff Calculator - See Your Early Payoff Savings",
-    description: "Calculate how much you'll save by paying off your mortgage early. Compare lump sum vs monthly extra payments instantly.",
+    title: "Mortgage Payoff (Free, No signup) - AICalculator",
+    description: "Free mortgage payoff calculator with no sign-up required. Calculate how much you'll save by paying off your mortgage early. Compare lump sum vs monthly extra payments instantly.",
     type: "website",
     url: "https://aicalculator.pro/mortgage-payoff-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mortgage Payoff Calculator - Save on Interest",
-    description: "Calculate early mortgage payoff savings and become debt-free faster with our free tool.",
+    title: "Mortgage Payoff (Free, No signup) - AICalculator",
+    description: "Free mortgage payoff calculator with no sign-up required. Calculate early mortgage payoff savings and become debt-free faster.",
     site: "@AICalculator",
   },
   alternates: {

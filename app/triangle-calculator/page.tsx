@@ -3,11 +3,13 @@ import TriangleCalculator from "@/components/Calculator/TriangleCalculator";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Triangle Calculator - Solve Any Triangle with SSS, SAS, ASA Methods | AI Calculator",
+  title: "Triangle Calculator (Free, No signup) - Solve Triangles | AICalculator",
   description:
-    "Free triangle calculator to solve any triangle using SSS, SAS, ASA methods. Calculate area, perimeter, angles, and sides with step-by-step solutions and formulas.",
+    "Free triangle calculator with no sign-up required. Solve any triangle using SSS, SAS, ASA methods. Calculate area, perimeter, angles, and sides with step-by-step solutions and formulas.",
   keywords: [
     "triangle calculator",
+    "free triangle calculator",
+    "triangle calculator no signup",
     "triangle solver",
     "SSS triangle calculator",
     "SAS triangle calculator",
@@ -24,18 +26,18 @@ export const metadata: Metadata = {
     "solve triangle",
   ],
   openGraph: {
-    title: "Triangle Calculator - Solve Any Triangle with Step-by-Step Solutions",
+    title: "Triangle Calculator (Free, No signup) - AICalculator",
     description:
-      "Calculate triangle area, perimeter, angles, and sides using SSS, SAS, ASA methods. Includes step-by-step solutions and triangle type identification.",
+      "Free triangle calculator with no sign-up required. Calculate triangle area, perimeter, angles, and sides using SSS, SAS, ASA methods. Includes step-by-step solutions and triangle type identification.",
     type: "website",
     url: "https://aicalculator.pro/triangle-calculator",
     siteName: "AI Calculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Triangle Calculator - SSS, SAS, ASA Triangle Solver",
+    title: "Triangle Calculator (Free, No signup) - AICalculator",
     description:
-      "Free calculator to solve any triangle. Calculate area, perimeter, angles with step-by-step solutions.",
+      "Free triangle calculator with no sign-up required. Solve any triangle. Calculate area, perimeter, angles with step-by-step solutions.",
     site: "@AICalculator",
   },
   alternates: {

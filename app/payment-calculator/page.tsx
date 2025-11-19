@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import { PaymentCalculator } from '@/components/Calculator/PaymentCalculator';
 
 export const metadata: Metadata = {
-  title: "Payment Calculator - Free Monthly Payment Calculator with Extra Payment Analysis | AICalculator",
-  description: "Calculate loan payments for car loans, personal loans, and credit cards. Compare standard, interest-only, and balloon payments. See how extra payments save you money. Free online tool.",
+  title: "Payment Calculator (Free, No signup) - Monthly Payment | AICalculator",
+  description: "Free payment calculator with no sign-up required. Calculate loan payments for car loans, personal loans, and credit cards. Compare standard, interest-only, and balloon payments. See how extra payments save you money. Free online tool.",
   keywords: [
     "payment calculator",
+    "free payment calculator",
+    "payment calculator no signup",
     "monthly payment calculator",
     "loan payment calculator",
     "car payment calculator",
@@ -20,16 +22,16 @@ export const metadata: Metadata = {
     "free payment calculator",
   ],
   openGraph: {
-    title: "Payment Calculator - Calculate Any Loan Payment",
-    description: "Free payment calculator for car loans, personal loans & more. Calculate monthly payments, see total interest, and explore extra payment benefits.",
+    title: "Payment Calculator (Free, No signup) - AICalculator",
+    description: "Free payment calculator with no sign-up required. For car loans, personal loans & more. Calculate monthly payments, see total interest, and explore extra payment benefits.",
     type: "website",
     url: "https://aicalculator.pro/payment-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Payment Calculator - Free Loan Payment Tool",
-    description: "Calculate payments for any loan. See how extra payments can save thousands in interest!",
+    title: "Payment Calculator (Free, No signup) - AICalculator",
+    description: "Free payment calculator with no sign-up required. Calculate payments for any loan. See how extra payments can save thousands in interest!",
   },
   alternates: {
     canonical: "https://aicalculator.pro/payment-calculator",

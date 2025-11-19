@@ -3,11 +3,13 @@ import PythagoreanCalculator from "@/components/Calculator/PythagoreanCalculator
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Pythagorean Theorem Calculator - Find Missing Side of Right Triangle | AI Calculator",
+  title: "Pythagorean Calculator (Free, No signup) - Right Triangle | AICalculator",
   description:
-    "Free Pythagorean theorem calculator to find missing sides of right triangles. Calculate hypotenuse or legs using a² + b² = c² with step-by-step solutions and visual diagrams.",
+    "Free Pythagorean theorem calculator with no sign-up required. Find missing sides of right triangles. Calculate hypotenuse or legs using a² + b² = c² with step-by-step solutions and visual diagrams.",
   keywords: [
     "pythagorean theorem calculator",
+    "free pythagorean calculator",
+    "pythagorean calculator no signup",
     "right triangle calculator",
     "hypotenuse calculator",
     "pythagorean calculator",
@@ -24,18 +26,18 @@ export const metadata: Metadata = {
     "right angle triangle",
   ],
   openGraph: {
-    title: "Pythagorean Theorem Calculator - Find Missing Triangle Sides",
+    title: "Pythagorean Calculator (Free, No signup) - AICalculator",
     description:
-      "Calculate missing sides of right triangles using the Pythagorean theorem. Find hypotenuse or legs with step-by-step solutions and visual diagrams.",
+      "Free Pythagorean theorem calculator with no sign-up required. Calculate missing sides of right triangles using the Pythagorean theorem. Find hypotenuse or legs with step-by-step solutions and visual diagrams.",
     type: "website",
     url: "https://aicalculator.pro/pythagorean-calculator",
     siteName: "AI Calculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pythagorean Theorem Calculator - Right Triangle Solver",
+    title: "Pythagorean Calculator (Free, No signup) - AICalculator",
     description:
-      "Free calculator for Pythagorean theorem. Find missing sides of right triangles with a² + b² = c² formula.",
+      "Free Pythagorean theorem calculator with no sign-up required. Find missing sides of right triangles with a² + b² = c² formula.",
     site: "@AICalculator",
   },
   alternates: {

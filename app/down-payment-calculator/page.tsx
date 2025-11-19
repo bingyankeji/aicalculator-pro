@@ -15,10 +15,12 @@ import {
 
 // Metadata for SEO
 export const metadata: Metadata = {
-  title: 'Down Payment Calculator - Calculate Home Down Payment & Savings Timeline | Free 2024',
-  description: 'Calculate down payment amount, savings timeline, PMI costs, and compare different down payment options. Free calculator with closing costs, emergency fund planning, and investment opportunity analysis.',
+  title: 'Down Payment (Free, No signup) - Home Down Payment | AICalculator',
+  description: 'Free down payment calculator with no sign-up required. Calculate down payment amount, savings timeline, PMI costs, and compare different down payment options. With closing costs, emergency fund planning, and investment opportunity analysis.',
   keywords: [
     'down payment calculator',
+    'free down payment calculator',
+    'down payment calculator no signup',
     'home down payment calculator',
     'down payment amount calculator',
     'how much down payment do i need',
@@ -60,8 +62,8 @@ export const metadata: Metadata = {
     canonical: getUrl('/down-payment-calculator'),
   },
   openGraph: {
-    title: 'Down Payment Calculator - Calculate Home Down Payment & Savings Timeline',
-    description: 'Calculate down payment amount, savings timeline, PMI costs, and compare different down payment options for home buying.',
+    title: 'Down Payment (Free, No signup) - AICalculator',
+    description: 'Free down payment calculator with no sign-up required. Calculate down payment amount, savings timeline, PMI costs, and compare different down payment options for home buying.',
     url: getUrl('/down-payment-calculator'),
     siteName: 'AICalculator',
     locale: 'en_US',
@@ -77,8 +79,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Down Payment Calculator - Calculate Home Down Payment & Savings Timeline',
-    description: 'Calculate down payment amount, savings timeline, PMI costs, and compare different down payment options.',
+    title: 'Down Payment (Free, No signup) - AICalculator',
+    description: 'Free down payment calculator with no sign-up required. Calculate down payment amount, savings timeline, PMI costs, and compare different down payment options.',
     images: [getOgImage('down-payment')],
     creator: '@aicalculator',
   },

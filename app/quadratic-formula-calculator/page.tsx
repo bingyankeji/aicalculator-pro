@@ -4,10 +4,12 @@ import { QuadraticCalculator } from "@/components/Calculator/QuadraticCalculator
 import { quadraticStructuredData as structuredData } from "./structuredData";
 
 export const metadata: Metadata = {
-  title: "Quadratic Formula Calculator - Solve ax^2 + bx + c with Steps | AICalculator",
-  description: "Free quadratic formula calculator to solve ax^2 + bx + c = 0. Shows discriminant, real/complex roots, and step-by-step calculation with explanations.",
+  title: "Quadratic Formula (Free, No signup) - Solve Equations | AICalculator",
+  description: "Free quadratic formula calculator with no sign-up required. Solve ax^2 + bx + c = 0. Shows discriminant, real/complex roots, and step-by-step calculation with explanations.",
   keywords: [
     "quadratic formula calculator",
+    "free quadratic formula calculator",
+    "quadratic formula calculator no signup",
     "quadratic equation solver",
     "solve ax^2 + bx + c",
     "discriminant calculator",
@@ -18,16 +20,16 @@ export const metadata: Metadata = {
     "math equation solver"
   ],
   openGraph: {
-    title: "Quadratic Formula Calculator - Solve ax^2 + bx + c with Steps",
-    description: "Solve quadratic equations with discriminant and step-by-step solutions. Supports real and complex roots.",
+    title: "Quadratic Formula (Free, No signup) - AICalculator",
+    description: "Free quadratic formula calculator with no sign-up required. Solve quadratic equations with discriminant and step-by-step solutions. Supports real and complex roots.",
     type: "website",
     url: "https://aicalculator.pro/quadratic-formula-calculator",
     siteName: "AICalculator"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Quadratic Formula Calculator - Step-by-Step Solver",
-    description: "Instantly solve ax^2 + bx + c = 0 with steps, discriminant, and real/complex roots.",
+    title: "Quadratic Formula (Free, No signup) - AICalculator",
+    description: "Free quadratic formula calculator with no sign-up required. Instantly solve ax^2 + bx + c = 0 with steps, discriminant, and real/complex roots.",
     site: "@AICalculator"
   },
   alternates: { canonical: "https://aicalculator.pro/quadratic-formula-calculator" },

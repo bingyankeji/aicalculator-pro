@@ -13,10 +13,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "Compound Interest Calculator - Free Investment Growth Calculator",
-  description: "Free compound interest calculator with tax and inflation adjustment. Calculate investment growth with compound interest, regular contributions, different compounding frequencies, tax impact, and inflation-adjusted buying power. See year-by-year breakdown, effective annual rate, Rule of 72, and total interest earned. Perfect for savings, investments, and retirement planning.",
+  title: "Interest Calculator (Free, No signup) - Compound Interest | AICalculator",
+  description: "Free interest calculator with no sign-up required. Compound interest calculator with tax and inflation adjustment. Calculate investment growth with compound interest, regular contributions, different compounding frequencies, tax impact, and inflation-adjusted buying power. See year-by-year breakdown, effective annual rate, Rule of 72, and total interest earned. Perfect for savings, investments, and retirement planning.",
   keywords: [
     "compound interest calculator",
+    "free interest calculator",
+    "interest calculator no signup",
     "interest calculator",
     "compound interest",
     "investment calculator",
@@ -46,8 +48,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: "Compound Interest Calculator - Free Investment Growth Calculator",
-    description: "Calculate compound interest and investment growth. Free calculator with regular contributions, multiple compounding frequencies, and year-by-year breakdown.",
+    title: "Interest Calculator (Free, No signup) - AICalculator",
+    description: "Free interest calculator with no sign-up required. Calculate compound interest and investment growth. With regular contributions, multiple compounding frequencies, and year-by-year breakdown.",
     type: "website",
     url: getUrl('/interest-calculator'),
     siteName: "Calculator Online - AICalculator",
@@ -63,8 +65,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Compound Interest Calculator - Investment Growth Calculator",
-    description: "Calculate compound interest, investment growth, and savings with regular contributions. Free calculator with detailed breakdown.",
+    title: "Interest Calculator (Free, No signup) - AICalculator",
+    description: "Free interest calculator with no sign-up required. Calculate compound interest, investment growth, and savings with regular contributions. Detailed breakdown included.",
     images: [getOgImage('interest')],
     site: "@AICalculator",
     creator: '@aicalculator',

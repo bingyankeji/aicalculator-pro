@@ -12,10 +12,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Amortization Calculator - Loan Payment Schedule & Extra Payment Analysis | Free Tool',
-  description: 'Free amortization calculator with payment schedules and extra payment analysis. Calculate loan payments, interest savings, and payoff dates for mortgages and loans.',
+  title: 'Amortization (Free, No signup) - Payment Schedule | AICalculator',
+  description: 'Free amortization calculator with no sign-up required. With payment schedules and extra payment analysis. Calculate loan payments, interest savings, and payoff dates for mortgages and loans.',
   keywords: [
     'amortization calculator',
+    'free amortization calculator',
+    'amortization calculator no signup',
     'loan amortization schedule',
     'mortgage payment calculator',
     'loan payment schedule',
@@ -51,8 +53,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Free Amortization Calculator - Loan Payment Schedules',
-    description: 'Calculate loan amortization schedules with extra payment analysis. See payment breakdowns, interest savings, and payoff dates.',
+    title: 'Amortization (Free, No signup) - AICalculator',
+    description: 'Free amortization calculator with no sign-up required. Calculate loan amortization schedules with extra payment analysis. See payment breakdowns, interest savings, and payoff dates.',
     url: getUrl('/amortization-calculator'),
     siteName: 'AICalculator',
     locale: 'en_US',
@@ -68,8 +70,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Amortization Calculator - Payment Schedules',
-    description: 'Calculate loan amortization with extra payment analysis. See detailed payment schedules and interest savings.',
+    title: 'Amortization (Free, No signup) - AICalculator',
+    description: 'Free amortization calculator with no sign-up required. Calculate loan amortization with extra payment analysis. See detailed payment schedules and interest savings.',
     images: [getOgImage('amortization')],
     site: '@AICalculator',
     creator: '@aicalculator',

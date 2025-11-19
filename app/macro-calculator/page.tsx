@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import { MacroCalculator } from '@/components/Calculator/MacroCalculator';
 
 export const metadata: Metadata = {
-  title: 'Macro Calculator - Free Macronutrient Calculator for Weight Loss & Muscle Gain | AICalculator',
-  description: 'Calculate your perfect macros (protein, carbs, fats) for cutting, bulking, or maintenance. Get personalized macro targets, meal plans, and nutrition recommendations for your fitness goals.',
+  title: 'Macro Calculator (Free, No signup) - Macronutrients | AICalculator',
+  description: 'Free macro calculator with no sign-up required. Calculate your perfect macros (protein, carbs, fats) for cutting, bulking, or maintenance. Get personalized macro targets, meal plans, and nutrition recommendations for your fitness goals.',
   keywords: [
     'macro calculator',
+    'free macro calculator',
+    'macro calculator no signup',
     'macros calculator',
     'macronutrient calculator',
     'protein calculator',
@@ -22,16 +24,16 @@ export const metadata: Metadata = {
     'muscle gain macros',
   ],
   openGraph: {
-    title: 'Macro Calculator - Calculate Your Perfect Macronutrients | AICalculator',
-    description: 'Free macro calculator for weight loss, muscle gain, or maintenance. Get personalized protein, carbs, and fats targets based on your goals and activity level.',
+    title: 'Macro Calculator (Free, No signup) - AICalculator',
+    description: 'Free macro calculator with no sign-up required. For weight loss, muscle gain, or maintenance. Get personalized protein, carbs, and fats targets based on your goals and activity level.',
     type: 'website',
     url: 'https://aicalculator.pro/macro-calculator',
     siteName: 'AICalculator',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Macro Calculator - Perfect Macros for Your Fitness Goals',
-    description: 'Calculate optimal protein, carbs, and fats for cutting, bulking, or maintenance. Free macro calculator with meal-by-meal breakdown.',
+    title: 'Macro Calculator (Free, No signup) - AICalculator',
+    description: 'Free macro calculator with no sign-up required. Calculate optimal protein, carbs, and fats for cutting, bulking, or maintenance with meal-by-meal breakdown.',
     site: '@AICalculator',
   },
   alternates: {

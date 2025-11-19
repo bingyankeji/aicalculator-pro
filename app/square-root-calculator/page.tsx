@@ -3,10 +3,12 @@ import { SquareRootCalculator } from "@/components/Calculator/SquareRootCalculat
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Square Root Calculator - Calculate √n, Nth Roots & Perfect Squares | Free Tool",
-  description: "Free square root calculator to find √n, nth roots, and check perfect squares. Get step-by-step solutions, exact values, and mathematical analysis. Perfect for students and professionals.",
+  title: "Square Root Calculator (Free, No signup) - Calculate Roots | AICalculator",
+  description: "Free square root calculator with no sign-up required. Find √n, nth roots, and check perfect squares. Get step-by-step solutions, exact values, and mathematical analysis. Perfect for students and professionals.",
   keywords: [
     "square root calculator",
+    "free square root calculator",
+    "square root calculator no signup",
     "nth root calculator",
     "perfect square calculator",
     "cube root calculator",
@@ -23,16 +25,16 @@ export const metadata: Metadata = {
     "mathematical roots",
   ],
   openGraph: {
-    title: "Square Root Calculator - Calculate √n, Nth Roots & Perfect Squares",
-    description: "Free online square root calculator with step-by-step solutions. Calculate square roots, nth roots, and check perfect squares with detailed mathematical analysis.",
+    title: "Square Root Calculator (Free, No signup) - AICalculator",
+    description: "Free square root calculator with no sign-up required. Online calculator with step-by-step solutions. Calculate square roots, nth roots, and check perfect squares with detailed mathematical analysis.",
     type: "website",
     url: "https://aicalculator.pro/square-root-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Square Root Calculator - Calculate √n & Nth Roots",
-    description: "Calculate square roots, nth roots, and check perfect squares with detailed step-by-step solutions and mathematical analysis.",
+    title: "Square Root Calculator (Free, No signup) - AICalculator",
+    description: "Free square root calculator with no sign-up required. Calculate square roots, nth roots, and check perfect squares with detailed step-by-step solutions and mathematical analysis.",
     site: "@AICalculator",
   },
   alternates: {

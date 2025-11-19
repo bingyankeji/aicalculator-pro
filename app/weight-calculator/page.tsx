@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import { WeightCalculator } from '@/components/Calculator/WeightCalculator';
 
 export const metadata: Metadata = {
-  title: "Ideal Weight Calculator - Free Body Weight Calculator with 4 Formulas | AICalculator",
-  description: "Calculate your ideal weight using Robinson, Miller, Devine & Hamwi formulas. Get personalized weight analysis, healthy range, and recommendations. Free online tool with BMI integration.",
+  title: "Weight Calculator (Free, No signup) - Ideal Weight | AICalculator",
+  description: "Free weight calculator with no sign-up required. Calculate your ideal weight using Robinson, Miller, Devine & Hamwi formulas. Get personalized weight analysis, healthy range, and recommendations. Free online tool with BMI integration.",
   keywords: [
     "ideal weight calculator",
+    "free ideal weight calculator",
+    "weight calculator no signup",
     "body weight calculator",
     "healthy weight calculator",
     "target weight calculator",
@@ -21,16 +23,16 @@ export const metadata: Metadata = {
     "weight loss goal",
   ],
   openGraph: {
-    title: "Ideal Weight Calculator - Calculate Your Target Weight",
-    description: "Free ideal weight calculator using 4 proven formulas. Get your healthy weight range and personalized recommendations.",
+    title: "Weight Calculator (Free, No signup) - AICalculator",
+    description: "Free weight calculator with no sign-up required. Ideal weight calculator using 4 proven formulas. Get your healthy weight range and personalized recommendations.",
     type: "website",
     url: "https://aicalculator.pro/weight-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ideal Weight Calculator - Free Weight Target Tool",
-    description: "Calculate ideal weight with Robinson, Miller, Devine & Hamwi formulas. Get your healthy weight range now!",
+    title: "Weight Calculator (Free, No signup) - AICalculator",
+    description: "Free weight calculator with no sign-up required. Calculate ideal weight with Robinson, Miller, Devine & Hamwi formulas. Get your healthy weight range now!",
   },
   alternates: {
     canonical: "https://aicalculator.pro/weight-calculator",

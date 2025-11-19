@@ -3,20 +3,20 @@ import Link from 'next/link';
 import { TDEECalculator } from '@/components/Calculator/TDEECalculator';
 
 export const metadata: Metadata = {
-  title: 'TDEE Calculator - Total Daily Energy Expenditure Calculator | Free & Accurate',
-  description: 'Calculate your TDEE (Total Daily Energy Expenditure) with our accurate calculator. Get personalized calorie goals for cutting, bulking, and maintenance. Includes BMR, macro calculator, and activity levels.',
-  keywords: 'TDEE calculator, total daily energy expenditure, TDEE, calorie calculator, BMR calculator, cutting calories, bulking calories, macro calculator, weight loss calculator, fitness calculator, metabolism calculator',
+  title: 'TDEE Calculator (Free, No signup) - Daily Calories | AICalculator',
+  description: 'Free TDEE calculator with no sign-up required. Calculate your TDEE (Total Daily Energy Expenditure) with our accurate calculator. Get personalized calorie goals for cutting, bulking, and maintenance. Includes BMR, macro calculator, and activity levels.',
+  keywords: 'TDEE calculator, free TDEE calculator, TDEE calculator no signup, total daily energy expenditure, TDEE, calorie calculator, BMR calculator, cutting calories, bulking calories, macro calculator, weight loss calculator, fitness calculator, metabolism calculator',
   openGraph: {
-    title: 'Free TDEE Calculator - Calculate Your Daily Calorie Needs',
-    description: 'Accurate TDEE Calculator with BMR, activity levels, and personalized calorie goals. Perfect for cutting, bulking, or maintaining weight.',
+    title: 'TDEE Calculator (Free, No signup) - AICalculator',
+    description: 'Free TDEE calculator with no sign-up required. Accurate TDEE Calculator with BMR, activity levels, and personalized calorie goals. Perfect for cutting, bulking, or maintaining weight.',
     type: 'website',
     url: 'https://aicalculator.io/tdee-calculator',
     siteName: 'AI Calculator',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'TDEE Calculator - Calculate Your Daily Calorie Needs',
-    description: 'Free TDEE Calculator with BMR, macros, and personalized goals for cutting, bulking, and maintenance.',
+    title: 'TDEE Calculator (Free, No signup) - AICalculator',
+    description: 'Free TDEE calculator with no sign-up required. BMR, macros, and personalized goals for cutting, bulking, and maintenance.',
   },
   alternates: {
     canonical: 'https://aicalculator.io/tdee-calculator',

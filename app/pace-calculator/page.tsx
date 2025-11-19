@@ -2,10 +2,12 @@ import { Metadata } from "next";
 import { PaceCalculator } from "@/components/Calculator/PaceCalculator";
 
 export const metadata: Metadata = {
-  title: "Pace Calculator - Free Running Pace, Time & Distance Calculator for Runners",
-  description: "Free pace calculator for runners. Calculate running pace, finish time, or distance. Get split times and race predictions for 5K, 10K, half marathon, and marathon. Perfect for training plans.",
+  title: "Pace Calculator (Free, No signup) - Running Pace | AICalculator",
+  description: "Free pace calculator with no sign-up required. For runners. Calculate running pace, finish time, or distance. Get split times and race predictions for 5K, 10K, half marathon, and marathon. Perfect for training plans.",
   keywords: [
     "pace calculator",
+    "free pace calculator",
+    "pace calculator no signup",
     "running pace calculator",
     "marathon pace calculator",
     "5k pace calculator",
@@ -22,16 +24,16 @@ export const metadata: Metadata = {
     "jogging pace calculator",
   ],
   openGraph: {
-    title: "Free Running Pace Calculator - Calculate Pace, Time & Distance",
-    description: "Calculate your running pace, finish time, or distance. Get split times and race predictions for all major race distances.",
+    title: "Pace Calculator (Free, No signup) - AICalculator",
+    description: "Free pace calculator with no sign-up required. Calculate your running pace, finish time, or distance. Get split times and race predictions for all major race distances.",
     type: "website",
     url: "https://aicalculator.pro/pace-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Running Pace Calculator - Plan Your Race Strategy",
-    description: "Calculate pace, time, or distance for your runs. Get split times and race predictions instantly.",
+    title: "Pace Calculator (Free, No signup) - AICalculator",
+    description: "Free pace calculator with no sign-up required. Calculate pace, time, or distance for your runs. Get split times and race predictions instantly.",
     site: "@AICalculator",
   },
   alternates: {

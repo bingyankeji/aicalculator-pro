@@ -3,10 +3,12 @@ import Link from "next/link";
 import { StandardDeviationCalculator } from "@/components/Calculator/StandardDeviationCalculator";
 
 export const metadata: Metadata = {
-  title: "Standard Deviation Calculator - Free Online Calculator for Variance & Statistics | AICalculator",
-  description: "Calculate standard deviation, variance, mean, and detect outliers instantly. Free standard deviation calculator for sample and population data. Perfect for students, researchers, and data analysis with step-by-step formulas.",
+  title: "Standard Deviation (Free, No signup) - Statistical Analysis | AICalculator",
+  description: "Free standard deviation calculator with no sign-up required. Calculate standard deviation, variance, mean, and detect outliers instantly. For sample and population data. Perfect for students, researchers, and data analysis with step-by-step formulas.",
   keywords: [
     "standard deviation calculator",
+    "free standard deviation calculator",
+    "standard deviation calculator no signup",
     "standard deviation",
     "variance calculator",
     "calculate standard deviation",
@@ -25,16 +27,16 @@ export const metadata: Metadata = {
     "variance formula",
   ],
   openGraph: {
-    title: "Free Standard Deviation Calculator - Calculate Variance & Statistics",
-    description: "Calculate standard deviation, variance, and mean with step-by-step formulas. Perfect for students and data analysis.",
+    title: "Standard Deviation (Free, No signup) - AICalculator",
+    description: "Free standard deviation calculator with no sign-up required. Calculate standard deviation, variance, and mean with step-by-step formulas. Perfect for students and data analysis.",
     type: "website",
     url: "https://aicalculator.pro/standard-deviation-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Standard Deviation Calculator - Free Statistics Tool",
-    description: "Calculate standard deviation, variance, and mean instantly with detailed step-by-step formulas.",
+    title: "Standard Deviation (Free, No signup) - AICalculator",
+    description: "Free standard deviation calculator with no sign-up required. Calculate standard deviation, variance, and mean instantly with detailed step-by-step formulas.",
     site: "@AICalculator",
   },
   alternates: {

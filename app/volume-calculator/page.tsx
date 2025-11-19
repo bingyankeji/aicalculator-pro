@@ -3,11 +3,13 @@ import VolumeCalculator from "@/components/Calculator/VolumeCalculator";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Volume Calculator - 3D Shape Volume & Surface Area Calculator | AI Calculator",
+  title: "Volume Calculator (Free, No signup) - 3D Volume | AICalculator",
   description:
-    "Free volume calculator for 15+ 3D shapes including cube, sphere, cylinder, cone, pyramid. Calculate volume, surface area with step-by-step formulas and material estimates.",
+    "Free volume calculator with no sign-up required. For 15+ 3D shapes including cube, sphere, cylinder, cone, pyramid. Calculate volume, surface area with step-by-step formulas and material estimates.",
   keywords: [
     "volume calculator",
+    "free volume calculator",
+    "volume calculator no signup",
     "3d shape calculator",
     "cube volume calculator",
     "sphere volume calculator",
@@ -24,18 +26,18 @@ export const metadata: Metadata = {
     "3d geometry",
   ],
   openGraph: {
-    title: "Volume Calculator - Calculate 3D Shape Volume & Surface Area",
+    title: "Volume Calculator (Free, No signup) - AICalculator",
     description:
-      "Calculate volume and surface area for cubes, spheres, cylinders, cones and more. Includes material estimates and real-world applications.",
+      "Free volume calculator with no sign-up required. Calculate volume and surface area for cubes, spheres, cylinders, cones and more. Includes material estimates and real-world applications.",
     type: "website",
     url: "https://aicalculator.pro/volume-calculator",
     siteName: "AI Calculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Volume Calculator - 3D Shape Volume & Surface Area",
+    title: "Volume Calculator (Free, No signup) - AICalculator",
     description:
-      "Free calculator for 15+ 3D shapes. Calculate volume, surface area with formulas and material estimates.",
+      "Free volume calculator with no sign-up required. For 15+ 3D shapes. Calculate volume, surface area with formulas and material estimates.",
     site: "@AICalculator",
   },
   alternates: {

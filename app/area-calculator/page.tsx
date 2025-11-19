@@ -3,10 +3,12 @@ import Link from 'next/link';
 import { AreaCalculator } from '@/components/Calculator/AreaCalculator';
 
 export const metadata: Metadata = {
-  title: 'Area Calculator - Free Area Calculator for Rectangle, Circle, Triangle & More | AICalculator',
-  description: 'Calculate area for rectangle, circle, triangle, trapezoid, parallelogram, and ellipse. Free area calculator with formulas, step-by-step calculations, and unit conversions. Perfect for students, contractors, and DIY projects.',
+  title: 'Area Calculator (Free, No signup) - Calculate Area | AICalculator',
+  description: 'Free area calculator with no sign-up required. Calculate area for rectangle, circle, triangle, trapezoid, parallelogram, and ellipse. With formulas, step-by-step calculations, and unit conversions. Perfect for students, contractors, and DIY projects.',
   keywords: [
     'area calculator',
+    'free area calculator',
+    'area calculator no signup',
     'area of rectangle calculator',
     'area of circle calculator',
     'area of triangle calculator',
@@ -25,16 +27,16 @@ export const metadata: Metadata = {
     'surface area calculator',
   ],
   openGraph: {
-    title: 'Free Area Calculator - Calculate Area for Multiple Shapes',
-    description: 'Calculate area for rectangle, circle, triangle, trapezoid, parallelogram, and ellipse. Free tool with formulas and unit conversions.',
+    title: 'Area Calculator (Free, No signup) - AICalculator',
+    description: 'Free area calculator with no sign-up required. Calculate area for rectangle, circle, triangle, trapezoid, parallelogram, and ellipse. Free tool with formulas and unit conversions.',
     type: 'website',
     url: 'https://aicalculator.pro/area-calculator',
     siteName: 'AICalculator',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Area Calculator - Calculate Area for Any Shape',
-    description: 'Free area calculator for rectangle, circle, triangle, trapezoid, parallelogram, and ellipse. Perfect for students and professionals.',
+    title: 'Area Calculator (Free, No signup) - AICalculator',
+    description: 'Free area calculator with no sign-up required. For rectangle, circle, triangle, trapezoid, parallelogram, and ellipse. Perfect for students and professionals.',
     site: '@AICalculator',
   },
   alternates: {

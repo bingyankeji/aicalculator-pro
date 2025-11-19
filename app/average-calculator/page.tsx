@@ -2,10 +2,12 @@ import { Metadata } from "next";
 import { AverageCalculator } from "@/components/Calculator/AverageCalculator";
 
 export const metadata: Metadata = {
-  title: "Average Calculator - Calculate Mean, Median, Mode & Standard Deviation | Free Stats Tool",
-  description: "Free average calculator to find mean, median, mode, range, variance, and standard deviation. Perfect for students, teachers, and data analysis. Get instant statistical results with step-by-step formulas.",
+  title: "Average Calculator (Free, No signup) - Mean Median | AICalculator",
+  description: "Free average calculator with no sign-up required. Find mean, median, mode, range, variance, and standard deviation. Perfect for students, teachers, and data analysis. Get instant statistical results with step-by-step formulas.",
   keywords: [
     "average calculator",
+    "free average calculator",
+    "average calculator no signup",
     "mean calculator",
     "median calculator",
     "mode calculator",
@@ -22,16 +24,16 @@ export const metadata: Metadata = {
     "mean median mode calculator",
   ],
   openGraph: {
-    title: "Free Average Calculator - Mean, Median, Mode & More",
-    description: "Calculate mean, median, mode, range, variance, and standard deviation instantly. Perfect for students and data analysis.",
+    title: "Average Calculator (Free, No signup) - AICalculator",
+    description: "Free average calculator with no sign-up required. Calculate mean, median, mode, range, variance, and standard deviation instantly. Perfect for students and data analysis.",
     type: "website",
     url: "https://aicalculator.pro/average-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Average Calculator - Statistical Analysis Made Easy",
-    description: "Calculate mean, median, mode, and standard deviation with step-by-step formulas.",
+    title: "Average Calculator (Free, No signup) - AICalculator",
+    description: "Free average calculator with no sign-up required. Calculate mean, median, mode, and standard deviation with step-by-step formulas.",
     site: "@AICalculator",
   },
   alternates: {

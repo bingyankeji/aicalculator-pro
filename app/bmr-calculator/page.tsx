@@ -2,10 +2,12 @@ import { Metadata } from "next";
 import { BMRCalculator } from "@/components/Calculator/BMRCalculator";
 
 export const metadata: Metadata = {
-  title: "BMR Calculator - Free Basal Metabolic Rate & TDEE Calculator | Calculate Daily Calories",
-  description: "Free BMR calculator to determine your basal metabolic rate and total daily energy expenditure (TDEE). Get personalized calorie goals for weight loss, maintenance, or muscle gain with macro breakdown.",
+  title: "BMR Calculator (Free, No signup) - Basal Metabolic Rate | AICalculator",
+  description: "Free BMR calculator with no sign-up required. Determine your basal metabolic rate and total daily energy expenditure (TDEE). Get personalized calorie goals for weight loss, maintenance, or muscle gain with macro breakdown.",
   keywords: [
     "bmr calculator",
+    "free bmr calculator",
+    "bmr calculator no signup",
     "basal metabolic rate calculator",
     "tdee calculator",
     "metabolic rate calculator",
@@ -22,16 +24,16 @@ export const metadata: Metadata = {
     "macro calculator",
   ],
   openGraph: {
-    title: "Free BMR Calculator - Calculate Your Basal Metabolic Rate & TDEE",
-    description: "Calculate your BMR and daily calorie needs based on activity level. Get personalized weight loss, maintenance, and muscle gain calorie goals.",
+    title: "BMR Calculator (Free, No signup) - AICalculator",
+    description: "Free BMR calculator with no sign-up required. Calculate your BMR and daily calorie needs based on activity level. Get personalized weight loss, maintenance, and muscle gain calorie goals.",
     type: "website",
     url: "https://aicalculator.pro/bmr-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "BMR Calculator - Calculate Daily Calorie Needs",
-    description: "Free BMR and TDEE calculator with personalized calorie and macro recommendations.",
+    title: "BMR Calculator (Free, No signup) - AICalculator",
+    description: "Free BMR calculator with no sign-up required. BMR and TDEE calculator with personalized calorie and macro recommendations.",
     site: "@AICalculator",
   },
   alternates: {

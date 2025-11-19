@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import PayrollCalculator from '@/components/Calculator/PayrollCalculator';
 
 export const metadata: Metadata = {
@@ -234,36 +235,11 @@ export default function PayrollCalculatorPage() {
         {/* Breadcrumb Navigation */}
         <div className="bg-white border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <nav className="flex" aria-label="Breadcrumb">
-              <ol className="inline-flex items-center space-x-1 md:space-x-3" itemScope itemType="https://schema.org/BreadcrumbList">
-                <li className="inline-flex items-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                  <a href="/" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600" itemProp="item">
-                    <span itemProp="name">Home</span>
-                  </a>
-                  <meta itemProp="position" content="1" />
-                </li>
-                <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                  <div className="flex items-center">
-                    <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <a href="/financial" className="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2" itemProp="item">
-                      <span itemProp="name">Financial</span>
-                    </a>
-                    <meta itemProp="position" content="2" />
-                  </div>
-                </li>
-                <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                  <div className="flex items-center">
-                    <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="ml-1 text-sm font-medium text-gray-500 md:ml-2" itemProp="name">Payroll Calculator</span>
-                    <meta itemProp="position" content="3" />
-                  </div>
-                </li>
-              </ol>
-            </nav>
+            {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Payroll Calculator (Free, No signup)"
+        calculatorUrl="/payroll-calculator"
+      />
           </div>
         </div>
 

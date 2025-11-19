@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import MarriageTaxCalculator from '@/components/Calculator/MarriageTaxCalculator';
 import Link from 'next/link';
 import { Heart, DollarSign, TrendingDown, Info } from 'lucide-react';
@@ -225,20 +226,11 @@ export default function MarriageTaxCalculatorPage() {
           Marriage Tax Calculator - Calculate Tax Impact of Marriage
         </h1>
 
-        {/* Breadcrumb Navigation */}
-        <nav className="max-w-7xl mx-auto px-4 py-4" aria-label="Breadcrumb">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600">
-            <li>
-              <Link href="/" className="hover:text-blue-600 transition-colors">
-                Home
-              </Link>
-            </li>
-            <li className="flex items-center">
-              <span className="mx-2">/</span>
-              <span className="text-gray-900">Marriage Tax Calculator</span>
-            </li>
-          </ol>
-        </nav>
+        {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Marriage Tax Calculator"
+        calculatorUrl="/marriage-tax-calculator"
+      />
 
         {/* Calculator Component */}
         <MarriageTaxCalculator />

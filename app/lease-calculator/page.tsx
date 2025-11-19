@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import LeaseCalculator from "@/components/Calculator/LeaseCalculator";
 import Link from "next/link";
 
@@ -225,32 +226,11 @@ export default function LeaseCalculatorPage() {
       {/* Hidden H1 for SEO */}
       <h1 className="sr-only">Lease Calculator - Lease vs Buy Analysis & Decision Tool</h1>
       
-      {/* Breadcrumb Navigation */}
-      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-3">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600" 
-              itemScope itemType="https://schema.org/BreadcrumbList">
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <Link href="/" itemProp="item" className="hover:text-blue-600 transition-colors">
-                <span itemProp="name">Home</span>
-              </Link>
-              <meta itemProp="position" content="1" />
-            </li>
-            <li className="text-gray-400">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <Link href="/financial" itemProp="item" className="hover:text-blue-600 transition-colors">
-                <span itemProp="name">Financial</span>
-              </Link>
-              <meta itemProp="position" content="2" />
-            </li>
-            <li className="text-gray-400">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <span itemProp="name" className="text-gray-900 font-semibold">Lease Calculator</span>
-              <meta itemProp="position" content="3" />
-            </li>
-          </ol>
-        </div>
-      </nav>
+      {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Lease Calculator"
+        calculatorUrl="/lease-calculator"
+      />
 
       {/* Calculator Section */}
       <section className="py-8 md:py-12" aria-label="Calculator Tool">

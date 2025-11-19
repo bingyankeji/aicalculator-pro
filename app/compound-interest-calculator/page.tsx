@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import CompoundInterestCalculator from "@/components/Calculator/CompoundInterestCalculator";
 import Link from "next/link";
 import {

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import { Search, TrendingUp } from 'lucide-react';
 
 interface Calculator {
@@ -15,12 +16,14 @@ interface CalculatorPageSearchProps {
   calculators: Calculator[];
   onSearchResults: (results: Calculator[]) => void;
   placeholder?: string;
+  enableDirectNavigation?: boolean; // 新增：支持直接跳转
 }
 
 export function CalculatorPageSearch({ 
   calculators, 
   onSearchResults,
-  placeholder = "Search calculators... (e.g., mortgage, BMI, percentage)"
+  placeholder = "Search calculators... (e.g., mortgage, BMI, percentage)",
+  enableDirectNavigation = false
 }: CalculatorPageSearchProps) {
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState<Calculator[]>([]);
@@ -28,6 +31,7 @@ export function CalculatorPageSearch({
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
 
   // Fuzzy search algorithm
   const fuzzySearch = (searchTerm: string) => {
@@ -157,16 +161,7 @@ export function CalculatorPageSearch({
     } else if (e.key === 'Enter') {
       e.preventDefault();
       if (selectedIndex >= 0 && suggestions[selectedIndex]) {
-        // Scroll to calculator in list
-        const calcElement = document.querySelector(`a[href="${suggestions[selectedIndex].url}"]`);
-        if (calcElement) {
-          calcElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          calcElement.classList.add('ring-2', 'ring-blue-500');
-          setTimeout(() => {
-            calcElement.classList.remove('ring-2', 'ring-blue-500');
-          }, 2000);
-        }
-        setShowSuggestions(false);
+        handleCalculatorClick(suggestions[selectedIndex].url);
       }
     } else if (e.key === 'Escape') {
       setShowSuggestions(false);
@@ -193,14 +188,21 @@ export function CalculatorPageSearch({
     return text;
   };
 
-  const scrollToCalculator = (url: string) => {
-    const calcElement = document.querySelector(`a[href="${url}"]`);
-    if (calcElement) {
-      calcElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      calcElement.classList.add('ring-2', 'ring-blue-500', 'ring-offset-2');
-      setTimeout(() => {
-        calcElement.classList.remove('ring-2', 'ring-blue-500', 'ring-offset-2');
-      }, 2000);
+  // 处理计算器点击 - 支持直接跳转或滚动
+  const handleCalculatorClick = (url: string) => {
+    if (enableDirectNavigation) {
+      // 直接跳转到计算器页面
+      router.push(url);
+    } else {
+      // 滚动到页面上的计算器
+      const calcElement = document.querySelector(`a[href="${url}"]`);
+      if (calcElement) {
+        calcElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        calcElement.classList.add('ring-2', 'ring-blue-500', 'ring-offset-2');
+        setTimeout(() => {
+          calcElement.classList.remove('ring-2', 'ring-blue-500', 'ring-offset-2');
+        }, 2000);
+      }
     }
     setShowSuggestions(false);
   };
@@ -233,12 +235,12 @@ export function CalculatorPageSearch({
           role="listbox"
         >
           <div className="p-2 bg-gray-50 border-b border-gray-200 text-xs text-gray-600">
-            💡 <strong>Tip:</strong> Click to scroll to calculator, or press Enter
+            💡 <strong>Tip:</strong> {enableDirectNavigation ? 'Click to open calculator, or press Enter' : 'Click to scroll to calculator, or press Enter'}
           </div>
           {suggestions.map((calc, index) => (
             <button
               key={calc.url}
-              onClick={() => scrollToCalculator(calc.url)}
+              onClick={() => handleCalculatorClick(calc.url)}
               onMouseEnter={() => setSelectedIndex(index)}
               className={`w-full text-left px-4 py-3 flex items-center gap-3 hover:bg-blue-50 transition-colors border-b border-gray-100 last:border-0 ${
                 selectedIndex === index ? 'bg-blue-50' : ''
@@ -263,7 +265,7 @@ export function CalculatorPageSearch({
                 )}
               </div>
               <div className="text-xs text-blue-600 font-medium">
-                Scroll to →
+                {enableDirectNavigation ? 'Open →' : 'Scroll to →'}
               </div>
             </button>
           ))}

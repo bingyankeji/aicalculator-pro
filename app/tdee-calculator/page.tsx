@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from 'next/link';
 import { TDEECalculator } from '@/components/Calculator/TDEECalculator';
 
@@ -209,24 +210,11 @@ export default function TDEECalculatorPage() {
       </h1>
 
       <div className="container mx-auto px-4 py-8">
-        {/* Breadcrumb Navigation */}
-        <nav aria-label="Breadcrumb" className="mb-6">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600">
-            <li>
-              <Link href="/" className="hover:text-orange-600 transition-colors">
-                Home
-              </Link>
-            </li>
-            <li className="text-gray-400">/</li>
-            <li>
-              <Link href="/health-fitness" className="hover:text-orange-600 transition-colors">
-                Health & Fitness
-              </Link>
-            </li>
-            <li className="text-gray-400">/</li>
-            <li className="text-gray-900 font-semibold">TDEE Calculator</li>
-          </ol>
-        </nav>
+        {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="TDEE Calculator (Free, No signup)"
+        calculatorUrl="/tdee-calculator"
+      />
 
         {/* Calculator */}
         <TDEECalculator />

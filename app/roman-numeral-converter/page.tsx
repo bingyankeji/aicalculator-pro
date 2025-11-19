@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import RomanNumeralCalculator from '@/components/Calculator/RomanNumeralCalculator';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
@@ -212,32 +213,11 @@ export default function RomanNumeralConverterPage() {
           Roman Numeral Converter - Convert Arabic Numbers to Roman Numerals Online Free
         </h1>
 
-        {/* Breadcrumb Navigation */}
-        <nav className="mb-6" aria-label="Breadcrumb">
-          <div className="bg-white rounded-lg shadow-sm px-4 py-3">
-            <ol className="flex flex-wrap items-center space-x-2 text-sm">
-              <li>
-                <Link
-                  href="/"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  Home
-                </Link>
-              </li>
-              <ChevronRight className="h-4 w-4 text-gray-400" />
-              <li>
-                <Link
-                  href="/other"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  Other
-                </Link>
-              </li>
-              <ChevronRight className="h-4 w-4 text-gray-400" />
-              <li className="text-gray-700 font-medium">Roman Numeral Converter</li>
-            </ol>
-          </div>
-        </nav>
+        {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Roman Numeral Converter"
+        calculatorUrl="/roman-numeral-converter"
+      />
 
         {/* Calculator Component */}
         <RomanNumeralCalculator />

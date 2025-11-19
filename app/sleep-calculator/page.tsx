@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import SleepCalculator from '@/components/Calculator/SleepCalculator';
 import Link from 'next/link';
 import { Clock, Moon, Sun, Zap, Brain, Heart } from 'lucide-react';
@@ -187,20 +188,11 @@ export default function SleepCalculatorPage() {
         Sleep Calculator - Calculate Optimal Bedtime and Wake Times Based on Sleep Cycles
       </h1>
 
-      {/* Breadcrumb Navigation */}
-      <nav className="max-w-5xl mx-auto px-4 py-3 text-sm" aria-label="Breadcrumb">
-        <ol className="flex items-center space-x-2 text-gray-600">
-          <li>
-            <Link href="/" className="hover:text-blue-600 transition-colors">
-              Home
-            </Link>
-          </li>
-          <li className="flex items-center">
-            <span className="mx-2">/</span>
-            <span className="text-gray-900 font-medium">Sleep Calculator</span>
-          </li>
-        </ol>
-      </nav>
+      {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Sleep Calculator"
+        calculatorUrl="/sleep-calculator"
+      />
 
       <SleepCalculator />
 

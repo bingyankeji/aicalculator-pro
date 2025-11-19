@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import DayOfWeekCalculator from '@/components/Calculator/DayOfWeekCalculator';
 import Link from 'next/link';
 import { Calendar, Clock, TrendingUp, Info } from 'lucide-react';
@@ -225,20 +226,11 @@ export default function DayOfWeekCalculatorPage() {
           Day of the Week Calculator - Find What Day Any Date Falls On
         </h1>
 
-        {/* Breadcrumb Navigation */}
-        <nav className="max-w-7xl mx-auto px-4 py-4" aria-label="Breadcrumb">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600">
-            <li>
-              <Link href="/" className="hover:text-blue-600 transition-colors">
-                Home
-              </Link>
-            </li>
-            <li className="flex items-center">
-              <span className="mx-2">/</span>
-              <span className="text-gray-900">Day of the Week Calculator</span>
-            </li>
-          </ol>
-        </nav>
+        {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Day of the Week Calculator"
+        calculatorUrl="/day-of-week-calculator"
+      />
 
         {/* Calculator Component */}
         <DayOfWeekCalculator />

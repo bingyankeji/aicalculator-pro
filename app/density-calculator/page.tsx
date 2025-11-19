@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import DensityCalculator from '@/components/Calculator/DensityCalculator';
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 
@@ -251,16 +252,11 @@ export default function DensityCalculatorPage() {
 
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 py-8">
-          {/* Breadcrumb Navigation */}
-          <nav className="mb-6 text-sm" aria-label="Breadcrumb">
-            <ol className="flex items-center space-x-2 text-gray-600">
-              <li><a href="/" className="hover:text-blue-600 transition-colors">Home</a></li>
-              <li><span className="mx-2">/</span></li>
-              <li><a href="/other" className="hover:text-blue-600 transition-colors">Other</a></li>
-              <li><span className="mx-2">/</span></li>
-              <li className="text-gray-900 font-medium">Density Calculator</li>
-            </ol>
-          </nav>
+          {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Density Calculator"
+        calculatorUrl="/density-calculator"
+      />
 
           {/* SEO H1 (visually hidden but important for SEO) */}
           <h1 className="sr-only">Density Calculator - Calculate Density, Volume & Mass with Unit Conversions</h1>

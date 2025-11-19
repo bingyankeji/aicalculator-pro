@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import LeanBodyMassCalculator from '@/components/Calculator/LeanBodyMassCalculator';
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 
@@ -286,41 +287,11 @@ export default function LeanBodyMassCalculatorPage() {
         Lean Body Mass Calculator - Calculate LBM, Body Fat Percentage, and Muscle Mass with Multiple Formulas
       </h1>
 
-      {/* Breadcrumb Navigation */}
-      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-3">
-          <ol
-            className="flex items-center space-x-2 text-xs sm:text-sm text-gray-600 overflow-x-auto"
-            itemScope
-            itemType="https://schema.org/BreadcrumbList"
-          >
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <a href="/" itemProp="item" className="hover:text-blue-600 transition-colors">
-                <span itemProp="name">Home</span>
-              </a>
-              <meta itemProp="position" content="1" />
-            </li>
-            <li className="text-gray-400">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <a
-                href="/health-fitness"
-                itemProp="item"
-                className="hover:text-blue-600 transition-colors"
-              >
-                <span itemProp="name">Health & Fitness</span>
-              </a>
-              <meta itemProp="position" content="2" />
-            </li>
-            <li className="text-gray-400">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <span itemProp="name" className="text-gray-900 font-semibold">
-                Lean Body Mass Calculator
-              </span>
-              <meta itemProp="position" content="3" />
-            </li>
-          </ol>
-        </div>
-      </nav>
+      {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Lean Body Mass (Free, No signup)"
+        calculatorUrl="/lean-body-mass-calculator"
+      />
 
       {/* Calculator Component */}
       <LeanBodyMassCalculator />

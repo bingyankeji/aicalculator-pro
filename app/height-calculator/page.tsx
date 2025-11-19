@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import HeightCalculator from '@/components/Calculator/HeightCalculator';
 import Link from 'next/link';
 import { Ruler, TrendingUp, Users, Activity } from 'lucide-react';
@@ -215,20 +216,11 @@ export default function HeightCalculatorPage() {
           Height Calculator - Predict Child's Adult Height Based on Parents' Heights
         </h1>
 
-        {/* Breadcrumb Navigation */}
-        <nav className="max-w-7xl mx-auto px-4 py-4" aria-label="Breadcrumb">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600">
-            <li>
-              <Link href="/" className="hover:text-blue-600 transition-colors">
-                Home
-              </Link>
-            </li>
-            <li className="flex items-center">
-              <span className="mx-2">/</span>
-              <span className="text-gray-900">Height Calculator</span>
-            </li>
-          </ol>
-        </nav>
+        {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Height Calculator"
+        calculatorUrl="/height-calculator"
+      />
 
         {/* Calculator Component */}
         <HeightCalculator />

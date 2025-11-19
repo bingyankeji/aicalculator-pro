@@ -3,59 +3,16 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import Script from "next/script";
-
-// Health & Fitness Calculators - 35+ tools
-const healthCalculators = [
-  // Weight & Body Composition (10个)
-  { name: "BMI Calculator", url: "/bmi-calculator" },
-  { name: "Body Fat Calculator", url: "/body-fat-calculator" },
-  { name: "Ideal Weight Calculator", url: "/ideal-weight-calculator" },
-  { name: "Lean Body Mass Calculator", url: "#" },
-  { name: "Healthy Weight Calculator", url: "#" },
-  { name: "Body Surface Area Calculator", url: "#" },
-  { name: "Body Type Calculator", url: "#" },
-  { name: "Anorexic BMI Calculator", url: "#" },
-  { name: "Overweight Calculator", url: "#" },
-  { name: "One Rep Max Calculator", url: "#" },
-  
-  // Calorie & Nutrition (8个)
-  { name: "Calorie Calculator", url: "/calorie-calculator" },
-  { name: "BMR Calculator", url: "/bmr-calculator" },
-  { name: "TDEE Calculator", url: "/tdee-calculator" },
-  { name: "Macro Calculator", url: "/macro-calculator" },
-  { name: "Protein Calculator", url: "/protein-calculator" },
-  { name: "Carbohydrate Calculator", url: "#" },
-  { name: "Fat Intake Calculator", url: "#" },
-  { name: "Calories Burned Calculator", url: "#" },
-  
-  // Fitness & Exercise (7个)
-  { name: "Pace Calculator", url: "#" },
-  { name: "Target Heart Rate Calculator", url: "#" },
-  { name: "Army Body Fat Calculator", url: "#" },
-  { name: "VO2 Max Calculator", url: "#" },
-  { name: "Running Calculator", url: "#" },
-  { name: "Swimming Calculator", url: "#" },
-  { name: "Cycling Calculator", url: "#" },
-  
-  // Pregnancy & Baby (6个)
-  { name: "Pregnancy Calculator", url: "#" },
-  { name: "Due Date Calculator", url: "#" },
-  { name: "Pregnancy Conception Calculator", url: "#" },
-  { name: "Pregnancy Weight Gain Calculator", url: "#" },
-  { name: "Ovulation Calculator", url: "#" },
-  { name: "Period Calculator", url: "#" },
-  
-  // Other Health (4个)
-  { name: "BAC Calculator", url: "#" },
-  { name: "GFR Calculator", url: "#" },
-  { name: "Weight Watcher Points Calculator", url: "#" },
-  { name: "Conception Calculator", url: "#" },
-];
+import { allCalculators } from "@/lib/calculatorData";
 
 export default function HealthFitnessPage() {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const liveCalculators = healthCalculators.filter(calc => calc.url !== "#").length;
+  // Dynamically filter Health calculators from calculatorData
+  const healthCalculators = useMemo(() => {
+    return allCalculators.filter(calc => calc.category === 'Health');
+  }, []);
+
   const totalCalculators = healthCalculators.length;
 
   const filteredCalculators = useMemo(() => {
@@ -64,9 +21,10 @@ export default function HealthFitnessPage() {
     }
     const query = searchQuery.toLowerCase().trim();
     return healthCalculators.filter(calc =>
-      calc.name.toLowerCase().includes(query)
+      calc.name.toLowerCase().includes(query) ||
+      calc.keywords.some(keyword => keyword.toLowerCase().includes(query))
     );
-  }, [searchQuery]);
+  }, [searchQuery, healthCalculators]);
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -125,7 +83,7 @@ export default function HealthFitnessPage() {
             <div className="max-w-4xl mx-auto text-center mb-6">
               <h2 className="text-3xl font-bold text-gray-900 mb-3">💪 Health & Fitness Calculators</h2>
               <p className="text-gray-600 mb-4">
-                {liveCalculators} / {totalCalculators} calculators available
+                {totalCalculators} calculators available
               </p>
             </div>
             
@@ -147,32 +105,20 @@ export default function HealthFitnessPage() {
           <div className="container mx-auto px-4">
             {filteredCalculators.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                {filteredCalculators.map((calc) => {
-                  const isLive = calc.url !== "#";
-                  return isLive ? (
-                    <Link
-                      key={calc.name}
-                      href={calc.url}
-                      className="group block bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md hover:border-green-300 transition-all"
-                    >
+                {filteredCalculators.map((calc) => (
+                  <Link
+                    key={calc.url}
+                    href={calc.url}
+                    className="group block bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md hover:border-green-300 transition-all"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="text-xl">{calc.icon || '⚕️'}</span>
                       <h3 className="text-sm font-semibold text-gray-900 group-hover:text-green-600 transition-colors">
                         {calc.name}
                       </h3>
-                    </Link>
-                  ) : (
-                    <div
-                      key={calc.name}
-                      className="block bg-gray-50 rounded-lg border border-gray-200 p-4 opacity-60"
-                    >
-                      <h3 className="text-sm font-semibold text-gray-500">
-                        {calc.name}
-                        <span className="ml-2 text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded">
-                          Soon
-                        </span>
-                      </h3>
                     </div>
-                  );
-                })}
+                  </Link>
+                ))}
               </div>
             ) : (
               <div className="text-center py-12">

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from "next/link";
 import FatIntakeCalculator from "@/components/Calculator/FatIntakeCalculator";
 import {
@@ -247,32 +248,11 @@ export default function FatIntakeCalculatorPage() {
         Fat Intake Calculator - Calculate Your Daily Fat Needs and Omega-3 to Omega-6 Ratio for Optimal Health
       </h1>
 
-      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-3">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600" itemScope itemType="https://schema.org/BreadcrumbList">
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <a href="/" itemProp="item" className="hover:text-blue-600 transition-colors">
-                <span itemProp="name">Home</span>
-              </a>
-              <meta itemProp="position" content="1" />
-            </li>
-            <li className="text-gray-400">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <a href="/health" itemProp="item" className="hover:text-blue-600 transition-colors">
-                <span itemProp="name">Health</span>
-              </a>
-              <meta itemProp="position" content="2" />
-            </li>
-            <li className="text-gray-400">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <span itemProp="name" className="text-gray-900 font-semibold">
-                Fat Intake Calculator
-              </span>
-              <meta itemProp="position" content="3" />
-            </li>
-          </ol>
-        </div>
-      </nav>
+      {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Fat Intake Calculator (Free, No signup)"
+        calculatorUrl="/fat-intake-calculator"
+      />
 
       <FatIntakeCalculator />
 

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import MortgageCalculatorUK from '@/components/Calculator/MortgageCalculatorUK';
 import Link from 'next/link';
 import { Home, Calculator, Info } from 'lucide-react';
@@ -195,17 +196,11 @@ export default function MortgageCalculatorUKPage() {
       <h1 className="sr-only">UK Mortgage Calculator - Calculate Monthly Payments & Stamp Duty</h1>
 
       {/* Breadcrumb */}
-      <nav className="max-w-7xl mx-auto px-4 py-4" aria-label="Breadcrumb">
-        <ol className="flex items-center space-x-2 text-sm text-gray-600">
-          <li>
-            <Link href="/" className="hover:text-blue-600">
-              Home
-            </Link>
-          </li>
-          <li>/</li>
-          <li className="text-gray-900 font-medium">UK Mortgage Calculator</li>
-        </ol>
-      </nav>
+      {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="UK Mortgage Calculator"
+        calculatorUrl="/mortgage-calculator-uk"
+      />
 
       {/* Calculator */}
       <MortgageCalculatorUK />

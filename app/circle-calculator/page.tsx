@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import CircleCalculator from "@/components/Calculator/CircleCalculator";
 import Link from "next/link";
 

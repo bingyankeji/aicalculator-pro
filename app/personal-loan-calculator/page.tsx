@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from "next/link";
 import { PersonalLoanCalculator } from "@/components/Calculator/PersonalLoanCalculator";
 import { 
@@ -281,26 +282,11 @@ export default function PersonalLoanCalculatorPage() {
         Personal Loan Calculator - Compare Rates & Calculate Monthly Payments
       </h1>
 
-      {/* Breadcrumb Navigation */}
-      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-3">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600">
-            <li>
-              <Link href="/" className="hover:text-blue-600 transition-colors">
-                Home
-              </Link>
-            </li>
-            <li className="text-gray-400">/</li>
-            <li>
-              <Link href="/category/financial" className="hover:text-blue-600 transition-colors">
-                Financial
-              </Link>
-            </li>
-            <li className="text-gray-400">/</li>
-            <li className="text-gray-900 font-semibold">Personal Loan Calculator</li>
-          </ol>
-        </div>
-      </nav>
+      {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Personal Loan (Free, No signup)"
+        calculatorUrl="/personal-loan-calculator"
+      />
 
       {/* Calculator Section */}
       <section className="py-8 md:py-12" aria-label="Personal Loan Calculator Tool">

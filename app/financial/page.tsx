@@ -3,113 +3,16 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import Script from "next/script";
-
-// Financial Calculators - 80+ tools
-const financialCalculators = [
-  // Mortgage & Loans (15个)
-  { name: "Mortgage Calculator", url: "/mortgage-calculator" },
-  { name: "Home Loan Calculator", url: "/home-loan-calculator" },
-  { name: "Loan Calculator", url: "/loan-calculator" },
-  { name: "EMI Calculator", url: "/emi-calculator" },
-  { name: "Mortgage Payoff Calculator", url: "/mortgage-payoff-calculator" },
-        { name: "Payment Calculator", url: "/payment-calculator" },
-        { name: "Auto Loan Calculator", url: "/auto-loan-calculator" },
-  { name: "Student Loan Calculator", url: "/student-loan-calculator" },
-  { name: "Personal Loan Calculator", url: "#" },
-  { name: "FHA Loan Calculator", url: "#" },
-  { name: "VA Mortgage Calculator", url: "#" },
-  { name: "Home Affordability Calculator", url: "#" },
-  { name: "Refinance Calculator", url: "/refinance-calculator" },
-  { name: "Rent Calculator", url: "#" },
-  { name: "Amortization Calculator", url: "#" },
-  { name: "Down Payment Calculator", url: "#" },
-  { name: "Debt Consolidation Calculator", url: "#" },
-  { name: "Payback Period Calculator", url: "#" },
-  
-  // Investment & Savings (15个)
-  { name: "Investment Calculator", url: "/investment-calculator" },
-  { name: "Interest Calculator", url: "/interest-calculator" },
-  { name: "Compound Interest Calculator", url: "/compound-interest-calculator" },
-  { name: "Future Value Calculator", url: "/future-value-calculator" },
-  { name: "Present Value Calculator", url: "/present-value-calculator" },
-  { name: "Retirement Calculator", url: "/retirement-calculator" },
-  { name: "401k Calculator", url: "/401k-calculator" },
-  { name: "Roth IRA Calculator", url: "#" },
-  { name: "IRA Calculator", url: "#" },
-  { name: "Annuity Calculator", url: "#" },
-  { name: "Savings Calculator", url: "/savings-calculator" },
-  { name: "ROI Calculator", url: "/roi-calculator" },
-  { name: "APR Calculator", url: "#" },
-  { name: "Inflation Calculator", url: "/inflation-calculator" },
-  { name: "NPV Calculator", url: "#" },
-  
-  // Salary & Tax (15个)
-  { name: "Salary Calculator", url: "/salary-calculator" },
-  { name: "Income Tax Calculator", url: "/tax-calculator" },
-  { name: "Paycheck Calculator", url: "/pay-calculator" },
-  { name: "Take-Home-Paycheck Calculator", url: "#" },
-  { name: "Federal Tax Calculator", url: "/tax-calculator" },
-  { name: "Property Tax Calculator", url: "#" },
-  { name: "Capital Gains Tax Calculator", url: "#" },
-  { name: "Social Security Calculator", url: "/social-security-calculator" },
-  { name: "Estate Tax Calculator", url: "/estate-tax-calculator" },
-  { name: "VAT Calculator", url: "/vat-calculator" },
-  { name: "Pension Calculator", url: "/pension-calculator" },
-  { name: "Commission Calculator", url: "/commission-calculator" },
-  { name: "Hourly to Salary Calculator", url: "/hourly-to-salary-calculator" },
-  
-  // Credit Card & Debt (10个)
-  { name: "Credit Card Calculator", url: "/credit-card-calculator" },
-  { name: "Credit Card Payoff Calculator", url: "/credit-card-payoff-calculator" },
-  { name: "Debt Payoff Calculator", url: "/debt-payoff-calculator" },
-  { name: "Debt-to-Income Ratio Calculator", url: "/dti-calculator" },
-  { name: "Minimum Payment Calculator", url: "/minimum-payment-calculator" },
-  { name: "Balance Transfer Calculator", url: "/balance-transfer-calculator" },
-  { name: "APR vs APY Calculator", url: "/apr-vs-apy-calculator" },
-  { name: "Late Fee Calculator", url: "/late-fee-calculator" },
-  { name: "Credit Utilization Calculator", url: "#" },
-  { name: "FICO Score Estimator", url: "#" },
-  
-  // Business & Investment (15个)
-  { name: "Business Loan Calculator", url: "/business-loan-calculator" },
-  { name: "Break-even Calculator", url: "/breakeven-calculator" },
-  { name: "Profit Margin Calculator", url: "/profit-margin-calculator" },
-  { name: "Markup Calculator", url: "/markup-calculator" },
-  { name: "Payroll Calculator", url: "/payroll-calculator" },
-  { name: "Sales Tax Calculator", url: "/sales-tax-calculator" },
-  { name: "Discount Calculator", url: "/discount-calculator" },
-  { name: "Cash Flow Calculator", url: "/cash-flow-calculator" },
-  { name: "Lease Calculator", url: "/lease-calculator" },
-  { name: "Auto Lease Calculator", url: "#" },
-  { name: "Equipment Lease Calculator", url: "#" },
-  { name: "NPV Calculator", url: "#" },
-  { name: "IRR Calculator", url: "#" },
-  { name: "Depreciation Calculator", url: "/depreciation-calculator" },
-  { name: "Overtime Calculator", url: "/overtime-calculator" },
-  { name: "Amortization Calculator", url: "/amortization-calculator" },
-  { name: "Present Value Calculator", url: "#" },
-  { name: "Annuity Payout Calculator", url: "#" },
-  
-  // Other Financial (13个)
-  { name: "Currency Converter", url: "/currency-converter" },
-  { name: "Bond Calculator", url: "#" },
-  { name: "Stock Calculator", url: "#" },
-  { name: "Dividend Calculator", url: "#" },
-  { name: "Options Calculator", url: "#" },
-  { name: "Bitcoin Calculator", url: "#" },
-  { name: "Margin Calculator", url: "#" },
-  { name: "PIP Calculator", url: "#" },
-  { name: "Rental Property Calculator", url: "#" },
-  { name: "Cap Rate Calculator", url: "#" },
-  { name: "Lottery Calculator", url: "#" },
-  { name: "Tip Calculator", url: "/tip-calculator" },
-  { name: "Unit Price Calculator", url: "#" },
-];
+import { allCalculators } from "@/lib/calculatorData";
 
 export default function FinancialPage() {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const liveCalculators = financialCalculators.filter(calc => calc.url !== "#").length;
+  // Dynamically filter Financial calculators from calculatorData
+  const financialCalculators = useMemo(() => {
+    return allCalculators.filter(calc => calc.category === 'Financial');
+  }, []);
+
   const totalCalculators = financialCalculators.length;
 
   const filteredCalculators = useMemo(() => {
@@ -118,9 +21,10 @@ export default function FinancialPage() {
     }
     const query = searchQuery.toLowerCase().trim();
     return financialCalculators.filter(calc =>
-      calc.name.toLowerCase().includes(query)
+      calc.name.toLowerCase().includes(query) ||
+      calc.keywords.some(keyword => keyword.toLowerCase().includes(query))
     );
-  }, [searchQuery]);
+  }, [searchQuery, financialCalculators]);
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -179,7 +83,7 @@ export default function FinancialPage() {
             <div className="max-w-4xl mx-auto text-center mb-6">
               <h2 className="text-3xl font-bold text-gray-900 mb-3">💰 Financial Calculators</h2>
               <p className="text-gray-600 mb-4">
-                {liveCalculators} / {totalCalculators} calculators available
+                {totalCalculators} calculators available
               </p>
             </div>
             
@@ -201,39 +105,24 @@ export default function FinancialPage() {
           <div className="container mx-auto px-4">
             {filteredCalculators.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                {filteredCalculators.map((calc) => {
-                  const isLive = calc.url !== "#";
-                  return isLive ? (
-                    <Link
-                      key={calc.name}
-                      href={calc.url}
-                      className="group block p-6 bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-blue-300 transition-all duration-200"
-                    >
-                      <div className="flex items-center mb-4">
-                        <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
-                          <span className="text-2xl">🎯</span>
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600">{calc.name}</h3>
-                          <p className="text-sm text-gray-500">{calc.name}</p>
-                        </div>
+                {filteredCalculators.map((calc) => (
+                  <Link
+                    key={calc.url}
+                    href={calc.url}
+                    className="group block p-6 bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md hover:border-blue-300 transition-all duration-200"
+                  >
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                        <span className="text-2xl">{calc.icon || '🎯'}</span>
                       </div>
-                      <p className="text-gray-600 text-sm">{calc.name}</p>
-                    </Link>
-                  ) : (
-                    <div
-                      key={calc.name}
-                      className="block bg-gray-50 rounded-lg border border-gray-200 p-4 opacity-60"
-                    >
-                      <h3 className="text-sm font-semibold text-gray-500">
-                        {calc.name}
-                        <span className="ml-2 text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded">
-                          Soon
-                        </span>
-                      </h3>
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600">{calc.name}</h3>
+                        <p className="text-sm text-gray-500">{calc.name}</p>
+                      </div>
                     </div>
-                  );
-                })}
+                    <p className="text-gray-600 text-sm">{calc.name}</p>
+                  </Link>
+                ))}
               </div>
             ) : (
               <div className="text-center py-12">

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from 'next/link';
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId } from '@/config/site';
 

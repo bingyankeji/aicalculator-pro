@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import SurfaceAreaCalculator from '@/components/Calculator/SurfaceAreaCalculator';
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 import Link from 'next/link';

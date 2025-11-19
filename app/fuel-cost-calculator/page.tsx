@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import FuelCostCalculator from '@/components/Calculator/FuelCostCalculator';
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId } from '@/config/site';
 import Link from 'next/link';
@@ -221,32 +222,11 @@ export default function FuelCostCalculatorPage() {
         {/* SEO H1 - Hidden but present for SEO */}
         <h1 className="sr-only">Fuel Cost Calculator - Calculate Gas Expenses, Trip Costs, and Commute Budgets</h1>
         
-        {/* Breadcrumb Navigation */}
-        <nav className="bg-white border-b border-gray-200" aria-label="Breadcrumb">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <ol className="flex items-center space-x-2 py-4 text-sm" itemScope itemType="https://schema.org/BreadcrumbList">
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <Link href="/" className="flex items-center text-gray-500 hover:text-gray-700" itemProp="item">
-                  <Home className="h-4 w-4" />
-                  <span className="ml-2" itemProp="name">Home</span>
-                </Link>
-                <meta itemProp="position" content="1" />
-              </li>
-              <ChevronRight className="h-4 w-4 text-gray-400" />
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <Link href="/other" className="text-gray-500 hover:text-gray-700" itemProp="item">
-                  <span itemProp="name">Other</span>
-                </Link>
-                <meta itemProp="position" content="2" />
-              </li>
-              <ChevronRight className="h-4 w-4 text-gray-400" />
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <span className="text-gray-900 font-medium" itemProp="name">Fuel Cost Calculator</span>
-                <meta itemProp="position" content="3" />
-              </li>
-            </ol>
-          </div>
-        </nav>
+        {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Fuel Cost Calculator"
+        calculatorUrl="/fuel-cost-calculator"
+      />
 
         {/* Calculator Component */}
         <FuelCostCalculator />

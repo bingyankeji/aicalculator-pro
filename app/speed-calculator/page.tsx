@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import SpeedCalculator from '@/components/Calculator/SpeedCalculator';
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 
@@ -258,17 +259,11 @@ export default function SpeedCalculatorPage() {
           <h1 className="sr-only">Speed Calculator - Calculate Speed, Distance & Time with Multiple Units</h1>
           
           {/* Breadcrumbs */}
-          <nav className="mb-6" aria-label="Breadcrumb">
-            <ol className="flex items-center space-x-2 text-sm text-gray-600">
-              <li><a href="/" className="hover:text-blue-600">Home</a></li>
-              <li className="before:content-['/'] before:mx-2">
-                <a href="/other" className="hover:text-blue-600">Other</a>
-              </li>
-              <li className="before:content-['/'] before:mx-2">
-                <span className="text-gray-900 font-medium">Speed Calculator</span>
-              </li>
-            </ol>
-          </nav>
+          {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Speed Calculator"
+        calculatorUrl="/speed-calculator"
+      />
 
           {/* Calculator Component */}
           <SpeedCalculator />

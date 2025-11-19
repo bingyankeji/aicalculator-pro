@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { AverageCalculator } from "@/components/Calculator/AverageCalculator";
 
 export const metadata: Metadata = {
@@ -214,31 +215,11 @@ export default function AverageCalculatorPage() {
       
       <h1 className="sr-only">Average Calculator - Free Tool to Calculate Mean, Median, Mode, Range, Variance and Standard Deviation for Statistical Analysis</h1>
       
-      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-3">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600" 
-              itemScope itemType="https://schema.org/BreadcrumbList">
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <a href="/" itemProp="item" className="hover:text-blue-600 transition-colors">
-                <span itemProp="name">Home</span>
-              </a>
-              <meta itemProp="position" content="1" />
-            </li>
-            <li className="text-gray-400">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <a href="/calculators" itemProp="item" className="hover:text-blue-600 transition-colors">
-                <span itemProp="name">Calculators</span>
-              </a>
-              <meta itemProp="position" content="2" />
-            </li>
-            <li className="text-gray-400">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <span itemProp="name" className="text-gray-900 font-semibold">Average Calculator</span>
-              <meta itemProp="position" content="3" />
-            </li>
-          </ol>
-        </div>
-      </nav>
+      {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Average Calculator (Free, No signup)"
+        calculatorUrl="/average-calculator"
+      />
 
       <section className="py-8 md:py-12" aria-label="Average Calculator Tool">
         <div className="container mx-auto px-4">

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 import GFRCalculator from '@/components/Calculator/GFRCalculator';
 
@@ -294,33 +295,11 @@ export default function GFRCalculatorPage() {
         GFR Calculator - Free Glomerular Filtration Rate Calculator for Kidney Function Assessment (No Sign-up Required)
       </h1>
 
-      {/* Breadcrumb Navigation */}
-      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-3">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600" itemScope itemType="https://schema.org/BreadcrumbList">
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <a href="/" itemProp="item" className="hover:text-blue-600 transition-colors">
-                <span itemProp="name">Home</span>
-              </a>
-              <meta itemProp="position" content="1" />
-            </li>
-            <li className="text-gray-400">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <a href="/health-fitness" itemProp="item" className="hover:text-blue-600 transition-colors">
-                <span itemProp="name">Health & Fitness</span>
-              </a>
-              <meta itemProp="position" content="2" />
-            </li>
-            <li className="text-gray-400">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <span itemProp="name" className="text-gray-900 font-semibold">
-                GFR Calculator
-              </span>
-              <meta itemProp="position" content="3" />
-            </li>
-          </ol>
-        </div>
-      </nav>
+      {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="GFR Calculator (Free, No signup)"
+        calculatorUrl="/gfr-calculator"
+      />
 
       {/* Calculator Component */}
       <GFRCalculator />

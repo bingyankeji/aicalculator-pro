@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from "next/link";
 import { BMICalculator } from "@/components/Calculator/BMICalculator";
 
@@ -245,32 +246,11 @@ export default function BMICalculatorPage() {
       {/* SEO: Hidden H1 */}
       <h1 className="sr-only">BMI Calculator - Free Body Mass Index Calculator with Health Analysis and Ideal Weight Recommendations</h1>
       
-      {/* Breadcrumb Navigation */}
-      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-3">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600" 
-              itemScope itemType="https://schema.org/BreadcrumbList">
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <Link href="/" itemProp="item" className="hover:text-blue-600 transition-colors">
-                <span itemProp="name">Home</span>
-              </Link>
-              <meta itemProp="position" content="1" />
-            </li>
-            <li className="text-gray-400">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <Link href="/health-fitness" itemProp="item" className="hover:text-blue-600 transition-colors">
-                <span itemProp="name">Health & Fitness</span>
-              </Link>
-              <meta itemProp="position" content="2" />
-            </li>
-            <li className="text-gray-400">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <span itemProp="name" className="text-gray-900 font-semibold">BMI Calculator</span>
-              <meta itemProp="position" content="3" />
-            </li>
-          </ol>
-        </div>
-      </nav>
+      {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="BMI Calculator (Free, No signup)"
+        calculatorUrl="/bmi-calculator"
+      />
 
       {/* Calculator Section */}
       <section className="py-8 md:py-12" aria-label="BMI Calculator Tool">

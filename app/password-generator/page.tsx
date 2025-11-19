@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import PasswordGeneratorCalculator from '@/components/Calculator/PasswordGeneratorCalculator';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
@@ -209,32 +210,11 @@ export default function PasswordGeneratorPage() {
           Password Generator - Create Strong, Secure Random Passwords with Password Strength Analysis
         </h1>
 
-        {/* Breadcrumb Navigation */}
-        <nav className="mb-6" aria-label="Breadcrumb">
-          <div className="bg-white rounded-lg shadow-sm px-4 py-3">
-            <ol className="flex flex-wrap items-center space-x-2 text-sm">
-              <li>
-                <Link
-                  href="/"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  Home
-                </Link>
-              </li>
-              <ChevronRight className="h-4 w-4 text-gray-400" />
-              <li>
-                <Link
-                  href="/other"
-                  className="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  Other
-                </Link>
-              </li>
-              <ChevronRight className="h-4 w-4 text-gray-400" />
-              <li className="text-gray-700 font-medium">Password Generator</li>
-            </ol>
-          </div>
-        </nav>
+        {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Password Generator"
+        calculatorUrl="/password-generator"
+      />
 
         {/* Calculator Component */}
         <PasswordGeneratorCalculator />

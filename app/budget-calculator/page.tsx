@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import BudgetCalculator from '@/components/Calculator/BudgetCalculator';
 import Link from 'next/link';
 import { DollarSign, PiggyBank, Calculator, Info } from 'lucide-react';
@@ -206,17 +207,11 @@ export default function BudgetCalculatorPage() {
       <h1 className="sr-only">Budget Calculator - Free Monthly Budget Planner & Expense Tracker</h1>
 
       {/* Breadcrumb */}
-      <nav className="max-w-7xl mx-auto px-4 py-4" aria-label="Breadcrumb">
-        <ol className="flex items-center space-x-2 text-sm text-gray-600">
-          <li>
-            <Link href="/" className="hover:text-blue-600">
-              Home
-              </Link>
-            </li>
-          <li>/</li>
-          <li className="text-gray-900 font-medium">Budget Calculator</li>
-          </ol>
-      </nav>
+      {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Budget Calculator (Free, No signup)"
+        calculatorUrl="/budget-calculator"
+      />
 
       {/* Calculator */}
       <BudgetCalculator />

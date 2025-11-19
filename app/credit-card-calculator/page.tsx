@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CreditCardCalculator } from '@/components/Calculator/CreditCardCalculator';
 import { 
   getUrl, 
@@ -300,26 +301,11 @@ export default function CreditCardCalculatorPage() {
       {/* SEO: Hidden H1 */}
       <h1 className="sr-only">Credit Card Calculator - Free Credit Card Payoff Calculator with Interest Savings and Payment Strategy Comparison</h1>
 
-      {/* Breadcrumb Navigation */}
-      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-3">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600">
-            <li>
-              <a href="/" className="hover:text-blue-600 transition-colors">
-                Home
-              </a>
-            </li>
-            <li className="text-gray-400">/</li>
-            <li>
-              <a href="/financial" className="hover:text-blue-600 transition-colors">
-                Financial Calculators
-              </a>
-            </li>
-            <li className="text-gray-400">/</li>
-            <li className="text-gray-900 font-semibold">Credit Card Calculator</li>
-          </ol>
-        </div>
-      </nav>
+      {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Credit Card Calculator (Free, No signup)"
+        calculatorUrl="/credit-card-calculator"
+      />
 
       <div className="py-12 px-4">
         <div className="max-w-7xl mx-auto">

@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
-import { Calculator, Download, Printer, Share2, RotateCcw } from 'lucide-react';
+import { Calculator, Download, Printer, Share2, RotateCcw, Info } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import { ShareModal } from '@/components/ShareModal';
 import { useShare } from '@/hooks/useShare';
@@ -16,22 +16,24 @@ interface ColorBand {
   tolerance?: number;
   tempCoeff?: number;
   displayColor: string;
+  multiplierText?: string;
+  toleranceText?: string;
 }
 
 const COLORS: Record<string, ColorBand> = {
-  black: { color: 'Black', digit: 0, multiplier: 1, displayColor: '#000000' },
-  brown: { color: 'Brown', digit: 1, multiplier: 10, tolerance: 1, tempCoeff: 100, displayColor: '#8B4513' },
-  red: { color: 'Red', digit: 2, multiplier: 100, tolerance: 2, tempCoeff: 50, displayColor: '#FF0000' },
-  orange: { color: 'Orange', digit: 3, multiplier: 1000, tolerance: 0.05, tempCoeff: 15, displayColor: '#FFA500' },
-  yellow: { color: 'Yellow', digit: 4, multiplier: 10000, tolerance: 0.02, tempCoeff: 25, displayColor: '#FFFF00' },
-  green: { color: 'Green', digit: 5, multiplier: 100000, tolerance: 0.5, displayColor: '#008000' },
-  blue: { color: 'Blue', digit: 6, multiplier: 1000000, tolerance: 0.25, tempCoeff: 10, displayColor: '#0000FF' },
-  violet: { color: 'Violet', digit: 7, multiplier: 10000000, tolerance: 0.1, tempCoeff: 5, displayColor: '#9400D3' },
-  gray: { color: 'Gray', digit: 8, multiplier: 100000000, tolerance: 0.01, displayColor: '#808080' },
-  white: { color: 'White', digit: 9, multiplier: 1000000000, displayColor: '#FFFFFF' },
-  gold: { color: 'Gold', multiplier: 0.1, tolerance: 5, displayColor: '#FFD700' },
-  silver: { color: 'Silver', multiplier: 0.01, tolerance: 10, displayColor: '#C0C0C0' },
-  none: { color: 'None', tolerance: 20, displayColor: '#F3F4F6' },
+  black: { color: 'Black', digit: 0, multiplier: 1, displayColor: '#000000', multiplierText: '×1' },
+  brown: { color: 'Brown', digit: 1, multiplier: 10, tolerance: 1, tempCoeff: 100, displayColor: '#8B4513', multiplierText: '×10', toleranceText: '±1% (F)' },
+  red: { color: 'Red', digit: 2, multiplier: 100, tolerance: 2, tempCoeff: 50, displayColor: '#FF0000', multiplierText: '×100', toleranceText: '±2% (G)' },
+  orange: { color: 'Orange', digit: 3, multiplier: 1000, tolerance: 0.05, tempCoeff: 15, displayColor: '#FFA500', multiplierText: '×1K', toleranceText: '±0.05% (W)' },
+  yellow: { color: 'Yellow', digit: 4, multiplier: 10000, tolerance: 0.02, tempCoeff: 25, displayColor: '#FFFF00', multiplierText: '×10K', toleranceText: '±0.02% (P)' },
+  green: { color: 'Green', digit: 5, multiplier: 100000, tolerance: 0.5, displayColor: '#008000', multiplierText: '×100K', toleranceText: '±0.5% (D)' },
+  blue: { color: 'Blue', digit: 6, multiplier: 1000000, tolerance: 0.25, tempCoeff: 10, displayColor: '#0000FF', multiplierText: '×1M', toleranceText: '±0.25% (C)' },
+  violet: { color: 'Violet', digit: 7, multiplier: 10000000, tolerance: 0.1, tempCoeff: 5, displayColor: '#9400D3', multiplierText: '×10M', toleranceText: '±0.1% (B)' },
+  gray: { color: 'Gray', digit: 8, multiplier: 100000000, tolerance: 0.01, displayColor: '#808080', multiplierText: '×100M', toleranceText: '±0.01% (L)' },
+  white: { color: 'White', digit: 9, multiplier: 1000000000, displayColor: '#FFFFFF', multiplierText: '×1G' },
+  gold: { color: 'Gold', multiplier: 0.1, tolerance: 5, displayColor: '#FFD700', multiplierText: '×0.1', toleranceText: '±5% (J)' },
+  silver: { color: 'Silver', multiplier: 0.01, tolerance: 10, displayColor: '#C0C0C0', multiplierText: '×0.01', toleranceText: '±10% (K)' },
+  none: { color: 'None', tolerance: 20, displayColor: '#F3F4F6', toleranceText: '±20%' },
 };
 
 export default function ResistorCalculator() {
@@ -283,293 +285,401 @@ export default function ResistorCalculator() {
   const resistance = calculateResistance();
   const powerCalc = calculatePower();
 
+  // Helper to render color radio button
+  const ColorRadioButton = ({ 
+    color, 
+    colorKey, 
+    isSelected, 
+    onChange, 
+    showDigit = false 
+  }: { 
+    color: ColorBand; 
+    colorKey: string; 
+    isSelected: boolean; 
+    onChange: () => void;
+    showDigit?: boolean;
+  }) => (
+    <label className={`
+      flex items-center gap-2 px-3 py-2 rounded-lg border-2 cursor-pointer transition-all
+      ${isSelected ? 'border-blue-600 bg-blue-50' : 'border-gray-200 hover:border-blue-300 hover:bg-gray-50'}
+    `}>
+      <input 
+        type="radio" 
+        checked={isSelected} 
+        onChange={onChange}
+        className="w-4 h-4 text-blue-600"
+      />
+      <div 
+        className="w-8 h-8 rounded border-2 border-gray-400" 
+        style={{ backgroundColor: color.displayColor }}
+      />
+      <span className="text-sm font-medium text-gray-900">{color.color}</span>
+      {showDigit && color.digit !== undefined && (
+        <span className="text-xs text-gray-500 ml-auto">({color.digit})</span>
+      )}
+    </label>
+  );
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-6">
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-5 gap-6">
         {/* Input Section */}
-        <div className="xl:col-span-1 space-y-6">
-          {/* Band Count Selection */}
+        <div className="xl:col-span-2 space-y-6">
+          {/* Result at Top */}
           <Card className="shadow-lg">
-            <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50">
-              <CardTitle className="text-xl text-gray-900">Resistor Type</CardTitle>
-            </CardHeader>
-            <CardContent className="p-4 sm:p-6 space-y-4">
-              <div className="space-y-2">
-                <Label className="text-sm font-medium text-gray-700">Number of Bands</Label>
-                <div className="grid grid-cols-3 gap-2">
-                  <Button
-                    onClick={() => setBandCount(4)}
-                    variant={bandCount === 4 ? "default" : "outline"}
-                    className={bandCount === 4 ? "bg-blue-600" : ""}
-                  >
-                    4 Bands
-                  </Button>
-                  <Button
-                    onClick={() => setBandCount(5)}
-                    variant={bandCount === 5 ? "default" : "outline"}
-                    className={bandCount === 5 ? "bg-blue-600" : ""}
-                  >
-                    5 Bands
-                  </Button>
-                  <Button
-                    onClick={() => setBandCount(6)}
-                    variant={bandCount === 6 ? "default" : "outline"}
-                    className={bandCount === 6 ? "bg-blue-600" : ""}
-                  >
-                    6 Bands
-                  </Button>
+            <CardContent className="p-6">
+              <div className="text-center">
+                <p className="text-sm text-gray-600 mb-2">Result</p>
+                <p className="text-4xl font-bold text-blue-700">
+                  {formatResistance(resistance.value)}
+                </p>
+                <p className="text-lg text-gray-700 mt-2">
+                  ±{resistance.tolerance}% {COLORS[bandCount === 4 ? band4 : band5].toleranceText && 
+                    `(${COLORS[bandCount === 4 ? band4 : band5].toleranceText?.match(/\(([^)]+)\)/)?.[1] || ''})`}
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Visual Resistor Display */}
+          <Card className="shadow-lg">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-center py-4">
+                <div className="relative">
+                  {/* Resistor body */}
+                  <div className="w-64 h-24 bg-gradient-to-b from-amber-100 to-amber-200 rounded-xl border-2 border-gray-400 relative shadow-md">
+                    {/* Color bands */}
+                    <div className="absolute inset-0 flex items-center justify-around px-4">
+                      <div 
+                        className="w-7 h-full rounded-sm border-2 border-gray-600"
+                        style={{ backgroundColor: COLORS[band1].displayColor }}
+                      />
+                      <div 
+                        className="w-7 h-full rounded-sm border-2 border-gray-600"
+                        style={{ backgroundColor: COLORS[band2].displayColor }}
+                      />
+                      <div 
+                        className="w-7 h-full rounded-sm border-2 border-gray-600"
+                        style={{ backgroundColor: COLORS[band3].displayColor }}
+                      />
+                      <div 
+                        className="w-7 h-full rounded-sm border-2 border-gray-600"
+                        style={{ backgroundColor: COLORS[band4].displayColor }}
+                      />
+                      {bandCount >= 5 && (
+                        <div 
+                          className="w-7 h-full rounded-sm border-2 border-gray-600"
+                          style={{ backgroundColor: COLORS[band5].displayColor }}
+                        />
+                      )}
+                      {bandCount === 6 && (
+                        <div 
+                          className="w-7 h-full rounded-sm border-2 border-gray-600"
+                          style={{ backgroundColor: COLORS[band6].displayColor }}
+                        />
+                      )}
+                    </div>
+                    {/* Leads */}
+                    <div className="absolute -left-10 top-1/2 -translate-y-1/2 w-10 h-1.5 bg-gray-500 rounded-l" />
+                    <div className="absolute -right-10 top-1/2 -translate-y-1/2 w-10 h-1.5 bg-gray-500 rounded-r" />
+                  </div>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          {/* Color Band Selection */}
+          {/* Band Count Selection */}
           <Card className="shadow-lg">
             <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50">
-              <CardTitle className="text-xl text-gray-900">Color Bands</CardTitle>
+              <CardTitle className="text-lg text-gray-900">Number of Bands</CardTitle>
             </CardHeader>
-            <CardContent className="p-4 sm:p-6 space-y-4">
+            <CardContent className="p-4">
+              <select
+                value={bandCount}
+                onChange={(e) => setBandCount(Number(e.target.value) as 4 | 5 | 6)}
+                className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent font-medium"
+              >
+                <option value={4}>4 Band</option>
+                <option value={5}>5 Band</option>
+                <option value={6}>6 Band</option>
+              </select>
+            </CardContent>
+          </Card>
+
+          {/* Color Band Selection with Radio Buttons */}
+          <Card className="shadow-lg">
+            <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50">
+              <CardTitle className="text-lg text-gray-900">Color Bands Selection</CardTitle>
+            </CardHeader>
+            <CardContent className="p-4 space-y-5">
               {/* Band 1 */}
               <div className="space-y-2">
-                <Label className="text-sm font-medium text-gray-700">
-                  Band 1 (1st Digit)
+                <Label className="text-sm font-semibold text-gray-700 border-b pb-1 block">
+                  1st Band Color (First Digit)
                 </Label>
-                <select
-                  value={band1}
-                  onChange={(e) => setBand1(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
+                <div className="grid grid-cols-2 gap-2">
                   {getColorOptions(1).map(([key, color]) => (
-                    <option key={key} value={key}>{color.color}</option>
+                    <ColorRadioButton
+                      key={key}
+                      color={color}
+                      colorKey={key}
+                      isSelected={band1 === key}
+                      onChange={() => setBand1(key)}
+                      showDigit={true}
+                    />
                   ))}
-                </select>
+                </div>
               </div>
 
               {/* Band 2 */}
               <div className="space-y-2">
-                <Label className="text-sm font-medium text-gray-700">
-                  Band 2 (2nd Digit)
+                <Label className="text-sm font-semibold text-gray-700 border-b pb-1 block">
+                  2nd Band Color (Second Digit)
                 </Label>
-                <select
-                  value={band2}
-                  onChange={(e) => setBand2(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
+                <div className="grid grid-cols-2 gap-2">
                   {getColorOptions(2).map(([key, color]) => (
-                    <option key={key} value={key}>{color.color}</option>
+                    <ColorRadioButton
+                      key={key}
+                      color={color}
+                      colorKey={key}
+                      isSelected={band2 === key}
+                      onChange={() => setBand2(key)}
+                      showDigit={true}
+                    />
                   ))}
-                </select>
+                </div>
               </div>
 
               {/* Band 3 */}
               <div className="space-y-2">
-                <Label className="text-sm font-medium text-gray-700">
-                  {bandCount === 4 ? 'Band 3 (Multiplier)' : 'Band 3 (3rd Digit)'}
+                <Label className="text-sm font-semibold text-gray-700 border-b pb-1 block">
+                  {bandCount === 4 ? 'Multiplier Color' : '3rd Band Color (Third Digit)'}
                 </Label>
-                <select
-                  value={band3}
-                  onChange={(e) => setBand3(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
+                <div className="grid grid-cols-2 gap-2">
                   {getColorOptions(bandCount === 4 ? 4 : 3).map(([key, color]) => (
-                    <option key={key} value={key}>{color.color}</option>
+                    <ColorRadioButton
+                      key={key}
+                      color={color}
+                      colorKey={key}
+                      isSelected={band3 === key}
+                      onChange={() => setBand3(key)}
+                      showDigit={bandCount !== 4}
+                    />
                   ))}
-                </select>
+                </div>
               </div>
 
               {/* Band 4 */}
               <div className="space-y-2">
-                <Label className="text-sm font-medium text-gray-700">
-                  {bandCount === 4 ? 'Band 4 (Tolerance)' : 'Band 4 (Multiplier)'}
+                <Label className="text-sm font-semibold text-gray-700 border-b pb-1 block">
+                  {bandCount === 4 ? 'Tolerance Color' : 'Multiplier Color'}
                 </Label>
-                <select
-                  value={band4}
-                  onChange={(e) => setBand4(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
+                <div className="grid grid-cols-2 gap-2">
                   {getColorOptions(bandCount === 4 ? 5 : 4).map(([key, color]) => (
-                    <option key={key} value={key}>{color.color}</option>
+                    <ColorRadioButton
+                      key={key}
+                      color={color}
+                      colorKey={key}
+                      isSelected={band4 === key}
+                      onChange={() => setBand4(key)}
+                    />
                   ))}
-                </select>
+                </div>
               </div>
 
               {/* Band 5 (for 5 and 6 band resistors) */}
               {bandCount >= 5 && (
                 <div className="space-y-2">
-                  <Label className="text-sm font-medium text-gray-700">
-                    Band 5 (Tolerance)
+                  <Label className="text-sm font-semibold text-gray-700 border-b pb-1 block">
+                    Tolerance Color
                   </Label>
-                  <select
-                    value={band5}
-                    onChange={(e) => setBand5(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  >
+                  <div className="grid grid-cols-2 gap-2">
                     {getColorOptions(5).map(([key, color]) => (
-                      <option key={key} value={key}>{color.color}</option>
+                      <ColorRadioButton
+                        key={key}
+                        color={color}
+                        colorKey={key}
+                        isSelected={band5 === key}
+                        onChange={() => setBand5(key)}
+                      />
                     ))}
-                  </select>
+                  </div>
                 </div>
               )}
 
               {/* Band 6 (for 6 band resistors) */}
               {bandCount === 6 && (
                 <div className="space-y-2">
-                  <Label className="text-sm font-medium text-gray-700">
-                    Band 6 (Temp. Coefficient)
+                  <Label className="text-sm font-semibold text-gray-700 border-b pb-1 block">
+                    Temperature Coefficient
                   </Label>
-                  <select
-                    value={band6}
-                    onChange={(e) => setBand6(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  >
+                  <div className="grid grid-cols-2 gap-2">
                     {getColorOptions(6).map(([key, color]) => (
-                      <option key={key} value={key}>{color.color}</option>
+                      <ColorRadioButton
+                        key={key}
+                        color={color}
+                        colorKey={key}
+                        isSelected={band6 === key}
+                        onChange={() => setBand6(key)}
+                      />
                     ))}
-                  </select>
+                  </div>
                 </div>
               )}
             </CardContent>
           </Card>
 
-          {/* Reset Button */}
-          <Button 
-            onClick={handleReset}
-            variant="outline"
-            className="w-full gap-2"
-          >
-            <RotateCcw className="h-4 w-4" />
-            Reset
-          </Button>
+          {/* Calculate & Reset Buttons */}
+          <div className="flex gap-3">
+            <Button 
+              onClick={() => {/* Real-time calculation, this is just visual */}}
+              className="flex-1 bg-green-600 hover:bg-green-700 gap-2 py-6 text-lg"
+            >
+              <Calculator className="h-5 w-5" />
+              Calculate
+            </Button>
+            <Button 
+              onClick={handleReset}
+              variant="outline"
+              className="gap-2 py-6"
+            >
+              <RotateCcw className="h-5 w-5" />
+            </Button>
+          </div>
         </div>
 
         {/* Results Section */}
-        <div className="xl:col-span-2 space-y-6">
+        <div className="xl:col-span-3 space-y-6">
           <div ref={resultRef}>
-            {/* Visual Resistor Display */}
+            {/* Color Code Reference Table */}
             <Card className="shadow-lg">
               <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50">
-                <CardTitle className="text-xl text-gray-900">Visual Representation</CardTitle>
+                <CardTitle className="text-xl text-gray-900">Color Code Reference</CardTitle>
               </CardHeader>
               <CardContent className="p-6">
-                <div className="flex items-center justify-center py-8">
-                  <div className="relative">
-                    {/* Resistor body */}
-                    <div className="w-64 h-20 bg-gradient-to-b from-amber-100 to-amber-200 rounded-lg border-2 border-gray-400 relative">
-                      {/* Color bands */}
-                      <div className="absolute inset-0 flex items-center justify-around px-4">
-                        <div 
-                          className="w-6 h-full rounded-sm border border-gray-600"
-                          style={{ backgroundColor: COLORS[band1].displayColor }}
-                        />
-                        <div 
-                          className="w-6 h-full rounded-sm border border-gray-600"
-                          style={{ backgroundColor: COLORS[band2].displayColor }}
-                        />
-                        <div 
-                          className="w-6 h-full rounded-sm border border-gray-600"
-                          style={{ backgroundColor: COLORS[band3].displayColor }}
-                        />
-                        <div 
-                          className="w-6 h-full rounded-sm border border-gray-600"
-                          style={{ backgroundColor: COLORS[band4].displayColor }}
-                        />
-                        {bandCount >= 5 && (
-                          <div 
-                            className="w-6 h-full rounded-sm border border-gray-600"
-                            style={{ backgroundColor: COLORS[band5].displayColor }}
-                          />
-                        )}
-                        {bandCount === 6 && (
-                          <div 
-                            className="w-6 h-full rounded-sm border border-gray-600"
-                            style={{ backgroundColor: COLORS[band6].displayColor }}
-                          />
-                        )}
-                      </div>
-                      {/* Leads */}
-                      <div className="absolute -left-8 top-1/2 -translate-y-1/2 w-8 h-1 bg-gray-400" />
-                      <div className="absolute -right-8 top-1/2 -translate-y-1/2 w-8 h-1 bg-gray-400" />
-                    </div>
-                  </div>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm border-collapse">
+                    <thead>
+                      <tr className="bg-gray-100 border-b-2 border-gray-300">
+                        <th className="px-4 py-2 text-left font-semibold text-gray-700">Color</th>
+                        <th className="px-4 py-2 text-center font-semibold text-gray-700">1st & 2nd Band<br/>Significant Figures</th>
+                        <th className="px-4 py-2 text-center font-semibold text-gray-700">Multiplier</th>
+                        <th className="px-4 py-2 text-center font-semibold text-gray-700">Tolerance</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                      {Object.entries(COLORS).filter(([key]) => key !== 'none').map(([key, color]) => (
+                        <tr key={key} className="hover:bg-gray-50">
+                          <td className="px-4 py-2">
+                            <div className="flex items-center gap-2">
+                              <div 
+                                className="w-6 h-6 rounded border-2 border-gray-400" 
+                                style={{ backgroundColor: color.displayColor }}
+                              />
+                              <span className="font-medium">{color.color}</span>
+                            </div>
+                          </td>
+                          <td className="px-4 py-2 text-center">
+                            {color.digit !== undefined ? (
+                              <span className="font-semibold text-blue-600">{color.digit}</span>
+                            ) : (
+                              <span className="text-gray-400">-</span>
+                            )}
+                          </td>
+                          <td className="px-4 py-2 text-center">
+                            {color.multiplierText ? (
+                              <span className="font-semibold text-orange-600">{color.multiplierText}</span>
+                            ) : (
+                              <span className="text-gray-400">-</span>
+                            )}
+                          </td>
+                          <td className="px-4 py-2 text-center">
+                            {color.toleranceText ? (
+                              <span className="font-semibold text-green-600">{color.toleranceText}</span>
+                            ) : (
+                              <span className="text-gray-400">-</span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                      <tr className="hover:bg-gray-50">
+                        <td className="px-4 py-2">
+                          <div className="flex items-center gap-2">
+                            <div className="w-6 h-6 rounded border-2 border-gray-400 bg-white" />
+                            <span className="font-medium">None</span>
+                          </div>
+                        </td>
+                        <td className="px-4 py-2 text-center text-gray-400">-</td>
+                        <td className="px-4 py-2 text-center text-gray-400">-</td>
+                        <td className="px-4 py-2 text-center">
+                          <span className="font-semibold text-green-600">±20%</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </CardContent>
             </Card>
 
-            {/* Resistance Value */}
+            {/* Detailed Results */}
             <Card className="shadow-lg mt-6">
               <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50">
-                <CardTitle className="text-xl text-gray-900">Calculated Values</CardTitle>
+                <CardTitle className="text-xl text-gray-900">Detailed Results</CardTitle>
               </CardHeader>
               <CardContent className="p-6 space-y-4">
-                <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 text-center">
-                  <p className="text-sm text-gray-600 mb-2">Resistance:</p>
-                  <p className="text-3xl sm:text-4xl font-bold text-blue-700 break-all">
-                    {formatResistance(resistance.value)}
-                  </p>
-                  <p className="text-sm text-gray-600 mt-2">
-                    Tolerance: ±{resistance.tolerance}%
-                  </p>
-                  {resistance.tempCoeff && (
-                    <p className="text-sm text-gray-600 mt-1">
-                      Temperature Coefficient: {resistance.tempCoeff} ppm/°C
-                    </p>
-                  )}
-                </div>
-
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-center">
                     <p className="text-xs text-gray-600 mb-1">Min Value</p>
-                    <p className="text-lg font-semibold text-gray-900">
+                    <p className="text-lg font-semibold text-amber-700">
                       {formatResistance(resistance.value * (1 - resistance.tolerance / 100))}
                     </p>
                   </div>
-                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
-                    <p className="text-xs text-gray-600 mb-1">Nominal</p>
-                    <p className="text-lg font-semibold text-gray-900">
+                  <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-4 text-center">
+                    <p className="text-xs text-gray-600 mb-1">Nominal Value</p>
+                    <p className="text-xl font-bold text-blue-700">
                       {formatResistance(resistance.value)}
                     </p>
                   </div>
-                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-center">
                     <p className="text-xs text-gray-600 mb-1">Max Value</p>
-                    <p className="text-lg font-semibold text-gray-900">
+                    <p className="text-lg font-semibold text-amber-700">
                       {formatResistance(resistance.value * (1 + resistance.tolerance / 100))}
                     </p>
                   </div>
                 </div>
+
+                {resistance.tempCoeff && (
+                  <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                    <p className="text-sm text-gray-700">
+                      <span className="font-semibold">Temperature Coefficient:</span> {resistance.tempCoeff} ppm/°C
+                    </p>
+                  </div>
+                )}
               </CardContent>
             </Card>
 
             {/* Standard Series */}
             <Card className="shadow-lg mt-6">
               <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50">
-                <CardTitle className="text-xl text-gray-900">Standard Series Values</CardTitle>
+                <CardTitle className="text-xl text-gray-900">Nearest Standard Values</CardTitle>
               </CardHeader>
               <CardContent className="p-6">
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                    <div>
-                      <p className="font-medium text-gray-900">E12 Series (±10%)</p>
-                      <p className="text-xs text-gray-600">12 values per decade</p>
-                    </div>
-                    <p className="font-semibold text-blue-700">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="text-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                    <p className="text-xs text-gray-600 mb-1">E12 (±10%)</p>
+                    <p className="font-bold text-blue-700 text-lg">
                       {formatResistance(findNearestStandardValue(resistance.value, 'E12'))}
                     </p>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                    <div>
-                      <p className="font-medium text-gray-900">E24 Series (±5%)</p>
-                      <p className="text-xs text-gray-600">24 values per decade</p>
-                    </div>
-                    <p className="font-semibold text-blue-700">
+                  <div className="text-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                    <p className="text-xs text-gray-600 mb-1">E24 (±5%)</p>
+                    <p className="font-bold text-blue-700 text-lg">
                       {formatResistance(findNearestStandardValue(resistance.value, 'E24'))}
                     </p>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                    <div>
-                      <p className="font-medium text-gray-900">E96 Series (±1%)</p>
-                      <p className="text-xs text-gray-600">96 values per decade</p>
-                    </div>
-                    <p className="font-semibold text-blue-700">
+                  <div className="text-center p-3 bg-gray-50 rounded-lg border border-gray-200">
+                    <p className="text-xs text-gray-600 mb-1">E96 (±1%)</p>
+                    <p className="font-bold text-blue-700 text-lg">
                       {formatResistance(findNearestStandardValue(resistance.value, 'E96'))}
                     </p>
                   </div>
@@ -580,32 +690,33 @@ export default function ResistorCalculator() {
             {/* Power Calculator */}
             <Card className="shadow-lg mt-6">
               <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50">
-                <CardTitle className="text-xl text-gray-900">Power Calculator</CardTitle>
+                <CardTitle className="text-xl text-gray-900">
+                  <div className="flex items-center gap-2">
+                    Power Calculator
+                    <span className="text-xs font-normal text-gray-500">(Optional)</span>
+                  </div>
+                </CardTitle>
               </CardHeader>
               <CardContent className="p-6 space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label className="text-sm font-medium text-gray-700">
-                      Voltage (V) <span className="text-gray-500 text-xs">- Optional</span>
-                    </Label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="space-y-1">
+                    <Label className="text-sm font-medium text-gray-700">Voltage (V)</Label>
                     <input
                       type="number"
                       value={voltage}
                       onChange={(e) => setVoltage(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                       placeholder="12"
                       step="0.1"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label className="text-sm font-medium text-gray-700">
-                      Current (A) <span className="text-gray-500 text-xs">- Optional</span>
-                    </Label>
+                  <div className="space-y-1">
+                    <Label className="text-sm font-medium text-gray-700">Current (A)</Label>
                     <input
                       type="number"
                       value={current}
                       onChange={(e) => setCurrent(e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                       placeholder="0.01"
                       step="0.001"
                     />
@@ -613,61 +724,54 @@ export default function ResistorCalculator() {
                 </div>
 
                 {powerCalc && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                      <p className="text-xs text-gray-600 mb-1">Power Dissipation</p>
-                      <p className="text-xl font-bold text-green-700">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-3">
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-3 text-center">
+                      <p className="text-xs text-gray-600 mb-1">Power</p>
+                      <p className="text-lg font-bold text-green-700">
                         {powerCalc.power.toFixed(3)} W
                       </p>
                     </div>
                     {powerCalc.current && (
-                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-center">
                         <p className="text-xs text-gray-600 mb-1">Current</p>
-                        <p className="text-xl font-bold text-blue-700">
+                        <p className="text-lg font-bold text-blue-700">
                           {powerCalc.current.toFixed(3)} A
                         </p>
                       </div>
                     )}
                     {powerCalc.voltage && (
-                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-center">
                         <p className="text-xs text-gray-600 mb-1">Voltage</p>
-                        <p className="text-xl font-bold text-blue-700">
+                        <p className="text-lg font-bold text-blue-700">
                           {powerCalc.voltage.toFixed(2)} V
                         </p>
                       </div>
                     )}
                   </div>
                 )}
-
-                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-4">
-                  <p className="text-sm text-amber-800">
-                    <strong>Power Rating Guidelines:</strong>
-                  </p>
-                  <ul className="text-xs text-amber-700 mt-2 space-y-1 ml-4">
-                    <li>• 1/8W (0.125W) - Small signal circuits</li>
-                    <li>• 1/4W (0.25W) - General purpose</li>
-                    <li>• 1/2W (0.5W) - Power circuits</li>
-                    <li>• 1W+ - High power applications</li>
-                  </ul>
-                </div>
               </CardContent>
             </Card>
 
             {/* Series/Parallel Calculator */}
             <Card className="shadow-lg mt-6">
               <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50">
-                <CardTitle className="text-xl text-gray-900">Series & Parallel</CardTitle>
+                <CardTitle className="text-xl text-gray-900">
+                  <div className="flex items-center gap-2">
+                    Series & Parallel Calculator
+                    <span className="text-xs font-normal text-gray-500">(Optional)</span>
+                  </div>
+                </CardTitle>
               </CardHeader>
-              <CardContent className="p-6 space-y-6">
+              <CardContent className="p-6 space-y-5">
                 {/* Series */}
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">Series Connection</h3>
-                  <div className="flex gap-2 mb-3">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-sm">Series Connection (R_total = R1 + R2 + ...)</h3>
+                  <div className="flex gap-2 mb-2">
                     <input
                       type="number"
                       value={newSeriesValue}
                       onChange={(e) => setNewSeriesValue(e.target.value)}
-                      className="flex-1 px-4 py-2 border border-gray-300 rounded-lg"
+                      className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500"
                       placeholder="Enter resistance (Ω)"
                     />
                     <Button
@@ -677,32 +781,33 @@ export default function ResistorCalculator() {
                           setNewSeriesValue('');
                         }
                       }}
-                      className="bg-blue-600"
+                      className="bg-blue-600 px-4"
+                      size="sm"
                     >
                       Add
                     </Button>
                   </div>
                   {seriesResistors.length > 0 && (
                     <div className="space-y-2">
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5">
                         {seriesResistors.map((r, i) => (
                           <span
                             key={i}
-                            className="inline-flex items-center gap-2 px-3 py-1 bg-gray-100 rounded-lg text-sm"
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-gray-100 rounded text-xs"
                           >
                             {formatResistance(r)}
                             <button
                               onClick={() => setSeriesResistors(seriesResistors.filter((_, idx) => idx !== i))}
-                              className="text-red-600 hover:text-red-800"
+                              className="text-red-600 hover:text-red-800 font-bold"
                             >
                               ×
                             </button>
                           </span>
                         ))}
                       </div>
-                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
-                        <p className="text-sm text-gray-600">Total Series Resistance:</p>
-                        <p className="text-xl font-bold text-blue-700">
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-2.5 text-center">
+                        <p className="text-xs text-gray-600">Total:</p>
+                        <p className="text-lg font-bold text-blue-700">
                           {formatResistance(calculateSeries())}
                         </p>
                       </div>
@@ -712,13 +817,13 @@ export default function ResistorCalculator() {
 
                 {/* Parallel */}
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-3">Parallel Connection</h3>
-                  <div className="flex gap-2 mb-3">
+                  <h3 className="font-semibold text-gray-900 mb-2 text-sm">Parallel Connection (1/R_total = 1/R1 + 1/R2 + ...)</h3>
+                  <div className="flex gap-2 mb-2">
                     <input
                       type="number"
                       value={newParallelValue}
                       onChange={(e) => setNewParallelValue(e.target.value)}
-                      className="flex-1 px-4 py-2 border border-gray-300 rounded-lg"
+                      className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500"
                       placeholder="Enter resistance (Ω)"
                     />
                     <Button
@@ -728,32 +833,33 @@ export default function ResistorCalculator() {
                           setNewParallelValue('');
                         }
                       }}
-                      className="bg-blue-600"
+                      className="bg-blue-600 px-4"
+                      size="sm"
                     >
                       Add
                     </Button>
                   </div>
                   {parallelResistors.length > 0 && (
                     <div className="space-y-2">
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5">
                         {parallelResistors.map((r, i) => (
                           <span
                             key={i}
-                            className="inline-flex items-center gap-2 px-3 py-1 bg-gray-100 rounded-lg text-sm"
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-gray-100 rounded text-xs"
                           >
                             {formatResistance(r)}
                             <button
                               onClick={() => setParallelResistors(parallelResistors.filter((_, idx) => idx !== i))}
-                              className="text-red-600 hover:text-red-800"
+                              className="text-red-600 hover:text-red-800 font-bold"
                             >
                               ×
                             </button>
                           </span>
                         ))}
                       </div>
-                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
-                        <p className="text-sm text-gray-600">Total Parallel Resistance:</p>
-                        <p className="text-xl font-bold text-blue-700">
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-2.5 text-center">
+                        <p className="text-xs text-gray-600">Total:</p>
+                        <p className="text-lg font-bold text-blue-700">
                           {formatResistance(calculateParallel())}
                         </p>
                       </div>

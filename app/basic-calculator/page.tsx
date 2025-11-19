@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from 'next/link';
 import BasicCalculator from '@/components/Calculator/BasicCalculator';
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl, getCategoryUrl } from '@/config/site';
@@ -211,17 +212,11 @@ export default function BasicCalculatorPage() {
       {/* Breadcrumb Navigation */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-3">
-          <nav className="flex items-center space-x-2 text-sm" aria-label="Breadcrumb">
-            <Link href="/" className="text-blue-600 hover:text-blue-800 transition-colors">
-              Home
-            </Link>
-            <span className="text-gray-400">/</span>
-            <Link href={getCategoryUrl('math')} className="text-blue-600 hover:text-blue-800 transition-colors">
-              Math & Science
-            </Link>
-            <span className="text-gray-400">/</span>
-            <span className="text-gray-600 font-medium">Basic Calculator</span>
-          </nav>
+          {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Basic Calculator (Free, No signup)"
+        calculatorUrl="/basic-calculator"
+      />
         </div>
       </div>
 

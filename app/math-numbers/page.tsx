@@ -3,80 +3,16 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import Script from "next/script";
-
-// Math Calculators - 50+ tools
-const mathCalculators = [
-  // Basic Math (15个)
-  { name: "Percentage Calculator", url: "/percentage-calculator" },
-  { name: "Scientific Calculator", url: "/scientific-calculator" },
-  { name: "Basic Calculator", url: "#" },
-  { name: "Fraction Calculator", url: "#" },
-  { name: "Ratio Calculator", url: "#" },
-  { name: "Average Calculator", url: "#" },
-  { name: "Percent Error Calculator", url: "#" },
-  { name: "Binary Calculator", url: "#" },
-  { name: "Hex Calculator", url: "#" },
-  { name: "Rounding Calculator", url: "#" },
-  { name: "Scientific Notation Calculator", url: "#" },
-  { name: "Exponent Calculator", url: "#" },
-  { name: "Root Calculator", url: "#" },
-  { name: "Logarithm Calculator", url: "#" },
-  { name: "Prime Factorization Calculator", url: "#" },
-  
-  // Algebra & Equations (11个)
-  { name: "Graphing Calculator", url: "/graphing-calculator" },
-  { name: "Quadratic Formula Calculator", url: "/quadratic-formula-calculator" },
-  { name: "Linear Equation Solver", url: "#" },
-  { name: "System of Equations Solver", url: "#" },
-  { name: "Inequality Solver", url: "#" },
-  { name: "Polynomial Calculator", url: "#" },
-  { name: "Factor Calculator", url: "#" },
-  { name: "Simplify Calculator", url: "#" },
-  { name: "Expand Calculator", url: "#" },
-  { name: "GCF Calculator", url: "#" },
-  { name: "LCM Calculator", url: "#" },
-  
-  // Geometry & Trigonometry (12个)
-  { name: "Area Calculator", url: "/area-calculator" },
-  { name: "Volume Calculator", url: "/volume-calculator" },
-  { name: "Pythagorean Theorem Calculator", url: "/pythagorean-calculator" },
-  { name: "Triangle Calculator", url: "/triangle-calculator" },
-  { name: "Right Triangle Calculator", url: "/pythagorean-calculator" },
-  { name: "Circle Calculator", url: "/circle-calculator" },
-  { name: "Sphere Calculator", url: "#" },
-  { name: "Cylinder Calculator", url: "#" },
-  { name: "Cone Calculator", url: "#" },
-  { name: "Surface Area Calculator", url: "#" },
-  { name: "Distance Calculator", url: "#" },
-  { name: "Slope Calculator", url: "#" },
-  
-  // Statistics & Probability (8个)
-  { name: "Statistics Calculator", url: "#" },
-  { name: "Standard Deviation Calculator", url: "/standard-deviation-calculator" },
-  { name: "Mean Median Mode Calculator", url: "#" },
-  { name: "Probability Calculator", url: "#" },
-  { name: "Z-score Calculator", url: "#" },
-  { name: "Confidence Interval Calculator", url: "#" },
-  { name: "Sample Size Calculator", url: "#" },
-  { name: "P-value Calculator", url: "#" },
-  
-  // Academic & Education (3个)
-  { name: "Grade Calculator", url: "/grade-calculator" },
-  { name: "GPA Calculator", url: "/gpa-calculator" },
-  { name: "Test Score Calculator", url: "#" },
-  
-  // Other Math (5个)
-  { name: "Matrix Calculator", url: "#" },
-  { name: "Vector Calculator", url: "#" },
-  { name: "Permutation Calculator", url: "#" },
-  { name: "Combination Calculator", url: "#" },
-  { name: "Sequence Calculator", url: "#" },
-];
+import { allCalculators } from "@/lib/calculatorData";
 
 export default function MathNumbersPage() {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const liveCalculators = mathCalculators.filter(calc => calc.url !== "#").length;
+  // Dynamically filter Math calculators from calculatorData
+  const mathCalculators = useMemo(() => {
+    return allCalculators.filter(calc => calc.category === 'Math');
+  }, []);
+
   const totalCalculators = mathCalculators.length;
 
   const filteredCalculators = useMemo(() => {
@@ -85,9 +21,10 @@ export default function MathNumbersPage() {
     }
     const query = searchQuery.toLowerCase().trim();
     return mathCalculators.filter(calc =>
-      calc.name.toLowerCase().includes(query)
+      calc.name.toLowerCase().includes(query) ||
+      calc.keywords.some(keyword => keyword.toLowerCase().includes(query))
     );
-  }, [searchQuery]);
+  }, [searchQuery, mathCalculators]);
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -146,7 +83,7 @@ export default function MathNumbersPage() {
             <div className="max-w-4xl mx-auto text-center mb-6">
               <h2 className="text-3xl font-bold text-gray-900 mb-3">🔢 Math & Numbers Calculators</h2>
               <p className="text-gray-600 mb-4">
-                {liveCalculators} / {totalCalculators} calculators available
+                {totalCalculators} calculators available
               </p>
             </div>
             
@@ -168,32 +105,20 @@ export default function MathNumbersPage() {
           <div className="container mx-auto px-4">
             {filteredCalculators.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                {filteredCalculators.map((calc) => {
-                  const isLive = calc.url !== "#";
-                  return isLive ? (
-                    <Link
-                      key={calc.name}
-                      href={calc.url}
-                      className="group block bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md hover:border-purple-300 transition-all"
-                    >
+                {filteredCalculators.map((calc) => (
+                  <Link
+                    key={calc.url}
+                    href={calc.url}
+                    className="group block bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md hover:border-purple-300 transition-all"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="text-xl">{calc.icon || '🔢'}</span>
                       <h3 className="text-sm font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">
                         {calc.name}
                       </h3>
-                    </Link>
-                  ) : (
-                    <div
-                      key={calc.name}
-                      className="block bg-gray-50 rounded-lg border border-gray-200 p-4 opacity-60"
-                    >
-                      <h3 className="text-sm font-semibold text-gray-500">
-                        {calc.name}
-                        <span className="ml-2 text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded">
-                          Soon
-                        </span>
-                      </h3>
                     </div>
-                  );
-                })}
+                  </Link>
+                ))}
               </div>
             ) : (
               <div className="text-center py-12">

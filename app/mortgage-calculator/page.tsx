@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from "next/link";
 import { MortgageCalculatorV2 } from "@/components/Calculator/MortgageCalculatorV2";
 import { 
@@ -308,30 +309,11 @@ export default function MortgageCalculatorPage() {
       <h1 className="sr-only">Mortgage Calculator - Free Home Loan Payment Calculator with Affordability Analysis</h1>
       
       {/* Breadcrumb Navigation for SEO */}
-      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-3">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600" itemScope itemType="https://schema.org/BreadcrumbList">
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <Link href="/" itemProp="item" className="hover:text-blue-600 transition-colors">
-                <span itemProp="name">Home</span>
-              </Link>
-              <meta itemProp="position" content="1" />
-            </li>
-            <li className="text-gray-400">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <Link href="/financial" itemProp="item" className="hover:text-blue-600 transition-colors">
-                <span itemProp="name">Financial</span>
-              </Link>
-              <meta itemProp="position" content="2" />
-            </li>
-            <li className="text-gray-400">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <span itemProp="name" className="text-gray-900 font-semibold">Mortgage Calculator</span>
-              <meta itemProp="position" content="3" />
-            </li>
-          </ol>
-        </div>
-      </nav>
+      {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Mortgage Calculator (Free, No signup)"
+        calculatorUrl="/mortgage-calculator"
+      />
 
       {/* Calculator Section */}
       <section className="py-8 md:py-12" aria-label="Mortgage Calculator Tool">

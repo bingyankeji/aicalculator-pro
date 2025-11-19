@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import CashBackCalculator from '@/components/Calculator/CashBackCalculator';
 import Link from 'next/link';
 import { DollarSign, TrendingDown, Calculator, Info } from 'lucide-react';
@@ -203,17 +204,11 @@ export default function CashBackCalculatorPage() {
       <h1 className="sr-only">Cash Back or Low Interest Calculator - Compare Auto Loan Offers</h1>
 
       {/* Breadcrumb */}
-      <nav className="max-w-7xl mx-auto px-4 py-4" aria-label="Breadcrumb">
-        <ol className="flex items-center space-x-2 text-sm text-gray-600">
-          <li>
-            <Link href="/" className="hover:text-blue-600">
-              Home
-            </Link>
-          </li>
-          <li>/</li>
-          <li className="text-gray-900 font-medium">Cash Back Calculator</li>
-        </ol>
-      </nav>
+      {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Cash Back or Low Interest Calculator"
+        calculatorUrl="/cash-back-calculator"
+      />
 
       {/* Calculator */}
       <CashBackCalculator />

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getCategoryUrl, getStepUrl } from '@/config/site';
 import SwimmingCalculator from '@/components/Calculator/SwimmingCalculator';
 import Link from 'next/link';
@@ -266,17 +267,11 @@ export default function SwimmingCalculatorPage() {
       {/* Breadcrumb Navigation */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-3">
-          <nav className="flex items-center space-x-2 text-sm" aria-label="Breadcrumb">
-            <Link href="/" className="text-blue-600 hover:text-blue-800 transition-colors">
-              Home
-            </Link>
-            <span className="text-gray-400">/</span>
-            <Link href={getCategoryUrl('health')} className="text-blue-600 hover:text-blue-800 transition-colors">
-              Health & Fitness
-            </Link>
-            <span className="text-gray-400">/</span>
-            <span className="text-gray-600 font-medium">Swimming Calculator</span>
-          </nav>
+          {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Swimming Calculator (Free, No signup)"
+        calculatorUrl="/swimming-calculator"
+      />
         </div>
       </div>
 

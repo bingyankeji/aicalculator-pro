@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { MacroCalculator } from '@/components/Calculator/MacroCalculator';
 
 export const metadata: Metadata = {
@@ -235,41 +236,11 @@ export default function MacroCalculatorPage() {
         Macro Calculator - Free Macronutrient Calculator for Protein, Carbs, and Fats
       </h1>
 
-      {/* Breadcrumb Navigation */}
-      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-3">
-          <ol
-            className="flex items-center space-x-2 text-sm text-gray-600"
-            itemScope
-            itemType="https://schema.org/BreadcrumbList"
-          >
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <a href="/" itemProp="item" className="hover:text-blue-600 transition-colors">
-                <span itemProp="name">Home</span>
-              </a>
-              <meta itemProp="position" content="1" />
-            </li>
-            <li className="text-gray-400">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <a
-                href="/health-fitness"
-                itemProp="item"
-                className="hover:text-blue-600 transition-colors"
-              >
-                <span itemProp="name">Health & Fitness</span>
-              </a>
-              <meta itemProp="position" content="2" />
-            </li>
-            <li className="text-gray-400">/</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <span itemProp="name" className="text-gray-900 font-semibold">
-                Macro Calculator
-              </span>
-              <meta itemProp="position" content="3" />
-            </li>
-          </ol>
-        </div>
-      </nav>
+      {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Macro Calculator (Free, No signup)"
+        calculatorUrl="/macro-calculator"
+      />
 
       {/* Calculator Section */}
       <section className="py-8 md:py-12" aria-label="Calculator Tool">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import TriangleCalculator from "@/components/Calculator/TriangleCalculator";
 import Link from "next/link";
 

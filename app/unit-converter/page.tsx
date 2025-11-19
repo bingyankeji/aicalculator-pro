@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from 'next/link';
 import { UnitConverter } from '@/components/Calculator/UnitConverter';
 
@@ -209,17 +210,11 @@ export default function UnitConverterPage() {
       </h1>
 
       {/* Breadcrumb */}
-      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-3">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600">
-            <li><Link href="/" className="hover:text-blue-600">Home</Link></li>
-            <li className="text-gray-400">/</li>
-            <li><Link href="/math-numbers" className="hover:text-blue-600">Math & Numbers</Link></li>
-            <li className="text-gray-400">/</li>
-            <li className="text-gray-900 font-semibold">Unit Converter</li>
-          </ol>
-        </div>
-      </nav>
+      {/* Breadcrumb Navigation - Auto-categorized */}
+      <CalculatorBreadcrumb 
+        calculatorName="Unit Converter (Free, No signup)"
+        calculatorUrl="/unit-converter"
+      />
 
       {/* Calculator */}
       <section className="py-8 md:py-12" aria-label="Unit Converter Tool">

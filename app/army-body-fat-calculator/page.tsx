@@ -3,10 +3,12 @@ import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId,
 import ArmyBodyFatCalculator from '@/components/Calculator/ArmyBodyFatCalculator';
 
 export const metadata: Metadata = {
-  title: 'Army Body Fat Calculator - Military Body Composition Standards | AICalculator',
-  description: 'Free Army Body Fat Calculator - Calculate your body fat percentage using US military standards. Get instant results for Army, Navy, and Marine Corps body composition requirements with detailed analysis and improvement recommendations.',
+  title: 'Army Body Fat (Free, No signup) - Military Standards | AICalculator',
+  description: 'Free Army Body Fat Calculator with no sign-up required. Calculate your body fat percentage using US military standards. Get instant results for Army, Navy, and Marine Corps body composition requirements with detailed analysis and improvement recommendations.',
   keywords: [
     'army body fat calculator',
+    'free army body fat calculator',
+    'army body fat calculator no signup',
     'military body fat calculator',
     'navy body fat calculator',
     'marine corps body fat calculator',
@@ -31,8 +33,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'Army Body Fat Calculator - Military Body Composition Standards',
-    description: 'Calculate your body fat percentage using official US military standards. Instant results for Army, Navy, and Marine Corps requirements.',
+    title: 'Army Body Fat (Free, No signup) - AICalculator',
+    description: 'Free Army Body Fat Calculator with no sign-up required. Calculate your body fat percentage using official US military standards. Instant results for Army, Navy, and Marine Corps requirements.',
     type: 'website',
     url: getUrl('/army-body-fat-calculator'),
     siteName: 'AICalculator',
@@ -48,8 +50,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Army Body Fat Calculator - Military Standards',
-    description: 'Calculate body fat percentage using US military standards. Get instant results and improvement recommendations.',
+    title: 'Army Body Fat (Free, No signup) - AICalculator',
+    description: 'Free Army Body Fat Calculator with no sign-up required. Calculate body fat percentage using US military standards. Get instant results and improvement recommendations.',
     images: [getOgImage('army-body-fat')],
     creator: '@aicalculator',
   },

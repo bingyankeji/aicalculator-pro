@@ -5,10 +5,12 @@ import Link from 'next/link';
 import { Baby, Calendar, Heart, Info, Activity, Award } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Due Date Calculator - Pregnancy Calculator | Free Online Due Date & Week Calculator',
-  description: 'Free due date calculator with 3 calculation methods (LMP, conception, ultrasound). Get your estimated due date, pregnancy week, trimester timeline, prenatal checkup schedule, and baby development milestones.',
+  title: 'Due Date Calculator (Free, No signup) - Baby Due Date | AICalculator',
+  description: 'Free due date calculator with no sign-up required. With 3 calculation methods (LMP, conception, ultrasound). Get your estimated due date, pregnancy week, trimester timeline, prenatal checkup schedule, and baby development milestones.',
   keywords: [
     'due date calculator',
+    'free due date calculator',
+    'due date calculator no signup',
     'pregnancy calculator',
     'pregnancy due date calculator',
     'when is my due date',
@@ -42,8 +44,8 @@ export const metadata: Metadata = {
     canonical: getUrl('/due-date-calculator'),
   },
   openGraph: {
-    title: 'Due Date Calculator - Pregnancy Calculator & Timeline',
-    description: 'Calculate your due date using LMP, conception date, or ultrasound. Get complete pregnancy timeline with checkup schedule and milestones.',
+    title: 'Due Date Calculator (Free, No signup) - AICalculator',
+    description: 'Free due date calculator with no sign-up required. Calculate your due date using LMP, conception date, or ultrasound. Get complete pregnancy timeline with checkup schedule and milestones.',
     url: getUrl('/due-date-calculator'),
     siteName: 'AICalculator.pro',
     locale: 'en_US',
@@ -59,7 +61,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Due Date Calculator - Pregnancy Calculator & Timeline',
+    title: 'Due Date Calculator (Free, No signup) - AICalculator',
     description: 'Calculate due date with 3 methods. Get pregnancy timeline, checkup schedule, and milestones.',
     images: [getOgImage('pregnancy')],
     creator: '@AICalculatorPro',

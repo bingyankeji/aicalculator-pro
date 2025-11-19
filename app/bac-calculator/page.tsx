@@ -7,9 +7,9 @@ const calculatorUrl = '/bac-calculator';
 const calculatorName = 'BAC Calculator';
 
 export const metadata: Metadata = {
-  title: 'BAC Calculator - Blood Alcohol Content & DUI Legal Limit Checker',
-  description: 'Calculate your Blood Alcohol Content (BAC) with our free BAC calculator. Estimate metabolism time, find when it\'s safe to drive, and understand alcohol impairment levels. Based on the Widmark formula.',
-  keywords: ['bac calculator', 'blood alcohol calculator', 'blood alcohol content calculator', 'bac estimator', 'alcohol calculator', 'dui calculator', 'drunk driving calculator', 'alcohol metabolism calculator', 'widmark formula calculator', 'how drunk am i', 'when can i drive calculator', 'alcohol level calculator', 'breathalyzer calculator', 'drunk calculator', 'bac chart calculator', 'alcohol impairment calculator', 'legal limit calculator', 'sobriety calculator', 'alcohol blood test calculator', 'bac estimation'],
+  title: 'BAC Calculator (Free, No signup) - Blood Alcohol | AICalculator',
+  description: 'Free BAC calculator with no sign-up required. Calculate your Blood Alcohol Content (BAC). Estimate metabolism time, find when it\'s safe to drive, and understand alcohol impairment levels. Based on the Widmark formula.',
+  keywords: ['bac calculator', 'free bac calculator', 'bac calculator no signup', 'blood alcohol calculator', 'blood alcohol content calculator', 'bac estimator', 'alcohol calculator', 'dui calculator', 'drunk driving calculator', 'alcohol metabolism calculator', 'widmark formula calculator', 'how drunk am i', 'when can i drive calculator', 'alcohol level calculator', 'breathalyzer calculator', 'drunk calculator', 'bac chart calculator', 'alcohol impairment calculator', 'legal limit calculator', 'sobriety calculator', 'alcohol blood test calculator', 'bac estimation'],
   authors: [{ name: 'Calculator Tools' }],
   viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   robots: 'index, follow',
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     canonical: getUrl(calculatorUrl),
   },
   openGraph: {
-    title: 'BAC Calculator - Estimate Blood Alcohol Content',
-    description: 'Calculate BAC, estimate metabolism time, and learn when it\'s safe to drive. Free Blood Alcohol Content calculator with legal limit information.',
+    title: 'BAC Calculator (Free, No signup) - AICalculator',
+    description: 'Free BAC calculator with no sign-up required. Calculate BAC, estimate metabolism time, and learn when it\'s safe to drive. Blood Alcohol Content calculator with legal limit information.',
     url: getUrl(calculatorUrl),
     siteName: 'Calculator Tools',
     locale: 'en_US',
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BAC Calculator - Estimate Blood Alcohol Content',
-    description: 'Calculate BAC, estimate metabolism time, and learn when it\'s safe to drive. Free Blood Alcohol Content calculator with legal limit information.',
+    title: 'BAC Calculator (Free, No signup) - AICalculator',
+    description: 'Free BAC calculator with no sign-up required. Calculate BAC, estimate metabolism time, and learn when it\'s safe to drive. Blood Alcohol Content calculator with legal limit information.',
     images: [getOgImage()],
   },
 };

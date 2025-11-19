@@ -3,10 +3,12 @@ import LeanBodyMassCalculator from '@/components/Calculator/LeanBodyMassCalculat
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Lean Body Mass Calculator - Calculate LBM & Body Composition | AICalculator',
-  description: 'Free lean body mass calculator using Boer, James, and Hume formulas. Calculate your LBM, body fat percentage, muscle mass, and get personalized fitness recommendations with detailed analysis.',
+  title: 'Lean Body Mass (Free, No signup) - LBM Calculator | AICalculator',
+  description: 'Free lean body mass calculator with no sign-up required. Using Boer, James, and Hume formulas. Calculate your LBM, body fat percentage, muscle mass, and get personalized fitness recommendations with detailed analysis.',
   keywords: [
     'lean body mass calculator',
+    'free lean body mass calculator',
+    'lean body mass calculator no signup',
     'LBM calculator',
     'body composition calculator',
     'muscle mass calculator',
@@ -31,8 +33,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'Lean Body Mass Calculator - LBM & Body Composition Analysis',
-    description: 'Calculate your lean body mass using multiple formulas. Get body fat percentage, muscle mass estimates, and personalized fitness recommendations.',
+    title: 'Lean Body Mass (Free, No signup) - AICalculator',
+    description: 'Free lean body mass calculator with no sign-up required. Calculate your lean body mass using multiple formulas. Get body fat percentage, muscle mass estimates, and personalized fitness recommendations.',
     type: 'website',
     url: getUrl('/lean-body-mass-calculator'),
     siteName: 'AICalculator',
@@ -48,8 +50,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lean Body Mass Calculator - Body Composition Analysis',
-    description: 'Calculate LBM, body fat percentage, and muscle mass with multiple formulas and get personalized recommendations.',
+    title: 'Lean Body Mass (Free, No signup) - AICalculator',
+    description: 'Free lean body mass calculator with no sign-up required. Calculate LBM, body fat percentage, and muscle mass with multiple formulas and get personalized recommendations.',
     images: [getOgImage('lean-body-mass')],
     creator: '@aicalculator',
   },

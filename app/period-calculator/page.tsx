@@ -7,9 +7,9 @@ const calculatorUrl = '/period-calculator';
 const calculatorName = 'Period Calculator';
 
 export const metadata: Metadata = {
-  title: 'Period Calculator - Free Menstrual Cycle Tracker & Calendar',
-  description: 'Calculate your next period date, track your menstrual cycle, and predict ovulation with our free period calculator. Get a 6-month calendar with fertile window and PMS predictions.',
-  keywords: ['period calculator', 'menstrual cycle calculator', 'period tracker', 'next period calculator', 'menstrual calendar', 'cycle tracker', 'period prediction', 'when is my next period', 'fertile window calculator', 'ovulation predictor', 'pms calculator', 'period calendar', 'menstrual cycle tracker', 'period due date', 'cycle length calculator', 'irregular period calculator', 'period tracker app', 'menstruation calculator', 'period date predictor', 'cycle calendar'],
+  title: 'Period Calculator (Free, No signup) - Cycle Tracker | AICalculator',
+  description: 'Free period calculator with no sign-up required. Calculate your next period date, track your menstrual cycle, and predict ovulation. Get a 6-month calendar with fertile window and PMS predictions.',
+  keywords: ['period calculator', 'free period calculator', 'period calculator no signup', 'menstrual cycle calculator', 'period tracker', 'next period calculator', 'menstrual calendar', 'cycle tracker', 'period prediction', 'when is my next period', 'fertile window calculator', 'ovulation predictor', 'pms calculator', 'period calendar', 'menstrual cycle tracker', 'period due date', 'cycle length calculator', 'irregular period calculator', 'period tracker app', 'menstruation calculator', 'period date predictor', 'cycle calendar'],
   authors: [{ name: 'Calculator Tools' }],
   viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   robots: 'index, follow',
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     canonical: getUrl(calculatorUrl),
   },
   openGraph: {
-    title: 'Period Calculator - Track Your Menstrual Cycle',
-    description: 'Calculate next period date, track menstrual cycle, and predict ovulation. Free period tracker with 6-month calendar.',
+    title: 'Period Calculator (Free, No signup) - AICalculator',
+    description: 'Free period calculator with no sign-up required. Calculate next period date, track menstrual cycle, and predict ovulation. Period tracker with 6-month calendar.',
     url: getUrl(calculatorUrl),
     siteName: 'Calculator Tools',
     locale: 'en_US',
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Period Calculator - Track Your Menstrual Cycle',
-    description: 'Calculate next period date, track menstrual cycle, and predict ovulation. Free period tracker with 6-month calendar.',
+    title: 'Period Calculator (Free, No signup) - AICalculator',
+    description: 'Free period calculator with no sign-up required. Calculate next period date, track menstrual cycle, and predict ovulation. Period tracker with 6-month calendar.',
     images: [getOgImage()],
   },
 };

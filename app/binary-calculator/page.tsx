@@ -4,10 +4,12 @@ import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId,
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Binary Calculator - Convert Binary, Decimal, Hex, Octal | Free Online Tool',
-  description: 'Free binary calculator for number system conversion, binary arithmetic, and bitwise operations. Convert between binary, decimal, hexadecimal, and octal. Perform AND, OR, XOR, NOT operations with step-by-step solutions.',
+  title: 'Binary Calculator (Free, No signup) - Convert | AICalculator',
+  description: 'Free binary calculator with no sign-up required. Number system conversion, binary arithmetic, and bitwise operations. Convert between binary, decimal, hexadecimal, and octal. Perform AND, OR, XOR, NOT operations with step-by-step solutions.',
   keywords: [
     'binary calculator',
+    'free binary calculator',
+    'binary calculator no signup',
     'binary to decimal',
     'decimal to binary',
     'hex to binary',
@@ -32,8 +34,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'Binary Calculator - Convert & Calculate Binary Numbers',
-    description: 'Free binary calculator for conversion and operations. Convert between binary, decimal, hex, and octal. Perform bitwise AND, OR, XOR, NOT operations instantly.',
+    title: 'Binary Calculator (Free, No signup) - AICalculator',
+    description: 'Free binary calculator with no sign-up required. Conversion and operations. Convert between binary, decimal, hex, and octal. Perform bitwise AND, OR, XOR, NOT operations instantly.',
     type: 'website',
     url: getUrl('/binary-calculator'),
     siteName: 'AICalculator',
@@ -47,8 +49,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Binary Calculator - Convert & Calculate Binary Numbers',
-    description: 'Free binary calculator for conversion and bitwise operations. Convert between binary, decimal, hex, octal.',
+    title: 'Binary Calculator (Free, No signup) - AICalculator',
+    description: 'Free binary calculator with no sign-up required. Conversion and bitwise operations. Convert between binary, decimal, hex, octal.',
     images: [getOgImage('binary')],
     creator: '@aicalculator',
   },

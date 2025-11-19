@@ -3,11 +3,13 @@ import IdealWeightCalculator from "@/components/Calculator/IdealWeightCalculator
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Ideal Weight Calculator - Perfect Body Weight & Health Analysis | AI Calculator",
+  title: "Ideal Weight Calculator (Free, No signup) - Perfect Weight | AICalculator",
   description:
-    "Free ideal weight calculator using 6 scientific formulas (Robinson, Miller, Devine, Hamwi). Get personalized weight goals, BMI analysis, and health recommendations based on your height, gender, and body frame.",
+    "Free ideal weight calculator with no sign-up required. Uses 6 scientific formulas (Robinson, Miller, Devine, Hamwi). Get personalized weight goals, BMI analysis, and health recommendations based on your height, gender, and body frame.",
   keywords: [
     "ideal weight calculator",
+    "free ideal weight calculator",
+    "ideal weight calculator no signup",
     "ideal body weight",
     "target weight calculator",
     "healthy weight calculator",
@@ -29,18 +31,18 @@ export const metadata: Metadata = {
     "BMI calculator"
   ],
   openGraph: {
-    title: "Ideal Weight Calculator - Scientific Weight Analysis & Health Goals",
+    title: "Ideal Weight Calculator (Free, No signup) - AICalculator",
     description:
-      "Calculate your ideal weight using 6 proven formulas. Get personalized health recommendations and body type analysis for optimal wellness.",
+      "Free ideal weight calculator with no sign-up required. Calculate your ideal weight using 6 proven formulas. Get personalized health recommendations and body type analysis for optimal wellness.",
     type: "website",
     url: "https://aicalculator.pro/ideal-weight-calculator",
     siteName: "AI Calculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ideal Weight Calculator - Health & Wellness Tool",
+    title: "Ideal Weight Calculator (Free, No signup) - AICalculator",
     description:
-      "Free ideal weight calculator with body type analysis and health recommendations using scientific formulas.",
+      "Free ideal weight calculator with no sign-up required. Body type analysis and health recommendations using scientific formulas.",
     site: "@AICalculator",
   },
   alternates: {

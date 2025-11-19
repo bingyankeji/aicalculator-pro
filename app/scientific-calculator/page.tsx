@@ -2,12 +2,13 @@ import type { Metadata } from 'next';
 import { ScientificCalculator } from '@/components/Calculator/ScientificCalculator';
 
 export const metadata: Metadata = {
-  title: "Scientific Calculator - Free Online Scientific Calculator with Advanced Functions | AICalculator",
-  description: "Free online scientific calculator with trig functions (sin, cos, tan), logarithms, exponentials, memory, and history. Supports degrees and radians. Perfect for students and professionals.",
+  title: "Scientific Calculator (Free, No signup) - Advanced | AICalculator",
+  description: "Free scientific calculator with no sign-up required. Includes trig functions (sin, cos, tan), logarithms, exponentials, memory, and history. Supports degrees and radians. Perfect for students and professionals.",
   keywords: [
     "scientific calculator",
-    "online scientific calculator",
     "free scientific calculator",
+    "scientific calculator no signup",
+    "online scientific calculator",
     "calculator with sin cos tan",
     "trigonometric calculator",
     "logarithm calculator",
@@ -20,16 +21,16 @@ export const metadata: Metadata = {
     "engineering calculator",
   ],
   openGraph: {
-    title: "Scientific Calculator - Free Advanced Math Calculator",
-    description: "Powerful online scientific calculator with trigonometry, logarithms, memory functions, and more. Free to use for students and professionals.",
+    title: "Scientific Calculator (Free, No signup) - AICalculator",
+    description: "Free scientific calculator with no sign-up required. Powerful online calculator with trigonometry, logarithms, memory functions, and more. Free for students and professionals.",
     type: "website",
     url: "https://aicalculator.pro/scientific-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Scientific Calculator - Free Online Math Tool",
-    description: "Advanced scientific calculator with trig functions, logs, exponentials, and memory. Free online tool for complex calculations.",
+    title: "Scientific Calculator (Free, No signup) - AICalculator",
+    description: "Free scientific calculator with no sign-up required. Advanced calculator with trig functions, logs, exponentials, and memory for complex calculations.",
   },
   alternates: {
     canonical: "https://aicalculator.pro/scientific-calculator",

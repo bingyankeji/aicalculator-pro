@@ -7,9 +7,9 @@ const calculatorUrl = '/basic-calculator';
 const calculatorName = 'Basic Calculator';
 
 export const metadata: Metadata = {
-  title: 'Basic Calculator - Free Online Calculator for Math & Arithmetic',
-  description: 'Free online basic calculator for simple and complex math calculations. Perform addition, subtraction, multiplication, division, percentages, and square roots with keyboard support and calculation history.',
-  keywords: ['basic calculator', 'online calculator', 'free calculator', 'math calculator', 'simple calculator', 'arithmetic calculator', 'web calculator', 'calculator online', 'addition calculator', 'subtraction calculator', 'multiplication calculator', 'division calculator', 'percentage calculator', 'square root calculator', 'calculator with memory', 'calculator keyboard', 'scientific calculator basic', 'easy calculator', 'quick calculator', 'calculator tool'],
+  title: 'Basic Calculator (Free, No signup) - Math & Arithmetic | AICalculator',
+  description: 'Free basic calculator with no sign-up required. Online calculator for simple and complex math calculations. Perform addition, subtraction, multiplication, division, percentages, and square roots with keyboard support and calculation history.',
+  keywords: ['basic calculator', 'free basic calculator', 'basic calculator no signup', 'online calculator', 'free calculator', 'math calculator', 'simple calculator', 'arithmetic calculator', 'web calculator', 'calculator online', 'addition calculator', 'subtraction calculator', 'multiplication calculator', 'division calculator', 'percentage calculator', 'square root calculator', 'calculator with memory', 'calculator keyboard', 'scientific calculator basic', 'easy calculator', 'quick calculator', 'calculator tool'],
   authors: [{ name: 'Calculator Tools' }],
   viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   robots: 'index, follow',
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     canonical: getUrl(calculatorUrl),
   },
   openGraph: {
-    title: 'Basic Calculator - Free Online Calculator',
-    description: 'Free online calculator for all your math needs. Simple, fast, and reliable with keyboard support and calculation history.',
+    title: 'Basic Calculator (Free, No signup) - AICalculator',
+    description: 'Free basic calculator with no sign-up required. Online calculator for all your math needs. Simple, fast, and reliable with keyboard support and calculation history.',
     url: getUrl(calculatorUrl),
     siteName: 'Calculator Tools',
     locale: 'en_US',
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Basic Calculator - Free Online Calculator',
-    description: 'Free online calculator for all your math needs. Simple, fast, and reliable with keyboard support and calculation history.',
+    title: 'Basic Calculator (Free, No signup) - AICalculator',
+    description: 'Free basic calculator with no sign-up required. Simple, fast, and reliable for all your math needs with keyboard support and calculation history.',
     images: [getOgImage()],
   },
 };

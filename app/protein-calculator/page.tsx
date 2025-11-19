@@ -3,10 +3,12 @@ import Link from 'next/link';
 import { ProteinCalculator } from '@/components/Calculator/ProteinCalculator';
 
 export const metadata: Metadata = {
-  title: 'Protein Calculator - Daily Protein Intake Calculator for Muscle Gain & Fat Loss | AICalculator',
-  description: 'Calculate your daily protein needs based on weight, activity level, and fitness goals. Free protein calculator for cutting, maintenance, and bulking. Get personalized protein recommendations with meal planning tips.',
+  title: 'Protein Calculator (Free, No signup) - Daily Intake | AICalculator',
+  description: 'Free protein calculator with no sign-up required. Calculate your daily protein needs based on weight, activity level, and fitness goals. Free protein calculator for cutting, maintenance, and bulking. Get personalized protein recommendations with meal planning tips.',
   keywords: [
     'protein calculator',
+    'free protein calculator',
+    'protein calculator no signup',
     'daily protein intake calculator',
     'protein requirement calculator',
     'how much protein per day',
@@ -24,16 +26,16 @@ export const metadata: Metadata = {
     'protein for bodybuilding',
   ],
   openGraph: {
-    title: 'Free Protein Calculator - Calculate Daily Protein Needs',
-    description: 'Calculate your daily protein requirements based on weight, activity level, and fitness goals. Perfect for cutting, maintenance, and bulking phases.',
+    title: 'Protein Calculator (Free, No signup) - AICalculator',
+    description: 'Free protein calculator with no sign-up required. Calculate your daily protein requirements based on weight, activity level, and fitness goals. Perfect for cutting, maintenance, and bulking phases.',
     type: 'website',
     url: 'https://aicalculator.pro/protein-calculator',
     siteName: 'AICalculator',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Protein Calculator - Daily Protein Intake Calculator',
-    description: 'Calculate your daily protein needs for muscle gain, fat loss, or maintenance. Get personalized recommendations.',
+    title: 'Protein Calculator (Free, No signup) - AICalculator',
+    description: 'Free protein calculator with no sign-up required. Calculate your daily protein needs for muscle gain, fat loss, or maintenance. Get personalized recommendations.',
     site: '@AICalculator',
   },
   alternates: {

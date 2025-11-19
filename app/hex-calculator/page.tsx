@@ -4,10 +4,12 @@ import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId,
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Hex Calculator - Hexadecimal Converter & Color Code Tool | Free Online',
-  description: 'Free hexadecimal calculator for number conversion, hex arithmetic, and color code conversion. Convert between hex, decimal, binary, and octal. RGB to Hex converter with instant results.',
+  title: 'Hex Calculator (Free, No signup) - Hexadecimal | AICalculator',
+  description: 'Free hexadecimal calculator with no sign-up required. Number conversion, hex arithmetic, and color code conversion. Convert between hex, decimal, binary, and octal. RGB to Hex converter with instant results.',
   keywords: [
     'hex calculator',
+    'free hex calculator',
+    'hex calculator no signup',
     'hexadecimal calculator',
     'hex to decimal',
     'decimal to hex',
@@ -32,8 +34,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'Hex Calculator - Hexadecimal Converter & Color Code Tool',
-    description: 'Free hex calculator for conversion and operations. Convert between hex, decimal, binary, octal. RGB to Hex color converter with visual preview.',
+    title: 'Hex Calculator (Free, No signup) - AICalculator',
+    description: 'Free hex calculator with no sign-up required. Conversion and operations. Convert between hex, decimal, binary, octal. RGB to Hex color converter with visual preview.',
     type: 'website',
     url: getUrl('/hex-calculator'),
     siteName: 'AICalculator',
@@ -47,8 +49,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hex Calculator - Hexadecimal Converter & Color Tool',
-    description: 'Free hex calculator for number conversion and color codes. Convert hex, decimal, binary, octal.',
+    title: 'Hex Calculator (Free, No signup) - AICalculator',
+    description: 'Free hex calculator with no sign-up required. Number conversion and color codes. Convert hex, decimal, binary, octal.',
     images: [getOgImage('hex')],
     creator: '@aicalculator',
   },

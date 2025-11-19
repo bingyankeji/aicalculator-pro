@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import DiscountCalculator from '@/components/Calculator/DiscountCalculator';
 
 export const metadata: Metadata = {
-  title: "Discount Calculator - Calculate Sale Price, Savings & Discount Percentage",
-  description: "Free discount calculator to find sale prices, calculate savings, and determine discount percentages. Perfect for shopping, sales, and price comparisons. Stack multiple discounts instantly.",
+  title: "Discount Calculator (Free, No signup) - Sale Price | AICalculator",
+  description: "Free discount calculator with no sign-up required. Find sale prices, calculate savings, and determine discount percentages. Perfect for shopping, sales, and price comparisons. Stack multiple discounts instantly.",
   keywords: [
     "discount calculator",
+    "free discount calculator",
+    "discount calculator no signup",
     "sale price calculator",
     "percent off calculator",
     "savings calculator",
@@ -29,8 +31,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: "Free Discount Calculator - Calculate Sale Prices & Savings",
-    description: "Calculate discount percentages, sale prices, and total savings instantly. Stack multiple discounts and compare deals easily.",
+    title: "Discount Calculator (Free, No signup) - AICalculator",
+    description: "Free discount calculator with no sign-up required. Calculate discount percentages, sale prices, and total savings instantly. Stack multiple discounts and compare deals easily.",
     type: "website",
     url: "https://aicalculator.pro/discount-calculator",
     siteName: "AICalculator",
@@ -40,14 +42,14 @@ export const metadata: Metadata = {
         url: 'https://aicalculator.pro/og-discount.png',
         width: 1200,
         height: 630,
-        alt: 'Discount Calculator',
+        alt: 'Free Discount Calculator - No Sign-up Required',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Discount Calculator - Find Sale Prices & Savings",
-    description: "Calculate discounts, sale prices, and savings instantly. Perfect for shopping and comparing deals.",
+    title: "Discount Calculator (Free, No signup) - AICalculator",
+    description: "Free discount calculator with no sign-up required. Calculate discounts, sale prices, and savings instantly. Perfect for shopping and comparing deals.",
     images: ['https://aicalculator.pro/og-discount.png'],
     site: "@AICalculator",
     creator: '@aicalculator',

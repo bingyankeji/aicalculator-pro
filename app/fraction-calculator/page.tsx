@@ -2,10 +2,12 @@ import { Metadata } from "next";
 import { FractionCalculator } from "@/components/Calculator/FractionCalculator";
 
 export const metadata: Metadata = {
-  title: "Fraction Calculator - Add, Subtract, Multiply & Divide Fractions | Free Math Tool",
-  description: "Free fraction calculator to add, subtract, multiply, and divide fractions. Automatic simplification, mixed number conversion, and step-by-step solutions. Perfect for students and professionals.",
+  title: "Fraction Calculator (Free, No signup) - Math Tool | AICalculator",
+  description: "Free fraction calculator with no sign-up required. Add, subtract, multiply, and divide fractions. Automatic simplification, mixed number conversion, and step-by-step solutions. Perfect for students and professionals.",
   keywords: [
     "fraction calculator",
+    "free fraction calculator",
+    "fraction calculator no signup",
     "add fractions",
     "subtract fractions",
     "multiply fractions",
@@ -22,16 +24,16 @@ export const metadata: Metadata = {
     "math fraction calculator",
   ],
   openGraph: {
-    title: "Free Fraction Calculator - Add, Subtract, Multiply & Divide Fractions",
-    description: "Calculate fractions with automatic simplification and step-by-step solutions. Convert to decimals and mixed numbers instantly.",
+    title: "Fraction Calculator (Free, No signup) - AICalculator",
+    description: "Free fraction calculator with no sign-up required. Calculate fractions with automatic simplification and step-by-step solutions. Convert to decimals and mixed numbers instantly.",
     type: "website",
     url: "https://aicalculator.pro/fraction-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fraction Calculator - Solve Fraction Problems Instantly",
-    description: "Free fraction calculator with step-by-step solutions, simplification, and decimal conversion.",
+    title: "Fraction Calculator (Free, No signup) - AICalculator",
+    description: "Free fraction calculator with no sign-up required. Step-by-step solutions, simplification, and decimal conversion.",
     site: "@AICalculator",
   },
   alternates: {

@@ -7,9 +7,9 @@ const calculatorUrl = '/ovulation-calculator';
 const calculatorName = 'Ovulation Calculator';
 
 export const metadata: Metadata = {
-  title: 'Ovulation Calculator - Free Fertility Calendar & Ovulation Tracker',
-  description: 'Calculate your ovulation date, fertile window, and peak fertility days with our free ovulation calculator. Track your menstrual cycle and identify the best time for conception with a 6-month fertility calendar.',
-  keywords: ['ovulation calculator', 'fertility calculator', 'ovulation tracker', 'fertile window calculator', 'conception calculator', 'ovulation date predictor', 'menstrual cycle calculator', 'fertility calendar', 'ovulation predictor', 'best time to conceive', 'peak fertility days', 'pregnancy planning calculator', 'cycle tracker', 'fertile days calculator', 'when do i ovulate', 'ovulation calendar', 'fertility window', 'getting pregnant calculator', 'conception date calculator', 'ovulation prediction'],
+  title: 'Ovulation Calculator (Free, No signup) - Fertility | AICalculator',
+  description: 'Free ovulation calculator with no sign-up required. Calculate your ovulation date, fertile window, and peak fertility days. Track your menstrual cycle and identify the best time for conception with a 6-month fertility calendar.',
+  keywords: ['ovulation calculator', 'free ovulation calculator', 'ovulation calculator no signup', 'fertility calculator', 'ovulation tracker', 'fertile window calculator', 'conception calculator', 'ovulation date predictor', 'menstrual cycle calculator', 'fertility calendar', 'ovulation predictor', 'best time to conceive', 'peak fertility days', 'pregnancy planning calculator', 'cycle tracker', 'fertile days calculator', 'when do i ovulate', 'ovulation calendar', 'fertility window', 'getting pregnant calculator', 'conception date calculator', 'ovulation prediction'],
   authors: [{ name: 'Calculator Tools' }],
   viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   robots: 'index, follow',
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     canonical: getUrl(calculatorUrl),
   },
   openGraph: {
-    title: 'Ovulation Calculator - Track Your Fertile Window',
-    description: 'Calculate ovulation date, fertile window, and peak fertility days. Free ovulation tracker with 6-month fertility calendar.',
+    title: 'Ovulation Calculator (Free, No signup) - AICalculator',
+    description: 'Free ovulation calculator with no sign-up required. Calculate ovulation date, fertile window, and peak fertility days with 6-month fertility calendar.',
     url: getUrl(calculatorUrl),
     siteName: 'Calculator Tools',
     locale: 'en_US',
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ovulation Calculator - Track Your Fertile Window',
-    description: 'Calculate ovulation date, fertile window, and peak fertility days. Free ovulation tracker with 6-month fertility calendar.',
+    title: 'Ovulation Calculator (Free, No signup) - AICalculator',
+    description: 'Free ovulation calculator with no sign-up required. Calculate ovulation date, fertile window, and peak fertility days with 6-month fertility calendar.',
     images: [getOgImage()],
   },
 };

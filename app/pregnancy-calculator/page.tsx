@@ -3,10 +3,12 @@ import { PregnancyCalculator } from "@/components/Calculator/PregnancyCalculator
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Pregnancy Calculator - Due Date Calculator & Pregnancy Week Calculator | AICalculator",
-  description: "Free pregnancy calculator to estimate your due date and track pregnancy week by week. Calculate from LMP, conception date, or ultrasound. Get trimester info, milestones, and prenatal appointment schedule.",
+  title: "Pregnancy Calculator (Free, No signup) - Due Date | AICalculator",
+  description: "Free pregnancy calculator with no sign-up required. Estimate your due date and track pregnancy week by week. Calculate from LMP, conception date, or ultrasound. Get trimester info, milestones, and prenatal appointment schedule.",
   keywords: [
     "pregnancy calculator",
+    "free pregnancy calculator",
+    "pregnancy calculator no signup",
     "due date calculator",
     "pregnancy week calculator",
     "conception calculator",
@@ -23,16 +25,16 @@ export const metadata: Metadata = {
     "prenatal calculator",
   ],
   openGraph: {
-    title: "Pregnancy Calculator - Calculate Your Due Date | AICalculator",
-    description: "Free pregnancy calculator to estimate your due date from LMP, conception, or ultrasound. Track your pregnancy week by week with milestones and appointments.",
+    title: "Pregnancy Calculator (Free, No signup) - AICalculator",
+    description: "Free pregnancy calculator with no sign-up required. Estimate your due date from LMP, conception, or ultrasound. Track your pregnancy week by week with milestones and appointments.",
     type: "website",
     url: "https://aicalculator.pro/pregnancy-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pregnancy Calculator - Due Date Calculator",
-    description: "Calculate your due date and track pregnancy week by week. Free pregnancy calculator with trimester info and milestones.",
+    title: "Pregnancy Calculator (Free, No signup) - AICalculator",
+    description: "Free pregnancy calculator with no sign-up required. Calculate your due date and track pregnancy week by week with trimester info and milestones.",
     site: "@AICalculator",
   },
   alternates: {

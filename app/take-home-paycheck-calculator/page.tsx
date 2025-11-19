@@ -3,10 +3,12 @@ import TakeHomePaycheckCalculator from '@/components/Calculator/TakeHomePaycheck
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Take-Home Paycheck Calculator - Calculate Net Pay After Taxes | AICalculator',
-  description: 'Free take-home paycheck calculator with federal tax, state tax, FICA, 401(k), HSA, and other deductions. Calculate your net pay accurately for all 50 states with detailed breakdowns.',
+  title: 'Take Home Pay (Free, No signup) - After Tax Income | AICalculator',
+  description: 'Free take-home paycheck calculator with no sign-up required. With federal tax, state tax, FICA, 401(k), HSA, and other deductions. Calculate your net pay accurately for all 50 states with detailed breakdowns.',
   keywords: [
     'take home paycheck calculator',
+    'free take home pay calculator',
+    'take home pay calculator no signup',
     'net pay calculator',
     'paycheck calculator after taxes',
     'salary after tax calculator',
@@ -31,8 +33,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'Take-Home Paycheck Calculator - Calculate Net Pay After Taxes',
-    description: 'Calculate your take-home pay after federal tax, state tax, FICA, 401(k), HSA, and other deductions. Supports all 50 states with accurate tax calculations.',
+    title: 'Take Home Pay (Free, No signup) - AICalculator',
+    description: 'Free take-home paycheck calculator with no sign-up required. Calculate your take-home pay after federal tax, state tax, FICA, 401(k), HSA, and other deductions. Supports all 50 states with accurate tax calculations.',
     type: 'website',
     url: getUrl('/take-home-paycheck-calculator'),
     siteName: 'AICalculator',
@@ -46,8 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Take-Home Paycheck Calculator - Calculate Net Pay',
-    description: 'Calculate your take-home pay after all taxes and deductions. Supports all 50 states.',
+    title: 'Take Home Pay (Free, No signup) - AICalculator',
+    description: 'Free take-home pay calculator with no sign-up required. Calculate your take-home pay after all taxes and deductions. Supports all 50 states.',
     images: [getOgImage('take-home-paycheck')],
     creator: '@aicalculator',
   },

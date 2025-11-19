@@ -3,10 +3,12 @@ import HourlyToSalaryCalculator from '@/components/Calculator/HourlyToSalaryCalc
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Hourly to Salary Calculator - Convert Hourly Wage to Annual Salary | AICalculator',
-  description: 'Free hourly to salary calculator. Convert hourly wage to annual, monthly, weekly salary. Calculate overtime, benefits, after-tax income, and effective hourly rate. Compare part-time vs full-time earnings.',
+  title: 'Hourly to Salary (Free, No signup) - Annual Income | AICalculator',
+  description: 'Free hourly to salary calculator with no sign-up required. Convert hourly wage to annual, monthly, weekly salary. Calculate overtime, benefits, after-tax income, and effective hourly rate. Compare part-time vs full-time earnings.',
   keywords: [
     'hourly to salary calculator',
+    'free hourly to salary calculator',
+    'hourly to salary calculator no signup',
     'hourly wage calculator',
     'salary converter',
     'hourly rate to annual salary',
@@ -31,8 +33,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'Hourly to Salary Calculator - Convert Hourly Wage to Annual Salary',
-    description: 'Convert hourly wage to annual, monthly, weekly salary. Calculate overtime, benefits, taxes, and effective hourly rate. Free and accurate.',
+    title: 'Hourly to Salary (Free, No signup) - AICalculator',
+    description: 'Free hourly to salary calculator with no sign-up required. Convert hourly wage to annual, monthly, weekly salary. Calculate overtime, benefits, taxes, and effective hourly rate.',
     type: 'website',
     url: getUrl('/hourly-to-salary-calculator'),
     siteName: 'AICalculator',
@@ -46,8 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hourly to Salary Calculator - Convert Hourly Wage',
-    description: 'Convert hourly wage to annual salary with overtime, benefits, and tax calculations. Compare job offers and plan your finances.',
+    title: 'Hourly to Salary (Free, No signup) - AICalculator',
+    description: 'Free hourly to salary calculator with no sign-up required. Convert hourly wage to annual salary with overtime, benefits, and tax calculations. Compare job offers and plan your finances.',
     images: [getOgImage('hourly-salary')],
     creator: '@aicalculator'
   },

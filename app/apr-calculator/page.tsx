@@ -3,15 +3,15 @@ import APRCalculator from '@/components/Calculator/APRCalculator';
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'APR Calculator - Calculate True Annual Percentage Rate | Free Loan APR Tool',
-  description: 'Free APR calculator with all fees included. Calculate true APR vs nominal interest rate for personal loans, auto loans, mortgages, and credit cards. Compare APRs, understand TILA compliance, and see total loan costs.',
-  keywords: ['apr calculator', 'annual percentage rate calculator', 'true apr calculator', 'loan apr calculator', 'apr vs interest rate', 'apr comparison tool', 'effective apr calculator', 'nominal rate to apr', 'credit card apr calculator', 'mortgage apr calculator', 'auto loan apr', 'personal loan apr', 'apr with fees', 'tila apr calculator', 'truth in lending calculator', 'apr cost calculator', 'lower apr calculator', 'best apr rates', 'apr reduction calculator', 'apr impact calculator'],
+  title: 'APR Calculator (Free, No signup) - Annual Rate | AICalculator',
+  description: 'Free APR calculator with no sign-up required. With all fees included. Calculate true APR vs nominal interest rate for personal loans, auto loans, mortgages, and credit cards. Compare APRs, understand TILA compliance, and see total loan costs.',
+  keywords: ['apr calculator', 'free apr calculator', 'apr calculator no signup', 'annual percentage rate calculator', 'true apr calculator', 'loan apr calculator', 'apr vs interest rate', 'apr comparison tool', 'effective apr calculator', 'nominal rate to apr', 'credit card apr calculator', 'mortgage apr calculator', 'auto loan apr', 'personal loan apr', 'apr with fees', 'tila apr calculator', 'truth in lending calculator', 'apr cost calculator', 'lower apr calculator', 'best apr rates', 'apr reduction calculator', 'apr impact calculator'],
   authors: [{ name: 'AICalculator.pro Team' }],
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'APR Calculator - Calculate True Annual Percentage Rate',
-    description: 'Free APR calculator with fees. Calculate true APR vs nominal rate and see total loan costs for all loan types.',
+    title: 'APR Calculator (Free, No signup) - AICalculator',
+    description: 'Free APR calculator with no sign-up required. With fees. Calculate true APR vs nominal rate and see total loan costs for all loan types.',
     type: 'website',
     url: getUrl('/apr-calculator'),
     siteName: 'AICalculator',
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'APR Calculator - True Annual Percentage Rate',
-    description: 'Calculate true APR with all fees included. Compare APRs and understand total loan costs.',
+    title: 'APR Calculator (Free, No signup) - AICalculator',
+    description: 'Free APR calculator with no sign-up required. Calculate true APR with all fees included. Compare APRs and understand total loan costs.',
     images: [getOgImage('apr')],
     creator: '@aicalculator'
   },

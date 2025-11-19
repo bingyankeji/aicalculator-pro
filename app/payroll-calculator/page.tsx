@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import PayrollCalculator from '@/components/Calculator/PayrollCalculator';
 
 export const metadata: Metadata = {
-  title: 'Payroll Calculator - Calculate Net Pay, Taxes & Deductions | Free Payroll Tool',
-  description: 'Free payroll calculator to calculate net pay, federal and state taxes, Social Security, Medicare, and other deductions. Supports all US states and multiple pay frequencies.',
+  title: 'Payroll Calculator (Free, No signup) - Net Pay | AICalculator',
+  description: 'Free payroll calculator with no sign-up required. Calculate net pay, federal and state taxes, Social Security, Medicare, and other deductions. Supports all US states and multiple pay frequencies.',
   keywords: [
     'payroll calculator',
+    'free payroll calculator',
+    'payroll calculator no signup',
     'net pay calculator',
     'salary calculator',
     'tax calculator',
@@ -41,8 +43,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Free Payroll Calculator - Calculate Net Pay & Tax Deductions',
-    description: 'Calculate your net pay with accurate federal and state tax calculations. Supports all US states, multiple pay frequencies, and common deductions.',
+    title: 'Payroll Calculator (Free, No signup) - AICalculator',
+    description: 'Free payroll calculator with no sign-up required. Calculate your net pay with accurate federal and state tax calculations. Supports all US states, multiple pay frequencies, and common deductions.',
     url: 'https://calculator-tools.com/payroll-calculator',
     siteName: 'Calculator Tools',
     locale: 'en_US',
@@ -58,8 +60,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Payroll Calculator - Net Pay & Tax Tool',
-    description: 'Calculate your take-home pay with accurate tax calculations for all US states. Free payroll calculator with detailed breakdown.',
+    title: 'Payroll Calculator (Free, No signup) - AICalculator',
+    description: 'Free payroll calculator with no sign-up required. Calculate your take-home pay with accurate tax calculations for all US states. Detailed breakdown included.',
     images: ['https://calculator-tools.com/images/payroll-calculator-twitter.jpg'],
     creator: '@CalculatorTools',
   },

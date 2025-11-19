@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import SalesTaxCalculator from '@/components/Calculator/SalesTaxCalculator';
 
 export const metadata: Metadata = {
-  title: 'Sales Tax Calculator - Calculate State & Local Sales Tax | Free Tax Tool',
-  description: 'Free sales tax calculator for all US states and major cities. Calculate sales tax, add or remove tax from prices, and get accurate tax rates for business compliance.',
+  title: 'Sales Tax Calculator (Free, No signup) - Tax Amount | AICalculator',
+  description: 'Free sales tax calculator with no sign-up required. For all US states and major cities. Calculate sales tax, add or remove tax from prices, and get accurate tax rates for business compliance.',
   keywords: [
     'sales tax calculator',
+    'free sales tax calculator',
+    'sales tax calculator no signup',
     'state sales tax',
     'local sales tax',
     'tax calculator',
@@ -41,8 +43,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Free Sales Tax Calculator - State & Local Tax Rates',
-    description: 'Calculate accurate sales tax for all US states and major cities. Essential tool for businesses, retailers, and ecommerce compliance.',
+    title: 'Sales Tax Calculator (Free, No signup) - AICalculator',
+    description: 'Free sales tax calculator with no sign-up required. Calculate accurate sales tax for all US states and major cities. Essential tool for businesses, retailers, and ecommerce compliance.',
     url: 'https://calculator-tools.com/sales-tax-calculator',
     siteName: 'Calculator Tools',
     locale: 'en_US',
@@ -58,8 +60,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Sales Tax Calculator - All US States',
-    description: 'Calculate sales tax for any US state and major cities. Perfect for business compliance and pricing decisions.',
+    title: 'Sales Tax Calculator (Free, No signup) - AICalculator',
+    description: 'Free sales tax calculator with no sign-up required. Calculate sales tax for any US state and major cities. Perfect for business compliance and pricing decisions.',
     images: ['https://calculator-tools.com/images/sales-tax-calculator-twitter.jpg'],
     creator: '@CalculatorTools',
   },

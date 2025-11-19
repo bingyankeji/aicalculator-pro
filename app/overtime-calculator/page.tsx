@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import OvertimeCalculator from '@/components/Calculator/OvertimeCalculator';
 
 export const metadata: Metadata = {
-  title: 'Overtime Calculator - Calculate Overtime Pay & Labor Law Compliance | Free Tool',
-  description: 'Free overtime calculator with labor law compliance checking. Calculate overtime pay, double time, and ensure FLSA compliance. Supports state-specific overtime rules.',
+  title: 'Overtime Calculator (Free, No signup) - OT Pay | AICalculator',
+  description: 'Free overtime calculator with no sign-up required. With labor law compliance checking. Calculate overtime pay, double time, and ensure FLSA compliance. Supports state-specific overtime rules.',
   keywords: [
     'overtime calculator',
+    'free overtime calculator',
+    'overtime calculator no signup',
     'overtime pay calculator',
     'time and a half calculator',
     'double time calculator',
@@ -41,8 +43,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Free Overtime Calculator - Pay & Compliance Analysis',
-    description: 'Calculate overtime pay with labor law compliance checking. Supports federal and state-specific overtime rules for accurate payroll calculations.',
+    title: 'Overtime Calculator (Free, No signup) - AICalculator',
+    description: 'Free overtime calculator with no sign-up required. Calculate overtime pay with labor law compliance checking. Supports federal and state-specific overtime rules for accurate payroll calculations.',
     url: 'https://calculator-tools.com/overtime-calculator',
     siteName: 'Calculator Tools',
     locale: 'en_US',
@@ -58,8 +60,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Overtime Calculator - Labor Law Compliance',
-    description: 'Calculate overtime pay and ensure labor law compliance. Supports federal and state overtime rules for accurate payroll.',
+    title: 'Overtime Calculator (Free, No signup) - AICalculator',
+    description: 'Free overtime calculator with no sign-up required. Calculate overtime pay and ensure labor law compliance. Supports federal and state overtime rules for accurate payroll.',
     images: ['https://calculator-tools.com/images/overtime-calculator-twitter.jpg'],
     creator: '@CalculatorTools',
   },

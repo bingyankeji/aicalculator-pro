@@ -3,10 +3,12 @@ import CommissionCalculator from '@/components/Calculator/CommissionCalculator';
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Commission Calculator - Calculate Sales Commission & Earnings | AICalculator',
-  description: 'Free commission calculator for sales professionals. Calculate flat, tiered, and individual sales commissions. Track targets, analyze earnings, compute after-tax income, and optimize your commission structure.',
+  title: 'Commission Calculator (Free, No signup) - Sales Income | AICalculator',
+  description: 'Free commission calculator with no sign-up required. For sales professionals. Calculate flat, tiered, and individual sales commissions. Track targets, analyze earnings, compute after-tax income, and optimize your commission structure.',
   keywords: [
     'commission calculator',
+    'free commission calculator',
+    'commission calculator no signup',
     'sales commission calculator',
     'commission rate calculator',
     'tiered commission calculator',
@@ -31,8 +33,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'Commission Calculator - Calculate Your Sales Commission & Earnings',
-    description: 'Calculate your sales commission with flat, tiered, or individual rates. Track targets, analyze earnings, and see after-tax income. Perfect for sales professionals.',
+    title: 'Commission Calculator (Free, No signup) - AICalculator',
+    description: 'Free commission calculator with no sign-up required. Calculate your sales commission with flat, tiered, or individual rates. Track targets, analyze earnings, and see after-tax income. Perfect for sales professionals.',
     type: 'website',
     url: getUrl('/commission-calculator'),
     siteName: 'AICalculator',
@@ -46,8 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Commission Calculator - Calculate Sales Commission',
-    description: 'Calculate your commission earnings with flat, tiered, or individual rates. Track targets and optimize your sales income.',
+    title: 'Commission Calculator (Free, No signup) - AICalculator',
+    description: 'Free commission calculator with no sign-up required. Calculate your commission earnings with flat, tiered, or individual rates. Track targets and optimize your sales income.',
     images: [getOgImage('commission')],
     creator: '@aicalculator'
   },

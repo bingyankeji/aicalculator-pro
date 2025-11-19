@@ -3,10 +3,12 @@ import APRvsAPYCalculator from '@/components/Calculator/APRvsAPYCalculator';
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'APR vs APY Calculator - Annual Percentage Rate vs Yield | Compound Interest',
-  description: 'Free APR vs APY calculator. Understand the difference between APR and APY. Convert rates, see how compounding frequency affects real interest rates on savings accounts and loans.',
+  title: 'APR vs APY (Free, No signup) - Interest Comparison | AICalculator',
+  description: 'Free APR vs APY calculator with no sign-up required. Understand the difference between APR and APY. Convert rates, see how compounding frequency affects real interest rates on savings accounts and loans.',
   keywords: [
     'apr vs apy calculator',
+    'free apr vs apy calculator',
+    'apr vs apy calculator no signup',
     'apr to apy converter',
     'apy to apr converter',
     'annual percentage yield calculator',
@@ -31,8 +33,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'APR vs APY Calculator - Compare Annual Percentage Rates',
-    description: 'Calculate and compare APR vs APY. Understand compound interest, convert between rates, and see how compounding frequency affects your real returns or costs.',
+    title: 'APR vs APY (Free, No signup) - AICalculator',
+    description: 'Free APR vs APY calculator with no sign-up required. Calculate and compare APR vs APY. Understand compound interest, convert between rates, and see how compounding frequency affects your real returns or costs.',
     type: 'website',
     url: getUrl('/apr-vs-apy-calculator'),
     siteName: 'AICalculator',
@@ -46,8 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'APR vs APY Calculator - Interest Rate Converter',
-    description: 'Convert APR to APY and understand compound interest. Free calculator shows how compounding frequency affects real rates.',
+    title: 'APR vs APY (Free, No signup) - AICalculator',
+    description: 'Free APR vs APY calculator with no sign-up required. Convert APR to APY and understand compound interest. Shows how compounding frequency affects real rates.',
     images: [getOgImage('apr-apy')],
     creator: '@aicalculator'
   },

@@ -3,10 +3,12 @@ import Link from "next/link";
 import { PayCalculator } from "@/components/Calculator/PayCalculator";
 
 export const metadata: Metadata = {
-  title: "Paycheck Calculator - Free Net Pay Calculator with Tax & Deductions",
-  description: "Calculate your take-home pay after federal tax, state tax, FICA, 401(k), and other deductions. See your net pay by paycheck frequency: weekly, bi-weekly, semi-monthly, monthly, or annually.",
+  title: "Pay Calculator (Free, No signup) - Paycheck Calculator | AICalculator",
+  description: "Free pay calculator with no sign-up required. Calculate your take-home pay after federal tax, state tax, FICA, 401(k), and other deductions. See your net pay by paycheck frequency: weekly, bi-weekly, semi-monthly, monthly, or annually.",
   keywords: [
     "paycheck calculator",
+    "free paycheck calculator",
+    "paycheck calculator no signup",
     "pay calculator",
     "net pay calculator",
     "take home pay calculator",
@@ -23,16 +25,16 @@ export const metadata: Metadata = {
     "hourly paycheck calculator"
   ],
   openGraph: {
-    title: "Paycheck Calculator - Calculate Your Take-Home Pay",
-    description: "Free paycheck calculator to calculate net pay after taxes and deductions. See your actual take-home pay by pay frequency.",
+    title: "Pay Calculator (Free, No signup) - AICalculator",
+    description: "Free pay calculator with no sign-up required. Calculate net pay after taxes and deductions. See your actual take-home pay by pay frequency.",
     type: "website",
     url: "https://aicalculator.pro/pay-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Paycheck Calculator - Net Pay After Taxes",
-    description: "Calculate your take-home pay with federal tax, state tax, FICA, and deductions.",
+    title: "Pay Calculator (Free, No signup) - AICalculator",
+    description: "Free pay calculator with no sign-up required. Calculate your take-home pay with federal tax, state tax, FICA, and deductions.",
     site: "@aicalculator",
   },
   alternates: {

@@ -3,10 +3,12 @@ import PensionCalculator from '@/components/Calculator/PensionCalculator';
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Pension Calculator - Calculate Defined Benefit Pension | Retirement Income Estimator',
-  description: 'Free pension calculator for defined benefit plans. Calculate monthly pension, compare lump sum vs annuity, survivor benefits, COLA adjustments, and tax impact. Plan your retirement income.',
+  title: 'Pension Calculator (Free, No signup) - Retirement Income | AICalculator',
+  description: 'Free pension calculator with no sign-up required. For defined benefit plans. Calculate monthly pension, compare lump sum vs annuity, survivor benefits, COLA adjustments, and tax impact. Plan your retirement income.',
   keywords: [
     'pension calculator',
+    'free pension calculator',
+    'pension calculator no signup',
     'defined benefit calculator',
     'pension estimator',
     'retirement pension calculator',
@@ -31,8 +33,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'Pension Calculator - Calculate Your Retirement Pension Benefits',
-    description: 'Calculate your defined benefit pension, compare payout options, analyze survivor benefits, and estimate retirement income with our comprehensive pension calculator.',
+    title: 'Pension Calculator (Free, No signup) - AICalculator',
+    description: 'Free pension calculator with no sign-up required. Calculate your defined benefit pension, compare payout options, analyze survivor benefits, and estimate retirement income with our comprehensive pension calculator.',
     type: 'website',
     url: getUrl('/pension-calculator'),
     siteName: 'AICalculator',
@@ -46,8 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pension Calculator - Estimate Your Retirement Pension',
-    description: 'Calculate monthly pension benefits, compare lump sum options, and plan your retirement income. Free defined benefit pension calculator.',
+    title: 'Pension Calculator (Free, No signup) - AICalculator',
+    description: 'Free pension calculator with no sign-up required. Calculate monthly pension benefits, compare lump sum options, and plan your retirement income. Defined benefit pension calculator.',
     images: [getOgImage('pension')],
     creator: '@aicalculator'
   },

@@ -13,10 +13,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Inflation Calculator - Free Purchasing Power Calculator with Historical Data | AICalculator',
-  description: 'Calculate inflation impact and purchasing power loss over time. Free inflation calculator shows how much money loses value, future value calculations, and investment recommendations to beat inflation.',
+  title: 'Inflation Calculator (Free, No signup) - Purchasing Power | AICalculator',
+  description: 'Free inflation calculator with no sign-up required. Calculate inflation impact and purchasing power loss over time. Shows how much money loses value, future value calculations, and investment recommendations to beat inflation.',
   keywords: [
     'inflation calculator',
+    'free inflation calculator',
+    'inflation calculator no signup',
     'purchasing power calculator',
     'inflation rate calculator',
     'cost of living calculator',
@@ -43,8 +45,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'Free Inflation Calculator - Calculate Purchasing Power & Money Value',
-    description: 'Calculate how inflation affects your money over time. See purchasing power loss, future value projections, and get recommendations to protect wealth from inflation.',
+    title: 'Inflation Calculator (Free, No signup) - AICalculator',
+    description: 'Free inflation calculator with no sign-up required. Calculate how inflation affects your money over time. See purchasing power loss, future value projections, and get recommendations to protect wealth from inflation.',
     type: 'website',
     url: getUrl('/inflation-calculator'),
     siteName: 'AICalculator',
@@ -54,14 +56,14 @@ export const metadata: Metadata = {
         url: getOgImage('inflation'),
         width: 1200,
         height: 630,
-        alt: 'Inflation Calculator',
+        alt: 'Free Inflation Calculator - No Sign-up Required',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Inflation Calculator - Purchasing Power & Money Value',
-    description: 'Calculate inflation impact on money value. Get purchasing power analysis and investment recommendations to beat inflation.',
+    title: 'Inflation Calculator (Free, No signup) - AICalculator',
+    description: 'Free inflation calculator with no sign-up required. Calculate inflation impact on money value. Get purchasing power analysis and investment recommendations to beat inflation.',
     images: [getOgImage('inflation')],
     site: '@AICalculator',
     creator: '@aicalculator',

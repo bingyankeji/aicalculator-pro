@@ -12,10 +12,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Credit Card Calculator - Free Credit Card Payoff Calculator with Interest Savings | Debt Payoff Tool',
-  description: 'Calculate credit card payoff time, total interest, and compare payment strategies. Free credit card calculator shows how much you can save by paying more than the minimum. Plan your debt freedom today.',
+  title: 'Credit Card Calculator (Free, No signup) - Payoff Plan | AICalculator',
+  description: 'Free credit card calculator with no sign-up required. Calculate credit card payoff time, total interest, and compare payment strategies. Shows how much you can save by paying more than the minimum. Plan your debt freedom today.',
   keywords: [
     'credit card calculator',
+    'free credit card calculator',
+    'credit card calculator no signup',
     'credit card payoff calculator',
     'credit card payment calculator',
     'credit card interest calculator',
@@ -42,8 +44,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'Free Credit Card Payoff Calculator - Calculate Interest & Savings',
-    description: 'Calculate your credit card payoff time, compare payment strategies, and discover how much interest you can save. Get personalized recommendations for debt freedom.',
+    title: 'Credit Card Calculator (Free, No signup) - AICalculator',
+    description: 'Free credit card calculator with no sign-up required. Calculate your credit card payoff time, compare payment strategies, and discover how much interest you can save. Get personalized recommendations for debt freedom.',
     type: 'website',
     url: getUrl('/credit-card-calculator'),
     siteName: 'AICalculator',
@@ -53,14 +55,14 @@ export const metadata: Metadata = {
         url: getOgImage('credit-card'),
         width: 1200,
         height: 630,
-        alt: 'Credit Card Calculator',
+        alt: 'Free Credit Card Calculator - No Sign-up Required',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Credit Card Calculator - Payoff Time & Interest Savings',
-    description: 'Calculate payoff time, compare strategies, and save thousands in interest. Free credit card calculator with personalized recommendations.',
+    title: 'Credit Card Calculator (Free, No signup) - AICalculator',
+    description: 'Free credit card calculator with no sign-up required. Calculate payoff time, compare strategies, and save thousands in interest with personalized recommendations.',
     images: [getOgImage('credit-card')],
     site: '@AICalculator',
     creator: '@aicalculator',

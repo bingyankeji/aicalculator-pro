@@ -12,10 +12,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "Investment Calculator - Free Lump Sum vs Dollar-Cost Averaging (DCA) Calculator | AICalculator",
-  description: "Compare lump sum vs dollar-cost averaging investment strategies with our free calculator. See compound growth curves, future value projections, and inflation-adjusted returns. Make smarter investment decisions.",
+  title: "Investment Calculator (Free, No signup) - ROI | AICalculator",
+  description: "Free investment calculator with no sign-up required. Compare lump sum vs dollar-cost averaging investment strategies. See compound growth curves, future value projections, and inflation-adjusted returns. Make smarter investment decisions.",
   keywords: [
     "investment calculator",
+    "free investment calculator",
+    "investment calculator no signup",
     "lump sum vs dca",
     "dollar cost averaging calculator",
     "compound interest calculator",
@@ -42,8 +44,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: "Free Investment Calculator - Lump Sum vs DCA Comparison",
-    description: "Compare investment strategies with detailed compound growth analysis. See which approach works best for your financial goals.",
+    title: "Investment Calculator (Free, No signup) - AICalculator",
+    description: "Free investment calculator with no sign-up required. Compare investment strategies with detailed compound growth analysis. See which approach works best for your financial goals.",
     type: "website",
     url: getUrl('/investment-calculator'),
     siteName: "AICalculator",
@@ -53,14 +55,14 @@ export const metadata: Metadata = {
         url: getOgImage('investment'),
         width: 1200,
         height: 630,
-        alt: 'Investment Calculator',
+        alt: 'Free Investment Calculator - No Sign-up Required',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Investment Calculator - Lump Sum vs DCA",
-    description: "Compare investment strategies and visualize compound growth over time. Free calculator with inflation adjustment.",
+    title: "Investment Calculator (Free, No signup) - AICalculator",
+    description: "Free investment calculator with no sign-up required. Compare investment strategies and visualize compound growth over time with inflation adjustment.",
     images: [getOgImage('investment')],
     site: "@AICalculator",
     creator: '@aicalculator',

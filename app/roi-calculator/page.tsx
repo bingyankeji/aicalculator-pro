@@ -3,10 +3,12 @@ import Link from 'next/link';
 import { ROICalculator } from '@/components/Calculator/ROICalculator';
 
 export const metadata: Metadata = {
-  title: 'ROI Calculator - Return on Investment Calculator with Annualized Returns | Free Tool',
-  description: 'Calculate ROI (Return on Investment) with our free ROI calculator. Compute net profit, percentage returns, annualized ROI, and break-even analysis. Perfect for stocks, real estate, business investments, and more.',
+  title: 'ROI Calculator (Free, No signup) - Return on Investment | AICalculator',
+  description: 'Free ROI calculator with no sign-up required. Calculate ROI (Return on Investment). Compute net profit, percentage returns, annualized ROI, and break-even analysis. Perfect for stocks, real estate, business investments, and more.',
   keywords: [
     'roi calculator',
+    'free roi calculator',
+    'roi calculator no signup',
     'return on investment calculator',
     'investment return calculator',
     'roi calculation',
@@ -23,16 +25,16 @@ export const metadata: Metadata = {
     'portfolio return calculator',
   ],
   openGraph: {
-    title: 'Free ROI Calculator - Calculate Return on Investment',
-    description: 'Calculate investment returns, ROI percentage, annualized returns, and net profit. Analyze investment performance with detailed breakdowns and recommendations.',
+    title: 'ROI Calculator (Free, No signup) - AICalculator',
+    description: 'Free ROI calculator with no sign-up required. Calculate investment returns, ROI percentage, annualized returns, and net profit. Analyze investment performance with detailed breakdowns and recommendations.',
     type: 'website',
     url: 'https://aicalculator.pro/roi-calculator',
     siteName: 'AICalculator',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ROI Calculator - Return on Investment Calculator',
-    description: 'Calculate ROI, annualized returns, and net profit for your investments. Free online tool with detailed analysis.',
+    title: 'ROI Calculator (Free, No signup) - AICalculator',
+    description: 'Free ROI calculator with no sign-up required. Calculate ROI, annualized returns, and net profit for your investments with detailed analysis.',
     site: '@AICalculator',
   },
   alternates: {

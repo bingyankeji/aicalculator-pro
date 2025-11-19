@@ -2,10 +2,12 @@ import { Metadata } from "next";
 import { CalorieCalculator } from "@/components/Calculator/CalorieCalculator";
 
 export const metadata: Metadata = {
-  title: "Calorie Calculator - Free Daily Calorie Needs Calculator with BMR & TDEE",
-  description: "Calculate your daily calorie needs with our free calorie calculator. Get personalized BMR, TDEE, and macronutrient recommendations for weight loss, maintenance, or muscle gain. Includes smart analysis and meal planning guidance.",
+  title: "Calorie Calculator (Free, No signup) - Daily Needs | AICalculator",
+  description: "Free calorie calculator with no sign-up required. Calculate your daily calorie needs. Get personalized BMR, TDEE, and macronutrient recommendations for weight loss, maintenance, or muscle gain. Includes smart analysis and meal planning guidance.",
   keywords: [
     "calorie calculator",
+    "free calorie calculator",
+    "calorie calculator no signup",
     "BMR calculator",
     "TDEE calculator",
     "daily calorie needs",
@@ -19,7 +21,6 @@ export const metadata: Metadata = {
     "maintenance calories",
     "Mifflin St Jeor",
     "Harris Benedict",
-    "free calorie calculator",
     "how to calculate daily calories",
     "calorie deficit for weight loss",
     "TDEE calculator online",
@@ -27,16 +28,16 @@ export const metadata: Metadata = {
     "daily calorie intake calculator"
   ],
   openGraph: {
-    title: "Calorie Calculator - Calculate Daily Calorie Needs for Your Goals",
-    description: "Free calorie calculator with BMR and TDEE calculation. Get personalized calorie goals and macro recommendations for weight loss, maintenance, or muscle gain.",
+    title: "Calorie Calculator (Free, No signup) - AICalculator",
+    description: "Free calorie calculator with no sign-up required. Get BMR and TDEE calculation with personalized calorie goals and macro recommendations for weight loss, maintenance, or muscle gain.",
     type: "website",
     url: "https://aicalculator.pro/calorie-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Calorie Calculator - BMR & TDEE Calculator",
-    description: "Calculate your daily calorie needs with personalized BMR, TDEE, and macronutrient recommendations. Free online tool with smart analysis.",
+    title: "Calorie Calculator (Free, No signup) - AICalculator",
+    description: "Free calorie calculator with no sign-up required. Calculate your daily calorie needs with personalized BMR, TDEE, and macronutrient recommendations.",
     site: "@AICalculator",
   },
   alternates: {

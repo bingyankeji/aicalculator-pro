@@ -3,10 +3,12 @@ import Link from "next/link";
 import { SalaryCalculator } from "@/components/Calculator/SalaryCalculator";
 
 export const metadata: Metadata = {
-  title: "Salary Calculator - Convert Hourly, Monthly, Annual Salary Online Free",
-  description: "Free salary calculator to convert between hourly, daily, weekly, monthly, and annual pay. Calculate adjusted salary with holidays and vacation days. Includes unadjusted and adjusted figures.",
+  title: "Salary Calculator (Free, No signup) - Net Income | AICalculator",
+  description: "Free salary calculator with no sign-up required. Convert between hourly, daily, weekly, monthly, and annual pay. Calculate adjusted salary with holidays and vacation days. Includes unadjusted and adjusted figures.",
   keywords: [
     "salary calculator",
+    "free salary calculator",
+    "salary calculator no signup",
     "hourly to annual salary",
     "annual to hourly calculator",
     "salary converter",
@@ -23,16 +25,16 @@ export const metadata: Metadata = {
     "take home pay calculator"
   ],
   openGraph: {
-    title: "Salary Calculator - Convert Hourly to Annual Salary",
-    description: "Convert between hourly, monthly, and annual salary instantly. Calculate adjusted pay with holidays and vacation days.",
+    title: "Salary Calculator (Free, No signup) - AICalculator",
+    description: "Free salary calculator with no sign-up required. Convert between hourly, monthly, and annual salary instantly. Calculate adjusted pay with holidays and vacation days.",
     type: "website",
     url: "https://aicalculator.pro/salary-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Salary Calculator - Convert Salary Instantly",
-    description: "Free salary calculator with holiday and vacation adjustments.",
+    title: "Salary Calculator (Free, No signup) - AICalculator",
+    description: "Free salary calculator with no sign-up required. Convert salary instantly with holiday and vacation adjustments.",
     site: "@aicalculator",
   },
   alternates: {

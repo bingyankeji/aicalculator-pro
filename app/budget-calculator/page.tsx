@@ -4,10 +4,12 @@ import Link from 'next/link';
 import { DollarSign, PiggyBank, Calculator, Info } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Budget Calculator - Free Monthly Budget Planner & Tracker | 50/30/20 Rule',
-  description: 'Free budget calculator to track income, expenses, and savings. Create a monthly budget plan with expense categories, savings goals, and financial insights. Follow the 50/30/20 budgeting rule.',
+  title: 'Budget Calculator (Free, No signup) - Monthly Budget | AICalculator',
+  description: 'Free budget calculator with no sign-up required. Track income, expenses, and savings. Create a monthly budget plan with expense categories, savings goals, and financial insights. Follow the 50/30/20 budgeting rule.',
   keywords: [
     'budget calculator',
+    'free budget calculator',
+    'budget calculator no signup',
     'monthly budget calculator',
     'budget planner',
     '50/30/20 budget calculator',
@@ -26,7 +28,6 @@ export const metadata: Metadata = {
     'financial planner calculator',
     'monthly expense calculator',
     'budget breakdown calculator',
-    'free budget calculator',
     'expense tracker',
     'budget spreadsheet',
     'personal finance calculator',
@@ -39,15 +40,15 @@ export const metadata: Metadata = {
     'expense manager',
   ],
   openGraph: {
-    title: 'Budget Calculator - Free Monthly Budget Planner & Tracker',
-    description: 'Track income, expenses, and savings with our free budget calculator. Create a balanced budget and achieve your financial goals.',
+    title: 'Budget Calculator (Free, No signup) - AICalculator',
+    description: 'Free budget calculator with no sign-up required. Track income, expenses, and savings. Create a balanced budget and achieve your financial goals.',
     type: 'website',
     url: 'https://aicalculator.pro/budget-calculator',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Budget Calculator - Monthly Budget Planner',
-    description: 'Track your budget and manage your finances effectively',
+    title: 'Budget Calculator (Free, No signup) - AICalculator',
+    description: 'Free budget calculator with no sign-up required. Track your budget and manage your finances effectively',
   },
   alternates: {
     canonical: 'https://aicalculator.pro/budget-calculator',

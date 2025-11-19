@@ -12,10 +12,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "Savings Calculator - Free Compound Savings Calculator with Goal Planning | AICalculator",
-  description: "Calculate your savings growth with our free savings calculator. Features compound interest, inflation adjustment, target goal planning, and monthly/yearly projections. Plan your financial future today.",
+  title: "Savings Calculator (Free, No signup) - Grow Wealth | AICalculator",
+  description: "Free savings calculator with no sign-up required. Calculate your savings growth with our free savings calculator. Features compound interest, inflation adjustment, target goal planning, and monthly/yearly projections. Plan your financial future today.",
   keywords: [
     "savings calculator",
+    "free savings calculator",
+    "savings calculator no signup",
     "compound savings calculator",
     "savings goal calculator",
     "money savings calculator",
@@ -42,8 +44,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: "Free Savings Calculator - Plan Your Financial Goals",
-    description: "Calculate savings growth with compound interest and inflation adjustment. Set target goals and see how much you need to save monthly. Free savings calculator.",
+    title: "Savings Calculator (Free, No signup) - AICalculator",
+    description: "Free savings calculator with no sign-up required. Calculate savings growth with compound interest and inflation adjustment. Set target goals and see how much you need to save monthly.",
     type: "website",
     url: getUrl('/savings-calculator'),
     siteName: "AICalculator",
@@ -53,14 +55,14 @@ export const metadata: Metadata = {
         url: getOgImage('savings'),
         width: 1200,
         height: 630,
-        alt: 'Savings Calculator',
+        alt: 'Free Savings Calculator - No Sign-up Required',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Savings Calculator - Compound Interest & Goal Planning",
-    description: "Calculate your savings growth and plan financial goals. Free calculator with inflation adjustment.",
+    title: "Savings Calculator (Free, No signup) - AICalculator",
+    description: "Free savings calculator with no sign-up required. Calculate your savings growth and plan financial goals with inflation adjustment.",
     images: [getOgImage('savings')],
     site: "@AICalculator",
     creator: '@aicalculator',

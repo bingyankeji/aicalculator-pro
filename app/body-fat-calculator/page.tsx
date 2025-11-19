@@ -2,20 +2,20 @@ import { Metadata } from 'next';
 import { BodyFatCalculator } from '@/components/Calculator/BodyFatCalculator';
 
 export const metadata: Metadata = {
-  title: "Body Fat Calculator - Free Navy & YMCA Method Calculator | AICalculator",
-  description: "Calculate body fat percentage with Navy Method, YMCA Method, and BMI-based formulas. Get accurate measurements, healthy ranges, and personalized recommendations. Free body composition calculator.",
-  keywords: ["body fat calculator", "body fat percentage calculator", "navy method body fat", "ymca body fat calculator", "body composition calculator", "lean mass calculator", "fat mass calculator", "body fat measurement", "healthy body fat percentage", "body fat estimate", "body fat formula", "calculate body fat percentage"],
+  title: "Body Fat Calculator (Free, No signup) - Estimate Fat | AICalculator",
+  description: "Free body fat calculator with no sign-up required. Calculate body fat percentage with Navy Method, YMCA Method, and BMI-based formulas. Get accurate measurements, healthy ranges, and personalized recommendations. Free body composition calculator.",
+  keywords: ["body fat calculator", "free body fat calculator", "body fat calculator no signup", "body fat percentage calculator", "navy method body fat", "ymca body fat calculator", "body composition calculator", "lean mass calculator", "fat mass calculator", "body fat measurement", "healthy body fat percentage", "body fat estimate", "body fat formula", "calculate body fat percentage"],
   openGraph: {
-    title: "Free Body Fat Calculator - Navy & YMCA Methods",
-    description: "Calculate body fat percentage accurately with Navy Method and YMCA formulas. Get instant results with healthy ranges.",
+    title: "Body Fat Calculator (Free, No signup) - AICalculator",
+    description: "Free body fat calculator with no sign-up required. Calculate body fat percentage accurately with Navy Method and YMCA formulas. Get instant results with healthy ranges.",
     type: "website",
     url: "https://aicalculator.pro/body-fat-calculator",
     siteName: "AICalculator",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Body Fat Calculator - Accurate Navy Method",
-    description: "Calculate your body fat percentage with multiple proven methods. Free calculator with health recommendations.",
+    title: "Body Fat Calculator (Free, No signup) - AICalculator",
+    description: "Free body fat calculator with no sign-up required. Calculate your body fat percentage with multiple proven methods and health recommendations.",
     site: "@AICalculator",
   },
   alternates: {

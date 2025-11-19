@@ -13,11 +13,13 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "Compound Interest Calculator - Save & Compare Investment Scenarios | AI Calculator",
+  title: "Compound Interest (Free, No signup) - Investment Growth | AICalculator",
   description:
-    "Advanced compound interest calculator with scenario saving and comparison. Calculate investment growth, compare multiple plans, and visualize compound vs simple interest with detailed analysis.",
+    "Free compound interest calculator with no sign-up required. Advanced compound interest calculator with scenario saving and comparison. Calculate investment growth, compare multiple plans, and visualize compound vs simple interest with detailed analysis.",
   keywords: [
     "compound interest calculator",
+    "free compound interest calculator",
+    "compound interest calculator no signup",
     "investment scenario calculator",
     "save investment plans",
     "compare investment scenarios",
@@ -45,9 +47,9 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: "Compound Interest Calculator - Save & Compare Investment Scenarios",
+    title: "Compound Interest (Free, No signup) - AICalculator",
     description:
-      "Advanced compound interest calculator with scenario saving and comparison. Calculate investment growth, save multiple plans, and compare different investment strategies with detailed analysis.",
+      "Free compound interest calculator with no sign-up required. Advanced calculator with scenario saving and comparison. Calculate investment growth, save multiple plans, and compare different investment strategies with detailed analysis.",
     type: "website",
     url: getUrl('/compound-interest-calculator'),
     siteName: "AI Calculator",
@@ -57,15 +59,15 @@ export const metadata: Metadata = {
         url: getOgImage('compound-interest'),
         width: 1200,
         height: 630,
-        alt: 'Compound Interest Calculator',
+        alt: 'Free Compound Interest Calculator - No Sign-up Required',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Compound Interest Calculator - Investment Growth Tool",
+    title: "Compound Interest (Free, No signup) - AICalculator",
     description:
-      "Free calculator for compound interest and investment growth. Plan your financial future with detailed projections.",
+      "Free compound interest calculator with no sign-up required. Plan your financial future with detailed projections and investment growth analysis.",
     images: [getOgImage('compound-interest')],
     site: "@AICalculator",
     creator: '@aicalculator',

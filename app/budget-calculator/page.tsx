@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import BudgetCalculator from '@/components/Calculator/BudgetCalculator';
 import Link from 'next/link';
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     title: 'Budget Calculator (Free, No signup) - AICalculator',
     description: 'Free budget calculator with no sign-up required. Track income, expenses, and savings. Create a balanced budget and achieve your financial goals.',
     type: 'website',
-    url: 'https://aicalculator.pro/budget-calculator',
+    url: getUrl('/budget-calculator'),
   },
   twitter: {
     card: 'summary_large_image',
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     description: 'Free budget calculator with no sign-up required. Track your budget and manage your finances effectively',
   },
   alternates: {
-    canonical: 'https://aicalculator.pro/budget-calculator',
+    canonical: getUrl('/budget-calculator'),
   },
 };
 
@@ -64,7 +65,7 @@ export default function BudgetCalculatorPage() {
         '@type': 'WebApplication',
         name: 'Budget Calculator',
         description: 'Track income, expenses, and savings with a comprehensive budget planner',
-        url: 'https://aicalculator.pro/budget-calculator',
+        url: getUrl('/budget-calculator'),
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Any',
         offers: {
@@ -90,13 +91,13 @@ export default function BudgetCalculatorPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.pro',
+            item: getUrl('/'),
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Budget Calculator',
-            item: 'https://aicalculator.pro/budget-calculator',
+            item: getUrl('/budget-calculator'),
           },
         ],
       },

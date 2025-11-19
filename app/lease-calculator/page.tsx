@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import LeaseCalculator from "@/components/Calculator/LeaseCalculator";
 import Link from "next/link";
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     description:
       "Compare leasing vs buying with detailed cost analysis. Get personalized recommendations for cars, equipment, and real estate leasing decisions.",
     type: "website",
-    url: "https://aicalculator.pro/lease-calculator",
+    url: getUrl('/lease-calculator'),
     siteName: "AI Calculator",
   },
   twitter: {
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/lease-calculator",
+    canonical: getUrl('/lease-calculator'),
   },
   robots: {
     index: true,
@@ -69,7 +70,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Lease Calculator",
-      "url": "https://aicalculator.pro/lease-calculator",
+      "url": getUrl('/lease-calculator'),
       "description": "Advanced lease calculator for comparing leasing vs buying decisions across automobiles, equipment, and real estate. Calculate monthly payments, total costs, residual values, and get intelligent recommendations based on comprehensive financial analysis.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Any",
@@ -106,19 +107,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.pro"
+          "item": getUrl('/')
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Financial",
-          "item": "https://aicalculator.pro/financial"
+          "item": getUrl('/financial')
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Lease Calculator",
-          "item": "https://aicalculator.pro/lease-calculator"
+          "item": getUrl('/lease-calculator')
         }
       ]
     },

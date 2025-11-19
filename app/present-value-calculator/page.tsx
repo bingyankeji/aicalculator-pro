@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import PresentValueCalculator from "@/components/Calculator/PresentValueCalculator";
 import Link from "next/link";
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     description:
       "Calculate present value and NPV with investment decision support. Analyze single amounts, annuities, and cash flows with detailed financial recommendations.",
     type: "website",
-    url: "https://aicalculator.pro/present-value-calculator",
+    url: getUrl('/present-value-calculator'),
     siteName: "AI Calculator",
   },
   twitter: {
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/present-value-calculator",
+    canonical: getUrl('/present-value-calculator'),
   },
   robots: {
     index: true,
@@ -62,7 +63,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Present Value Calculator",
-      "url": "https://aicalculator.pro/present-value-calculator",
+      "url": getUrl('/present-value-calculator'),
       "description": "Advanced present value calculator with NPV analysis and investment decision support. Calculate PV of single amounts, annuities, and cash flows with detailed financial analysis, profitability index, and investment recommendations.",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Any",
@@ -95,19 +96,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.pro"
+          "item": getUrl('/')
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Financial",
-          "item": "https://aicalculator.pro/financial"
+          "item": getUrl('/financial')
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Present Value Calculator",
-          "item": "https://aicalculator.pro/present-value-calculator"
+          "item": getUrl('/present-value-calculator')
         }
       ]
     },

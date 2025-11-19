@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { RefinanceCalculator } from "@/components/Calculator/RefinanceCalculator";
 
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     title: "Refinance Calculator (Free, No signup) - AICalculator",
     description: "Free refinance calculator with no sign-up required. Calculate monthly savings and break-even point. See if refinancing your mortgage makes financial sense.",
     type: "website",
-    url: "https://aicalculator.pro/refinance-calculator",
+    url: getUrl('/refinance-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/refinance-calculator",
+    canonical: getUrl('/refinance-calculator'),
   },
   robots: {
     index: true,
@@ -63,7 +64,7 @@ export default function RefinanceCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Refinance Calculator",
-        "url": "https://aicalculator.pro/refinance-calculator",
+        "url": getUrl('/refinance-calculator'),
         "description": "Free online mortgage refinance calculator to determine if refinancing makes financial sense. Calculate monthly savings, break-even point, lifetime savings, and compare your current loan vs new loan options. Features instant results, closing cost analysis, and personalized recommendations.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -91,19 +92,19 @@ export default function RefinanceCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Calculators",
-            "item": "https://aicalculator.pro/calculators"
+            "item": getUrl('/calculators')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Refinance Calculator",
-            "item": "https://aicalculator.pro/refinance-calculator"
+            "item": getUrl('/refinance-calculator')
           }
         ]
       },

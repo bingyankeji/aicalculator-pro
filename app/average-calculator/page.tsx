@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { AverageCalculator } from "@/components/Calculator/AverageCalculator";
 
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     title: "Average Calculator (Free, No signup) - AICalculator",
     description: "Free average calculator with no sign-up required. Calculate mean, median, mode, range, variance, and standard deviation instantly. Perfect for students and data analysis.",
     type: "website",
-    url: "https://aicalculator.pro/average-calculator",
+    url: getUrl('/average-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/average-calculator",
+    canonical: getUrl('/average-calculator'),
   },
   robots: {
     index: true,
@@ -63,7 +64,7 @@ export default function AverageCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Average Calculator",
-        "url": "https://aicalculator.pro/average-calculator",
+        "url": getUrl('/average-calculator'),
         "description": "Free online average calculator to calculate mean, median, mode, range, variance, standard deviation, and other statistical measures. Features automatic sorting, multiple calculations, and step-by-step formulas for educational purposes.",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Any",
@@ -93,19 +94,19 @@ export default function AverageCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Calculators",
-            "item": "https://aicalculator.pro/calculators"
+            "item": getUrl('/calculators')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Average Calculator",
-            "item": "https://aicalculator.pro/average-calculator"
+            "item": getUrl('/average-calculator')
           }
         ]
       },

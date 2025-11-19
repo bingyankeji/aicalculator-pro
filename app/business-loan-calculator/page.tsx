@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import BusinessLoanCalculator from "@/components/Calculator/BusinessLoanCalculator";
 
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     description:
       "Estimate business loan payments and total cost. Includes origination fees, prepayments, and multiple repayment frequencies.",
     type: "website",
-    url: "https://aicalculator.pro/business-loan-calculator",
+    url: getUrl('/business-loan-calculator'),
     siteName: "AI Calculator",
   },
   twitter: {
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/business-loan-calculator",
+    canonical: getUrl('/business-loan-calculator'),
   },
   robots: {
     index: true,
@@ -58,7 +59,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Business Loan Calculator",
-      "url": "https://aicalculator.pro/business-loan-calculator",
+      "url": getUrl('/business-loan-calculator'),
       "description": "Estimate business loan payments, total interest, origination fee impact, and payoff time with multiple repayment frequencies.",
       "applicationCategory": "FinancialApplication",
       "operatingSystem": "Any",
@@ -85,19 +86,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.pro"
+          "item": getUrl('/')
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Financial",
-          "item": "https://aicalculator.pro/financial"
+          "item": getUrl('/financial')
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Business Loan Calculator",
-          "item": "https://aicalculator.pro/business-loan-calculator"
+          "item": getUrl('/business-loan-calculator')
         }
       ]
     },

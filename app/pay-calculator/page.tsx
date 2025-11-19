@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from "next/link";
 import { PayCalculator } from "@/components/Calculator/PayCalculator";
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     title: "Pay Calculator (Free, No signup) - AICalculator",
     description: "Free pay calculator with no sign-up required. Calculate net pay after taxes and deductions. See your actual take-home pay by pay frequency.",
     type: "website",
-    url: "https://aicalculator.pro/pay-calculator",
+    url: getUrl('/pay-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     site: "@aicalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/pay-calculator",
+    canonical: getUrl('/pay-calculator'),
   },
   robots: {
     index: true,
@@ -64,7 +65,7 @@ export default function PayCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Paycheck Calculator",
-        "url": "https://aicalculator.pro/pay-calculator",
+        "url": getUrl('/pay-calculator'),
         "description": "Free online paycheck calculator to calculate your net pay (take-home pay) after federal tax, state tax, FICA (Social Security and Medicare), 401(k) contributions, health insurance, and other deductions.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -93,19 +94,19 @@ export default function PayCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.pro/financial"
+            "item": getUrl('/financial')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Paycheck Calculator",
-            "item": "https://aicalculator.pro/pay-calculator"
+            "item": getUrl('/pay-calculator')
           }
         ]
       },

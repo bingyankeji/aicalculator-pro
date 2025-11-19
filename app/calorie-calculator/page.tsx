@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { CalorieCalculator } from "@/components/Calculator/CalorieCalculator";
 
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     title: "Calorie Calculator (Free, No signup) - AICalculator",
     description: "Free calorie calculator with no sign-up required. Get BMR and TDEE calculation with personalized calorie goals and macro recommendations for weight loss, maintenance, or muscle gain.",
     type: "website",
-    url: "https://aicalculator.pro/calorie-calculator",
+    url: getUrl('/calorie-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/calorie-calculator",
+    canonical: getUrl('/calorie-calculator'),
   },
   robots: {
     index: true,
@@ -68,7 +69,7 @@ export default function CalorieCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Calorie Calculator",
-        "url": "https://aicalculator.pro/calorie-calculator",
+        "url": getUrl('/calorie-calculator'),
         "description": "Free online calorie calculator with BMR and TDEE calculation, personalized macronutrient recommendations, and smart nutrition analysis.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
@@ -98,19 +99,19 @@ export default function CalorieCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Health & Fitness",
-            "item": "https://aicalculator.pro/health-fitness"
+            "item": getUrl('/health-fitness')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Calorie Calculator",
-            "item": "https://aicalculator.pro/calorie-calculator"
+            "item": getUrl('/calorie-calculator')
           }
         ]
       },

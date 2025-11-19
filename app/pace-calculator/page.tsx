@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { PaceCalculator } from "@/components/Calculator/PaceCalculator";
 
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     title: "Pace Calculator (Free, No signup) - AICalculator",
     description: "Free pace calculator with no sign-up required. Calculate your running pace, finish time, or distance. Get split times and race predictions for all major race distances.",
     type: "website",
-    url: "https://aicalculator.pro/pace-calculator",
+    url: getUrl('/pace-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/pace-calculator",
+    canonical: getUrl('/pace-calculator'),
   },
   robots: {
     index: true,
@@ -63,7 +64,7 @@ export default function PaceCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Pace Calculator",
-        "url": "https://aicalculator.pro/pace-calculator",
+        "url": getUrl('/pace-calculator'),
         "description": "Free online running pace calculator to calculate pace per mile/km, finish time, or distance covered. Get split times and race predictions for 5K, 10K, half marathon, marathon, and ultra distances.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
@@ -90,19 +91,19 @@ export default function PaceCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Calculators",
-            "item": "https://aicalculator.pro/calculators"
+            "item": getUrl('/calculators')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Pace Calculator",
-            "item": "https://aicalculator.pro/pace-calculator"
+            "item": getUrl('/pace-calculator')
           }
         ]
       },

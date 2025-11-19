@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { MacroCalculator } from '@/components/Calculator/MacroCalculator';
 
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     title: 'Macro Calculator (Free, No signup) - AICalculator',
     description: 'Free macro calculator with no sign-up required. For weight loss, muscle gain, or maintenance. Get personalized protein, carbs, and fats targets based on your goals and activity level.',
     type: 'website',
-    url: 'https://aicalculator.pro/macro-calculator',
+    url: getUrl('/macro-calculator'),
     siteName: 'AICalculator',
   },
   twitter: {
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     site: '@AICalculator',
   },
   alternates: {
-    canonical: 'https://aicalculator.pro/macro-calculator',
+    canonical: getUrl('/macro-calculator'),
   },
   robots: {
     index: true,
@@ -63,7 +64,7 @@ export default function MacroCalculatorPage() {
       {
         '@type': 'WebApplication',
         name: 'Macro Calculator',
-        url: 'https://aicalculator.pro/macro-calculator',
+        url: getUrl('/macro-calculator'),
         description:
           'Free macronutrient calculator that helps you determine optimal protein, carbs, and fats for cutting, bulking, or maintenance. Get personalized macro targets based on your goals, activity level, and body composition.',
         applicationCategory: 'HealthApplication',
@@ -92,19 +93,19 @@ export default function MacroCalculatorPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.pro',
+            item: getUrl('/'),
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Health & Fitness',
-            item: 'https://aicalculator.pro/health-fitness',
+            item: getUrl('/health-fitness'),
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'Macro Calculator',
-            item: 'https://aicalculator.pro/macro-calculator',
+            item: getUrl('/macro-calculator'),
           },
         ],
       },

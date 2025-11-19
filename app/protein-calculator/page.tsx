@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from 'next/link';
 import { ProteinCalculator } from '@/components/Calculator/ProteinCalculator';
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Protein Calculator (Free, No signup) - AICalculator',
     description: 'Free protein calculator with no sign-up required. Calculate your daily protein requirements based on weight, activity level, and fitness goals. Perfect for cutting, maintenance, and bulking phases.',
     type: 'website',
-    url: 'https://aicalculator.pro/protein-calculator',
+    url: getUrl('/protein-calculator'),
     siteName: 'AICalculator',
   },
   twitter: {
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     site: '@AICalculator',
   },
   alternates: {
-    canonical: 'https://aicalculator.pro/protein-calculator',
+    canonical: getUrl('/protein-calculator'),
   },
   robots: {
     index: true,
@@ -65,7 +66,7 @@ export default function ProteinCalculatorPage() {
       {
         '@type': 'WebApplication',
         name: 'Protein Calculator',
-        url: 'https://aicalculator.pro/protein-calculator',
+        url: getUrl('/protein-calculator'),
         description:
           'Free protein calculator to calculate daily protein needs based on weight, activity level, and fitness goals. Get personalized protein recommendations for cutting, maintenance, and bulking phases.',
         applicationCategory: 'HealthApplication',
@@ -94,19 +95,19 @@ export default function ProteinCalculatorPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.pro',
+            item: getUrl('/'),
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Health & Fitness',
-            item: 'https://aicalculator.pro/health-fitness',
+            item: getUrl('/health-fitness'),
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'Protein Calculator',
-            item: 'https://aicalculator.pro/protein-calculator',
+            item: getUrl('/protein-calculator'),
           },
         ],
       },

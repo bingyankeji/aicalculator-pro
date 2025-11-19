@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import CashBackCalculator from '@/components/Calculator/CashBackCalculator';
 import Link from 'next/link';
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     title: 'Cash Back or Low Interest Calculator - Compare Auto Loan Offers',
     description: 'Free calculator to compare cash back offers vs low interest rate offers for auto loans. Determine which option saves you more money.',
     type: 'website',
-    url: 'https://aicalculator.pro/cash-back-calculator',
+    url: getUrl('/cash-back-calculator'),
   },
   twitter: {
     card: 'summary_large_image',
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     description: 'Compare cash back offers vs low interest rate offers for auto loans',
   },
   alternates: {
-    canonical: 'https://aicalculator.pro/cash-back-calculator',
+    canonical: getUrl('/cash-back-calculator'),
   },
 };
 
@@ -63,7 +64,7 @@ export default function CashBackCalculatorPage() {
         '@type': 'WebApplication',
         name: 'Cash Back or Low Interest Calculator',
         description: 'Compare cash back offers vs low interest rate offers for auto loans',
-        url: 'https://aicalculator.pro/cash-back-calculator',
+        url: getUrl('/cash-back-calculator'),
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Any',
         offers: {
@@ -87,13 +88,13 @@ export default function CashBackCalculatorPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.pro',
+            item: getUrl('/'),
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Cash Back Calculator',
-            item: 'https://aicalculator.pro/cash-back-calculator',
+            item: getUrl('/cash-back-calculator'),
           },
         ],
       },

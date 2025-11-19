@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import IdealWeightCalculator from "@/components/Calculator/IdealWeightCalculator";
 import Link from "next/link";
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     description:
       "Free ideal weight calculator with no sign-up required. Calculate your ideal weight using 6 proven formulas. Get personalized health recommendations and body type analysis for optimal wellness.",
     type: "website",
-    url: "https://aicalculator.pro/ideal-weight-calculator",
+    url: getUrl('/ideal-weight-calculator'),
     siteName: "AI Calculator",
   },
   twitter: {
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/ideal-weight-calculator",
+    canonical: getUrl('/ideal-weight-calculator'),
   },
   robots: {
     index: true,
@@ -68,7 +69,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Ideal Weight Calculator",
-      "url": "https://aicalculator.pro/ideal-weight-calculator",
+      "url": getUrl('/ideal-weight-calculator'),
       "description": "Advanced ideal weight calculator using 6 scientific formulas including Robinson, Miller, Devine, and Hamwi methods. Provides personalized weight goals, BMI analysis, body type assessment, and health recommendations based on height, gender, and body frame size.",
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Any",
@@ -104,19 +105,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.pro"
+          "item": getUrl('/')
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Health & Fitness",
-          "item": "https://aicalculator.pro/health-fitness"
+          "item": getUrl('/health-fitness')
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Ideal Weight Calculator",
-          "item": "https://aicalculator.pro/ideal-weight-calculator"
+          "item": getUrl('/ideal-weight-calculator')
         }
       ]
     },

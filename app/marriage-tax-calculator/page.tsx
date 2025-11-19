@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import MarriageTaxCalculator from '@/components/Calculator/MarriageTaxCalculator';
 import Link from 'next/link';
@@ -46,11 +47,11 @@ export const metadata: Metadata = {
     title: 'Marriage Tax Calculator - Calculate Tax Impact of Marriage',
     description: 'Compare tax filing as single vs married. Calculate marriage penalty or bonus and optimize your tax strategy.',
     type: 'website',
-    url: 'https://aicalculator.pro/marriage-tax-calculator',
+    url: getUrl('/marriage-tax-calculator'),
     siteName: 'AICalculator',
     locale: 'en_US',
     images: [{
-      url: 'https://aicalculator.pro/og-marriage-tax-calculator.jpg',
+      url: getOgImage('marriage-tax-calculator'),
       width: 1200,
       height: 630,
     }],
@@ -59,11 +60,11 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Marriage Tax Calculator - Calculate Tax Impact of Marriage',
     description: 'Compare tax filing as single vs married. Free calculator with marriage penalty/bonus analysis.',
-    images: ['https://aicalculator.pro/og-marriage-tax-calculator.jpg'],
+    images: [getOgImage('marriage-tax-calculator')],
     creator: '@aicalculator',
   },
   alternates: {
-    canonical: 'https://aicalculator.pro/marriage-tax-calculator',
+    canonical: getUrl('/marriage-tax-calculator'),
   },
   robots: {
     index: true,
@@ -84,9 +85,9 @@ export default function MarriageTaxCalculatorPage() {
     '@graph': [
       {
         '@type': 'WebApplication',
-        '@id': 'https://aicalculator.pro/marriage-tax-calculator#webapp',
+        '@id': getUrl('/marriage-tax-calculator') + '#webapp',
         name: 'Marriage Tax Calculator',
-        url: 'https://aicalculator.pro/marriage-tax-calculator',
+        url: getUrl('/marriage-tax-calculator'),
         description: 'Free calculator to compare tax implications of filing as single vs married filing jointly.',
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Any',
@@ -106,13 +107,13 @@ export default function MarriageTaxCalculatorPage() {
       },
       {
         '@type': 'BreadcrumbList',
-        '@id': 'https://aicalculator.pro/marriage-tax-calculator#breadcrumb',
+        '@id': getUrl('/marriage-tax-calculator') + '#breadcrumb',
         itemListElement: [
           {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.pro',
+            item: getUrl('/'),
           },
           {
             '@type': 'ListItem',
@@ -123,7 +124,7 @@ export default function MarriageTaxCalculatorPage() {
       },
       {
         '@type': 'FAQPage',
-        '@id': 'https://aicalculator.pro/marriage-tax-calculator#faq',
+        '@id': getUrl('/marriage-tax-calculator') + '#faq',
         mainEntity: [
           {
             '@type': 'Question',
@@ -161,7 +162,7 @@ export default function MarriageTaxCalculatorPage() {
       },
       {
         '@type': 'HowTo',
-        '@id': 'https://aicalculator.pro/marriage-tax-calculator#howto',
+        '@id': getUrl('/marriage-tax-calculator') + '#howto',
         name: 'How to Use the Marriage Tax Calculator',
         step: [
           {
@@ -169,34 +170,34 @@ export default function MarriageTaxCalculatorPage() {
             position: 1,
             name: 'Enter Spouse 1 Information',
             text: 'Input salary, business income, investments, and retirement contributions for the first spouse.',
-            url: 'https://aicalculator.pro/marriage-tax-calculator#step1',
+            url: getUrl('/marriage-tax-calculator') + '#step1',
           },
           {
             '@type': 'HowToStep',
             position: 2,
             name: 'Enter Spouse 2 Information',
             text: 'Input the same financial information for the second spouse.',
-            url: 'https://aicalculator.pro/marriage-tax-calculator#step2',
+            url: getUrl('/marriage-tax-calculator') + '#step2',
           },
           {
             '@type': 'HowToStep',
             position: 3,
             name: 'Set Tax Rates',
             text: 'Enter your state and city tax rates for accurate calculations.',
-            url: 'https://aicalculator.pro/marriage-tax-calculator#step3',
+            url: getUrl('/marriage-tax-calculator') + '#step3',
           },
           {
             '@type': 'HowToStep',
             position: 4,
             name: 'Calculate and Compare',
             text: 'Click "Calculate" to see tax comparison between filing as single vs married filing jointly, including any marriage penalty or bonus.',
-            url: 'https://aicalculator.pro/marriage-tax-calculator#step4',
+            url: getUrl('/marriage-tax-calculator') + '#step4',
           },
         ],
       },
       {
         '@type': 'Article',
-        '@id': 'https://aicalculator.pro/marriage-tax-calculator#article',
+        '@id': getUrl('/marriage-tax-calculator') + '#article',
         headline: 'Understanding Marriage Tax Penalty and Bonus',
         description: 'Learn how marriage affects your taxes, understand marriage penalty and bonus, and optimize your tax filing strategy.',
         author: {

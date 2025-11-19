@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import MortgageCalculatorUK from '@/components/Calculator/MortgageCalculatorUK';
 import Link from 'next/link';
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     title: 'UK Mortgage Calculator - Calculate Monthly Payments',
     description: 'Calculate UK mortgage payments in British Pounds. Includes stamp duty, insurance, and detailed amortization schedule.',
     type: 'website',
-    url: 'https://aicalculator.pro/mortgage-calculator-uk',
+    url: getUrl('/mortgage-calculator-uk'),
   },
   twitter: {
     card: 'summary_large_image',
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     description: 'Calculate UK mortgage payments and stamp duty',
   },
   alternates: {
-    canonical: 'https://aicalculator.pro/mortgage-calculator-uk',
+    canonical: getUrl('/mortgage-calculator-uk'),
   },
 };
 
@@ -53,7 +54,7 @@ export default function MortgageCalculatorUKPage() {
         '@type': 'WebApplication',
         name: 'UK Mortgage Calculator',
         description: 'Calculate UK mortgage payments with stamp duty and detailed amortization',
-        url: 'https://aicalculator.pro/mortgage-calculator-uk',
+        url: getUrl('/mortgage-calculator-uk'),
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Any',
         offers: {
@@ -79,13 +80,13 @@ export default function MortgageCalculatorUKPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.pro',
+            item: getUrl('/'),
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'UK Mortgage Calculator',
-            item: 'https://aicalculator.pro/mortgage-calculator-uk',
+            item: getUrl('/mortgage-calculator-uk'),
           },
         ],
       },
@@ -176,7 +177,7 @@ export default function MortgageCalculatorUKPage() {
           name: 'AICalculator.pro',
           logo: {
             '@type': 'ImageObject',
-            url: 'https://aicalculator.pro/logo.png',
+            url: getUrl('/logo.png'),
           },
         },
         datePublished: '2024-01-01',

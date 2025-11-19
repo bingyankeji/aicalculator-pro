@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { PaymentCalculator } from '@/components/Calculator/PaymentCalculator';
 
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     title: "Payment Calculator (Free, No signup) - AICalculator",
     description: "Free payment calculator with no sign-up required. For car loans, personal loans & more. Calculate monthly payments, see total interest, and explore extra payment benefits.",
     type: "website",
-    url: "https://aicalculator.pro/payment-calculator",
+    url: getUrl('/payment-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     description: "Free payment calculator with no sign-up required. Calculate payments for any loan. See how extra payments can save thousands in interest!",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/payment-calculator",
+    canonical: getUrl('/payment-calculator'),
   },
   robots: {
     index: true,
@@ -60,7 +61,7 @@ export default function PaymentCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Payment Calculator",
-        "url": "https://aicalculator.pro/payment-calculator",
+        "url": getUrl('/payment-calculator'),
         "description": "Calculate loan payments for any type of installment loan including car loans, personal loans, mortgages, and credit cards. Compare payment frequencies, see extra payment impact, and explore different payment structures.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -89,19 +90,19 @@ export default function PaymentCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.pro/financial"
+            "item": getUrl('/financial')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Payment Calculator",
-            "item": "https://aicalculator.pro/payment-calculator"
+            "item": getUrl('/payment-calculator')
           }
         ]
       },

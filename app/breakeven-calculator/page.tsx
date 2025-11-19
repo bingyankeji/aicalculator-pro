@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import BreakevenCalculator from "@/components/Calculator/BreakevenCalculator";
 import Link from "next/link";
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     description:
       "Calculate break-even points, analyze profitability, and optimize pricing strategies. Essential business planning tool for entrepreneurs and managers.",
     type: "website",
-    url: "https://aicalculator.pro/breakeven-calculator",
+    url: getUrl('/breakeven-calculator'),
     siteName: "AI Calculator",
   },
   twitter: {
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/breakeven-calculator",
+    canonical: getUrl('/breakeven-calculator'),
   },
   robots: {
     index: true,
@@ -69,7 +70,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Break-even Calculator",
-      "url": "https://aicalculator.pro/breakeven-calculator",
+      "url": getUrl('/breakeven-calculator'),
       "description": "Professional break-even analysis calculator for business planning and profitability analysis. Calculate break-even points, contribution margins, target profits, and develop pricing strategies with comprehensive business insights.",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Any",
@@ -104,19 +105,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.pro"
+          "item": getUrl('/')
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Financial",
-          "item": "https://aicalculator.pro/financial"
+          "item": getUrl('/financial')
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Break-even Calculator",
-          "item": "https://aicalculator.pro/breakeven-calculator"
+          "item": getUrl('/breakeven-calculator')
         }
       ]
     },

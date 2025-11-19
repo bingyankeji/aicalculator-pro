@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from "next/link";
 import { EMICalculator } from "@/components/Calculator/EMICalculator";
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     title: "EMI Calculator (Free, No signup) - AICalculator",
     description: "Free EMI calculator with no sign-up required. For home loans, car loans, and personal loans. Get instant EMI calculations with detailed principal and interest breakup.",
     type: "website",
-    url: "https://aicalculator.pro/emi-calculator",
+    url: getUrl('/emi-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     site: "@aicalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/emi-calculator",
+    canonical: getUrl('/emi-calculator'),
   },
   robots: {
     index: true,
@@ -64,7 +65,7 @@ export default function EMICalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "EMI Calculator",
-        "url": "https://aicalculator.pro/emi-calculator",
+        "url": getUrl('/emi-calculator'),
         "description": "Free online EMI calculator to compute Equated Monthly Installment for home loans, car loans, and personal loans with detailed amortization schedule and affordability analysis.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -93,19 +94,19 @@ export default function EMICalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.pro/financial"
+            "item": getUrl('/financial')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "EMI Calculator",
-            "item": "https://aicalculator.pro/emi-calculator"
+            "item": getUrl('/emi-calculator')
           }
         ]
       },

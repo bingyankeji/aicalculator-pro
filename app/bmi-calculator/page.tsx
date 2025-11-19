@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from "next/link";
 import { BMICalculator } from "@/components/Calculator/BMICalculator";
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     title: "BMI Calculator (Free, No signup) - AICalculator",
     description: "Free BMI calculator with no sign-up required. Get personalized health analysis and recommendations. Calculate your ideal weight and get actionable health insights.",
     type: "website",
-    url: "https://aicalculator.pro/bmi-calculator",
+    url: getUrl('/bmi-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/bmi-calculator",
+    canonical: getUrl('/bmi-calculator'),
   },
   robots: {
     index: true,
@@ -63,7 +64,7 @@ export default function BMICalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "BMI Calculator",
-        "url": "https://aicalculator.pro/bmi-calculator",
+        "url": getUrl('/bmi-calculator'),
         "description": "Free BMI calculator with personalized health analysis. Calculate your Body Mass Index and get ideal weight recommendations.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
@@ -88,19 +89,19 @@ export default function BMICalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Health & Fitness",
-            "item": "https://aicalculator.pro/health-fitness"
+            "item": getUrl('/health-fitness')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "BMI Calculator",
-            "item": "https://aicalculator.pro/bmi-calculator"
+            "item": getUrl('/bmi-calculator')
           }
         ]
       },

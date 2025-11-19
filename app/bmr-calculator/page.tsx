@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { BMRCalculator } from "@/components/Calculator/BMRCalculator";
 
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     title: "BMR Calculator (Free, No signup) - AICalculator",
     description: "Free BMR calculator with no sign-up required. Calculate your BMR and daily calorie needs based on activity level. Get personalized weight loss, maintenance, and muscle gain calorie goals.",
     type: "website",
-    url: "https://aicalculator.pro/bmr-calculator",
+    url: getUrl('/bmr-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/bmr-calculator",
+    canonical: getUrl('/bmr-calculator'),
   },
   robots: {
     index: true,
@@ -63,7 +64,7 @@ export default function BMRCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "BMR Calculator",
-        "url": "https://aicalculator.pro/bmr-calculator",
+        "url": getUrl('/bmr-calculator'),
         "description": "Free online BMR (Basal Metabolic Rate) calculator to determine your daily calorie needs, TDEE (Total Daily Energy Expenditure), and personalized macronutrient recommendations for weight loss, maintenance, or muscle gain.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
@@ -90,19 +91,19 @@ export default function BMRCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Calculators",
-            "item": "https://aicalculator.pro/calculators"
+            "item": getUrl('/calculators')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "BMR Calculator",
-            "item": "https://aicalculator.pro/bmr-calculator"
+            "item": getUrl('/bmr-calculator')
           }
         ]
       },

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from "next/link";
 import { SalaryCalculator } from "@/components/Calculator/SalaryCalculator";
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     title: "Salary Calculator (Free, No signup) - AICalculator",
     description: "Free salary calculator with no sign-up required. Convert between hourly, monthly, and annual salary instantly. Calculate adjusted pay with holidays and vacation days.",
     type: "website",
-    url: "https://aicalculator.pro/salary-calculator",
+    url: getUrl('/salary-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     site: "@aicalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/salary-calculator",
+    canonical: getUrl('/salary-calculator'),
   },
   robots: {
     index: true,
@@ -64,7 +65,7 @@ export default function SalaryCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Salary Calculator",
-        "url": "https://aicalculator.pro/salary-calculator",
+        "url": getUrl('/salary-calculator'),
         "description": "Free online salary calculator to convert between hourly, daily, weekly, monthly, and annual pay rates with holiday and vacation adjustments.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -91,19 +92,19 @@ export default function SalaryCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.pro/financial"
+            "item": getUrl('/financial')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Salary Calculator",
-            "item": "https://aicalculator.pro/salary-calculator"
+            "item": getUrl('/salary-calculator')
           }
         ]
       },

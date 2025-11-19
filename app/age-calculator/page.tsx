@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { AgeCalculator } from "@/components/Calculator/AgeCalculator";
 import Link from "next/link";
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     title: "Age Calculator (Free, No signup) - AICalculator",
     description: "Free age calculator with no sign-up required. Calculate your exact age in years, months, days, hours, and minutes. Find your zodiac sign, next birthday countdown, and fun lifetime statistics.",
     type: "website",
-    url: "https://aicalculator.pro/age-calculator",
+    url: getUrl('/age-calculator'),
     siteName: "Calculator Online - AICalculator",
   },
   twitter: {
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/age-calculator",
+    canonical: getUrl('/age-calculator'),
   },
   robots: {
     index: true,
@@ -70,7 +71,7 @@ export default function AgeCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Age Calculator",
-        "url": "https://aicalculator.pro/age-calculator",
+        "url": getUrl('/age-calculator'),
         "description": "Free online age calculator to calculate exact age in years, months, days, hours, and minutes from date of birth. Includes next birthday countdown, zodiac signs, and lifetime statistics.",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
@@ -98,19 +99,19 @@ export default function AgeCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Date & Time",
-            "item": "https://aicalculator.pro/date-time"
+            "item": getUrl('/date-time')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Age Calculator",
-            "item": "https://aicalculator.pro/age-calculator"
+            "item": getUrl('/age-calculator')
           }
         ]
       },

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { DebtPayoffCalculator } from "@/components/Calculator/DebtPayoffCalculator";
 
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     title: "Debt Payoff Calculator (Free, No signup) - AICalculator",
     description: "Free debt payoff calculator with no sign-up required. Compare debt repayment strategies and calculate your debt-free date. Find the fastest and cheapest way to pay off your debts.",
     type: "website",
-    url: "https://aicalculator.pro/debt-payoff-calculator",
+    url: getUrl('/debt-payoff-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/debt-payoff-calculator",
+    canonical: getUrl('/debt-payoff-calculator'),
   },
   robots: {
     index: true,
@@ -63,7 +64,7 @@ export default function DebtPayoffCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Debt Payoff Calculator",
-        "url": "https://aicalculator.pro/debt-payoff-calculator",
+        "url": getUrl('/debt-payoff-calculator'),
         "description": "Free online debt payoff calculator to compare avalanche and snowball debt repayment methods. Calculate your debt-free date, total interest costs, and create a personalized debt elimination plan.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -91,19 +92,19 @@ export default function DebtPayoffCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Calculators",
-            "item": "https://aicalculator.pro/calculators"
+            "item": getUrl('/calculators')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Debt Payoff Calculator",
-            "item": "https://aicalculator.pro/debt-payoff-calculator"
+            "item": getUrl('/debt-payoff-calculator')
           }
         ]
       },

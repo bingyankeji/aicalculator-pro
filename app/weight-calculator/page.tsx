@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { WeightCalculator } from '@/components/Calculator/WeightCalculator';
 
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     title: "Weight Calculator (Free, No signup) - AICalculator",
     description: "Free weight calculator with no sign-up required. Ideal weight calculator using 4 proven formulas. Get your healthy weight range and personalized recommendations.",
     type: "website",
-    url: "https://aicalculator.pro/weight-calculator",
+    url: getUrl('/weight-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     description: "Free weight calculator with no sign-up required. Calculate ideal weight with Robinson, Miller, Devine & Hamwi formulas. Get your healthy weight range now!",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/weight-calculator",
+    canonical: getUrl('/weight-calculator'),
   },
   robots: {
     index: true,
@@ -61,7 +62,7 @@ export default function WeightCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Ideal Weight Calculator",
-        "url": "https://aicalculator.pro/weight-calculator",
+        "url": getUrl('/weight-calculator'),
         "description": "Calculate your ideal body weight using Robinson, Miller, Devine, and Hamwi formulas. Get personalized weight analysis and healthy weight range based on your height, gender, and frame size.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
@@ -90,19 +91,19 @@ export default function WeightCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Health & Fitness",
-            "item": "https://aicalculator.pro/health-fitness"
+            "item": getUrl('/health-fitness')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Weight Calculator",
-            "item": "https://aicalculator.pro/weight-calculator"
+            "item": getUrl('/weight-calculator')
           }
         ]
       },

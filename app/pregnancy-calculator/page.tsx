@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { PregnancyCalculator } from "@/components/Calculator/PregnancyCalculator";
 import Link from "next/link";
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     title: "Pregnancy Calculator (Free, No signup) - AICalculator",
     description: "Free pregnancy calculator with no sign-up required. Estimate your due date from LMP, conception, or ultrasound. Track your pregnancy week by week with milestones and appointments.",
     type: "website",
-    url: "https://aicalculator.pro/pregnancy-calculator",
+    url: getUrl('/pregnancy-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/pregnancy-calculator",
+    canonical: getUrl('/pregnancy-calculator'),
   },
   robots: {
     index: true,
@@ -61,7 +62,7 @@ export default function PregnancyCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Pregnancy Calculator",
-        "url": "https://aicalculator.pro/pregnancy-calculator",
+        "url": getUrl('/pregnancy-calculator'),
         "description": "Free pregnancy calculator to estimate your due date and track pregnancy week by week. Calculate from last menstrual period (LMP), conception date, or ultrasound results.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
@@ -88,19 +89,19 @@ export default function PregnancyCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Health & Fitness",
-            "item": "https://aicalculator.pro/health-fitness"
+            "item": getUrl('/health-fitness')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Pregnancy Calculator",
-            "item": "https://aicalculator.pro/pregnancy-calculator"
+            "item": getUrl('/pregnancy-calculator')
           }
         ]
       },

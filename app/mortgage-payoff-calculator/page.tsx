@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { MortgagePayoffCalculator } from "@/components/Calculator/MortgagePayoffCalculator";
 
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     title: "Mortgage Payoff (Free, No signup) - AICalculator",
     description: "Free mortgage payoff calculator with no sign-up required. Calculate how much you'll save by paying off your mortgage early. Compare lump sum vs monthly extra payments instantly.",
     type: "website",
-    url: "https://aicalculator.pro/mortgage-payoff-calculator",
+    url: getUrl('/mortgage-payoff-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/mortgage-payoff-calculator",
+    canonical: getUrl('/mortgage-payoff-calculator'),
   },
   robots: {
     index: true,
@@ -63,7 +64,7 @@ export default function MortgagePayoffCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Mortgage Payoff Calculator",
-        "url": "https://aicalculator.pro/mortgage-payoff-calculator",
+        "url": getUrl('/mortgage-payoff-calculator'),
         "description": "Free online mortgage payoff calculator to calculate early payoff savings from extra monthly payments or lump sum payments. See how much interest you can save and how many years you can cut off your mortgage term.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -91,19 +92,19 @@ export default function MortgagePayoffCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Calculators",
-            "item": "https://aicalculator.pro/calculators"
+            "item": getUrl('/calculators')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Mortgage Payoff Calculator",
-            "item": "https://aicalculator.pro/mortgage-payoff-calculator"
+            "item": getUrl('/mortgage-payoff-calculator')
           }
         ]
       },

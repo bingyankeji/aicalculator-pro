@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import IRACalculator from '@/components/Calculator/IRACalculator';
 
@@ -42,18 +43,18 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://aicalculator.pro/ira-calculator',
+    canonical: getUrl('/ira-calculator'),
   },
   openGraph: {
     title: 'IRA Calculator - Traditional vs Roth IRA Comparison | AICalculator.pro',
     description: 'Calculate and compare Traditional vs Roth IRA retirement savings. See tax implications, RMDs, and which IRA type is best for you.',
-    url: 'https://aicalculator.pro/ira-calculator',
+    url: getUrl('/ira-calculator'),
     siteName: 'AICalculator.pro',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://aicalculator.pro/og-ira.png',
+        url: getOgImage('ira'),
         width: 1200,
         height: 630,
         alt: 'IRA Calculator',
@@ -64,7 +65,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'IRA Calculator - Traditional vs Roth IRA Comparison',
     description: 'Calculate and compare Traditional vs Roth IRA retirement savings with tax implications.',
-    images: ['https://aicalculator.pro/og-ira.png'],
+    images: [getOgImage('ira')],
     creator: '@aicalculator',
   },
 };
@@ -75,10 +76,10 @@ export default function IRACalculatorPage() {
     '@graph': [
       {
         '@type': 'WebApplication',
-        '@id': 'https://aicalculator.pro/ira-calculator#webapp',
+        '@id': getUrl('/ira-calculator') + '#webapp',
         name: 'IRA Calculator',
         description: 'Free online IRA calculator to compare Traditional vs Roth IRA, calculate retirement savings, and analyze tax implications.',
-        url: 'https://aicalculator.pro/ira-calculator',
+        url: getUrl('/ira-calculator'),
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'All',
         offers: {
@@ -101,31 +102,31 @@ export default function IRACalculatorPage() {
       },
       {
         '@type': 'BreadcrumbList',
-        '@id': 'https://aicalculator.pro/ira-calculator#breadcrumb',
+        '@id': getUrl('/ira-calculator') + '#breadcrumb',
         itemListElement: [
           {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.pro',
+            item: getUrl('/'),
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Financial',
-            item: 'https://aicalculator.pro/financial',
+            item: getUrl('/financial'),
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'IRA Calculator',
-            item: 'https://aicalculator.pro/ira-calculator',
+            item: getUrl('/ira-calculator'),
           },
         ],
       },
       {
         '@type': 'HowTo',
-        '@id': 'https://aicalculator.pro/ira-calculator#howto',
+        '@id': getUrl('/ira-calculator') + '#howto',
         name: 'How to Use the IRA Calculator',
         description: 'Step-by-step guide to calculate and compare Traditional vs Roth IRA retirement savings',
         totalTime: 'PT3M',
@@ -144,71 +145,71 @@ export default function IRACalculatorPage() {
             position: 1,
             name: 'Enter Your Age Information',
             text: 'Input your current age and planned retirement age. This determines your investment timeline and contribution eligibility.',
-            url: 'https://aicalculator.pro/ira-calculator#step1',
+            url: getUrl('/ira-calculator') + '#step1',
           },
           {
             '@type': 'HowToStep',
             position: 2,
             name: 'Enter Current Balance and Contributions',
             text: 'Input your current IRA balance (if any) and planned annual contribution. 2024 limits: $7,000 (under 50) or $8,000 (50+).',
-            url: 'https://aicalculator.pro/ira-calculator#step2',
+            url: getUrl('/ira-calculator') + '#step2',
           },
           {
             '@type': 'HowToStep',
             position: 3,
             name: 'Show Advanced Options (Optional)',
             text: 'Click Show Advanced Options to select IRA type (Traditional vs Roth), enter tax rates, and specify investment details.',
-            url: 'https://aicalculator.pro/ira-calculator#step3',
+            url: getUrl('/ira-calculator') + '#step3',
           },
           {
             '@type': 'HowToStep',
             position: 4,
             name: 'Set Tax Rates and IRA Type',
             text: 'Enter your current and expected retirement tax rates. Choose between Traditional IRA (tax deduction now) or Roth IRA (tax-free withdrawals).',
-            url: 'https://aicalculator.pro/ira-calculator#step4',
+            url: getUrl('/ira-calculator') + '#step4',
           },
           {
             '@type': 'HowToStep',
             position: 5,
             name: 'Calculate Retirement Savings',
             text: 'Click Calculate IRA to see your projected retirement balance, tax implications, and Traditional vs Roth comparison.',
-            url: 'https://aicalculator.pro/ira-calculator#step5',
+            url: getUrl('/ira-calculator') + '#step5',
           },
           {
             '@type': 'HowToStep',
             position: 6,
             name: 'Review Comparison and RMDs',
             text: 'Analyze the side-by-side comparison of Traditional vs Roth IRA, including after-tax values and RMD requirements.',
-            url: 'https://aicalculator.pro/ira-calculator#step6',
+            url: getUrl('/ira-calculator') + '#step6',
           },
         ],
       },
       {
         '@type': 'Article',
-        '@id': 'https://aicalculator.pro/ira-calculator#article',
+        '@id': getUrl('/ira-calculator') + '#article',
         headline: 'IRA Calculator - Traditional vs Roth IRA Comparison & Retirement Planning',
         description: 'Comprehensive guide to IRA with free calculator. Learn Traditional vs Roth IRA differences, contribution limits, tax benefits, and retirement planning strategies.',
         author: {
           '@type': 'Organization',
           name: 'AICalculator.pro',
-          url: 'https://aicalculator.pro',
+          url: getUrl('/'),
         },
         publisher: {
           '@type': 'Organization',
           name: 'AICalculator.pro',
           logo: {
             '@type': 'ImageObject',
-            url: 'https://aicalculator.pro/logo.png',
+            url: getUrl('/logo.png'),
           },
         },
         datePublished: '2025-11-16',
         dateModified: '2025-11-16',
-        image: 'https://aicalculator.pro/og-ira.png',
+        image: getOgImage('ira'),
         articleBody: 'An IRA (Individual Retirement Account) is a tax-advantaged retirement savings account. Use our free calculator to compare Traditional vs Roth IRA and determine which is best for your retirement goals.',
       },
       {
         '@type': 'FAQPage',
-        '@id': 'https://aicalculator.pro/ira-calculator#faq',
+        '@id': getUrl('/ira-calculator') + '#faq',
         mainEntity: [
           {
             '@type': 'Question',

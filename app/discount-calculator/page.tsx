@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import DiscountCalculator from '@/components/Calculator/DiscountCalculator';
 
@@ -35,12 +36,12 @@ export const metadata: Metadata = {
     title: "Discount Calculator (Free, No signup) - AICalculator",
     description: "Free discount calculator with no sign-up required. Calculate discount percentages, sale prices, and total savings instantly. Stack multiple discounts and compare deals easily.",
     type: "website",
-    url: "https://aicalculator.pro/discount-calculator",
+    url: getUrl('/discount-calculator'),
     siteName: "AICalculator",
     locale: 'en_US',
     images: [
       {
-        url: 'https://aicalculator.pro/og-discount.png',
+        url: getOgImage('discount-calculator'),
         width: 1200,
         height: 630,
         alt: 'Free Discount Calculator - No Sign-up Required',
@@ -51,12 +52,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Discount Calculator (Free, No signup) - AICalculator",
     description: "Free discount calculator with no sign-up required. Calculate discounts, sale prices, and savings instantly. Perfect for shopping and comparing deals.",
-    images: ['https://aicalculator.pro/og-discount.png'],
+    images: [getOgImage('discount-calculator')],
     site: "@AICalculator",
     creator: '@aicalculator',
   },
   alternates: {
-    canonical: "https://aicalculator.pro/discount-calculator",
+    canonical: getUrl('/discount-calculator'),
   },
   robots: {
     index: true,
@@ -81,7 +82,7 @@ export default function DiscountCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Discount Calculator",
-        "url": "https://aicalculator.pro/discount-calculator",
+        "url": getUrl('/discount-calculator'),
         "description": "Free online discount calculator to calculate sale prices, savings amounts, and discount percentages. Supports simple discounts, multiple discount stacking, and reverse discount percentage calculation.",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
@@ -109,19 +110,19 @@ export default function DiscountCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial Calculators",
-            "item": "https://aicalculator.pro/financial"
+            "item": getUrl('/financial')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Discount Calculator",
-            "item": "https://aicalculator.pro/discount-calculator"
+            "item": getUrl('/discount-calculator')
           }
         ]
       },
@@ -196,7 +197,7 @@ export default function DiscountCalculatorPage() {
       },
       {
         "@type": "HowTo",
-        "@id": "https://aicalculator.pro/discount-calculator#howto",
+        "@id": getUrl('/discount-calculator') + '#howto',
         "name": "How to Calculate Discounts and Sale Prices",
         "description": "Learn how to calculate discount percentages, sale prices, and savings",
         "totalTime": "PT3M",
@@ -215,45 +216,45 @@ export default function DiscountCalculatorPage() {
             "position": 1,
             "name": "Choose Calculation Mode",
             "text": "Select the type of calculation you need: Simple Discount (calculate sale price from a percentage), Multiple Discounts (stack multiple discounts), or Find Discount % (calculate the discount percentage from original and sale prices).",
-            "url": "https://aicalculator.pro/discount-calculator#step1"
+            "url": getUrl('/discount-calculator') + '#step1'
           },
           {
             "@type": "HowToStep",
             "position": 2,
             "name": "Enter Values",
             "text": "For simple discounts: Enter the original price and discount percentage. For multiple discounts: Enter the original price and up to 3 discount percentages. For reverse calculation: Enter the original price and final sale price.",
-            "url": "https://aicalculator.pro/discount-calculator#step2"
+            "url": getUrl('/discount-calculator') + '#step2'
           },
           {
             "@type": "HowToStep",
             "position": 3,
             "name": "View Results",
             "text": "Instantly see the final price, discount amount, and total savings. For multiple discounts, see the step-by-step breakdown showing how each discount is applied. Use quick discount buttons for common percentages like 20%, 25%, or 50% off.",
-            "url": "https://aicalculator.pro/discount-calculator#step3"
+            "url": getUrl('/discount-calculator') + '#step3'
           }
         ]
       },
       {
         "@type": "Article",
-        "@id": "https://aicalculator.pro/discount-calculator#article",
+        "@id": getUrl('/discount-calculator') + '#article',
         "headline": "Discount Calculator - Complete Guide to Sale Prices & Savings",
         "description": "Comprehensive guide to discount calculations with free calculator. Learn how to calculate sale prices, compare discounts, stack multiple offers, and maximize your shopping savings.",
         "author": {
           "@type": "Organization",
           "name": "AICalculator.pro",
-          "url": "https://aicalculator.pro"
+          "url": getUrl('/')
         },
         "publisher": {
           "@type": "Organization",
           "name": "AICalculator.pro",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://aicalculator.pro/logo.png"
+            "url": getUrl('/logo.png')
           }
         },
         "datePublished": "2025-11-16",
         "dateModified": "2025-11-16",
-        "image": "https://aicalculator.pro/og-discount.png",
+        "image": getOgImage('discount-calculator'),
         "articleBody": "Master discount calculations with our comprehensive calculator. Calculate sale prices, determine discount percentages, stack multiple discounts, and compare deals. Perfect for shopping, Black Friday sales, and finding the best bargains."
       }
     ]

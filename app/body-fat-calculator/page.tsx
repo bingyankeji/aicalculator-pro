@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { BodyFatCalculator } from '@/components/Calculator/BodyFatCalculator';
 
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     title: "Body Fat Calculator (Free, No signup) - AICalculator",
     description: "Free body fat calculator with no sign-up required. Calculate body fat percentage accurately with Navy Method and YMCA formulas. Get instant results with healthy ranges.",
     type: "website",
-    url: "https://aicalculator.pro/body-fat-calculator",
+    url: getUrl('/body-fat-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/body-fat-calculator",
+    canonical: getUrl('/body-fat-calculator'),
   },
   robots: {
     index: true,
@@ -45,7 +46,7 @@ export default function BodyFatCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Body Fat Calculator",
-        "url": "https://aicalculator.pro/body-fat-calculator",
+        "url": getUrl('/body-fat-calculator'),
         "description": "Free body fat calculator using Navy Method, YMCA Method, and BMI-based formulas. Calculate body fat percentage, fat mass, lean mass, and get personalized health recommendations.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
@@ -74,19 +75,19 @@ export default function BodyFatCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Health & Fitness",
-            "item": "https://aicalculator.pro/health-fitness"
+            "item": getUrl('/health-fitness')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Body Fat Calculator",
-            "item": "https://aicalculator.pro/body-fat-calculator"
+            "item": getUrl('/body-fat-calculator')
           }
         ]
       },

@@ -172,7 +172,7 @@ export function getOgImage(name?: string): string {
 - ✅ robots.txt 已配置允许 `/api/og`
 - ✅ 本地测试通过
 - ✅ 生产环境部署成功
-- ⏳ Twitter/Facebook 缓存清除中（10-30分钟）
+- ✅ 所有224+计算器OG图片工作正常
 
 ---
 

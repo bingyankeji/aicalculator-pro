@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from 'next/link';
 import { ROICalculator } from '@/components/Calculator/ROICalculator';
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     title: 'ROI Calculator (Free, No signup) - AICalculator',
     description: 'Free ROI calculator with no sign-up required. Calculate investment returns, ROI percentage, annualized returns, and net profit. Analyze investment performance with detailed breakdowns and recommendations.',
     type: 'website',
-    url: 'https://aicalculator.pro/roi-calculator',
+    url: getUrl('/roi-calculator'),
     siteName: 'AICalculator',
   },
   twitter: {
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     site: '@AICalculator',
   },
   alternates: {
-    canonical: 'https://aicalculator.pro/roi-calculator',
+    canonical: getUrl('/roi-calculator'),
   },
   robots: {
     index: true,
@@ -64,7 +65,7 @@ export default function ROICalculatorPage() {
       {
         '@type': 'WebApplication',
         name: 'ROI Calculator',
-        url: 'https://aicalculator.pro/roi-calculator',
+        url: getUrl('/roi-calculator'),
         description:
           'Calculate Return on Investment (ROI) with our free calculator. Get ROI percentage, annualized returns, net profit analysis, and investment recommendations.',
         applicationCategory: 'FinanceApplication',
@@ -93,19 +94,19 @@ export default function ROICalculatorPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.pro',
+            item: getUrl('/'),
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Financial',
-            item: 'https://aicalculator.pro/financial',
+            item: getUrl('/financial'),
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'ROI Calculator',
-            item: 'https://aicalculator.pro/roi-calculator',
+            item: getUrl('/roi-calculator'),
           },
         ],
       },

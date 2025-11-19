@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import BoatLoanCalculator from '@/components/Calculator/BoatLoanCalculator';
 import Link from 'next/link';
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     title: 'Boat Loan Calculator - Calculate Marine Financing',
     description: 'Free calculator for boat loans including insurance, maintenance, and dockage costs. Assess affordability and compare financing options.',
     type: 'website',
-    url: 'https://aicalculator.pro/boat-loan-calculator',
+    url: getUrl('/boat-loan-calculator'),
   },
   twitter: {
     card: 'summary_large_image',
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     description: 'Calculate boat loan payments and total ownership costs',
   },
   alternates: {
-    canonical: 'https://aicalculator.pro/boat-loan-calculator',
+    canonical: getUrl('/boat-loan-calculator'),
   },
 };
 
@@ -53,7 +54,7 @@ export default function BoatLoanCalculatorPage() {
         '@type': 'WebApplication',
         name: 'Boat Loan Calculator',
         description: 'Calculate boat loan payments and total ownership costs',
-        url: 'https://aicalculator.pro/boat-loan-calculator',
+        url: getUrl('/boat-loan-calculator'),
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Any',
         offers: {
@@ -79,13 +80,13 @@ export default function BoatLoanCalculatorPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.pro',
+            item: getUrl('/'),
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Boat Loan Calculator',
-            item: 'https://aicalculator.pro/boat-loan-calculator',
+            item: getUrl('/boat-loan-calculator'),
           },
         ],
       },

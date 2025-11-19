@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { getUrl, getOgImage } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import HeightCalculator from '@/components/Calculator/HeightCalculator';
 import Link from 'next/link';
@@ -36,11 +37,11 @@ export const metadata: Metadata = {
     title: 'Height Calculator - Predict Child\'s Future Height',
     description: 'Calculate your child\'s predicted adult height using parents\' heights. Free, accurate, and based on WHO growth standards.',
     type: 'website',
-    url: 'https://aicalculator.pro/height-calculator',
+    url: getUrl('/height-calculator'),
     siteName: 'AICalculator',
     locale: 'en_US',
     images: [{
-      url: 'https://aicalculator.pro/og-height.jpg',
+      url: getOgImage('height'),
       width: 1200,
       height: 630,
     }],
@@ -49,11 +50,11 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Height Calculator - Predict Child\'s Future Height',
     description: 'Calculate your child\'s predicted adult height using parents\' heights.',
-    images: ['https://aicalculator.pro/og-height.jpg'],
+    images: [getOgImage('height')],
     creator: '@aicalculator',
   },
   alternates: {
-    canonical: 'https://aicalculator.pro/height-calculator',
+    canonical: getUrl('/height-calculator'),
   },
   robots: {
     index: true,
@@ -74,9 +75,9 @@ export default function HeightCalculatorPage() {
     '@graph': [
       {
         '@type': 'WebApplication',
-        '@id': 'https://aicalculator.pro/height-calculator#webapp',
+        '@id': getUrl('/height-calculator') + '#webapp',
         name: 'Height Calculator',
-        url: 'https://aicalculator.pro/height-calculator',
+        url: getUrl('/height-calculator'),
         description: 'Free height calculator to predict child\'s adult height based on parents\' heights using WHO growth standards.',
         applicationCategory: 'HealthApplication',
         operatingSystem: 'Any',
@@ -96,13 +97,13 @@ export default function HeightCalculatorPage() {
       },
       {
         '@type': 'BreadcrumbList',
-        '@id': 'https://aicalculator.pro/height-calculator#breadcrumb',
+        '@id': getUrl('/height-calculator') + '#breadcrumb',
         itemListElement: [
           {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.pro',
+            item: getUrl('/'),
           },
           {
             '@type': 'ListItem',
@@ -113,7 +114,7 @@ export default function HeightCalculatorPage() {
       },
       {
         '@type': 'FAQPage',
-        '@id': 'https://aicalculator.pro/height-calculator#faq',
+        '@id': getUrl('/height-calculator') + '#faq',
         mainEntity: [
           {
             '@type': 'Question',
@@ -151,7 +152,7 @@ export default function HeightCalculatorPage() {
       },
       {
         '@type': 'HowTo',
-        '@id': 'https://aicalculator.pro/height-calculator#howto',
+        '@id': getUrl('/height-calculator') + '#howto',
         name: 'How to Predict Your Child\'s Height',
         step: [
           {
@@ -159,34 +160,34 @@ export default function HeightCalculatorPage() {
             position: 1,
             name: 'Select Calculator Mode',
             text: 'Choose between Full Calculator (with child\'s current measurements) or Parents Heights Only mode.',
-            url: 'https://aicalculator.pro/height-calculator#step1',
+            url: getUrl('/height-calculator') + '#step1',
           },
           {
             '@type': 'HowToStep',
             position: 2,
             name: 'Enter Parent Heights',
             text: 'Input mother\'s and father\'s heights in your preferred unit system (metric, US units, or meters).',
-            url: 'https://aicalculator.pro/height-calculator#step2',
+            url: getUrl('/height-calculator') + '#step2',
           },
           {
             '@type': 'HowToStep',
             position: 3,
             name: 'Enter Child Information (Optional)',
             text: 'If using full calculator, add child\'s age, gender, current height, and weight.',
-            url: 'https://aicalculator.pro/height-calculator#step3',
+            url: getUrl('/height-calculator') + '#step3',
           },
           {
             '@type': 'HowToStep',
             position: 4,
             name: 'Get Prediction',
             text: 'Click Calculate to see predicted adult height with minimum and maximum range.',
-            url: 'https://aicalculator.pro/height-calculator#step4',
+            url: getUrl('/height-calculator') + '#step4',
           },
         ],
       },
       {
         '@type': 'Article',
-        '@id': 'https://aicalculator.pro/height-calculator#article',
+        '@id': getUrl('/height-calculator') + '#article',
         headline: 'Understanding Child Height Prediction',
         description: 'Comprehensive guide to predicting your child\'s adult height using scientific methods.',
         author: {

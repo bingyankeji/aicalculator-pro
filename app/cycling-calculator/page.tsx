@@ -5,10 +5,12 @@ import Link from 'next/link';
 import { Bike, Zap, TrendingUp, Mountain, Activity, Award } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Cycling Calculator - Power, Speed & Training Zones | Free Bike Calculator',
-  description: 'Free cycling calculator with power estimation, speed calculation, and training zones. Get FTP-based power zones, heart rate zones, cadence recommendations, and climb analysis for road cycling and mountain biking.',
+  title: 'Cycling Calculator (Free, No signup) - Bike Speed | AICalculator',
+  description: 'Free cycling calculator with no sign-up required. With power estimation, speed calculation, and training zones. Get FTP-based power zones, heart rate zones, cadence recommendations, and climb analysis for road cycling and mountain biking.',
   keywords: [
     'cycling calculator',
+    'free cycling calculator',
+    'cycling calculator no signup',
     'bike calculator',
     'cycling speed calculator',
     'cycling power calculator',
@@ -42,8 +44,8 @@ export const metadata: Metadata = {
     canonical: getUrl('/cycling-calculator'),
   },
   openGraph: {
-    title: 'Cycling Calculator - Power, Speed & Training Zones',
-    description: 'Calculate cycling power, speed, and get personalized training zones based on FTP. Includes cadence recommendations and climb analysis.',
+    title: 'Cycling Calculator (Free, No signup) - AICalculator',
+    description: 'Free cycling calculator with no sign-up required. Calculate cycling power, speed, and get personalized training zones based on FTP. Includes cadence recommendations and climb analysis.',
     url: getUrl('/cycling-calculator'),
     siteName: 'AICalculator.pro',
     locale: 'en_US',
@@ -59,7 +61,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cycling Calculator - Power, Speed & Training Zones',
+    title: 'Cycling Calculator (Free, No signup) - AICalculator',
     description: 'Calculate power, speed, and get FTP-based training zones for cycling.',
     images: [getOgImage('cycling')],
     creator: '@AICalculatorPro',

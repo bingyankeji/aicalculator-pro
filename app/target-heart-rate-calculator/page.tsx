@@ -4,10 +4,12 @@ import Link from "next/link";
 import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId, getArticleId, getStepUrl } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Target Heart Rate Calculator - Training Heart Rate Zones by Age | AICalculator',
-  description: 'Free target heart rate calculator to find your optimal training zones using the Karvonen formula. Calculate max heart rate, fat burning zone, aerobic zone, and anaerobic zones based on age and resting heart rate.',
+  title: 'Target Heart Rate (Free, No signup) - Training Zones | AICalculator',
+  description: 'Free target heart rate calculator with no sign-up required. Find your optimal training zones using the Karvonen formula. Calculate max heart rate, fat burning zone, aerobic zone, and anaerobic zones based on age and resting heart rate.',
   keywords: [
     'target heart rate calculator',
+    'free target heart rate calculator',
+    'target heart rate calculator no signup',
     'heart rate zone calculator',
     'max heart rate calculator',
     'karvonen formula calculator',
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: 'Target Heart Rate Calculator - Find Your Training Zones | AICalculator',
+    title: 'Target Heart Rate (Free, No signup) - AICalculator',
     description: 'Calculate your target heart rate zones for optimal training. Free tool using Karvonen formula for accurate fat burning, aerobic, and anaerobic heart rate zones.',
     type: 'website',
     url: getUrl('/target-heart-rate-calculator'),
@@ -47,8 +49,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Target Heart Rate Calculator - Training Heart Rate Zones',
-    description: 'Calculate your optimal training heart rate zones by age. Free Karvonen formula calculator for fat burning, aerobic, and anaerobic zones.',
+    title: 'Target Heart Rate (Free, No signup) - AICalculator',
+    description: 'Free target heart rate calculator with no sign-up required. Calculate your optimal training heart rate zones by age. Karvonen formula calculator for fat burning, aerobic, and anaerobic zones.',
     images: [getOgImage('target-heart-rate')],
     creator: '@aicalculator',
   },

@@ -5,10 +5,12 @@ import Link from 'next/link';
 import { Activity, TrendingUp, Award, Heart, Zap, Info } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'VO2 Max Calculator - Measure Your Cardiovascular Fitness | Free Online Tool',
-  description: 'Calculate your VO2 Max with our free online calculator. Supports Cooper test, 1.5 mile run, Rockport walk test, and Harvard step test. Get personalized fitness recommendations and training plans based on your cardiovascular capacity.',
+  title: 'VO2 Max Calculator (Free, No signup) - Fitness Level | AICalculator',
+  description: 'Free VO2 Max calculator with no sign-up required. Supports Cooper test, 1.5 mile run, Rockport walk test, and Harvard step test. Get personalized fitness recommendations and training plans based on your cardiovascular capacity.',
   keywords: [
     'vo2 max calculator',
+    'free vo2 max calculator',
+    'vo2 max calculator no signup',
     'vo2max calculator',
     'cardiovascular fitness test',
     'aerobic capacity calculator',
@@ -37,8 +39,8 @@ export const metadata: Metadata = {
     canonical: getUrl('/vo2-max-calculator'),
   },
   openGraph: {
-    title: 'VO2 Max Calculator - Measure Your Cardiovascular Fitness',
-    description: 'Calculate your VO2 Max with multiple test methods. Get personalized fitness level assessment, athlete comparisons, and training recommendations. Free online tool with instant results.',
+    title: 'VO2 Max Calculator (Free, No signup) - AICalculator',
+    description: 'Free VO2 Max calculator with no sign-up required. Calculate your VO2 Max with multiple test methods. Get personalized fitness level assessment, athlete comparisons, and training recommendations. Instant results.',
     url: getUrl('/vo2-max-calculator'),
     siteName: 'AICalculator.pro',
     locale: 'en_US',
@@ -54,8 +56,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'VO2 Max Calculator - Measure Your Cardiovascular Fitness',
-    description: 'Calculate your VO2 Max using Cooper test, 1.5 mile run, Rockport walk, or Harvard step test. Get instant fitness assessment and training plans.',
+    title: 'VO2 Max Calculator (Free, No signup) - AICalculator',
+    description: 'Free VO2 Max calculator with no sign-up required. Calculate your VO2 Max using Cooper test, 1.5 mile run, Rockport walk, or Harvard step test. Get instant fitness assessment and training plans.',
     images: [getOgImage('vo2-max')],
     creator: '@AICalculatorPro',
   },

@@ -4,10 +4,12 @@ import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId,
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: `One Rep Max Calculator - 1RM Strength Calculator | ${process.env.NEXT_PUBLIC_SITE_NAME}`,
-  description: `Free 1RM calculator estimates your one rep max using 7 validated formulas. Calculate max strength from any weight and reps. Get personalized training plan with percentages for all fitness goals.`,
+  title: `One Rep Max (Free, No signup) - 1RM Calculator | AICalculator`,
+  description: `Free 1RM calculator with no sign-up required. Estimates your one rep max using 7 validated formulas. Calculate max strength from any weight and reps. Get personalized training plan with percentages for all fitness goals.`,
   keywords: [
     'one rep max calculator',
+    'free one rep max calculator',
+    'one rep max calculator no signup',
     '1rm calculator',
     'max strength calculator',
     'bench press calculator',
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
     canonical: getUrl('/one-rep-max-calculator')
   },
   openGraph: {
-    title: `One Rep Max Calculator - Calculate Your 1RM Strength`,
+    title: `One Rep Max (Free, No signup) - AICalculator`,
     description: `Estimate your 1RM using 7 formulas. Get training weights for strength, hypertrophy, and endurance.`,
     url: getUrl('/one-rep-max-calculator'),
     siteName: process.env.NEXT_PUBLIC_SITE_NAME,
@@ -41,8 +43,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `1RM Calculator - One Rep Max Strength Tool`,
-    description: `Calculate max strength from any weight/reps. Get complete training plan with percentages.`,
+    title: `One Rep Max (Free, No signup) - AICalculator`,
+    description: `Free 1RM calculator with no sign-up required. Calculate max strength from any weight/reps. Get complete training plan with percentages.`,
   },
   robots: {
     index: true,

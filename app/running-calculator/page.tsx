@@ -5,10 +5,12 @@ import Link from 'next/link';
 import { Activity, Timer, TrendingUp, Award, Target, Info } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Running Calculator - Pace, Time & Distance Calculator | Free Running Tools',
-  description: 'Free running calculator with pace, time, and distance calculations. Get race time predictions, training pace recommendations, split times, and calorie burn estimates. Perfect for 5K, 10K, half marathon, and marathon training.',
+  title: 'Running Calculator (Free, No signup) - Pace Time | AICalculator',
+  description: 'Free running calculator with no sign-up required. With pace, time, and distance calculations. Get race time predictions, training pace recommendations, split times, and calorie burn estimates. Perfect for 5K, 10K, half marathon, and marathon training.',
   keywords: [
     'running calculator',
+    'free running calculator',
+    'running calculator no signup',
     'pace calculator',
     'running pace calculator',
     'marathon pace calculator',
@@ -37,8 +39,8 @@ export const metadata: Metadata = {
     canonical: getUrl('/running-calculator'),
   },
   openGraph: {
-    title: 'Running Calculator - Pace, Time & Distance Calculator',
-    description: 'Calculate your running pace, predict race times, and get personalized training recommendations. Includes split times, calorie burn, and recovery time estimates.',
+    title: 'Running Calculator (Free, No signup) - AICalculator',
+    description: 'Free running calculator with no sign-up required. Calculate your running pace, predict race times, and get personalized training recommendations. Includes split times, calorie burn, and recovery time estimates.',
     url: getUrl('/running-calculator'),
     siteName: 'AICalculator.pro',
     locale: 'en_US',
@@ -54,8 +56,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Running Calculator - Pace, Time & Distance Calculator',
-    description: 'Calculate pace, predict race times, and get training recommendations for 5K to marathon distances.',
+    title: 'Running Calculator (Free, No signup) - AICalculator',
+    description: 'Free running calculator with no sign-up required. Calculate pace, predict race times, and get training recommendations for 5K to marathon distances.',
     images: [getOgImage('running')],
     creator: '@AICalculatorPro',
   },

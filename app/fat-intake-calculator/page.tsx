@@ -13,10 +13,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "Fat Intake Calculator - Daily Fat Needs & Omega 3-6 Balance | AICalculator",
-  description: "Free fat intake calculator for optimal fat consumption. Calculate daily fat needs, omega-3 to omega-6 ratio, and get personalized recommendations for heart and brain health.",
+  title: "Fat Intake Calculator (Free, No signup) - Daily Fats | AICalculator",
+  description: "Free fat intake calculator with no sign-up required. For optimal fat consumption. Calculate daily fat needs, omega-3 to omega-6 ratio, and get personalized recommendations for heart and brain health.",
   keywords: [
     "fat intake calculator",
+    "free fat intake calculator",
+    "fat intake calculator no signup",
     "fat calculator",
     "daily fat intake calculator",
     "healthy fats calculator",
@@ -31,8 +33,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: "Fat Intake Calculator - Daily Fat Needs",
-    description: "Calculate your optimal daily fat intake with personalized omega-3 and omega-6 recommendations. Perfect for heart health, brain function, and overall wellness.",
+    title: "Fat Intake Calculator (Free, No signup) - AICalculator",
+    description: "Free fat intake calculator with no sign-up required. Calculate your optimal daily fat intake with personalized omega-3 and omega-6 recommendations. Perfect for heart health, brain function, and overall wellness.",
     type: "website",
     url: getUrl('/fat-intake-calculator'),
     siteName: "AICalculator",
@@ -48,8 +50,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fat Intake Calculator",
-    description: "Calculate your daily fat needs with personalized recommendations.",
+    title: "Fat Intake Calculator (Free, No signup) - AICalculator",
+    description: "Free fat intake calculator with no sign-up required. Calculate your daily fat needs with personalized recommendations.",
     images: [getOgImage('fat')],
     site: "@AICalculator",
     creator: '@aicalculator',

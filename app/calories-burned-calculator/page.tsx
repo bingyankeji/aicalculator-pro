@@ -4,10 +4,12 @@ import { getUrl, getOgImage, getBreadcrumbId, getWebAppId, getFaqId, getHowToId,
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: `Calories Burned Calculator - Exercise Calorie Burn & Activity Tracker | ${process.env.NEXT_PUBLIC_SITE_NAME}`,
-  description: `Free calories burned calculator estimates energy expenditure for 15+ activities. Calculate calories by exercise type, intensity, duration with MET values. Track weekly/monthly burn and weight loss potential.`,
+  title: `Calories Burned (Free, No signup) - Exercise Calories | AICalculator`,
+  description: `Free calories burned calculator with no sign-up required. Estimates energy expenditure for 15+ activities. Calculate calories by exercise type, intensity, duration with MET values. Track weekly/monthly burn and weight loss potential.`,
   keywords: [
     'calories burned calculator',
+    'free calories burned calculator',
+    'calories burned calculator no signup',
     'calorie burn calculator',
     'exercise calories calculator',
     'how many calories burned',
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
     canonical: getUrl('/calories-burned-calculator')
   },
   openGraph: {
-    title: `Calories Burned Calculator - Track Exercise & Activity Calories`,
+    title: `Calories Burned (Free, No signup) - AICalculator`,
     description: `Calculate calories burned for any activity with our MET-based calculator. Get weekly projections and food equivalents.`,
     url: getUrl('/calories-burned-calculator'),
     siteName: process.env.NEXT_PUBLIC_SITE_NAME,
@@ -41,8 +43,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `Calories Burned Calculator - Exercise Calorie Tracker`,
-    description: `Estimate calories burned for running, cycling, swimming and 15+ activities. Track your fitness progress.`,
+    title: `Calories Burned (Free, No signup) - AICalculator`,
+    description: `Free calories burned calculator with no sign-up required. Estimate calories burned for running, cycling, swimming and 15+ activities. Track your fitness progress.`,
   },
   robots: {
     index: true,

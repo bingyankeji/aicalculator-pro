@@ -5,10 +5,12 @@ import Link from 'next/link';
 import { Waves, Activity, Target, TrendingUp, Info, Award } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Swimming Calculator - Pace, SWOLF & Training Tool | Free Swim Pace Calculator',
-  description: 'Free swimming calculator with pace tracking, SWOLF efficiency scoring, and training recommendations. Calculate swimming pace for freestyle, backstroke, breaststroke, and butterfly. Get interval training plans and race predictions.',
+  title: 'Swimming Calculator (Free, No signup) - Swim Pace | AICalculator',
+  description: 'Free swimming calculator with no sign-up required. With pace tracking, SWOLF efficiency scoring, and training recommendations. Calculate swimming pace for freestyle, backstroke, breaststroke, and butterfly. Get interval training plans and race predictions.',
   keywords: [
     'swimming calculator',
+    'free swimming calculator',
+    'swimming calculator no signup',
     'swim pace calculator',
     'swimming pace calculator',
     'swolf calculator',
@@ -42,8 +44,8 @@ export const metadata: Metadata = {
     canonical: getUrl('/swimming-calculator'),
   },
   openGraph: {
-    title: 'Swimming Calculator - Pace, SWOLF & Training Tool',
-    description: 'Calculate swimming pace, track SWOLF efficiency, and get personalized training plans for all swimming strokes. Free swimming calculator with race predictions.',
+    title: 'Swimming Calculator (Free, No signup) - AICalculator',
+    description: 'Free swimming calculator with no sign-up required. Calculate swimming pace, track SWOLF efficiency, and get personalized training plans for all swimming strokes. With race predictions.',
     url: getUrl('/swimming-calculator'),
     siteName: 'AICalculator.pro',
     locale: 'en_US',
@@ -59,7 +61,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Swimming Calculator - Pace, SWOLF & Training Tool',
+    title: 'Swimming Calculator (Free, No signup) - AICalculator',
     description: 'Calculate pace, track efficiency with SWOLF, and get training recommendations for all swimming strokes.',
     images: [getOgImage('swimming')],
     creator: '@AICalculatorPro',

@@ -13,10 +13,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "Pregnancy Weight Gain Calculator - Track Healthy Pregnancy Weight | AICalculator",
-  description: "Free pregnancy weight gain calculator based on pre-pregnancy BMI. Track weekly weight gain, get personalized recommendations, and ensure a healthy pregnancy for you and your baby.",
+  title: "Pregnancy Weight Gain (Free) - Healthy Gain | AICalculator",
+  description: "Free pregnancy weight gain calculator with no sign-up required. Based on pre-pregnancy BMI. Track weekly weight gain, get personalized recommendations, and ensure a healthy pregnancy for you and your baby.",
   keywords: [
     "pregnancy weight gain calculator",
+    "free pregnancy weight gain calculator",
+    "pregnancy weight gain calculator no signup",
     "pregnancy weight calculator",
     "how much weight to gain during pregnancy",
     "pregnancy bmi calculator",
@@ -30,8 +32,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: "Pregnancy Weight Gain Calculator",
-    description: "Track your pregnancy weight gain with personalized recommendations based on your BMI. Ensure a healthy pregnancy journey.",
+    title: "Pregnancy Weight Gain (Free) - AICalculator",
+    description: "Free pregnancy weight gain calculator with no sign-up required. Track your pregnancy weight gain with personalized recommendations based on your BMI. Ensure a healthy pregnancy journey.",
     type: "website",
     url: getUrl('/pregnancy-weight-gain-calculator'),
     siteName: "AICalculator",
@@ -47,8 +49,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pregnancy Weight Gain Calculator",
-    description: "Track pregnancy weight gain with personalized recommendations.",
+    title: "Pregnancy Weight Gain (Free) - AICalculator",
+    description: "Free pregnancy weight gain calculator with no sign-up required. Track pregnancy weight gain with personalized recommendations.",
     images: [getOgImage('pregnancy')],
     site: "@AICalculator",
     creator: '@aicalculator',

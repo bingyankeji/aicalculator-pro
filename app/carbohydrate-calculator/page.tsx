@@ -13,10 +13,12 @@ import {
 } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "Carbohydrate Calculator - Daily Carb Intake & Meal Planning | AICalculator",
-  description: "Free carbohydrate calculator for optimal carb intake. Calculate daily carb needs based on weight, activity, and goals. Get personalized meal distribution and GI recommendations for better energy and health.",
+  title: "Carbohydrate Calculator (Free, No signup) - Daily Carbs | AICalculator",
+  description: "Free carbohydrate calculator with no sign-up required. For optimal carb intake. Calculate daily carb needs based on weight, activity, and goals. Get personalized meal distribution and GI recommendations for better energy and health.",
   keywords: [
     "carbohydrate calculator",
+    "free carbohydrate calculator",
+    "carbohydrate calculator no signup",
     "carb calculator",
     "daily carb intake calculator",
     "carb needs calculator",
@@ -34,8 +36,8 @@ export const metadata: Metadata = {
   creator: 'AICalculator.pro',
   publisher: 'AICalculator.pro',
   openGraph: {
-    title: "Carbohydrate Calculator - Daily Carb Needs",
-    description: "Calculate your optimal daily carbohydrate intake with personalized meal distribution and GI recommendations. Perfect for weight loss, muscle gain, or maintenance.",
+    title: "Carbohydrate Calculator (Free, No signup) - AICalculator",
+    description: "Free carbohydrate calculator with no sign-up required. Calculate your optimal daily carbohydrate intake with personalized meal distribution and GI recommendations. Perfect for weight loss, muscle gain, or maintenance.",
     type: "website",
     url: getUrl('/carbohydrate-calculator'),
     siteName: "AICalculator",
@@ -51,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Carbohydrate Calculator",
-    description: "Calculate your daily carb needs with personalized recommendations.",
+    title: "Carbohydrate Calculator (Free, No signup) - AICalculator",
+    description: "Free carbohydrate calculator with no sign-up required. Calculate your daily carb needs with personalized recommendations.",
     images: [getOgImage('carb')],
     site: "@AICalculator",
     creator: '@aicalculator',

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { ScientificCalculator } from '@/components/Calculator/ScientificCalculator';
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Scientific Calculator (Free, No signup) - Advanced | AICalculator",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     title: "Scientific Calculator (Free, No signup) - AICalculator",
     description: "Free scientific calculator with no sign-up required. Powerful online calculator with trigonometry, logarithms, memory functions, and more. Free for students and professionals.",
     type: "website",
-    url: "https://aicalculator.pro/scientific-calculator",
+    url: getUrl('/scientific-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     description: "Free scientific calculator with no sign-up required. Advanced calculator with trig functions, logs, exponentials, and memory for complex calculations.",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/scientific-calculator",
+    canonical: getUrl('/scientific-calculator'),
   },
   robots: {
     index: true,
@@ -59,7 +60,7 @@ export default function ScientificCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Scientific Calculator",
-        "url": "https://aicalculator.pro/scientific-calculator",
+        "url": getUrl('/scientific-calculator'),
         "description": "Advanced online scientific calculator with trigonometric functions, logarithms, exponentials, memory functions, and calculation history. Supports both degree and radian modes for angle measurements.",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
@@ -89,19 +90,19 @@ export default function ScientificCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Math & Numbers",
-            "item": "https://aicalculator.pro/math-numbers"
+            "item": getUrl('/math-numbers')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Scientific Calculator",
-            "item": "https://aicalculator.pro/scientific-calculator"
+            "item": getUrl('/scientific-calculator')
           }
         ]
       },

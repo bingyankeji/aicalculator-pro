@@ -3,6 +3,7 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import RomanNumeralCalculator from '@/components/Calculator/RomanNumeralCalculator';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Roman Numeral Converter - Convert Arabic Numbers to Roman Numerals | AICalculator.pro',
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     title: 'Roman Numeral Converter - Convert Arabic Numbers to Roman Numerals',
     description: 'Convert between Arabic numbers and Roman numerals instantly with step-by-step explanations.',
     type: 'website',
-    url: 'https://aicalculator.pro/roman-numeral-converter',
+    url: getUrl('/roman-numeral-converter'),
   },
   twitter: {
     card: 'summary_large_image',
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     description: 'Convert between Arabic numbers and Roman numerals instantly.',
   },
   alternates: {
-    canonical: 'https://aicalculator.pro/roman-numeral-converter',
+    canonical: getUrl('/roman-numeral-converter'),
   },
 };
 
@@ -47,9 +48,9 @@ const jsonLd = {
     // WebApplication
     {
       '@type': 'WebApplication',
-      '@id': 'https://aicalculator.pro/roman-numeral-converter#webapp',
+      '@id': getUrl('/roman-numeral-converter#webapp'),
       name: 'Roman Numeral Converter',
-      url: 'https://aicalculator.pro/roman-numeral-converter',
+      url: getUrl('/roman-numeral-converter'),
       description: 'Free online tool for converting between Arabic numbers and Roman numerals',
       applicationCategory: 'UtilityApplication',
       operatingSystem: 'Any',
@@ -72,32 +73,32 @@ const jsonLd = {
     // BreadcrumbList
     {
       '@type': 'BreadcrumbList',
-      '@id': 'https://aicalculator.pro/roman-numeral-converter#breadcrumb',
+      '@id': getUrl('/roman-numeral-converter#breadcrumb'),
       itemListElement: [
         {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://aicalculator.pro',
+          item: getUrl('/'),
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Other',
-          item: 'https://aicalculator.pro/other',
+          item: getUrl('/other'),
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Roman Numeral Converter',
-          item: 'https://aicalculator.pro/roman-numeral-converter',
+          item: getUrl('/roman-numeral-converter'),
         },
       ],
     },
     // FAQPage
     {
       '@type': 'FAQPage',
-      '@id': 'https://aicalculator.pro/roman-numeral-converter#faq',
+      '@id': getUrl('/roman-numeral-converter#faq'),
       mainEntity: [
         {
           '@type': 'Question',
@@ -144,7 +145,7 @@ const jsonLd = {
     // HowTo
     {
       '@type': 'HowTo',
-      '@id': 'https://aicalculator.pro/roman-numeral-converter#howto',
+      '@id': getUrl('/roman-numeral-converter#howto'),
       name: 'How to Convert Between Roman Numerals and Arabic Numbers',
       description: 'Step-by-step guide to converting Roman numerals',
       step: [
@@ -183,7 +184,7 @@ const jsonLd = {
     // Article
     {
       '@type': 'Article',
-      '@id': 'https://aicalculator.pro/roman-numeral-converter#article',
+      '@id': getUrl('/roman-numeral-converter#article'),
       headline: 'Roman Numeral Converter - Complete Guide to Roman Numerals',
       description: 'Learn about Roman numerals, their history, rules, and how to convert them',
       author: {
@@ -195,7 +196,7 @@ const jsonLd = {
         name: 'AICalculator.pro',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://aicalculator.pro/logo.png',
+          url: getUrl('/logo.png'),
         },
       },
       datePublished: '2024-01-01',

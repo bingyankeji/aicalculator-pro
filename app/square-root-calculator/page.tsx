@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { SquareRootCalculator } from "@/components/Calculator/SquareRootCalculator";
 import Link from "next/link";
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Square Root Calculator (Free, No signup) - Calculate Roots | AICalculator",
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     title: "Square Root Calculator (Free, No signup) - AICalculator",
     description: "Free square root calculator with no sign-up required. Online calculator with step-by-step solutions. Calculate square roots, nth roots, and check perfect squares with detailed mathematical analysis.",
     type: "website",
-    url: "https://aicalculator.pro/square-root-calculator",
+    url: getUrl('/square-root-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/square-root-calculator",
+    canonical: getUrl('/square-root-calculator'),
   },
   robots: {
     index: true,
@@ -61,7 +62,7 @@ export default function SquareRootCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Square Root Calculator",
-        "url": "https://aicalculator.pro/square-root-calculator",
+        "url": getUrl('/square-root-calculator'),
         "description": "Free online square root calculator to calculate √n, nth roots, and check perfect squares with step-by-step solutions and mathematical analysis.",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Any",
@@ -88,19 +89,19 @@ export default function SquareRootCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Math Calculators",
-            "item": "https://aicalculator.pro/math-numbers"
+            "item": getUrl('/math-numbers')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Square Root Calculator",
-            "item": "https://aicalculator.pro/square-root-calculator"
+            "item": getUrl('/square-root-calculator')
           }
         ]
       },

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { PercentageCalculator } from "@/components/Calculator/PercentageCalculator";
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Percentage Calculator (Free, No signup) - Quick Math | AICalculator",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     title: "Percentage Calculator (Free, No signup) - AICalculator",
     description: "Free percentage calculator with no sign-up required. Calculate percentages with ease. Find what percent of X is Y, calculate X% of Y, or increase/decrease values.",
     type: "website",
-    url: "https://aicalculator.pro/percentage-calculator",
+    url: getUrl('/percentage-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/percentage-calculator",
+    canonical: getUrl('/percentage-calculator'),
   },
   robots: {
     index: true,
@@ -60,7 +61,7 @@ export default function PercentageCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Percentage Calculator",
-        "url": "https://aicalculator.pro/percentage-calculator",
+        "url": getUrl('/percentage-calculator'),
         "description": "Free online percentage calculator with multiple calculation modes, formulas, and instant results.",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
@@ -90,19 +91,19 @@ export default function PercentageCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Math & Numbers",
-            "item": "https://aicalculator.pro/math-numbers"
+            "item": getUrl('/math-numbers')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Percentage Calculator",
-            "item": "https://aicalculator.pro/percentage-calculator"
+            "item": getUrl('/percentage-calculator')
           }
         ]
       },

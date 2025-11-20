@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { GradeCalculator } from "@/components/Calculator/GradeCalculator";
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Grade Calculator (Free, No signup) - Weighted Grade | AICalculator",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     title: "Grade Calculator (Free, No signup) - AICalculator",
     description: "Free grade calculator with no sign-up required. Online grade calculator with weighted averages, GPA conversion, and performance analysis. Calculate your final grade instantly!",
     type: "website",
-    url: "https://aicalculator.pro/grade-calculator",
+    url: getUrl('/grade-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/grade-calculator",
+    canonical: getUrl('/grade-calculator'),
   },
   robots: {
     index: true,
@@ -63,7 +64,7 @@ export default function GradeCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Grade Calculator",
-        "url": "https://aicalculator.pro/grade-calculator",
+        "url": getUrl('/grade-calculator'),
         "description": "Free online grade calculator for calculating weighted averages, GPA, and letter grades. Supports multiple assignments with custom weights.",
         "applicationCategory": "EducationApplication",
         "operatingSystem": "Any",
@@ -94,19 +95,19 @@ export default function GradeCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Math & Numbers",
-            "item": "https://aicalculator.pro/math-numbers"
+            "item": getUrl('/math-numbers')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Grade Calculator",
-            "item": "https://aicalculator.pro/grade-calculator"
+            "item": getUrl('/grade-calculator')
           }
         ]
       },

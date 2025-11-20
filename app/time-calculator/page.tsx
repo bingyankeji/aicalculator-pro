@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from "next/link";
 import { TimeCalculator } from "@/components/Calculator/TimeCalculator";
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Time Calculator (Free, No signup) - Add/Subtract Time | AICalculator",
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     title: "Time Calculator (Free, No signup) - AICalculator",
     description: "Free time calculator with no sign-up required. Add/subtract time, convert units, calculate dates. Smart analysis with time management tips.",
     type: "website",
-    url: "https://aicalculator.pro/time-calculator",
+    url: getUrl('/time-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     site: "@aicalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/time-calculator",
+    canonical: getUrl('/time-calculator'),
   },
   robots: {
     index: true,
@@ -64,7 +65,7 @@ export default function TimeCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Time Calculator",
-        "url": "https://aicalculator.pro/time-calculator",
+        "url": getUrl('/time-calculator'),
         "description": "Free online time calculator to add, subtract, and convert time units instantly. Perfect for project planning and scheduling.",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
@@ -91,19 +92,19 @@ export default function TimeCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Date & Time",
-            "item": "https://aicalculator.pro/date-time"
+            "item": getUrl('/date-time')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Time Calculator",
-            "item": "https://aicalculator.pro/time-calculator"
+            "item": getUrl('/time-calculator')
           }
         ]
       },

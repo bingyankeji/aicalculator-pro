@@ -3,6 +3,7 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import DayCounterCalculator from '@/components/Calculator/DayCounterCalculator';
 import Link from 'next/link';
 import { Calendar, Clock, TrendingUp, Users } from 'lucide-react';
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Day Counter - Calculate Days Between Dates | Free Date Calculator',
@@ -36,11 +37,11 @@ export const metadata: Metadata = {
     title: 'Day Counter - Calculate Days Between Dates',
     description: 'Calculate days between dates, add or subtract days, and count business days with our free day counter tool.',
     type: 'website',
-    url: 'https://aicalculator.pro/day-counter',
+    url: getUrl('/day-counter'),
     siteName: 'AICalculator',
     locale: 'en_US',
     images: [{
-      url: 'https://aicalculator.pro/og-day-counter.jpg',
+      url: getUrl('/og-day-counter.jpg'),
       width: 1200,
       height: 630,
     }],
@@ -49,11 +50,11 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Day Counter - Calculate Days Between Dates',
     description: 'Calculate days between dates, add or subtract days, and count business days.',
-    images: ['https://aicalculator.pro/og-day-counter.jpg'],
+    images: [getUrl('/og-day-counter.jpg')],
     creator: '@aicalculator',
   },
   alternates: {
-    canonical: 'https://aicalculator.pro/day-counter',
+    canonical: getUrl('/day-counter'),
   },
   robots: {
     index: true,
@@ -74,9 +75,9 @@ export default function DayCounterPage() {
     '@graph': [
       {
         '@type': 'WebApplication',
-        '@id': 'https://aicalculator.pro/day-counter#webapp',
+        '@id': getUrl('/day-counter#webapp'),
         name: 'Day Counter',
-        url: 'https://aicalculator.pro/day-counter',
+        url: getUrl('/day-counter'),
         description: 'Free day counter to calculate days between dates, add or subtract days, and count business days.',
         applicationCategory: 'UtilityApplication',
         operatingSystem: 'Any',
@@ -96,13 +97,13 @@ export default function DayCounterPage() {
       },
       {
         '@type': 'BreadcrumbList',
-        '@id': 'https://aicalculator.pro/day-counter#breadcrumb',
+        '@id': getUrl('/day-counter#breadcrumb'),
         itemListElement: [
           {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.pro',
+            item: getUrl('/'),
           },
           {
             '@type': 'ListItem',
@@ -113,7 +114,7 @@ export default function DayCounterPage() {
       },
       {
         '@type': 'FAQPage',
-        '@id': 'https://aicalculator.pro/day-counter#faq',
+        '@id': getUrl('/day-counter#faq'),
         mainEntity: [
           {
             '@type': 'Question',
@@ -151,7 +152,7 @@ export default function DayCounterPage() {
       },
       {
         '@type': 'HowTo',
-        '@id': 'https://aicalculator.pro/day-counter#howto',
+        '@id': getUrl('/day-counter#howto'),
         name: 'How to Use the Day Counter',
         step: [
           {
@@ -159,34 +160,34 @@ export default function DayCounterPage() {
             position: 1,
             name: 'Choose Calculator Mode',
             text: 'Select either "Date Range" to calculate days between two dates, or "Add/Subtract Days" to calculate a future or past date.',
-            url: 'https://aicalculator.pro/day-counter#step1',
+            url: getUrl('/day-counter#step1'),
           },
           {
             '@type': 'HowToStep',
             position: 2,
             name: 'Enter Dates',
             text: 'For Date Range mode, enter start and end dates. For Add/Subtract mode, enter a base date and the number of days.',
-            url: 'https://aicalculator.pro/day-counter#step2',
+            url: getUrl('/day-counter#step2'),
           },
           {
             '@type': 'HowToStep',
             position: 3,
             name: 'Configure Options',
             text: 'Choose whether to include the end day or count business days only, depending on your needs.',
-            url: 'https://aicalculator.pro/day-counter#step3',
+            url: getUrl('/day-counter#step3'),
           },
           {
             '@type': 'HowToStep',
             position: 4,
             name: 'View Results',
             text: 'Click Calculate to see total days, weekday/weekend breakdown, and time breakdown in years, months, weeks, and days.',
-            url: 'https://aicalculator.pro/day-counter#step4',
+            url: getUrl('/day-counter#step4'),
           },
         ],
       },
       {
         '@type': 'Article',
-        '@id': 'https://aicalculator.pro/day-counter#article',
+        '@id': getUrl('/day-counter#article'),
         headline: 'Understanding Day Calculations and Date Math',
         description: 'Comprehensive guide to calculating days between dates and understanding date arithmetic.',
         author: {

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from "next/link";
 import { DateCalculator } from "@/components/Calculator/DateCalculator";
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Date Calculator (Free, No signup) - Date Difference | AICalculator",
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     title: "Date Calculator (Free, No signup) - AICalculator",
     description: "Free date calculator with no sign-up required. Calculate days between dates, add or subtract time, find weekdays, and plan events. Accurate and easy-to-use date calculator.",
     type: "website",
-    url: "https://aicalculator.pro/date-calculator",
+    url: getUrl('/date-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     site: "@aicalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/date-calculator",
+    canonical: getUrl('/date-calculator'),
   },
   robots: {
     index: true,
@@ -64,7 +65,7 @@ export default function DateCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Date Calculator",
-        "url": "https://aicalculator.pro/date-calculator",
+        "url": getUrl('/date-calculator'),
         "description": "Free online date calculator to calculate the difference between dates, add or subtract days/months/years, and find weekday information.",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
@@ -91,19 +92,19 @@ export default function DateCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Date & Time",
-            "item": "https://aicalculator.pro/date-time"
+            "item": getUrl('/date-time')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Date Calculator",
-            "item": "https://aicalculator.pro/date-calculator"
+            "item": getUrl('/date-calculator')
           }
         ]
       },

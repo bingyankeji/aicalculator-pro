@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import TriangleCalculator from "@/components/Calculator/TriangleCalculator";
 import Link from "next/link";
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Triangle Calculator (Free, No signup) - Solve Triangles | AICalculator",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     description:
       "Free triangle calculator with no sign-up required. Calculate triangle area, perimeter, angles, and sides using SSS, SAS, ASA methods. Includes step-by-step solutions and triangle type identification.",
     type: "website",
-    url: "https://aicalculator.pro/triangle-calculator",
+    url: getUrl('/triangle-calculator'),
     siteName: "AI Calculator",
   },
   twitter: {
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/triangle-calculator",
+    canonical: getUrl('/triangle-calculator'),
   },
   robots: {
     index: true,
@@ -63,7 +64,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Triangle Calculator",
-      "url": "https://aicalculator.pro/triangle-calculator",
+      "url": getUrl('/triangle-calculator'),
       "description": "Solve any triangle using SSS, SAS, ASA methods. Calculate area, perimeter, angles, and sides with step-by-step mathematical solutions.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Any",
@@ -90,19 +91,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.pro"
+          "item": getUrl('/')
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Math & Numbers",
-          "item": "https://aicalculator.pro/math-numbers"
+          "item": getUrl('/math-numbers')
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Triangle Calculator",
-          "item": "https://aicalculator.pro/triangle-calculator"
+          "item": getUrl('/triangle-calculator')
         }
       ]
     },

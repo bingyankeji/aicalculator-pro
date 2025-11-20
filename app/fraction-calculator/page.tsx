@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { FractionCalculator } from "@/components/Calculator/FractionCalculator";
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Fraction Calculator (Free, No signup) - Math Tool | AICalculator",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     title: "Fraction Calculator (Free, No signup) - AICalculator",
     description: "Free fraction calculator with no sign-up required. Calculate fractions with automatic simplification and step-by-step solutions. Convert to decimals and mixed numbers instantly.",
     type: "website",
-    url: "https://aicalculator.pro/fraction-calculator",
+    url: getUrl('/fraction-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/fraction-calculator",
+    canonical: getUrl('/fraction-calculator'),
   },
   robots: {
     index: true,
@@ -63,7 +64,7 @@ export default function FractionCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Fraction Calculator",
-        "url": "https://aicalculator.pro/fraction-calculator",
+        "url": getUrl('/fraction-calculator'),
         "description": "Free online fraction calculator to add, subtract, multiply, and divide fractions. Features automatic simplification, mixed number conversion, decimal conversion, and step-by-step solutions for all fraction operations.",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Any",
@@ -91,19 +92,19 @@ export default function FractionCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Calculators",
-            "item": "https://aicalculator.pro/calculators"
+            "item": getUrl('/calculators')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Fraction Calculator",
-            "item": "https://aicalculator.pro/fraction-calculator"
+            "item": getUrl('/fraction-calculator')
           }
         ]
       },

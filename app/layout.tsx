@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Analytics } from "@/components/Analytics";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
+import { getUrl } from "@/config/site";
 
 export const metadata: Metadata = {
   title: {
@@ -15,13 +16,13 @@ export const metadata: Metadata = {
   authors: [{ name: "AICalculator.pro Team" }],
   creator: "AICalculator.pro",
   publisher: "AICalculator.pro",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://aicalculator.pro'),
+  metadataBase: new URL(getUrl('/')),
   
   // Open Graph
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://aicalculator.pro",
+    url: getUrl('/'),
     title: "AICalculator (Free, No signup) - 250+ Online Calculators",
     description: "Free online calculator with no sign-up required. 250+ tools including tax, mortgage, loan, BMI, age, percentage calculators and more. More powerful than Google calculator with AI analysis and instant results. 100% free, unlimited use.",
     siteName: "AICalculator.pro",
@@ -82,7 +83,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "AICalculator - Free Online Calculator (No Sign-up Required)",
-    "url": process.env.NEXT_PUBLIC_SITE_URL || "https://aicalculator.pro",
+    "url": getUrl('/'),
     "description": "Free online calculator with no sign-up required. 250+ tools including tax, mortgage, loan, BMI, age, percentage calculators and more. AI-powered analysis, instant results, 100% free, unlimited use.",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Any",

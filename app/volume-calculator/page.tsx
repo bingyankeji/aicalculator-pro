@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import VolumeCalculator from "@/components/Calculator/VolumeCalculator";
 import Link from "next/link";
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Volume Calculator (Free, No signup) - 3D Volume | AICalculator",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     description:
       "Free volume calculator with no sign-up required. Calculate volume and surface area for cubes, spheres, cylinders, cones and more. Includes material estimates and real-world applications.",
     type: "website",
-    url: "https://aicalculator.pro/volume-calculator",
+    url: getUrl('/volume-calculator'),
     siteName: "AI Calculator",
   },
   twitter: {
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/volume-calculator",
+    canonical: getUrl('/volume-calculator'),
   },
   robots: {
     index: true,
@@ -63,7 +64,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Volume Calculator",
-      "url": "https://aicalculator.pro/volume-calculator",
+      "url": getUrl('/volume-calculator'),
       "description": "Calculate volume and surface area for 15+ 3D shapes including cubes, spheres, cylinders, cones, pyramids with step-by-step formulas.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Any",
@@ -90,19 +91,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.pro"
+          "item": getUrl('/')
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Math & Numbers",
-          "item": "https://aicalculator.pro/math-numbers"
+          "item": getUrl('/math-numbers')
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Volume Calculator",
-          "item": "https://aicalculator.pro/volume-calculator"
+          "item": getUrl('/volume-calculator')
         }
       ]
     },

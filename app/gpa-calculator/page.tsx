@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { GPACalculator } from '@/components/Calculator/GPACalculator';
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "GPA Calculator (Free, No signup) - Cumulative GPA | AICalculator",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     title: "GPA Calculator (Free, No signup) - AICalculator",
     description: "Free GPA calculator with no sign-up required. Calculate your college GPA with multiple courses. Supports 4.0/5.0 scales, target GPA planning, and scholarship eligibility.",
     type: "website",
-    url: "https://aicalculator.pro/gpa-calculator",
+    url: getUrl('/gpa-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/gpa-calculator",
+    canonical: getUrl('/gpa-calculator'),
   },
   robots: {
     index: true,
@@ -45,7 +46,7 @@ export default function GPACalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "GPA Calculator",
-        "url": "https://aicalculator.pro/gpa-calculator",
+        "url": getUrl('/gpa-calculator'),
         "description": "Free online GPA calculator to calculate cumulative GPA with multiple courses. Supports 4.0 and 5.0 scales, target GPA planning, and academic standing analysis.",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Any",
@@ -74,19 +75,19 @@ export default function GPACalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Math & Numbers",
-            "item": "https://aicalculator.pro/math-numbers"
+            "item": getUrl('/math-numbers')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "GPA Calculator",
-            "item": "https://aicalculator.pro/gpa-calculator"
+            "item": getUrl('/gpa-calculator')
           }
         ]
       },

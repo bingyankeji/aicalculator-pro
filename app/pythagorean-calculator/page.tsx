@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import PythagoreanCalculator from "@/components/Calculator/PythagoreanCalculator";
 import Link from "next/link";
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Pythagorean Calculator (Free, No signup) - Right Triangle | AICalculator",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     description:
       "Free Pythagorean theorem calculator with no sign-up required. Calculate missing sides of right triangles using the Pythagorean theorem. Find hypotenuse or legs with step-by-step solutions and visual diagrams.",
     type: "website",
-    url: "https://aicalculator.pro/pythagorean-calculator",
+    url: getUrl('/pythagorean-calculator'),
     siteName: "AI Calculator",
   },
   twitter: {
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/pythagorean-calculator",
+    canonical: getUrl('/pythagorean-calculator'),
   },
   robots: {
     index: true,
@@ -63,7 +64,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Pythagorean Theorem Calculator",
-      "url": "https://aicalculator.pro/pythagorean-calculator",
+      "url": getUrl('/pythagorean-calculator'),
       "description": "Calculate missing sides of right triangles using the Pythagorean theorem (a² + b² = c²). Includes step-by-step solutions and visual triangle diagrams.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Any",
@@ -90,19 +91,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.pro"
+          "item": getUrl('/')
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Math & Numbers",
-          "item": "https://aicalculator.pro/math-numbers"
+          "item": getUrl('/math-numbers')
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Pythagorean Theorem Calculator",
-          "item": "https://aicalculator.pro/pythagorean-calculator"
+          "item": getUrl('/pythagorean-calculator')
         }
       ]
     },

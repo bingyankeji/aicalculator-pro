@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { TipCalculator } from '@/components/Calculator/TipCalculator';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Tip Calculator (Free, No signup) - Bill Splitter | AICalculator",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     title: "Tip Calculator (Free, No signup) - AICalculator",
     description: "Free tip calculator with no sign-up required. Calculate restaurant tips and split bills easily. Get service quality recommendations and tipping guidelines with bill splitting.",
     type: "website",
-    url: "https://aicalculator.pro/tip-calculator",
+    url: getUrl('/tip-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/tip-calculator",
+    canonical: getUrl('/tip-calculator'),
   },
   robots: {
     index: true,
@@ -45,7 +46,7 @@ export default function TipCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Tip Calculator",
-        "url": "https://aicalculator.pro/tip-calculator",
+        "url": getUrl('/tip-calculator'),
         "description": "Free online tip calculator to calculate restaurant tips, split bills among friends, and get service quality recommendations. Supports tip before/after tax calculations.",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -74,19 +75,19 @@ export default function TipCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Financial",
-            "item": "https://aicalculator.pro/financial"
+            "item": getUrl('/financial')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Tip Calculator",
-            "item": "https://aicalculator.pro/tip-calculator"
+            "item": getUrl('/tip-calculator')
           }
         ]
       },

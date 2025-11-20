@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import Script from "next/script";
 import { allCalculators } from "@/lib/calculatorData";
+import { getUrl } from '@/config/site';
 
 export default function HealthFitnessPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -31,7 +32,7 @@ export default function HealthFitnessPage() {
     "@type": "CollectionPage",
     "name": "Health & Fitness Calculators",
     "description": "Free online health and fitness calculators for BMI, calories, body composition, and more. 35+ science-based health tools.",
-    "url": "https://aicalculator.pro/health-fitness",
+    "url": getUrl('/health-fitness'),
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -39,13 +40,13 @@ export default function HealthFitnessPage() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.pro"
+          "item": getUrl('/')
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Health & Fitness Calculators",
-          "item": "https://aicalculator.pro/health-fitness"
+          "item": getUrl('/health-fitness')
         }
       ]
     }

@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import Script from "next/script";
 import { allCalculators } from "@/lib/calculatorData";
+import { getUrl } from '@/config/site';
 
 export default function FinancialPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -31,7 +32,7 @@ export default function FinancialPage() {
     "@type": "CollectionPage",
     "name": "Financial Calculators",
     "description": "Free online financial calculators for mortgage, loans, taxes, investments, and more. 80+ professional financial planning tools.",
-    "url": "https://aicalculator.pro/financial",
+    "url": getUrl('/financial'),
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -39,13 +40,13 @@ export default function FinancialPage() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.pro"
+          "item": getUrl('/')
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Financial Calculators",
-          "item": "https://aicalculator.pro/financial"
+          "item": getUrl('/financial')
         }
       ]
     }

@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { allCalculators } from '@/lib/calculatorData';
+import { getUrl } from '@/config/site';
 
 /**
  * 动态Sitemap生成器
@@ -13,7 +14,7 @@ import { allCalculators } from '@/lib/calculatorData';
  * Next.js会自动在 /sitemap.xml 生成此sitemap
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://aicalculator.pro';
+  const baseUrl = getUrl('/');
 
   // 主页面路由
   const mainPages: MetadataRoute.Sitemap = [

@@ -3,6 +3,7 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import DayOfWeekCalculator from '@/components/Calculator/DayOfWeekCalculator';
 import Link from 'next/link';
 import { Calendar, Clock, TrendingUp, Info } from 'lucide-react';
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Day of the Week Calculator - Find What Day Any Date Falls On | Free Tool',
@@ -46,11 +47,11 @@ export const metadata: Metadata = {
     title: 'Day of the Week Calculator - Find What Day Any Date Falls On',
     description: 'Find out what day of the week any date falls on with our free calculator. Supports historical and future dates.',
     type: 'website',
-    url: 'https://aicalculator.pro/day-of-week-calculator',
+    url: getUrl('/day-of-week-calculator'),
     siteName: 'AICalculator',
     locale: 'en_US',
     images: [{
-      url: 'https://aicalculator.pro/og-day-of-week-calculator.jpg',
+      url: getUrl('/og-day-of-week-calculator.jpg'),
       width: 1200,
       height: 630,
     }],
@@ -59,11 +60,11 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Day of the Week Calculator - Find What Day Any Date Falls On',
     description: 'Find out what day of the week any date falls on. Free calculator with calendar view.',
-    images: ['https://aicalculator.pro/og-day-of-week-calculator.jpg'],
+    images: [getUrl('/og-day-of-week-calculator.jpg')],
     creator: '@aicalculator',
   },
   alternates: {
-    canonical: 'https://aicalculator.pro/day-of-week-calculator',
+    canonical: getUrl('/day-of-week-calculator'),
   },
   robots: {
     index: true,
@@ -84,9 +85,9 @@ export default function DayOfWeekCalculatorPage() {
     '@graph': [
       {
         '@type': 'WebApplication',
-        '@id': 'https://aicalculator.pro/day-of-week-calculator#webapp',
+        '@id': getUrl('/day-of-week-calculator#webapp'),
         name: 'Day of the Week Calculator',
-        url: 'https://aicalculator.pro/day-of-week-calculator',
+        url: getUrl('/day-of-week-calculator'),
         description: 'Free calculator to find out what day of the week any date falls on, with interactive calendar view.',
         applicationCategory: 'UtilityApplication',
         operatingSystem: 'Any',
@@ -106,13 +107,13 @@ export default function DayOfWeekCalculatorPage() {
       },
       {
         '@type': 'BreadcrumbList',
-        '@id': 'https://aicalculator.pro/day-of-week-calculator#breadcrumb',
+        '@id': getUrl('/day-of-week-calculator#breadcrumb'),
         itemListElement: [
           {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.pro',
+            item: getUrl('/'),
           },
           {
             '@type': 'ListItem',
@@ -123,7 +124,7 @@ export default function DayOfWeekCalculatorPage() {
       },
       {
         '@type': 'FAQPage',
-        '@id': 'https://aicalculator.pro/day-of-week-calculator#faq',
+        '@id': getUrl('/day-of-week-calculator#faq'),
         mainEntity: [
           {
             '@type': 'Question',
@@ -161,7 +162,7 @@ export default function DayOfWeekCalculatorPage() {
       },
       {
         '@type': 'HowTo',
-        '@id': 'https://aicalculator.pro/day-of-week-calculator#howto',
+        '@id': getUrl('/day-of-week-calculator#howto'),
         name: 'How to Use the Day of the Week Calculator',
         step: [
           {
@@ -169,34 +170,34 @@ export default function DayOfWeekCalculatorPage() {
             position: 1,
             name: 'Select a Date',
             text: 'Use the date picker to select any date between 1900 and 2100.',
-            url: 'https://aicalculator.pro/day-of-week-calculator#step1',
+            url: getUrl('/day-of-week-calculator#step1'),
           },
           {
             '@type': 'HowToStep',
             position: 2,
             name: 'Click Calculate',
             text: 'Click the "Calculate" button to find out what day of the week your selected date falls on.',
-            url: 'https://aicalculator.pro/day-of-week-calculator#step2',
+            url: getUrl('/day-of-week-calculator#step2'),
           },
           {
             '@type': 'HowToStep',
             position: 3,
             name: 'View Results',
             text: 'See the day of the week prominently displayed, along with a calendar view showing the entire month and date details.',
-            url: 'https://aicalculator.pro/day-of-week-calculator#step3',
+            url: getUrl('/day-of-week-calculator#step3'),
           },
           {
             '@type': 'HowToStep',
             position: 4,
             name: 'Explore the Calendar',
             text: 'Navigate through months using the arrows to explore other dates. Weekends are highlighted for easy reference.',
-            url: 'https://aicalculator.pro/day-of-week-calculator#step4',
+            url: getUrl('/day-of-week-calculator#step4'),
           },
         ],
       },
       {
         '@type': 'Article',
-        '@id': 'https://aicalculator.pro/day-of-week-calculator#article',
+        '@id': getUrl('/day-of-week-calculator#article'),
         headline: 'Understanding Day of the Week Calculations',
         description: 'Learn how to calculate what day of the week any date falls on and understand the algorithms behind it.',
         author: {

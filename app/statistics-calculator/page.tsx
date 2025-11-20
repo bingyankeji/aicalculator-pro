@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { StatisticsCalculator } from "@/components/Calculator/StatisticsCalculator";
 import Link from "next/link";
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Statistics Calculator - Descriptive Statistics, Mean, Median, Standard Deviation | Free Tool",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     title: "Statistics Calculator - Descriptive Statistics & Data Analysis",
     description: "Free online statistics calculator for comprehensive data analysis. Calculate mean, median, standard deviation, quartiles, and detect outliers with detailed statistical insights.",
     type: "website",
-    url: "https://aicalculator.pro/statistics-calculator",
+    url: getUrl('/statistics-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/statistics-calculator",
+    canonical: getUrl('/statistics-calculator'),
   },
   robots: {
     index: true,
@@ -59,7 +60,7 @@ export default function StatisticsCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Statistics Calculator",
-        "url": "https://aicalculator.pro/statistics-calculator",
+        "url": getUrl('/statistics-calculator'),
         "description": "Free online statistics calculator for comprehensive descriptive statistics including mean, median, mode, standard deviation, variance, quartiles, and distribution analysis.",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Any",
@@ -86,19 +87,19 @@ export default function StatisticsCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Math Calculators",
-            "item": "https://aicalculator.pro/math-numbers"
+            "item": getUrl('/math-numbers')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Statistics Calculator",
-            "item": "https://aicalculator.pro/statistics-calculator"
+            "item": getUrl('/statistics-calculator')
           }
         ]
       },

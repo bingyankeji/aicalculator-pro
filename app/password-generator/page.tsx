@@ -3,6 +3,7 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import PasswordGeneratorCalculator from '@/components/Calculator/PasswordGeneratorCalculator';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import { getUrl, getOgImage } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Password Generator - Create Strong & Secure Passwords | AICalculator.pro',
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     title: 'Password Generator - Create Strong & Secure Passwords',
     description: 'Generate strong, secure random passwords with customizable options. Evaluate password strength and security.',
     type: 'website',
-    url: 'https://aicalculator.pro/password-generator',
+    url: getUrl('/password-generator'),
   },
   twitter: {
     card: 'summary_large_image',
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     description: 'Generate strong, secure random passwords with customizable options.',
   },
   alternates: {
-    canonical: 'https://aicalculator.pro/password-generator',
+    canonical: getUrl('/password-generator'),
   },
 };
 
@@ -44,9 +45,9 @@ const jsonLd = {
     // WebApplication
     {
       '@type': 'WebApplication',
-      '@id': 'https://aicalculator.pro/password-generator#webapp',
+      '@id': getUrl('/password-generator#webapp'),
       name: 'Password Generator',
-      url: 'https://aicalculator.pro/password-generator',
+      url: getUrl('/password-generator'),
       description: 'Free online password generator tool for creating strong, secure, and random passwords',
       applicationCategory: 'SecurityApplication',
       operatingSystem: 'Any',
@@ -69,32 +70,32 @@ const jsonLd = {
     // BreadcrumbList
     {
       '@type': 'BreadcrumbList',
-      '@id': 'https://aicalculator.pro/password-generator#breadcrumb',
+      '@id': getUrl('/password-generator#breadcrumb'),
       itemListElement: [
         {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://aicalculator.pro',
+          item: getUrl('/'),
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Other',
-          item: 'https://aicalculator.pro/other',
+          item: getUrl('/other'),
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: 'Password Generator',
-          item: 'https://aicalculator.pro/password-generator',
+          item: getUrl('/password-generator'),
         },
       ],
     },
     // FAQPage
     {
       '@type': 'FAQPage',
-      '@id': 'https://aicalculator.pro/password-generator#faq',
+      '@id': getUrl('/password-generator#faq'),
       mainEntity: [
         {
           '@type': 'Question',
@@ -141,7 +142,7 @@ const jsonLd = {
     // HowTo
     {
       '@type': 'HowTo',
-      '@id': 'https://aicalculator.pro/password-generator#howto',
+      '@id': getUrl('/password-generator#howto'),
       name: 'How to Generate a Strong Password',
       description: 'Step-by-step guide to generating a strong, secure password',
       step: [
@@ -180,7 +181,7 @@ const jsonLd = {
     // Article
     {
       '@type': 'Article',
-      '@id': 'https://aicalculator.pro/password-generator#article',
+      '@id': getUrl('/password-generator', '#article'),
       headline: 'Password Generator - Complete Guide to Creating Secure Passwords',
       description: 'Learn how to create strong, secure passwords and protect your online accounts',
       author: {
@@ -192,7 +193,7 @@ const jsonLd = {
         name: 'AICalculator.pro',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://aicalculator.pro/logo.png',
+          url: getOgImage('/logo.png'),
         },
       },
       datePublished: '2024-01-01',

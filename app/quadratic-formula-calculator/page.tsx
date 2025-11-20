@@ -3,6 +3,7 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from "next/link";
 import { QuadraticCalculator } from "@/components/Calculator/QuadraticCalculator";
 import { quadraticStructuredData as structuredData } from "./structuredData";
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Quadratic Formula (Free, No signup) - Solve Equations | AICalculator",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     title: "Quadratic Formula (Free, No signup) - AICalculator",
     description: "Free quadratic formula calculator with no sign-up required. Solve quadratic equations with discriminant and step-by-step solutions. Supports real and complex roots.",
     type: "website",
-    url: "https://aicalculator.pro/quadratic-formula-calculator",
+    url: getUrl('/quadratic-formula-calculator'),
     siteName: "AICalculator"
   },
   twitter: {
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     description: "Free quadratic formula calculator with no sign-up required. Instantly solve ax^2 + bx + c = 0 with steps, discriminant, and real/complex roots.",
     site: "@AICalculator"
   },
-  alternates: { canonical: "https://aicalculator.pro/quadratic-formula-calculator" },
+  alternates: { canonical: getUrl('/quadratic-formula-calculator') },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-video-preview': -1, 'max-image-preview': 'large', 'max-snippet': -1 } },
   other: { 'last-modified': new Date().toISOString() }
 };

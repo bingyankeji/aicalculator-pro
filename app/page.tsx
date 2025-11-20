@@ -6,7 +6,7 @@ import { CalculatorList } from "@/components/CalculatorList";
 import { SmartSearch } from "@/components/SmartSearch";
 import { CategoryShowcase } from "@/components/CategoryShowcase";
 import { getTotalCalculatorsDescription } from "@/lib/categoryStats";
-import { getOgImage } from "@/config/site";
+import { getOgImage, getUrl } from "@/config/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
     title: "AICalculator (Free, No signup) - 250+ Online Calculators",
     description: "Free online calculator with no sign-up required. 250+ tools including tax, mortgage, loan, BMI, age, percentage calculators and more. More powerful than Google calculator with AI analysis, charts, and instant results. 100% free, unlimited use.",
     type: "website",
-    url: "https://aicalculator.pro",
+    url: getUrl('/'),
     siteName: "Calculator Online - AICalculator.pro",
     images: [
       {
@@ -117,7 +117,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro",
+    canonical: getUrl('/'),
   },
   robots: {
     index: true,
@@ -144,11 +144,11 @@ export default function HomePage() {
         "@type": "WebSite",
         "name": "AICalculator - Free Online Calculator (No Sign-up Required)",
         "alternateName": ["Online Calculator", "Free Online Calculator", "Calculator Tools", "Web Calculator", "AICalculator.pro"],
-        "url": "https://aicalculator.pro",
+        "url": getUrl('/'),
         "description": "Free online calculator with no sign-up required. 250+ tools with AI-powered analysis, charts, and detailed explanations. More powerful than Google calculator for tax, mortgage, loan, BMI, age, percentage, and more. 100% free, unlimited use.",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://aicalculator.pro/search?q={search_term_string}",
+          "target": getUrl('/search?q={search_term_string}'),
           "query-input": "required name=search_term_string"
         },
         "sameAs": [
@@ -159,8 +159,8 @@ export default function HomePage() {
       {
         "@type": "Organization",
         "name": "AICalculator.pro",
-        "url": "https://aicalculator.pro",
-        "logo": "https://aicalculator.pro/logo.png",
+        "url": getUrl('/'),
+        "logo": getUrl('/logo.png'),
         "sameAs": [
           "https://twitter.com/AICalculatorPro",
           "https://facebook.com/AICalculatorPro"
@@ -181,28 +181,28 @@ export default function HomePage() {
             "position": 1,
             "name": "Financial Calculators",
             "description": "80+ financial calculators including mortgage, loan, retirement, and investment calculators",
-            "url": "https://aicalculator.pro/calculators#financial"
+            "url": getUrl('/calculators#financial')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Health & Fitness Calculators",
             "description": "35+ health calculators including BMI, calorie, BMR, and body fat calculators",
-            "url": "https://aicalculator.pro/calculators#health"
+            "url": getUrl('/calculators#health')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Math Calculators",
             "description": "50+ math calculators including percentage, fraction, algebra, and geometry calculators",
-            "url": "https://aicalculator.pro/calculators#math"
+            "url": getUrl('/calculators#math')
           },
           {
             "@type": "ListItem",
             "position": 4,
             "name": "Other Calculators",
             "description": "60+ utility calculators including age, date, time, and unit converters",
-            "url": "https://aicalculator.pro/calculators#other"
+            "url": getUrl('/calculators#other')
           }
         ]
       },
@@ -210,7 +210,7 @@ export default function HomePage() {
         "@type": "CollectionPage",
         "name": "Free Online Calculator Tools (No Sign-up Required)",
         "description": "Comprehensive collection of 250+ free calculator tools with no sign-up required. AI-powered analysis, instant results, unlimited use, 100% free.",
-        "url": "https://aicalculator.pro",
+        "url": getUrl('/'),
         "isPartOf": {
           "@type": "WebSite",
           "name": "AICalculator.pro"

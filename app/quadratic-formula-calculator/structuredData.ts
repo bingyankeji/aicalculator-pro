@@ -1,10 +1,12 @@
+import { getUrl } from '@/config/site';
+
 export const quadraticStructuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebApplication",
       "name": "Quadratic Formula Calculator",
-      "url": "https://aicalculator.pro/quadratic-formula-calculator",
+      "url": getUrl('/quadratic-formula-calculator'),
       "description": "Free quadratic formula calculator to solve ax^2 + bx + c = 0 with discriminant and step-by-step explanation.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Any",
@@ -25,9 +27,9 @@ export const quadraticStructuredData = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aicalculator.pro" },
-        { "@type": "ListItem", "position": 2, "name": "Math & Numbers", "item": "https://aicalculator.pro/math-numbers" },
-        { "@type": "ListItem", "position": 3, "name": "Quadratic Formula Calculator", "item": "https://aicalculator.pro/quadratic-formula-calculator" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": getUrl('/') },
+        { "@type": "ListItem", "position": 2, "name": "Math & Numbers", "item": getUrl('/math-numbers') },
+        { "@type": "ListItem", "position": 3, "name": "Quadratic Formula Calculator", "item": getUrl('/quadratic-formula-calculator') }
       ]
     },
     {

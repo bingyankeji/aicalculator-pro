@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from "next/link";
 import { StandardDeviationCalculator } from "@/components/Calculator/StandardDeviationCalculator";
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Standard Deviation (Free, No signup) - Statistical Analysis | AICalculator",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     title: "Standard Deviation (Free, No signup) - AICalculator",
     description: "Free standard deviation calculator with no sign-up required. Calculate standard deviation, variance, and mean with step-by-step formulas. Perfect for students and data analysis.",
     type: "website",
-    url: "https://aicalculator.pro/standard-deviation-calculator",
+    url: getUrl('/standard-deviation-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/standard-deviation-calculator",
+    canonical: getUrl('/standard-deviation-calculator'),
   },
   robots: {
     index: true,
@@ -65,7 +66,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Standard Deviation Calculator",
-      "url": "https://aicalculator.pro/standard-deviation-calculator",
+      "url": getUrl('/standard-deviation-calculator'),
       "description": "Free online standard deviation calculator to calculate sample and population standard deviation, variance, mean, and detect outliers. Features step-by-step calculation formulas, automatic outlier detection using IQR method, and comprehensive statistical analysis for educational and professional use.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Any",
@@ -94,19 +95,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.pro"
+          "item": getUrl('/')
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Math & Numbers",
-          "item": "https://aicalculator.pro/math-numbers"
+          "item": getUrl('/math-numbers')
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Standard Deviation Calculator",
-          "item": "https://aicalculator.pro/standard-deviation-calculator"
+          "item": getUrl('/standard-deviation-calculator')
         }
       ]
     },

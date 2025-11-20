@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import CircleCalculator from "@/components/Calculator/CircleCalculator";
 import Link from "next/link";
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Circle Calculator - Calculate Area, Circumference, Diameter from Radius | AI Calculator",
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     description:
       "Calculate all circle properties from any known value. Find area, circumference, diameter, and radius with step-by-step solutions.",
     type: "website",
-    url: "https://aicalculator.pro/circle-calculator",
+    url: getUrl('/circle-calculator'),
     siteName: "AI Calculator",
   },
   twitter: {
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/circle-calculator",
+    canonical: getUrl('/circle-calculator'),
   },
   robots: {
     index: true,
@@ -61,7 +62,7 @@ const structuredData = {
     {
       "@type": "WebApplication",
       "name": "Circle Calculator",
-      "url": "https://aicalculator.pro/circle-calculator",
+      "url": getUrl('/circle-calculator'),
       "description": "Calculate circle area, circumference, diameter, and radius from any known value. Includes step-by-step solutions and visual representations.",
       "applicationCategory": "EducationalApplication",
       "operatingSystem": "Any",
@@ -88,19 +89,19 @@ const structuredData = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.pro"
+          "item": getUrl('/')
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Math & Numbers",
-          "item": "https://aicalculator.pro/math-numbers"
+          "item": getUrl('/math-numbers')
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Circle Calculator",
-          "item": "https://aicalculator.pro/circle-calculator"
+          "item": getUrl('/circle-calculator')
         }
       ]
     },

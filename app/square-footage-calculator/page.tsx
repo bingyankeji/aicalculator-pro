@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { SquareFootageCalculator } from '@/components/Calculator/SquareFootageCalculator';
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: "Square Footage Calculator (Free, No signup) - Room Area | AICalculator",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     title: "Square Footage Calculator (Free, No signup) - AICalculator",
     description: "Free square footage calculator with no sign-up required. Calculate room areas and estimate materials for flooring, paint, and carpet. Free tool for home renovation projects.",
     type: "website",
-    url: "https://aicalculator.pro/square-footage-calculator",
+    url: getUrl('/square-footage-calculator'),
     siteName: "AICalculator",
   },
   twitter: {
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     site: "@AICalculator",
   },
   alternates: {
-    canonical: "https://aicalculator.pro/square-footage-calculator",
+    canonical: getUrl('/square-footage-calculator'),
   },
   robots: {
     index: true,
@@ -45,7 +46,7 @@ export default function SquareFootageCalculatorPage() {
       {
         "@type": "WebApplication",
         "name": "Square Footage Calculator",
-        "url": "https://aicalculator.pro/square-footage-calculator",
+        "url": getUrl('/square-footage-calculator'),
         "description": "Free square footage calculator for multiple rooms with material estimation for flooring, paint, and carpet. Includes waste factor and cost calculator.",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Any",
@@ -74,19 +75,19 @@ export default function SquareFootageCalculatorPage() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://aicalculator.pro"
+            "item": getUrl('/')
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Math & Numbers",
-            "item": "https://aicalculator.pro/math-numbers"
+            "item": getUrl('/math-numbers')
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": "Square Footage Calculator",
-            "item": "https://aicalculator.pro/square-footage-calculator"
+            "item": getUrl('/square-footage-calculator')
           }
         ]
       },

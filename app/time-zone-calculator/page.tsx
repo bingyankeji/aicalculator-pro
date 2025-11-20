@@ -3,6 +3,7 @@ import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import TimeZoneCalculator from '@/components/Calculator/TimeZoneCalculator';
 import Link from 'next/link';
 import { Globe, Clock, Users, Info } from 'lucide-react';
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Time Zone Calculator - Convert Time Between Time Zones | Free Tool',
@@ -46,11 +47,11 @@ export const metadata: Metadata = {
     title: 'Time Zone Calculator - Convert Time Between Time Zones',
     description: 'Convert time between different time zones worldwide with automatic daylight saving time handling.',
     type: 'website',
-    url: 'https://aicalculator.pro/time-zone-calculator',
+    url: getUrl('/time-zone-calculator'),
     siteName: 'AICalculator',
     locale: 'en_US',
     images: [{
-      url: 'https://aicalculator.pro/og-time-zone-calculator.jpg',
+      url: getUrl('/og-time-zone-calculator.jpg'),
       width: 1200,
       height: 630,
     }],
@@ -59,11 +60,11 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Time Zone Calculator - Convert Time Between Time Zones',
     description: 'Convert time between different time zones worldwide. Free calculator with automatic DST handling.',
-    images: ['https://aicalculator.pro/og-time-zone-calculator.jpg'],
+    images: [getUrl('/og-time-zone-calculator.jpg')],
     creator: '@aicalculator',
   },
   alternates: {
-    canonical: 'https://aicalculator.pro/time-zone-calculator',
+    canonical: getUrl('/time-zone-calculator'),
   },
   robots: {
     index: true,
@@ -84,9 +85,9 @@ export default function TimeZoneCalculatorPage() {
     '@graph': [
       {
         '@type': 'WebApplication',
-        '@id': 'https://aicalculator.pro/time-zone-calculator#webapp',
+        '@id': getUrl('/time-zone-calculator#webapp'),
         name: 'Time Zone Calculator',
-        url: 'https://aicalculator.pro/time-zone-calculator',
+        url: getUrl('/time-zone-calculator'),
         description: 'Free calculator to convert time between different time zones with automatic daylight saving time handling.',
         applicationCategory: 'UtilityApplication',
         operatingSystem: 'Any',
@@ -106,13 +107,13 @@ export default function TimeZoneCalculatorPage() {
       },
       {
         '@type': 'BreadcrumbList',
-        '@id': 'https://aicalculator.pro/time-zone-calculator#breadcrumb',
+        '@id': getUrl('/time-zone-calculator#breadcrumb'),
         itemListElement: [
           {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.pro',
+            item: getUrl('/'),
           },
           {
             '@type': 'ListItem',
@@ -123,7 +124,7 @@ export default function TimeZoneCalculatorPage() {
       },
       {
         '@type': 'FAQPage',
-        '@id': 'https://aicalculator.pro/time-zone-calculator#faq',
+        '@id': getUrl('/time-zone-calculator#faq'),
         mainEntity: [
           {
             '@type': 'Question',
@@ -161,7 +162,7 @@ export default function TimeZoneCalculatorPage() {
       },
       {
         '@type': 'HowTo',
-        '@id': 'https://aicalculator.pro/time-zone-calculator#howto',
+        '@id': getUrl('/time-zone-calculator#howto'),
         name: 'How to Use the Time Zone Calculator',
         step: [
           {
@@ -169,34 +170,34 @@ export default function TimeZoneCalculatorPage() {
             position: 1,
             name: 'Select Source Time Zone',
             text: 'Choose your current time zone from the dropdown list of major cities.',
-            url: 'https://aicalculator.pro/time-zone-calculator#step1',
+            url: getUrl('/time-zone-calculator#step1'),
           },
           {
             '@type': 'HowToStep',
             position: 2,
             name: 'Set Time',
             text: 'Enter the time you want to convert using the time picker.',
-            url: 'https://aicalculator.pro/time-zone-calculator#step2',
+            url: getUrl('/time-zone-calculator#step2'),
           },
           {
             '@type': 'HowToStep',
             position: 3,
             name: 'Choose Target Zones',
             text: 'Select up to 4 target time zones you want to compare with.',
-            url: 'https://aicalculator.pro/time-zone-calculator#step3',
+            url: getUrl('/time-zone-calculator#step3'),
           },
           {
             '@type': 'HowToStep',
             position: 4,
             name: 'View Results',
             text: 'Click "Convert" to see the converted times for all selected time zones, including UTC offsets and time differences.',
-            url: 'https://aicalculator.pro/time-zone-calculator#step4',
+            url: getUrl('/time-zone-calculator#step4'),
           },
         ],
       },
       {
         '@type': 'Article',
-        '@id': 'https://aicalculator.pro/time-zone-calculator#article',
+        '@id': getUrl('/time-zone-calculator#article'),
         headline: 'Understanding Time Zones and Time Conversion',
         description: 'Learn how time zones work, how to convert between them, and best practices for international scheduling.',
         author: {

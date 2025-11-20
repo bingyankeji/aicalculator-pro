@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import Link from 'next/link';
 import { AreaCalculator } from '@/components/Calculator/AreaCalculator';
+import { getUrl } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Area Calculator (Free, No signup) - Calculate Area | AICalculator',
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     title: 'Area Calculator (Free, No signup) - AICalculator',
     description: 'Free area calculator with no sign-up required. Calculate area for rectangle, circle, triangle, trapezoid, parallelogram, and ellipse. Free tool with formulas and unit conversions.',
     type: 'website',
-    url: 'https://aicalculator.pro/area-calculator',
+    url: getUrl('/area-calculator'),
     siteName: 'AICalculator',
   },
   twitter: {
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     site: '@AICalculator',
   },
   alternates: {
-    canonical: 'https://aicalculator.pro/area-calculator',
+    canonical: getUrl('/area-calculator'),
   },
   robots: {
     index: true,
@@ -66,7 +67,7 @@ export default function AreaCalculatorPage() {
       {
         '@type': 'WebApplication',
         name: 'Area Calculator',
-        url: 'https://aicalculator.pro/area-calculator',
+        url: getUrl('/area-calculator'),
         description:
           'Free area calculator for rectangle, circle, triangle, trapezoid, parallelogram, and ellipse. Calculate area with formulas, step-by-step calculations, and unit conversions.',
         applicationCategory: 'EducationalApplication',
@@ -96,19 +97,19 @@ export default function AreaCalculatorPage() {
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://aicalculator.pro',
+            item: getUrl('/'),
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Math & Numbers',
-            item: 'https://aicalculator.pro/math-numbers',
+            item: getUrl('/math-numbers'),
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: 'Area Calculator',
-            item: 'https://aicalculator.pro/area-calculator',
+            item: getUrl('/area-calculator'),
           },
         ],
       },

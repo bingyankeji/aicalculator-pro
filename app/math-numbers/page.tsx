@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import Script from "next/script";
 import { allCalculators } from "@/lib/calculatorData";
+import { getUrl } from '@/config/site';
 
 export default function MathNumbersPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -31,7 +32,7 @@ export default function MathNumbersPage() {
     "@type": "CollectionPage",
     "name": "Math & Numbers Calculators",
     "description": "Free online math calculators for percentages, algebra, geometry, statistics, and more. 50+ professional math tools.",
-    "url": "https://aicalculator.pro/math-numbers",
+    "url": getUrl('/math-numbers'),
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -39,13 +40,13 @@ export default function MathNumbersPage() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://aicalculator.pro"
+          "item": getUrl('/')
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Math & Numbers Calculators",
-          "item": "https://aicalculator.pro/math-numbers"
+          "item": getUrl('/math-numbers')
         }
       ]
     }

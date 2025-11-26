@@ -188,7 +188,7 @@ export default function BudgetCalculatorPage() {
           name: 'AICalculator.pro',
           logo: {
             '@type': 'ImageObject',
-            url: 'https://www.aicalculator.pro/logo.png',
+            url: 'https://aicalculator.pro/logo.png',
           },
         },
         datePublished: '2024-01-01',

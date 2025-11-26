@@ -8,4 +8,4 @@ Allow: /api/og
 Disallow: /api/
 Disallow: /_next/
 
-Sitemap: https://www.aicalculator.pro/sitemap.xml
+Sitemap: https://aicalculator.pro/sitemap.xml

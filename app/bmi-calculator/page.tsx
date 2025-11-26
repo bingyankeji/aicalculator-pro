@@ -565,54 +565,50 @@ export default function BMICalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 {/* FAQ 1 */}
-                <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is BMI and how is it calculated?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       BMI (Body Mass Index) is a measure of body fat based on height and weight. It's calculated by dividing your weight in kilograms by your height in meters squared (kg/m²). For imperial units, the formula is: (weight in pounds × 703) / (height in inches)². BMI provides a simple numeric measure to help assess if you're underweight, normal weight, overweight, or obese.
                     </p>
                   </div>
                 </div>
 
                 {/* FAQ 2 */}
-                <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is a healthy BMI range?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       For adults, a healthy BMI typically ranges from <strong>18.5 to 24.9</strong>. Underweight is below 18.5, overweight is 25.0 to 29.9, and obese is 30.0 or higher. However, BMI doesn't account for muscle mass, bone density, or body composition, so it's best used as a general screening tool rather than a diagnostic measure.
                     </p>
                   </div>
                 </div>
 
                 {/* FAQ 3 */}
-                <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Is BMI accurate for everyone?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       BMI has limitations and may not be accurate for everyone. It doesn't distinguish between muscle and fat, so athletes with high muscle mass may have a high BMI but low body fat. It's also less accurate for elderly people, children, pregnant women, and people of different ethnic backgrounds. BMI should be used alongside other health assessments like waist circumference, body fat percentage, and overall health markers.
                     </p>
                   </div>
                 </div>
 
                 {/* FAQ 4 */}
-                <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How can I lower my BMI naturally?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <div className="text-gray-700" itemProp="text">
+                  <div>
+                    <div className="text-gray-700">
                       <p className="mb-3">To lower your BMI naturally:</p>
                       <ul className="list-disc list-inside space-y-2">
                         <li><strong>Balanced Diet:</strong> Focus on fruits, vegetables, lean proteins, and whole grains</li>
@@ -628,77 +624,72 @@ export default function BMICalculatorPage() {
                 </div>
 
                 {/* FAQ 5 */}
-                <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Does BMI differ for men and women?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The BMI calculation formula is the same for both men and women. However, women naturally have more body fat than men at the same BMI. Women typically have 6-11% more body fat than men. Despite this difference, the standard BMI categories (underweight, normal, overweight, obese) apply to both genders for adults. Some health professionals may interpret BMI differently based on gender when making health recommendations.
                     </p>
                   </div>
                 </div>
 
                 {/* FAQ 6 */}
-                <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can BMI be used for children and teenagers?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       BMI can be used for children and teens, but it requires a different approach called BMI-for-age percentiles. Because children and teens are still growing and their body composition changes significantly during development, their BMI is compared to others of the same age and gender. The CDC provides growth charts that healthcare providers use to determine if a child's BMI falls within a healthy range. Parents should consult pediatricians rather than using adult BMI calculators for children under 18.
                     </p>
                   </div>
                 </div>
 
                 {/* FAQ 7 */}
-                <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What's the difference between BMI and body fat percentage?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       BMI is calculated using only height and weight and provides an estimate of body fat, while body fat percentage directly measures the proportion of fat tissue in your body. Body fat percentage is more accurate but requires specialized equipment like DEXA scans, bioelectrical impedance, or skinfold calipers. BMI is easier to calculate but doesn't distinguish between fat, muscle, and bone. Athletes with high muscle mass may have high BMI but low body fat, while some people with normal BMI may have high body fat (called "normal weight obesity").
                     </p>
                   </div>
                 </div>
 
                 {/* FAQ 8 */}
-                <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How often should I check my BMI?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       For adults maintaining a healthy weight, checking BMI every 3-6 months is sufficient. If you're actively trying to lose or gain weight, monthly checks can help track progress. However, BMI should be considered alongside other health metrics like waist circumference, body fat percentage, blood pressure, and cholesterol levels. Avoid checking too frequently (daily or weekly) as normal weight fluctuations can be misleading. Always weigh yourself at the same time of day, preferably in the morning before eating, for consistency.
                     </p>
                   </div>
                 </div>
 
                 {/* FAQ 9 */}
-                <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Is BMI different for different ethnic groups?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes, research shows that health risks associated with BMI can vary by ethnicity. Asian populations tend to have higher health risks at lower BMI levels - the WHO recommends lower thresholds for Asian adults (overweight at BMI ≥23, obese at BMI ≥27.5). Pacific Islanders and Polynesians often have higher bone density and muscle mass, potentially requiring higher BMI thresholds. Black individuals may have different body composition with higher lean body mass. These variations mean BMI should be interpreted in context with ethnicity and other health factors.
                     </p>
                   </div>
                 </div>
 
                 {/* FAQ 10 */}
-                <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What other measurements should I track besides BMI?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <div className="text-gray-700" itemProp="text">
+                  <div>
+                    <div className="text-gray-700">
                       <p className="mb-2">While BMI is useful, tracking these additional measurements provides a more complete health picture:</p>
                       <ul className="list-disc list-inside space-y-1 ml-2">
                         <li><strong>Waist Circumference:</strong> Indicates abdominal fat (health risk if &gt;40&quot; for men, &gt;35&quot; for women)</li>

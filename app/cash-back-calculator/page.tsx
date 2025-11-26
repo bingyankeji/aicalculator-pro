@@ -185,7 +185,7 @@ export default function CashBackCalculatorPage() {
           name: 'AICalculator.pro',
           logo: {
             '@type': 'ImageObject',
-            url: 'https://aicalculator.pro/logo.png',
+            url: 'https://www.aicalculator.pro/logo.png',
           },
         },
         datePublished: '2024-01-01',

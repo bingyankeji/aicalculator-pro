@@ -22,7 +22,7 @@ import { allCalculators } from '@/lib/calculatorData';
  */
 export const siteConfig = {
   // 域名配置（从环境变量读取）
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://aicalculator.pro',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.aicalculator.pro',
   name: process.env.NEXT_PUBLIC_SITE_NAME || 'AICalculator.pro',
   
   // 社交媒体配置

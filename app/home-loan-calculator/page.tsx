@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { getUrl, getOgImage } from '@/config/site';
+import { getUrl, getOgImage, getHowToId } from '@/config/site';
 import { CalculatorBreadcrumb } from '@/components/CalculatorBreadcrumb';
 import { HomeLoanCalculator } from '@/components/Calculator/HomeLoanCalculator';
 
@@ -182,7 +182,7 @@ const structuredData = {
     },
     {
       "@type": "HowTo",
-      "@id": "https://aicalculator.pro/home-loan-calculator#howto",
+      "@id": getHowToId('/home-loan-calculator'),
       "name": "How to Use the Home Loan Calculator",
       "description": "Step-by-step guide to analyze home loan options and find the best mortgage program for your situation.",
       "step": [

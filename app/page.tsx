@@ -146,11 +146,6 @@ export default function HomePage() {
         "alternateName": ["Online Calculator", "Free Online Calculator", "Calculator Tools", "Web Calculator", "AICalculator.pro"],
         "url": getUrl('/'),
         "description": "Free online calculator with no sign-up required. 250+ tools with AI-powered analysis, charts, and detailed explanations. More powerful than Google calculator for tax, mortgage, loan, BMI, age, percentage, and more. 100% free, unlimited use.",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": getUrl('/search?q={search_term_string}'),
-          "query-input": "required name=search_term_string"
-        },
         "sameAs": [
           "https://twitter.com/AICalculatorPro",
           "https://facebook.com/AICalculatorPro"

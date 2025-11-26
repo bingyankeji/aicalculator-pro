@@ -736,62 +736,62 @@ export default function MortgageCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 {/* FAQ 1 */}
-                <div className="border-b border-gray-200 pb-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is PITI in a mortgage payment?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       PITI stands for <strong>Principal</strong>, <strong>Interest</strong>, <strong>Taxes</strong>, and <strong>Insurance</strong>. These are the four main components of your monthly mortgage payment. Principal is the amount borrowed, Interest is the cost of borrowing, Taxes are property taxes paid to local government, and Insurance is homeowners insurance to protect your investment.
                     </p>
                   </div>
                 </div>
 
                 {/* FAQ 2 */}
-                <div className="border-b border-gray-200 pb-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is PMI and when is it required?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       <strong>Private Mortgage Insurance (PMI)</strong> is typically required when your down payment is less than 20% of the home's purchase price. PMI costs between 0.5% to 1.5% of the loan amount annually, which translates to $50-$200+ per month. PMI can be removed once you reach 20% equity in your home.
                     </p>
                   </div>
                 </div>
 
                 {/* FAQ 3 */}
-                <div className="border-b border-gray-200 pb-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much house can I afford?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Financial experts recommend that housing costs shouldn't exceed <strong>28% of your gross monthly income</strong> (front-end ratio), and total debt shouldn't exceed <strong>36% of gross monthly income</strong> (back-end ratio). These are general guidelines, and your specific affordability depends on your income, debts, credit score, and down payment amount.
                     </p>
                   </div>
                 </div>
 
                 {/* FAQ 4 */}
-                <div className="border-b border-gray-200 pb-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I choose a 15-year or 30-year mortgage?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       A <strong>15-year mortgage</strong> has higher monthly payments but lower interest rates and significantly less total interest paid over the life of the loan. A <strong>30-year mortgage</strong> offers lower monthly payments, providing more flexibility in your budget, but you'll pay more interest over time. Choose based on your financial goals, monthly budget, and long-term plans.
                     </p>
                   </div>
                 </div>
 
                 {/* FAQ 5 */}
-                <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How can I save money on my mortgage?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <div className="text-gray-700" itemProp="text">
+                  <div>
+                    <div className="text-gray-700">
                       <p className="mb-3">You can save money on your mortgage through several strategies:</p>
                       <ul className="list-disc list-inside space-y-2">
                         <li><strong>Increase your down payment to 20%</strong> to eliminate PMI</li>

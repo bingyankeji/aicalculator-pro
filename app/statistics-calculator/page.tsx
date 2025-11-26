@@ -322,98 +322,98 @@ export default function StatisticsCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the difference between mean, median, and mode?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Mean is the arithmetic average of all values. Median is the middle value when data is sorted. Mode is the most frequently occurring value. Mean is sensitive to outliers, median is robust to outliers, and mode shows the most common value in the dataset.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do you calculate standard deviation?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Standard deviation measures how spread out data points are from the mean. Calculate it by: 1) Find the mean, 2) Calculate squared differences from mean, 3) Find average of squared differences (variance), 4) Take square root of variance. Formula: σ = √(Σ(x-μ)²/N)
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What are quartiles and how are they used?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Quartiles divide data into four equal parts. Q1 (25th percentile) is the median of the lower half, Q2 (50th percentile) is the overall median, Q3 (75th percentile) is the median of the upper half. The Interquartile Range (IQR = Q3-Q1) measures spread and helps identify outliers.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How does the calculator detect outliers?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The calculator uses the IQR (Interquartile Range) method to detect outliers. Values below Q1 - 1.5×IQR or above Q3 + 1.5×IQR are considered outliers. This is a robust method that works well for most distributions and is commonly used in box plots.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What do skewness and kurtosis measure?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Skewness measures the asymmetry of the distribution. Positive skewness indicates a right tail, negative indicates a left tail. Kurtosis measures the 'tailedness' - how much data is in the tails vs. center. High kurtosis means more outliers, low kurtosis means fewer outliers than a normal distribution.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     When should I use descriptive vs. inferential statistics?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Descriptive statistics (mean, median, standard deviation) summarize and describe your current dataset. Use them to understand your data's characteristics. Inferential statistics help make predictions or generalizations about a larger population based on your sample data.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What sample size do I need for reliable statistics?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       For basic descriptive statistics, even small samples (n≥5) can be meaningful. For reliable estimates and normal distribution assumptions, n≥30 is often recommended. Larger samples (n≥100) provide more stable estimates and better power for statistical tests.
                     </p>
                   </div>
                 </div>
 
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I interpret the coefficient of variation?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Coefficient of Variation (CV) = (Standard Deviation / Mean) × 100%. It measures relative variability. CV &lt; 15% indicates low variability, 15-35% is moderate, &gt;35% is high variability. Use CV to compare variability between datasets with different units or scales.
                     </p>
                   </div>

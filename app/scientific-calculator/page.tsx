@@ -354,15 +354,15 @@ export default function ScientificCalculatorPage() {
                 Frequently Asked Questions
               </h2>
               
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is a scientific calculator used for?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       A scientific calculator is used for complex mathematical calculations beyond basic arithmetic. It handles trigonometric functions (sin, cos, tan), 
                       logarithms (log, ln), exponentials (e^x, 10^x), roots, powers, and factorials. Essential for students in algebra, trigonometry, calculus, physics, 
                       chemistry, and engineering. Also used by professionals in science, finance, and technical fields for statistical analysis, scientific notation, 
@@ -372,12 +372,12 @@ export default function ScientificCalculatorPage() {
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What's the difference between DEG and RAD mode?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       DEG (degrees) and RAD (radians) are angle measurement modes. Degrees divide a circle into 360 parts, while radians use π (about 3.14159) as the unit—a 
                       full circle is 2π radians (about 6.28). Use DEG for everyday angles (90°, 180°, 270°) and geometry problems. Use RAD for calculus, physics formulas, 
                       and advanced math. Example: sin(90°) in DEG mode = 1, sin(π/2) in RAD mode = 1 (same angle, different units). Always check your mode before calculating!
@@ -386,12 +386,12 @@ export default function ScientificCalculatorPage() {
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do memory functions (M+, M-, MR, MC) work?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Memory functions store numbers for later use in complex calculations. MC (Memory Clear) resets memory to 0. MR (Memory Recall) displays the stored value. 
                       M+ (Memory Add) adds the current display to memory. M- (Memory Subtract) subtracts the current display from memory. Example workflow: Calculate 5×3 (=15), 
                       press M+ to store 15, calculate 8×2 (=16), press M+ to add 16 to memory (now 31), press MR to see 31 (15+16). Perfect for multi-step calculations!
@@ -400,12 +400,12 @@ export default function ScientificCalculatorPage() {
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What's the order of operations in scientific calculations?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Scientific calculators follow PEMDAS/BODMAS order: Parentheses/Brackets first, then Exponents/Orders (powers, roots), then Multiplication & Division 
                       (left to right), finally Addition & Subtraction (left to right). Special functions like sin, cos, log are evaluated first. Examples: 2+3×4 = 14 (not 20), 
                       because multiplication comes before addition; sin(30°)+5 = 5.5, because sin(30°) is calculated first (=0.5), then added to 5. Always use parentheses 
@@ -415,12 +415,12 @@ export default function ScientificCalculatorPage() {
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     When should I use log vs ln?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       log (logarithm base 10) and ln (natural logarithm base e≈2.71828) serve different purposes. Use log for: pH calculations in chemistry, decibels in sound, 
                       Richter scale for earthquakes, and general science where base-10 is standard. Use ln for: exponential growth/decay problems, compound interest calculations, 
                       calculus (especially derivatives/integrals), and when working with the natural base e. Examples: log(100)=2 because 10²=100; ln(e)=1 because e¹=e. 
@@ -430,12 +430,12 @@ export default function ScientificCalculatorPage() {
                 </div>
 
                 <div className="border-b border-gray-200 pb-6 last:border-0 last:pb-0" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can this scientific calculator replace a physical calculator?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes, for most purposes! Our online scientific calculator offers the same core functions as physical calculators: trig functions, logs, exponentials, 
                       memory, and calculation history. Advantages: always accessible on any device, completely free, keyboard support for faster input, automatic history 
                       tracking, no batteries needed, and no risk of loss. However, standardized tests (SAT, ACT, AP exams) often require specific approved physical calculators. 

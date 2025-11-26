@@ -501,98 +501,98 @@ export default function DiscountCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate a discount percentage?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate a discount percentage, use this formula: Discount % = (Discount Amount ÷ Original Price) × 100. For example, if an item originally costs $100 and is on sale for $80, the discount is $20. So: ($20 ÷ $100) × 100 = 20% off. Our calculator does this automatically – just enter the original and sale price.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much is 20% off of $100?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       20% off of $100 is $20 in savings, making the final price $80. Calculate it as: $100 × 0.20 = $20 discount, then $100 - $20 = $80 final price. You can use our quick discount buttons to instantly calculate common percentages like 10%, 20%, 25%, 30%, and 50% off.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do multiple discounts work?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Multiple discounts apply sequentially, not additively. For example, 20% off + 10% off is NOT 30% off. Here's why: Starting with $100, take 20% off = $80. Then take 10% off of $80 (not $100) = $72 final price. This equals a 28% total discount, not 30%. Our calculator shows the step-by-step breakdown for stacked discounts.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What's the difference between discount amount and discount percentage?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Discount amount is the dollar value you save (e.g., $20 off), while discount percentage is the proportion of the original price (e.g., 20% off). For a $100 item with 20% off: Discount percentage = 20%, Discount amount = $20, Final price = $80. Both represent the same savings but expressed differently.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate the original price if I know the sale price and discount?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To find the original price, use this formula: Original Price = Sale Price ÷ (1 - Discount%). For example, if an item costs $80 after a 20% discount: $80 ÷ (1 - 0.20) = $80 ÷ 0.80 = $100 original price. Use our 'Find Discount %' mode to calculate this automatically.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What's a good discount percentage for sales?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Common retail discounts range from 10-75% depending on the situation: Regular sales: 10-30% off, Seasonal clearance: 30-50% off, End-of-season: 50-70% off, Black Friday/Cyber Monday: 25-70% off, Going out of business: 50-90% off. Discounts over 50% are typically considered excellent deals, while 20-30% off is standard for regular promotions.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I use this calculator for tax or tip calculations?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       While this calculator is optimized for discounts (subtracting percentages), it can work for additions too. However, for adding sales tax or tips, we recommend using our dedicated Tip Calculator or Tax Calculator for better accuracy and additional features specific to those use cases.
                     </p>
                   </div>
                 </div>
 
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Is 40% off better than buy one get one 50% off?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       It depends on quantity! For 1 item: 40% off is better (pay 60%). For 2 identical items: Buy one get one 50% off means you pay 100% + 50% = 150% for 2 items, or 75% per item (25% off each). So 40% off is still better. Use our calculator to compare different discount scenarios and find the best deal.
                     </p>
                   </div>

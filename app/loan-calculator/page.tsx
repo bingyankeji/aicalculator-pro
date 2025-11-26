@@ -368,15 +368,15 @@ export default function LoanCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 {/* FAQ 1 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate my monthly loan payment?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate your monthly loan payment, you need three key pieces of information: the loan amount (principal), the annual interest rate, and the loan term in years. The calculator uses the standard loan amortization formula: M = P[r(1+r)^n]/[(1+r)^n-1], where M is monthly payment, P is principal, r is monthly interest rate, and n is number of payments.
                     </p>
                   </div>
@@ -384,12 +384,12 @@ export default function LoanCalculatorPage() {
 
                 {/* FAQ 2 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is a good DTI ratio for a loan?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       A good debt-to-income (DTI) ratio is typically below 36%, with no more than 28% of that going toward housing expenses. Lenders generally prefer DTI ratios of 43% or lower for most loans. A lower DTI indicates better financial health and makes you more attractive to lenders.
                     </p>
                   </div>
@@ -397,12 +397,12 @@ export default function LoanCalculatorPage() {
 
                 {/* FAQ 3 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I make extra payments on my loan?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Making extra payments on your loan can save you thousands in interest and help you pay off the loan faster. However, ensure you don't have any prepayment penalties, have an emergency fund in place, and aren't neglecting higher-interest debts. Use our calculator to see how extra payments can impact your loan.
                     </p>
                   </div>
@@ -410,12 +410,12 @@ export default function LoanCalculatorPage() {
 
                 {/* FAQ 4 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What's the difference between APR and interest rate?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The interest rate is the cost of borrowing the principal loan amount, while APR (Annual Percentage Rate) includes the interest rate plus other costs like fees, points, and mortgage insurance. APR gives you a more complete picture of the total cost of the loan.
                     </p>
                   </div>
@@ -423,12 +423,12 @@ export default function LoanCalculatorPage() {
 
                 {/* FAQ 5 */}
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How can I lower my monthly loan payment?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       You can lower your monthly loan payment by: extending the loan term (though you'll pay more interest overall), refinancing to a lower interest rate, making a larger down payment to reduce the principal, or improving your credit score before applying to qualify for better rates.
                     </p>
                   </div>

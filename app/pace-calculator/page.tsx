@@ -508,98 +508,98 @@ export default function PaceCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate my running pace?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate running pace, divide your total time by your distance. For example, if you ran 5 miles in 45 minutes, your pace is 45 ÷ 5 = 9 minutes per mile (9:00/mi). The formula is: Pace (min/mile) = Total Time (minutes) ÷ Distance (miles). Our calculator does this automatically and also converts between miles and kilometers, showing your pace in both formats.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is a good running pace for beginners?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       A good running pace for beginners is typically 10-12 minutes per mile (6:15-7:30 per km) for easy runs. However, 'good' is relative to your fitness level, age, and experience. Beginners should focus on running at a conversational pace where you can speak full sentences. As you build endurance over 8-12 weeks, your pace will naturally improve. Don't compare yourself to others - consistency matters more than speed when starting out.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What pace should I run a marathon?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Your marathon pace should be 30-90 seconds per mile slower than your half marathon pace, or 45-60 seconds per mile slower than your 10K pace. For example, if you run a 10K at 8:00/mile pace, target 8:45-9:00/mile for a marathon. Most runners should aim for a pace they can maintain while holding a conversation (60-75% of max heart rate). Use our calculator to predict your marathon time based on recent race performances. First-time marathoners should be conservative - it's better to start slower and finish strong.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do you convert pace to speed (mph or km/h)?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To convert pace to speed, use these formulas: Speed (mph) = 60 ÷ Pace (minutes per mile), or Speed (km/h) = 60 ÷ Pace (minutes per km). For example, a 10:00/mile pace = 60 ÷ 10 = 6.0 mph. An 8:00/mile pace = 60 ÷ 8 = 7.5 mph. Our calculator shows both pace and speed automatically, so you can see your results in whichever format you prefer. Treadmills typically display speed (mph), while runners usually think in terms of pace (min/mile).
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the difference between pace per mile and pace per kilometer?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Pace per mile is how long it takes to run one mile, while pace per kilometer is how long it takes to run one kilometer. Since 1 mile = 1.60934 kilometers, pace per kilometer is always faster (lower number) than pace per mile. For example, 8:00/mile pace equals approximately 4:58/km pace. American runners typically use miles, while most of the world uses kilometers. Use our calculator to easily convert between both units.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How accurate are race time predictions based on pace?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Race time predictions are reasonably accurate (within 2-5%) if you maintain consistent training and proper race-day pacing. However, accuracy depends on several factors: your training specificity for the target distance, course terrain and weather, your pacing discipline, and race-day nutrition. Predictions work best when extrapolating to similar distances (10K pace predicts half marathon better than marathon). For marathons, add 10-20% to your predicted time if you haven't specifically trained for the distance.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What does negative split mean in running?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       A negative split means running the second half of your race faster than the first half. For example, in a marathon, if you run the first 13.1 miles in 2:00:00 and the second 13.1 miles in 1:55:00, that's a negative split. This pacing strategy is considered ideal for most runners because it: conserves energy early, prevents bonking (hitting the wall), allows you to pass struggling runners late in the race, and often results in better overall times. The opposite - starting too fast and slowing down - is called a positive split and should be avoided.
                     </p>
                   </div>
                 </div>
 
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I use pace calculator for interval training?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       For interval training, calculate your target paces for different workout intensities: Easy pace (conversational, 60-70% effort), Tempo pace (comfortably hard, 80-85% effort, ~25-30 seconds faster than easy pace), Threshold pace (hard but sustainable for 20-60 minutes, ~15-20 seconds faster than tempo), Interval/VO2max pace (very hard, 5K-10K race pace or faster). Use our calculator to determine split times for specific interval distances (e.g., 800m repeats at 5K pace). Track your paces over time to monitor fitness improvements.
                     </p>
                   </div>

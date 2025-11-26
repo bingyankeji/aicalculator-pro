@@ -421,16 +421,16 @@ export default function IncomeTaxCalculatorPage() {
                 Frequently Asked Questions About Income Tax
               </h2>
               
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 
                 {/* FAQ 1 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate my income tax?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate your income tax, enter your annual gross income, select your filing status (single, 
                       married, or head of household), and enter your state/local tax rate. The calculator will compute federal tax 
                       using current tax brackets, state/local tax (using your entered rate), and FICA tax (Social Security and Medicare). 
@@ -442,12 +442,12 @@ export default function IncomeTaxCalculatorPage() {
 
                 {/* FAQ 2 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the federal tax rate?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The federal tax rates range from 10% to 37%, applied progressively across seven tax brackets. 
                       For single filers: 10% ($0-$11,600), 12% ($11,600-$47,150), 22% ($47,150-$100,525), 24% ($100,525-$191,950), 
                       32% ($191,950-$243,725), 35% ($243,725-$609,350), and 37% (over $609,350). Married filing jointly has 
@@ -459,12 +459,12 @@ export default function IncomeTaxCalculatorPage() {
 
                 {/* FAQ 3 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How is take-home pay calculated?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Take-home pay is your gross income minus all taxes: federal income tax, state/local income tax (based on 
                       your entered rate), Social Security tax (6.2%), and Medicare tax (1.45%). The calculator applies 2025 
                       tax brackets and standard deductions to determine your net income. For example, a $75,000 salary typically 
@@ -477,12 +477,12 @@ export default function IncomeTaxCalculatorPage() {
 
                 {/* FAQ 4 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the difference between effective and marginal tax rate?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Your marginal tax rate is the rate applied to your last dollar of income (your highest tax bracket). 
                       Your effective tax rate is the average rate you pay on all your income (total tax divided by gross income). 
                       For example, if you earn $75,000, you might be in the 22% marginal bracket, but your effective rate might 
@@ -494,12 +494,12 @@ export default function IncomeTaxCalculatorPage() {
 
                 {/* FAQ 5 */}
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How can I reduce my tax liability?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Reduce taxes by maximizing 401(k) contributions (up to $23,500), contributing to HSA accounts 
                       ($4,300 single/$8,550 family), claiming all eligible tax credits (child tax credit up to $2,200 per child, 
                       education credits up to $2,500), and itemizing deductions if they exceed the standard deduction ($15,000 

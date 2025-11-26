@@ -442,15 +442,15 @@ export default function CalorieCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 {/* FAQ 1 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How many calories should I eat per day?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Daily calorie needs depend on your age, gender, weight, height, and activity level. For most adults, this ranges from 1,600-3,000 calories per day. Men typically need 2,000-3,000 calories, while women need 1,600-2,400 calories. Use our calorie calculator to get a personalized estimate based on your BMR (Basal Metabolic Rate) and TDEE (Total Daily Energy Expenditure).
                     </p>
                   </div>
@@ -458,12 +458,12 @@ export default function CalorieCalculatorPage() {
 
                 {/* FAQ 2 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is BMR and how is it calculated?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       BMR (Basal Metabolic Rate) is the number of calories your body needs to perform basic life-sustaining functions at rest, such as breathing, circulation, and cell production. The most accurate formulas are Mifflin-St Jeor: (10 × weight in kg) + (6.25 × height in cm) - (5 × age) + 5 for men (subtract 161 for women), and Harris-Benedict which uses slightly different coefficients. BMR typically accounts for 60-75% of total daily calories.
                     </p>
                   </div>
@@ -471,12 +471,12 @@ export default function CalorieCalculatorPage() {
 
                 {/* FAQ 3 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is TDEE and why is it important?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       TDEE (Total Daily Energy Expenditure) is the total number of calories you burn in a day, including BMR plus calories burned through physical activity. TDEE = BMR × activity multiplier (1.2 for sedentary, 1.375 for light exercise, 1.55 for moderate, 1.725 for active, 1.9 for very active). Knowing your TDEE is crucial for weight management: eat below TDEE to lose weight, at TDEE to maintain, or above TDEE to gain weight.
                     </p>
                   </div>
@@ -484,12 +484,12 @@ export default function CalorieCalculatorPage() {
 
                 {/* FAQ 4 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How many calories should I eat to lose weight?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       For safe weight loss, create a calorie deficit of 500-1,000 calories per day below your TDEE, which results in losing 1-2 lbs per week. However, never go below 1,200 calories/day for women or 1,500 calories/day for men without medical supervision. A moderate deficit (500 cal/day = 1 lb/week loss) is more sustainable than aggressive deficits, which can lead to muscle loss and nutritional deficiencies.
                     </p>
                   </div>
@@ -497,12 +497,12 @@ export default function CalorieCalculatorPage() {
 
                 {/* FAQ 5 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How should I split my macronutrients?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       A balanced macronutrient split is typically 40% carbohydrates, 30% protein, and 30% fats. For weight loss, increase protein to 35-40% to preserve muscle mass. For muscle gain, aim for 30-35% protein, 45-50% carbs, and 20-25% fats. Calculate grams by dividing calories by 4 for protein and carbs (4 cal/gram), and by 9 for fats (9 cal/gram). Adjust based on your activity level and goals.
                     </p>
                   </div>
@@ -510,12 +510,12 @@ export default function CalorieCalculatorPage() {
 
                 {/* FAQ 6 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Is the Mifflin-St Jeor or Harris-Benedict formula more accurate?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The Mifflin-St Jeor equation is generally considered more accurate for modern populations. Developed in 1990, it reflects current body compositions better than the Harris-Benedict equation from 1919. Studies show Mifflin-St Jeor has an accuracy rate of about 10% for predicting BMR in healthy individuals, while Harris-Benedict can be 5-10% less accurate. However, both provide good estimates for calorie planning.
                     </p>
                   </div>
@@ -523,12 +523,12 @@ export default function CalorieCalculatorPage() {
 
                 {/* FAQ 7 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How long will it take to reach my weight goal?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Weight loss timeline depends on your calorie deficit. A 500 calorie daily deficit (3,500 cal/week) results in losing approximately 1 lb per week. For example, losing 20 lbs would take about 20 weeks (5 months) at this rate. Safe weight loss is 0.5-2 lbs per week. Faster loss may lead to muscle loss and is harder to maintain. Use our calculator's target weight feature to estimate your timeline based on your chosen deficit.
                     </p>
                   </div>
@@ -536,12 +536,12 @@ export default function CalorieCalculatorPage() {
 
                 {/* FAQ 8 */}
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I eat back calories burned from exercise?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       If you've calculated your TDEE using an activity multiplier, your exercise is already accounted for in your calorie target, so you don't need to eat back exercise calories. However, if you calculated maintenance calories using sedentary multiplier and do additional exercise, you may need to eat back 50-75% of exercise calories to avoid excessive deficit. Monitor your energy levels, recovery, and weight changes to adjust as needed.
                     </p>
                   </div>

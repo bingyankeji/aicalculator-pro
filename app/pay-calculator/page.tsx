@@ -434,98 +434,98 @@ export default function PayCalculatorPage() {
                 Frequently Asked Questions
               </h2>
               
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate my net pay from gross pay?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate net pay from gross pay: 1) Start with your gross pay (total earnings before deductions). 2) Subtract federal income tax (typically 10-37% based on your tax bracket). 3) Subtract state income tax (0-13.3% depending on your state). 4) Subtract FICA taxes: Social Security (6.2% up to $168,600) and Medicare (1.45% on all earnings). 5) Subtract pre-tax deductions like 401(k) contributions and health insurance. 6) Subtract post-tax deductions like Roth 401(k), garnishments, or union dues. The remaining amount is your net pay or take-home pay.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What percentage of my paycheck goes to taxes?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       On average, Americans pay 20-30% of their gross pay in taxes and deductions, though this varies significantly. Federal income tax ranges from 10-37% depending on your tax bracket. FICA (Social Security + Medicare) is 7.65% for most workers. State income tax ranges from 0% (9 states have no income tax) to 13.3% (California). Additional deductions include 401(k) contributions (typically 3-15%), health insurance ($100-500/month), and other voluntary deductions. A typical middle-class worker earning $60,000/year might take home about $45,000-48,000 (75-80% of gross pay).
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the difference between gross pay and net pay?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Gross pay is your total earnings before any deductions - this is your salary or hourly rate multiplied by hours worked. Net pay (take-home pay) is what you actually receive in your bank account after all deductions. Deductions include: mandatory taxes (federal, state, local income tax, and FICA), pre-tax deductions (401k, traditional IRA, FSA, HSA, health insurance), and post-tax deductions (Roth 401k, life insurance, garnishments). For example, if your gross annual salary is $60,000 and you have $12,000 in total deductions, your net pay is $48,000 ($4,000/month). The difference between gross and net pay is crucial for budgeting because you can only spend your net pay.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much federal tax is withheld from my paycheck?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Federal income tax withholding depends on your tax bracket, filing status, and W-4 form information. For 2024, tax brackets are: 10% (income up to $11,600), 12% ($11,600-$47,150), 22% ($47,150-$100,525), 24% ($100,525-$191,950), 32% ($191,950-$243,725), 35% ($243,725-$609,350), and 37% (over $609,350) for single filers. These are marginal rates, meaning you pay different rates on different portions of your income. Most employers withhold based on IRS Publication 15-T and your W-4 form. You can adjust withholding by submitting a new W-4. If too much is withheld, you'll get a refund when filing taxes; too little means you'll owe money.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is FICA and how much is it?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       FICA (Federal Insurance Contributions Act) is the combined tax for Social Security and Medicare, totaling 7.65% of your gross pay for most employees. It consists of: Social Security tax (6.2% on earnings up to $168,600 in 2024 - this wage base limit increases annually), and Medicare tax (1.45% on all earnings with no cap). High earners pay an Additional Medicare Tax of 0.9% on wages exceeding $200,000 (single) or $250,000 (married filing jointly). Self-employed individuals pay the full 15.3% (both employee and employer portions) but can deduct the employer portion. FICA taxes fund Social Security retirement benefits and Medicare health insurance for seniors. Unlike income tax, FICA is a flat rate with no deductions or exemptions.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I contribute to a 401(k) even if it reduces my take-home pay?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes, contributing to a 401(k) is generally beneficial despite reducing take-home pay for several reasons: 1) Tax savings: Traditional 401(k) contributions are pre-tax, reducing your taxable income. For example, contributing $10,000 in the 22% tax bracket saves $2,200 in federal taxes, so your take-home only decreases by $7,800. 2) Employer match: Many employers match 50-100% of contributions up to 3-6% of salary - this is free money you shouldn't leave on the table. 3) Compound growth: Investments grow tax-deferred for decades. $500/month for 30 years at 7% annual return grows to $607,000. 4) 2024 contribution limits: $23,000 for those under 50, $30,500 for 50+. Financial experts recommend saving 10-15% of gross income for retirement. Even if budgets are tight, at minimum contribute enough to get the full employer match.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How does pay frequency affect my paycheck?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Pay frequency determines how often you receive paychecks and affects the amount per check, though annual totals remain the same. Common frequencies: Weekly (52 paychecks/year) - smallest per-check amount but most frequent; Bi-weekly (26 paychecks/year) - most common, every two weeks, includes two 'extra' paychecks some months; Semi-monthly (24 paychecks/year) - typically 1st and 15th, consistent dates but varying days; Monthly (12 paychecks/year) - largest per-check amount, easier budgeting but requires discipline between checks. Tax withholding may be calculated differently: bi-weekly assumes 26 pay periods, while semi-monthly assumes 24. This can cause slight differences in withholding per check. Bi-weekly often results in two 'bonus' months per year with three paychecks, which many people use for savings or debt payoff.
                     </p>
                   </div>
                 </div>
 
                 <div 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What should I do if my paycheck seems incorrect?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       If your paycheck seems wrong, follow these steps: 1) Review your pay stub carefully: Check gross pay matches your salary/hourly rate and hours worked. Verify all deductions are authorized and amounts are correct. Ensure tax withholdings match your W-4 form. 2) Common issues: Incorrect hours or overtime calculation, wrong tax withholding (check your W-4), unauthorized deductions, incorrect pay rate, missing bonuses or commissions, benefit deduction errors. 3) Action steps: Contact your HR or payroll department immediately with specific questions. Provide documentation (offer letter, W-4, benefits enrollment). Request a corrected pay stub if errors are confirmed. Keep records of all communications. 4) Legal recourse: If your employer refuses to correct errors, file a wage claim with your state's Department of Labor. Most states have strict deadlines (30-180 days). Document everything: pay stubs, time cards, communications. Employers are required by law to pay you correctly and on time.
                     </p>
                   </div>

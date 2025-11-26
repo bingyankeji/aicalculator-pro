@@ -279,49 +279,49 @@ export default function BusinessLoanCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
-                <div className="border-b border-gray-200 pb-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">What repayment frequencies are supported?</h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">Monthly, bi-weekly, and weekly schedules are supported.</p>
+              <div className="space-y-6">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">What repayment frequencies are supported?</h3>
+                  <div>
+                    <p className="text-gray-700">Monthly, bi-weekly, and weekly schedules are supported.</p>
                   </div>
                 </div>
-                <div className="border-b border-gray-200 pb-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">Do prepayments change the payment amount?</h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">This tool models extra payments to reduce principal faster. Payment shown is scheduled plus extra.</p>
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">Do prepayments change the payment amount?</h3>
+                  <div>
+                    <p className="text-gray-700">This tool models extra payments to reduce principal faster. Payment shown is scheduled plus extra.</p>
                   </div>
                 </div>
-                <div className="border-b border-gray-200 pb-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">Is APR the same as the interest rate?</h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">No. APR typically includes certain fees while the nominal rate does not.</p>
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">Is APR the same as the interest rate?</h3>
+                  <div>
+                    <p className="text-gray-700">No. APR typically includes certain fees while the nominal rate does not.</p>
                   </div>
                 </div>
-                <div className="border-b border-gray-200 pb-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">Can I use this for SBA loans?</h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">Yes. Use the fee and rate fields to approximate SBA structures.</p>
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">Can I use this for SBA loans?</h3>
+                  <div>
+                    <p className="text-gray-700">Yes. Use the fee and rate fields to approximate SBA structures.</p>
                   </div>
                 </div>
-                <div className="border-b border-gray-200 pb-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">How accurate are the results?</h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">Results are estimates using standard amortization formulas. Actual lender terms may vary.</p>
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">How accurate are the results?</h3>
+                  <div>
+                    <p className="text-gray-700">Results are estimates using standard amortization formulas. Actual lender terms may vary.</p>
                   </div>
                 </div>
-                <div className="border-b border-gray-200 pb-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">What DSCR do lenders expect?</h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">What DSCR do lenders expect?</h3>
+                  <div>
+                    <p className="text-gray-700">
                       Many lenders require DSCR ≥ 1.25x as a minimum. Higher DSCR indicates stronger repayment capacity and may qualify you for better terms.
                     </p>
                   </div>
                 </div>
-                <div className="border-b border-gray-200 pb-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">How can I reduce total borrowing cost?</h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">How can I reduce total borrowing cost?</h3>
+                  <div>
+                    <p className="text-gray-700">
                       Compare multiple offers, negotiate origination/guarantee fees, consider longer terms for cash flow,
                       and use prepayments to reduce interest over time.
                     </p>

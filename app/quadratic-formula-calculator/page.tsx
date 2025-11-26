@@ -126,58 +126,58 @@ export default function QuadraticFormulaCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
-                <div className="border-b border-gray-200 pb-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+              <div className="space-y-6">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the quadratic formula?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       For ax^2 + bx + c = 0 with a ≠ 0, the solutions are
                       x = (-b ± √(b^2 - 4ac)) / (2a). The ± gives two branches, producing two
                       roots when the discriminant is positive.
                     </p>
                   </div>
                 </div>
-                <div className="border-b border-gray-200 pb-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     When are the roots complex?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       When the discriminant b^2 - 4ac is negative. The roots take the form
                       p ± qi where p and q are real numbers.
                     </p>
                   </div>
                 </div>
-                <div className="border-b border-gray-200 pb-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What does a = 0 mean?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Then the equation is linear (bx + c = 0) and not quadratic. Our tool
                       requires a ≠ 0 to use the quadratic formula.
                     </p>
                   </div>
                 </div>
-                <div className="border-b border-gray-200 pb-6" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do the coefficients affect the graph?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The coefficient a controls opening direction and vertical stretch; b shifts the
                       axis of symmetry; c is the y-intercept (0, c).
                     </p>
                   </div>
                 </div>
-                <div className="border-b border-gray-200 pb-0" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div className="border-b border-gray-200 pb-0">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I use the formula to complete the square?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes. Completing the square derives the quadratic formula and also provides
                       vertex form y = a(x - h)^2 + k for graphing and optimization.
                     </p>

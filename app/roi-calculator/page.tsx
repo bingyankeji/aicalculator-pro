@@ -358,18 +358,18 @@ export default function ROICalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div
                   className="border-b border-gray-200 pb-6"
                   itemScope
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is a good ROI percentage?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       A "good" ROI depends on context, but generally: 7-10% annualized ROI is considered good
                       (matching stock market averages), 10-20% is excellent, and 20%+ is exceptional. However,
                       higher ROI often means higher risk.
@@ -383,11 +383,11 @@ export default function ROICalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate ROI?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       ROI = (Net Profit / Total Investment Cost) × 100. Net Profit = Final Value - Initial
                       Investment - Additional Costs. For example, if you invest $10,000, sell for $15,000, and
                       pay $500 in fees, your ROI = (($15,000 - $10,000 - $500) / $10,500) × 100 = 42.86%.
@@ -401,11 +401,11 @@ export default function ROICalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What's the difference between ROI and annualized ROI?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       ROI shows total return over the entire period, while annualized ROI adjusts for time,
                       showing average yearly return. A 50% ROI over 5 years is only 8.45% annualized, while 50%
                       ROI in 1 year is 50% annualized.
@@ -419,11 +419,11 @@ export default function ROICalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I include taxes in ROI calculations?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes, for accurate ROI, include all costs like capital gains tax, dividend tax, and
                       transaction fees. These reduce your net profit and give a realistic picture of investment
                       performance.
@@ -437,11 +437,11 @@ export default function ROICalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can ROI be negative?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes, negative ROI means the investment lost money. For example, if you invest $10,000 and
                       the final value is $8,000, your ROI is -20%. This indicates a loss and may warrant
                       reconsidering the investment.
@@ -454,11 +454,11 @@ export default function ROICalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How is ROI different from profit?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Profit is the absolute dollar amount gained (e.g., $5,000), while ROI is the percentage
                       return relative to investment cost (e.g., 50%). ROI allows comparing investments of
                       different sizes.

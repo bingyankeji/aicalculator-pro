@@ -594,98 +594,98 @@ export default function AverageCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do you calculate the average (mean)?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate the average (mean), add all the numbers together and divide by how many numbers there are. Formula: Mean = (Sum of all values) / (Count of values). Example: For 10, 20, 30, the mean is (10+20+30) / 3 = 60 / 3 = 20. The mean represents the central tendency of a dataset and is the most commonly used type of average.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the difference between mean, median, and mode?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Mean is the arithmetic average (sum divided by count). Median is the middle value when numbers are sorted (or average of two middle values if even count). Mode is the most frequently occurring value. Example: For data set [1, 2, 2, 3, 100], Mean = 21.6 (affected by outlier 100), Median = 2 (middle value, not affected by outliers), Mode = 2 (appears twice). Use median when data has outliers, mode for categorical data, and mean for normally distributed data.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do you find the median?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To find the median: 1) Sort all numbers in ascending order, 2) If odd count: median is the middle number, 3) If even count: median is the average of the two middle numbers. Example: For [5, 2, 8, 1, 9] → Sort to [1, 2, 5, 8, 9] → Median = 5 (middle). For [2, 4, 6, 8] → Sort already → Median = (4+6)/2 = 5. Median is resistant to outliers, making it better than mean for skewed distributions.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is standard deviation and why is it important?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Standard deviation (σ) measures how spread out numbers are from the mean. Low standard deviation means data points are close to the mean (consistent); high standard deviation means data is spread out (variable). Formula: σ = √(Σ(x - mean)² / n). Example: Test scores [90, 91, 89, 92] have σ ≈ 1.12 (very consistent), while [60, 90, 70, 100] have σ ≈ 16.43 (highly variable). It's crucial in statistics for understanding data reliability and variability.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can there be more than one mode?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes! A dataset can have no mode (all values appear once), one mode (unimodal), two modes (bimodal), or multiple modes (multimodal). Example: [1, 2, 2, 3, 3, 4] is bimodal with modes 2 and 3 (both appear twice). [1, 2, 3, 4, 5] has no mode (all appear once). Mode is most useful for categorical data or discrete data to identify the most common category or value. Our calculator displays all modes when multiple exist.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the range in statistics?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Range is the simplest measure of spread, calculated as: Range = Maximum value - Minimum value. It shows the span of the dataset. Example: For temperatures [65°F, 70°F, 75°F, 80°F, 85°F], Range = 85 - 65 = 20°F. While easy to calculate, range is sensitive to outliers since it only uses two data points. For more robust spread measures, use interquartile range (IQR) or standard deviation which consider all data points.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     When should I use median instead of mean?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Use median instead of mean when: 1) Data has outliers (extreme values) - median isn't affected by them, 2) Data is skewed (not normally distributed) - income data often uses median, 3) You want the 'typical' middle value - median represents the 50th percentile. Example: For house prices [$200K, $250K, $300K, $5M], mean = $1.19M (misleading due to mansion), median = $275K (more representative of typical price). Median is better for ordinal data and asymmetric distributions.
                     </p>
                   </div>
                 </div>
 
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is variance and how is it different from standard deviation?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Variance (σ²) and standard deviation (σ) both measure data spread, but: Variance = average of squared differences from mean. Standard deviation = square root of variance. Formula: Variance = Σ(x - mean)² / n, SD = √Variance. Key difference: variance is in squared units (hard to interpret), while standard deviation is in original units (easier to understand). Example: If data is in dollars, variance is in dollars², but SD is in dollars. Both are used extensively in statistics; SD is more intuitive for interpretation.
                     </p>
                   </div>

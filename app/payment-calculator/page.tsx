@@ -358,15 +358,15 @@ export default function PaymentCalculatorPage() {
                 Frequently Asked Questions
               </h2>
               
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate my monthly payment on a loan?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate your monthly payment, you need: loan amount, annual interest rate, and loan term. The formula is: M = P * [r(1+r)^n] / [(1+r)^n-1], 
                       where M=monthly payment, P=principal, r=monthly interest rate (annual rate/12), n=total payments. Our calculator does this instantly—just enter 
                       your loan details and click Calculate. For a $25,000 loan at 6.5% over 5 years, the monthly payment is $489.10.
@@ -375,12 +375,12 @@ export default function PaymentCalculatorPage() {
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What's the difference between standard, interest-only, and balloon payments?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Standard amortized: Each payment includes principal and interest, fully paying off the loan by the end. This is the safest and most common structure. 
                       Interest-only: You only pay interest each month; the full principal is due at term end—risky as you're not building equity. 
                       Balloon payment: Lower monthly payments but a large lump sum (balloon) due at the end—requires careful planning and often refinancing. 
@@ -390,12 +390,12 @@ export default function PaymentCalculatorPage() {
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much can I save by making extra payments?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Extra payments can save thousands! Even an extra $100/month on a $25,000 loan at 6.5% over 5 years saves approximately $812 in interest 
                       and pays off the loan 8 months early. The savings increase with larger loan amounts, higher interest rates, and longer terms. A $50,000 loan 
                       with $200 extra monthly could save $3,000-5,000 over the life of the loan. Use our calculator's 'Extra Payment' feature to see your specific savings.
@@ -404,12 +404,12 @@ export default function PaymentCalculatorPage() {
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I choose monthly, bi-weekly, or weekly payments?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Bi-weekly payments (26 per year) result in 13 monthly equivalents instead of 12, automatically creating an extra payment annually. 
                       This pays off loans faster without feeling the strain—great if you're paid bi-weekly. Weekly payments (52 per year) offer even more frequent 
                       reduction of principal, saving additional interest. Choose based on your pay schedule and cash flow. Consistency matters more than frequency. 
@@ -419,12 +419,12 @@ export default function PaymentCalculatorPage() {
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What types of loans can I calculate with this tool?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       This calculator works for any fixed-rate installment loan: auto loans (new/used cars), personal loans, home equity loans, student loans (private), 
                       RV/boat loans, furniture/appliance financing, debt consolidation loans, and business equipment loans. It doesn't work for revolving credit 
                       (credit cards with variable payments), adjustable-rate loans, or mortgages with PMI/taxes (use our Mortgage Calculator for those). 
@@ -434,12 +434,12 @@ export default function PaymentCalculatorPage() {
                 </div>
 
                 <div className="border-b border-gray-200 pb-6 last:border-0 last:pb-0" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How accurate is this payment calculator?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Our calculator uses standard financial formulas and is highly accurate (99.9%+) for fixed-rate loans. However, actual payments may vary slightly due to: 
                       origination fees, insurance costs, payment due date timing, prepayment penalties, or promotional rates. Always verify the final payment amount with your 
                       lender before signing any loan agreement. Use this calculator for planning, comparison shopping, and understanding how loans work—it's a powerful tool 

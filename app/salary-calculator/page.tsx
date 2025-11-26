@@ -373,98 +373,98 @@ export default function SalaryCalculatorPage() {
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
               
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I convert hourly wage to annual salary?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Enter your hourly wage in the salary amount field, select 'per Hour' from the dropdown, and set your hours per week (typically 40). The calculator automatically displays your annual salary. For example, $50/hour × 40 hours/week × 52 weeks = $104,000/year.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the difference between unadjusted and adjusted salary?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Unadjusted salary assumes you work all 52 weeks without accounting for time off. Adjusted salary factors in holidays and vacation days you actually take off, showing your effective hourly rate when considering unpaid time off. For salaried employees, adjusted figures show the true value per working hour.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How many hours per week should I enter?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Enter your typical working hours per week. Standard full-time is 40 hours (8 hours/day × 5 days). Part-time might be 20-30 hours. If you work overtime regularly, include average overtime hours. The calculator uses this to convert between different pay periods accurately.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do holidays affect my salary calculation?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Holidays reduce your actual working days per year. The U.S. has 10 federal holidays. If you enter 10 holidays, the adjusted salary shows your effective pay rate across 250 working days instead of 260. This is important for hourly workers or calculating true compensation value.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I include paid vacation days?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes, include all vacation days (paid or unpaid). The calculator shows how vacation time affects your effective hourly rate. For example, 15 vacation days means you work 245 days instead of 260, increasing your adjusted hourly rate since you earn the same annual amount in fewer working days.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate my monthly salary from hourly wage?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Enter your hourly wage, select 'per Hour', and the calculator shows your monthly salary in the results. The calculation uses: Hourly rate × Hours per week × 52 weeks ÷ 12 months. For $50/hour at 40 hours/week, that's $50 × 40 × 52 ÷ 12 = $8,667/month.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is semi-monthly pay?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Semi-monthly means you're paid twice per month (24 pay periods per year), typically on the 15th and last day. This differs from bi-weekly (every 2 weeks, 26 pay periods). Semi-monthly pay is your annual salary ÷ 24, while bi-weekly is annual ÷ 26.
                     </p>
                   </div>
                 </div>
 
                 <div 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I use this calculator for salary negotiations?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes! Use it to compare different salary offers by converting them to the same pay period. For example, compare a $100K/year salary offer with a $50/hour contract job. The calculator shows equivalent rates across all periods, helping you make informed decisions about total compensation.
                     </p>
                   </div>

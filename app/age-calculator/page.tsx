@@ -320,16 +320,16 @@ export default function AgeCalculatorPage() {
                 Frequently Asked Questions About Age Calculator
               </h2>
               
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 
                 {/* FAQ 1 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate my exact age?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate your exact age, simply enter your date of birth in the calculator above and 
                       click "Calculate Age". The calculator will instantly show your age in years, months, days, 
                       hours, and minutes. It also displays total days lived, next birthday countdown, zodiac signs, 
@@ -340,12 +340,12 @@ export default function AgeCalculatorPage() {
 
                 {/* FAQ 2 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How is age calculated in years, months, and days?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Age is calculated by finding the difference between your birth date and the current date. 
                       First, we subtract the birth year from the current year. Then we adjust for months - if the 
                       current month is before your birth month, we subtract one year and add 12 to the months. 
@@ -358,12 +358,12 @@ export default function AgeCalculatorPage() {
 
                 {/* FAQ 3 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I calculate age for a specific date in the past or future?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes! Our age calculator includes a "Calculate Age As Of" field that lets you calculate age 
                       for any specific date. This is useful for determining age on a particular date for official 
                       documents, planning future events, or calculating historical ages. Simply select your date 
@@ -374,12 +374,12 @@ export default function AgeCalculatorPage() {
 
                 {/* FAQ 4 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the most accurate way to calculate age?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The most accurate age calculation counts complete years, months, and days from birth to the 
                       current date, properly handling leap years and varying month lengths (28-31 days). Our 
                       calculator uses precise date arithmetic to ensure accuracy down to the minute. It accounts 
@@ -391,12 +391,12 @@ export default function AgeCalculatorPage() {
 
                 {/* FAQ 5 */}
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How can I find my zodiac sign from my birth date?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Your zodiac sign is automatically calculated from your birth date. The Western zodiac sign 
                       (Aries, Taurus, Gemini, etc.) is determined by your birth month and day, while the Chinese 
                       zodiac sign (Rat, Ox, Tiger, etc.) is based on your birth year. Our age calculator displays 

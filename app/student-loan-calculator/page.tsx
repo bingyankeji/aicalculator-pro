@@ -494,15 +494,15 @@ export default function StudentLoanCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 {/* FAQ 1 */}
                 <div className="border-b border-gray-200 pb-6"
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate my student loan monthly payment?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate your student loan monthly payment, multiply your loan amount by the monthly interest rate (annual rate ÷ 12), then use the amortization formula: Payment = P × [r(1+r)^n] ÷ [(1+r)^n-1], where P is principal, r is monthly rate, and n is number of payments. Our calculator does this automatically and shows payments for different repayment plans.
                     </p>
                   </div>
@@ -510,12 +510,12 @@ export default function StudentLoanCalculatorPage() {
 
                 {/* FAQ 2 */}
                 <div className="border-b border-gray-200 pb-6"
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the difference between Standard and Income-Driven repayment plans?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Standard repayment has fixed monthly payments for 10 years, paying the least interest overall. Income-Driven Repayment (IDR) plans cap payments at 10-20% of your discretionary income and extend repayment to 20-25 years, with remaining balance forgiven. IDR plans result in lower monthly payments but potentially more total interest paid.
                     </p>
                   </div>
@@ -523,12 +523,12 @@ export default function StudentLoanCalculatorPage() {
 
                 {/* FAQ 3 */}
                 <div className="border-b border-gray-200 pb-6"
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I qualify for PSLF (Public Service Loan Forgiveness)?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To qualify for PSLF, you must: 1) Have federal Direct Loans, 2) Work full-time for a qualifying public service employer, 3) Make 120 qualifying monthly payments under an IDR plan, 4) Be current on your payments. After 120 payments (10 years), your remaining loan balance is forgiven tax-free. Use our PSLF calculator to check your eligibility.
                     </p>
                   </div>
@@ -536,24 +536,24 @@ export default function StudentLoanCalculatorPage() {
 
                 {/* FAQ 4 */}
                 <div className="border-b border-gray-200 pb-6"
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Which student loan repayment plan is best?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The best repayment plan depends on your situation: Standard plan is best if you can afford higher payments (least total interest). Income-Driven plans are best if you need lower payments or work in public service (PSLF eligibility). Extended/Graduated plans offer middle-ground options. Our calculator compares all plans to find the most cost-effective option for your income and loan terms.
                     </p>
                   </div>
                 </div>
 
                 {/* FAQ 5 */}
-                <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much interest will I pay on my student loans?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Student loan interest depends on your loan amount, interest rate, and repayment term. For example, a $30,000 loan at 4.99% for 10 years costs about $8,300 in total interest. Our calculator shows exact interest amounts for different repayment plans and helps you find strategies to minimize interest costs through extra payments or forgiveness programs.
                     </p>
                   </div>

@@ -473,15 +473,15 @@ export default function GraphingCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 {/* FAQ 1 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I enter complex mathematical expressions?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Use standard mathematical notation: x^2 for x squared, sqrt(x) for square root, sin(x) for sine, 
                       log(x) for base-10 logarithm, ln(x) for natural logarithm, and e^x for exponential. 
                       Parentheses are important for grouping: sin(2*x) is different from 2*sin(x).
@@ -491,12 +491,12 @@ export default function GraphingCalculatorPage() {
 
                 {/* FAQ 2 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What makes this graphing calculator different from others?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Our calculator features AI-powered analysis that automatically identifies critical points, 
                       calculates domain and range, detects asymptotes, and provides educational insights about 
                       function behavior. It also supports multiple functions with customizable colors and styles, 
@@ -507,12 +507,12 @@ export default function GraphingCalculatorPage() {
 
                 {/* FAQ 3 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I save or share my graphs?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes! You can save your graphs as PNG images, print them directly, or share them via social media. 
                       The share feature creates a unique URL that preserves your function and viewing settings, 
                       making it easy to collaborate with classmates or colleagues.
@@ -522,12 +522,12 @@ export default function GraphingCalculatorPage() {
 
                 {/* FAQ 4 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How accurate are the critical point calculations?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Our algorithm uses numerical methods with high precision to find critical points, zeros, and 
                       intersections. While not as precise as symbolic computation, the results are accurate to 
                       several decimal places and suitable for most educational and professional applications.
@@ -537,12 +537,12 @@ export default function GraphingCalculatorPage() {
 
                 {/* FAQ 5 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Is this calculator suitable for calculus students?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Absolutely! The calculator is perfect for visualizing derivatives, integrals, and limits. 
                       You can plot a function and its derivative simultaneously to understand their relationship, 
                       or use the trace feature to explore function behavior at specific points. The AI analysis 
@@ -553,12 +553,12 @@ export default function GraphingCalculatorPage() {
 
                 {/* FAQ 6 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What should I do if my function doesn't appear on the graph?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       First, check your function syntax and ensure it's mathematically valid. Then, adjust the 
                       viewing window - your function might be outside the current range. Try using the "Reset" 
                       button to return to the default view, or manually set appropriate x and y ranges based on 
@@ -569,12 +569,12 @@ export default function GraphingCalculatorPage() {
 
                 {/* FAQ 7 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I use this calculator on my mobile device?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes! Our graphing calculator is fully responsive and optimized for mobile devices. 
                       The interface adapts to smaller screens while maintaining full functionality. 
                       Touch gestures work intuitively for zooming and panning, making it convenient to use 
@@ -585,12 +585,12 @@ export default function GraphingCalculatorPage() {
 
                 {/* FAQ 8 */}
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I find where two functions intersect?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Plot both functions on the same graph using different colors. Intersection points will be 
                       automatically detected and highlighted in green. You can also use the trace tool to explore 
                       points near intersections for more precise coordinates. This feature is particularly useful 

@@ -304,26 +304,26 @@ export default function FourZeroOneKCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the difference between Traditional and Roth 401k?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Traditional 401k: Contributions are pre-tax (reduce taxable income now), investments grow tax-deferred, withdrawals taxed as ordinary income in retirement. Roth 401k: Contributions are after-tax (no immediate tax benefit), investments grow tax-free, qualified withdrawals are completely tax-free in retirement. Key decision factor: Pay taxes now (Roth) or later (Traditional). Choose Roth if: You're in low tax bracket now, expect higher bracket in retirement, want tax-free income in retirement, are young with decades to grow tax-free. Choose Traditional if: You're in high tax bracket now, expect lower bracket in retirement, want immediate tax deduction, need to reduce current taxable income. Most experts recommend: Split contributions between both for tax diversification.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much should I contribute to my 401k?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Minimum: Contribute enough to get full employer match (typically 3-6% of salary) - this is free money! Recommended: 15% of gross income for retirement (including employer match). Maximum 2024 limits: $23,000 if under 50 years old, $30,500 if 50 or older (includes $7,500 catch-up). Ideal progression: 1. Contribute to get full employer match, 2. Pay off high-interest debt, 3. Build emergency fund (3-6 months expenses), 4. Max out Roth IRA ($7,000 in 2024), 5. Max out 401k ($23,000), 6. Invest in taxable accounts. Reality check: Median 401k contribution is only 6% - most Americans save far too little. Even 10% is better than 6%. Start where you can, increase 1% annually until you reach 15%+.
                     </p>
                   </div>

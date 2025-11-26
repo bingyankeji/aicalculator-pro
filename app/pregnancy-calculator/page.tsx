@@ -312,98 +312,98 @@ export default function PregnancyCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center hidden lg:block">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate my pregnancy due date?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate your due date, enter the first day of your last menstrual period (LMP) and your average cycle length. The calculator uses Naegele's Rule, adding 280 days (40 weeks) to your LMP and adjusting for cycle length. You can also calculate from conception date (add 266 days) or ultrasound dating.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How accurate is a pregnancy due date calculator?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       A pregnancy calculator provides an estimated due date with about 5% accuracy - only 5% of babies are born on their exact due date. Most babies arrive between 38-42 weeks. Ultrasound dating in the first trimester (especially at 8-12 weeks) is the most accurate method, typically within 3-5 days.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the difference between gestational age and fetal age?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Gestational age is calculated from the first day of your last menstrual period (LMP) and is the standard used by healthcare providers. Fetal age (conceptional age) is calculated from conception, typically 2 weeks less than gestational age since conception usually occurs about 14 days after LMP.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     When does each trimester start and end?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The first trimester is weeks 1-13, the second trimester is weeks 14-27, and the third trimester is weeks 28-40+. The first trimester focuses on organ development, the second on growth and movement, and the third on final development and preparing for birth.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How does cycle length affect my due date calculation?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The standard pregnancy calculation assumes a 28-day cycle with ovulation on day 14. If your cycle is longer (e.g., 35 days), your due date moves later. If shorter (e.g., 21 days), it moves earlier. Each day difference from 28 adjusts your due date by one day in the same direction.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I use this calculator if I did IVF or fertility treatments?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes! For IVF pregnancies, use the 'Conception Date' method and enter your embryo transfer date. For a 3-day transfer, add 3 days; for a 5-day transfer (blastocyst), add 5 days to your transfer date. This gives you the most accurate due date for IVF pregnancies.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What prenatal appointments should I expect during pregnancy?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Typical prenatal schedule: First visit at 8-10 weeks, monthly visits until 28 weeks, bi-weekly until 36 weeks, then weekly until delivery. Key tests include: NT scan (11-14 weeks), anatomy scan (18-22 weeks), glucose test (24-28 weeks), and Group B strep test (35-37 weeks).
                     </p>
                   </div>
                 </div>
 
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What if my ultrasound due date differs from my LMP due date?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       If the difference is 7+ days, your doctor will likely use the ultrasound date, especially from a first-trimester scan (most accurate). Early ultrasounds (8-12 weeks) are accurate within 3-5 days. LMP calculations can be off if you have irregular cycles, don't remember your exact LMP, or ovulated later than day 14.
                     </p>
                   </div>

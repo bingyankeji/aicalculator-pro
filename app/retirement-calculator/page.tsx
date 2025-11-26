@@ -584,98 +584,98 @@ export default function RetirementCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much do I need to retire comfortably?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       A common rule of thumb is to plan for 70-80% of your pre-retirement income annually in retirement. More precisely, use the 25x rule: multiply your desired annual retirement spending by 25. For example, if you want $60,000/year in retirement, you need $1.5 million saved ($60,000 × 25). This is based on the 4% withdrawal rule - withdrawing 4% of your portfolio annually (adjusted for inflation) should last 30+ years. Factor in Social Security (average $1,800/month) and any pensions. If you want $5,000/month total and Social Security provides $1,800, you need savings to generate $3,200/month, requiring ~$960,000 in retirement accounts.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the 4% rule for retirement?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The 4% rule is a retirement withdrawal strategy stating you can withdraw 4% of your retirement portfolio in the first year, then adjust that dollar amount for inflation each subsequent year, with a high probability of not running out of money for 30 years. Created from the Trinity Study analyzing historical market returns, it assumes a balanced portfolio (50-75% stocks, 25-50% bonds). Example: $1 million portfolio allows $40,000 first year withdrawal. Year 2, if inflation is 3%, withdraw $41,200. The rule is conservative - many retirees end with more than they started. Modern variations suggest 3.5% for longer retirements (35+ years) or 5% for shorter periods (20 years).
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much should I contribute to my 401k?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Financial experts recommend contributing 15% of gross income to retirement accounts (401k, IRA, etc.). Minimum: contribute enough to get full employer match - this is free money with 50-100% instant return. For 2024, 401k contribution limits are $23,000 (&lt;50 years old) or $30,500 (50+). Ideal strategy: 1) Contribute to get full employer match, 2) Max out Roth IRA ($6,500 or $7,500 if 50+), 3) Return to 401k and increase until hitting 15% total or account max. If you start late (40s), aim for 20-25%. If behind on retirement savings, use catch-up contributions after age 50. Even increasing contributions by 1% per year can significantly impact retirement savings.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     When can I retire with full Social Security benefits?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Full Retirement Age (FRA) for Social Security depends on birth year: Born 1943-1954: Age 66, Born 1955: Age 66 and 2 months, Born 1956: Age 66 and 4 months, Born 1957: Age 66 and 6 months, Born 1958: Age 66 and 8 months, Born 1959: Age 66 and 10 months, Born 1960 or later: Age 67. You can claim as early as 62, but benefits are reduced 25-30%. Waiting until 70 increases benefits by 8% per year past FRA (up to 32% increase total). Strategy: If healthy with family longevity, waiting until 70 maximizes lifetime benefits. If you need income or have health concerns, claiming at 62-65 may be better. Break-even analysis shows waiting pays off if you live past ~78-80.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the average retirement savings by age?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Average US retirement savings by age (Fidelity/Vanguard data): Age 20-29: $10,000-15,000, Age 30-39: $50,000-60,000, Age 40-49: $120,000-135,000, Age 50-59: $200,000-250,000, Age 60-69: $280,000-340,000. However, recommended targets are higher: Age 30: 1x annual salary, Age 40: 3x annual salary, Age 50: 6x annual salary, Age 60: 8x annual salary, Age 67: 10x annual salary. For example, if you earn $75,000 at age 40, you should have ~$225,000 saved. Many Americans are behind these targets. If you're behind, don't panic - increase contributions, delay retirement slightly, or reduce retirement expenses. Starting now is more important than starting perfectly.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I choose Traditional or Roth 401k?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Traditional 401k: Contributions are pre-tax (reduces current taxable income), grows tax-deferred, withdrawals taxed as ordinary income. Best if: you're in high tax bracket now, expect lower bracket in retirement, need current tax deduction. Roth 401k: Contributions are after-tax (no current deduction), grows tax-free, withdrawals are tax-free. Best if: you're in low/moderate tax bracket now, expect higher bracket in retirement, young with decades of tax-free growth, want tax diversification. Many experts recommend Roth for younger workers (&lt;40) since tax-free growth compounds for decades. If your employer matches, the match always goes to Traditional 401k regardless of your choice. Ideal strategy: split contributions 50/50 for tax diversification, giving flexibility in retirement to manage tax brackets.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I retire early at 55?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Early retirement at 55 is possible but requires careful planning: Financial requirements: Need 30+ years of expenses saved (vs 20-25 for age 65 retirement). Use 3.5% withdrawal rule instead of 4% for longer timeframe. Calculate: annual expenses × 28.5 = amount needed. Healthcare: Major challenge - Medicare doesn't start until 65. Budget $700-1,500/month for private insurance or ACA marketplace plans. Early withdrawal penalties: 401k/IRA withdrawals before 59½ incur 10% penalty (exceptions: 55 rule for 401k, 72(t) SEPP distributions, Roth contributions). Social Security: Can't claim until 62, and taking at 62 reduces benefits 25-30% for life. Strategies for success: 1) Have taxable brokerage account for ages 55-59, 2) Build large Roth IRA ladder, 3) Maximize HSA for healthcare, 4) Consider part-time work to bridge gap.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I catch up on retirement savings if I started late?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       If you're behind on retirement savings (starting in 40s-50s), use these catch-up strategies: 1) Maximize contributions: Use catch-up contributions after age 50 ($7,500 extra for 401k, $1,000 for IRA in 2024). Aim to save 20-30% of income. 2) Delay retirement: Working 3-5 extra years dramatically improves retirement security - more savings time, more compound growth, shorter retirement to fund, higher Social Security. 3) Reduce expenses: Downsize home, relocate to low-cost area, eliminate debt before retirement. 4) Increase income: Side hustles, freelancing, delayed claiming of Social Security (wait until 70 for 32% higher benefits). 5) Optimize investments: Ensure proper asset allocation for growth while managing risk. 6) Consider part-time work in retirement: Even $1,000-2,000/month reduces portfolio withdrawal needs significantly. Remember: starting now is better than waiting. Even aggressive saving for 10-15 years can build substantial nest egg.
                     </p>
                   </div>

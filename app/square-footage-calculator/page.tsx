@@ -461,26 +461,26 @@ export default function SquareFootageCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate square footage of a room?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate square footage: 1. Measure room length and width in feet, 2. Multiply length × width = square feet. Example: A room 12 feet long × 10 feet wide = 120 square feet. For irregular rooms: Break the room into rectangles, calculate each section separately, add all sections together. For L-shaped rooms: Divide into two rectangles (like a 10×12 section + 8×6 section = 120 + 48 = 168 sq ft). Convert units: 1 square foot = 0.0929 square meters, 1 square yard = 9 square feet, 1 square meter = 10.764 square feet. Pro tips: Always round up when buying materials, measure to nearest inch for accuracy, account for doorways and closets, remeasure to verify before purchasing.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much flooring material should I buy?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Calculate flooring materials with these steps: 1. Calculate room square footage (length × width), 2. Add 10-15% waste factor for cuts and mistakes, 3. Round up to nearest full box/unit. Waste factor guidelines: Standard rooms (rectangular): 10% extra, Irregular rooms or diagonal patterns: 15% extra, Patterned tile requiring alignment: 15-20% extra, Large tiles (24"×24" or bigger): 10% extra, Small tiles or mosaics: 15% extra. Common package sizes: Laminate/hardwood: 20-25 sq ft per box, Vinyl planks: 20-24 sq ft per box, Ceramic tile (12"×12"): typically 10-12 tiles per box, Carpet: sold by square yard (9 sq ft = 1 sq yd). Example: 200 sq ft room with 10% waste = 220 sq ft needed. At 20 sq ft per box = 11 boxes. Why extra? Damaged pieces, installation mistakes, future repairs, pattern matching, irregular cuts around doorways.
                     </p>
                   </div>

@@ -321,15 +321,15 @@ export default function HomeLoanCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 {/* FAQ 1 */}
                 <div className="border-b border-gray-200 pb-6"
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What types of home loans can I compare with this calculator?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       You can compare four major loan types: Conventional Loans (3% down minimum), FHA Loans (3.5% down for lower credit scores), VA Loans (0% down for military members), and USDA Loans (0% down for rural properties). Each program has different eligibility requirements and benefits.
                     </p>
                   </div>
@@ -337,12 +337,12 @@ export default function HomeLoanCalculatorPage() {
 
                 {/* FAQ 2 */}
                 <div className="border-b border-gray-200 pb-6"
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How does the home loan calculator determine my eligibility?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The calculator analyzes multiple factors including your credit score, down payment amount, debt-to-income ratio (DTI), employment history, property type, and loan amount requirements. Each loan program has specific eligibility criteria, and our tool matches your profile against these requirements.
                     </p>
                   </div>
@@ -350,12 +350,12 @@ export default function HomeLoanCalculatorPage() {
 
                 {/* FAQ 3 */}
                 <div className="border-b border-gray-200 pb-6"
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is a good debt-to-income (DTI) ratio for mortgage approval?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       For conventional loans, a DTI ratio below 36% is excellent, up to 43% is acceptable, and above 50% may disqualify you. FHA loans are more flexible, allowing DTI up to 50% in some cases. VA loans typically prefer DTI below 41%, while USDA loans require DTI under 41% for automatic approval.
                     </p>
                   </div>
@@ -363,12 +363,12 @@ export default function HomeLoanCalculatorPage() {
 
                 {/* FAQ 4 */}
                 <div className="border-b border-gray-200 pb-6"
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much down payment do I need for a home loan?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Down payment requirements vary by loan type: Conventional loans require 3-20% (20% avoids PMI), FHA loans require 3.5% minimum, VA loans require 0% down for eligible borrowers, and USDA loans require 0% down for qualifying properties and income levels. Higher down payments can result in better interest rates and lower monthly payments.
                     </p>
                   </div>
@@ -376,12 +376,12 @@ export default function HomeLoanCalculatorPage() {
 
                 {/* FAQ 5 */}
                 <div className="border-b border-gray-200 pb-6"
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What credit score do I need to qualify for a home loan?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Credit score requirements vary: Conventional loans typically require 620+ (740+ for best rates), FHA loans accept 580+ (500+ with 10% down), VA loans prefer 620+, and USDA loans generally require 640+. Higher scores usually result in better interest rates and loan terms.
                     </p>
                   </div>
@@ -389,12 +389,12 @@ export default function HomeLoanCalculatorPage() {
 
                 {/* FAQ 6 */}
                 <div className="border-b border-gray-200 pb-6"
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How accurate is the approval probability calculation?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Our approval probability calculation is based on standard lending guidelines and factors that lenders consider. While it's a strong indicator, actual approval depends on additional factors like specific lender requirements, property appraisal, documentation verification, and current market conditions. Use it as a guide to strengthen your application.
                     </p>
                   </div>
@@ -402,12 +402,12 @@ export default function HomeLoanCalculatorPage() {
 
                 {/* FAQ 7 */}
                 <div className="border-b border-gray-200 pb-6"
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the difference between APR and interest rate?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Interest rate is the cost of borrowing the principal amount, while APR (Annual Percentage Rate) includes both the interest rate plus other loan costs like origination fees, discount points, and mortgage insurance. APR provides a more complete picture of the total cost of borrowing and is useful for comparing different loan offers.
                     </p>
                   </div>
@@ -415,12 +415,12 @@ export default function HomeLoanCalculatorPage() {
 
                 {/* FAQ 8 */}
                 <div className="pb-6"
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How can I improve my chances of mortgage approval?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Improve your approval chances by: increasing your credit score, reducing existing debt, saving for a larger down payment, maintaining stable employment for 2+ years, avoiding new credit applications before applying, saving for closing costs and emergency funds, getting pre-approved before house hunting, and choosing a home within your budget.
                     </p>
                   </div>

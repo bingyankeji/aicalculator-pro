@@ -523,98 +523,98 @@ export default function FractionCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do you add fractions with different denominators?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To add fractions with different denominators: 1) Find a common denominator (usually the least common multiple of both denominators), 2) Convert each fraction to an equivalent fraction with the common denominator, 3) Add the numerators while keeping the denominator the same, 4) Simplify if possible. Example: 1/2 + 1/3 → Find common denominator (6) → 3/6 + 2/6 = 5/6. Our calculator does all steps automatically.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do you multiply fractions?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To multiply fractions: 1) Multiply the numerators together, 2) Multiply the denominators together, 3) Simplify the result. Formula: a/b × c/d = (a × c)/(b × d). Example: 2/3 × 3/4 = (2 × 3)/(3 × 4) = 6/12 = 1/2 (simplified). You can simplify before multiplying by cross-canceling common factors to make calculation easier.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do you divide fractions?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To divide fractions, multiply by the reciprocal (flip) of the second fraction. Formula: a/b ÷ c/d = a/b × d/c = (a × d)/(b × c). Example: 1/2 ÷ 1/4 = 1/2 × 4/1 = 4/2 = 2. Remember the saying 'Keep, Change, Flip' - Keep the first fraction, Change division to multiplication, Flip the second fraction. Then multiply as normal.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do you simplify fractions?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To simplify a fraction, divide both the numerator and denominator by their Greatest Common Divisor (GCD). Example: 12/18 → GCD(12, 18) = 6 → 12÷6 / 18÷6 = 2/3. To find the GCD, list factors of both numbers or use the Euclidean algorithm. A fraction is fully simplified when the GCD of numerator and denominator is 1 (they share no common factors except 1). Our calculator automatically simplifies all results.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is a mixed number?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       A mixed number combines a whole number and a proper fraction, written like 2 1/2 (two and one-half). It represents an improper fraction (where numerator &gt; denominator) in a more readable form. To convert improper fraction to mixed number: divide numerator by denominator → whole number is the quotient, remainder becomes the new numerator, denominator stays the same. Example: 7/3 = 2 1/3 (7÷3 = 2 remainder 1). To convert mixed to improper: multiply whole number by denominator, add numerator → 2 1/3 = (2×3 + 1)/3 = 7/3.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do you convert fractions to decimals?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To convert a fraction to decimal, divide the numerator by the denominator. Example: 3/4 = 3 ÷ 4 = 0.75. Some fractions convert to terminating decimals (end after finite digits) like 1/2 = 0.5. Others become repeating decimals like 1/3 = 0.333... (indicated as 0.3̄). Common conversions to memorize: 1/2 = 0.5, 1/4 = 0.25, 1/3 ≈ 0.333, 1/5 = 0.2, 1/8 = 0.125. Our calculator shows the decimal equivalent automatically.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the least common denominator (LCD)?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The Least Common Denominator (LCD) is the smallest number that is a multiple of all denominators in a set of fractions. It's used when adding or subtracting fractions with different denominators. The LCD is the Least Common Multiple (LCM) of the denominators. Example: For 1/4 and 1/6, multiples of 4 are (4, 8, 12, 16...) and multiples of 6 are (6, 12, 18...). The LCD is 12. While any common multiple works, using the LCD keeps numbers smaller and simplifies calculations.
                     </p>
                   </div>
                 </div>
 
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can fractions be negative?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes, fractions can be negative. The negative sign can be placed in three positions: -1/2, 1/-2, or -(1/2) - all represent the same value. By convention, we typically write the negative sign in front of the entire fraction or in the numerator, not the denominator. Example: -3/4 (standard) rather than 3/-4. When multiplying or dividing fractions, follow sign rules: negative × positive = negative, negative × negative = positive. Example: -1/2 × 2/3 = -2/6 = -1/3, but -1/2 × -2/3 = 2/6 = 1/3.
                     </p>
                   </div>

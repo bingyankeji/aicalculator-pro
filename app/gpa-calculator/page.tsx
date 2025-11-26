@@ -459,98 +459,98 @@ export default function GPACalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is a good GPA in college?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       On a 4.0 scale, a GPA of 3.0 or higher is generally considered good. A 3.5-3.7 GPA is very good and often qualifies for academic honors. A 3.7-4.0 GPA is excellent and typically qualifies for Dean's List and academic scholarships. Below 2.0 is considered poor and may result in academic probation. Most employers look for a minimum GPA of 3.0, while competitive graduate programs often require 3.5 or higher.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How is GPA calculated in college?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       College GPA is calculated by: 1) Converting each course grade to grade points (A=4.0, B=3.0, C=2.0, D=1.0, F=0.0), 2) Multiplying each course's grade points by its credit hours to get quality points, 3) Adding all quality points together, 4) Dividing total quality points by total credit hours. Formula: GPA = Total Quality Points ÷ Total Credit Hours. For example, an A (4.0) in a 3-credit course = 12 quality points.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What's the difference between 4.0 and 5.0 GPA scales?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The 4.0 scale is the standard unweighted GPA scale where A=4.0, B=3.0, C=2.0, D=1.0, F=0.0. The 5.0 scale is a weighted scale often used for honors, AP, or IB courses, where A=5.0, B=4.0, C=3.0, D=2.0, F=0.0. The 5.0 scale rewards students for taking more challenging courses. Most colleges use the 4.0 scale for admission decisions, but may recalculate high school GPAs to account for course difficulty.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How can I raise my GPA quickly?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To raise your GPA quickly: 1) Prioritize courses with more credit hours (they have bigger impact), 2) Focus on improving from C to B or B to A (each letter grade jump significantly helps), 3) Take additional courses if possible, 4) Use the target GPA calculator to see exactly what grades you need, 5) Meet with professors during office hours, 6) Form study groups, 7) Utilize tutoring services. Note: The more credits you've completed, the harder it is to change your GPA significantly.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What GPA do you need for Dean's List?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Dean's List requirements vary by college but typically require a GPA of 3.5-3.75 or higher for a semester. Some schools use different thresholds: President's List (3.8-4.0), Dean's List (3.5-3.79), and Honor Roll (3.0-3.49). Requirements may also include completing a minimum number of credit hours (usually 12-15) and having no incomplete grades or academic violations. Check your specific college's academic policies for exact requirements.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I get into grad school with a 3.0 GPA?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes, but it depends on the program and other factors. A 3.0 GPA meets the minimum requirement for many master's programs, but competitive programs often prefer 3.5+. You can strengthen your application with: strong GRE/GMAT scores, relevant work experience, research experience, compelling personal statement, strong recommendation letters, and upward GPA trend (recent semesters better than earlier ones). Some programs may require a higher GPA in major courses specifically.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do plus and minus grades affect GPA?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Plus and minus grades create a more granular GPA scale. On a 4.0 scale: A = 4.0, A- = 3.7, B+ = 3.3, B = 3.0, B- = 2.7, C+ = 2.3, C = 2.0, C- = 1.7, D+ = 1.3, D = 1.0, D- = 0.7, F = 0.0. Note that A+ is still 4.0 (not 4.3) at most schools. Not all schools use plus/minus grading, so policies vary. The plus/minus system can help or hurt your GPA depending on your typical performance within each letter grade range.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Do withdrawn or incomplete courses affect GPA?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Withdrawn (W) courses typically do NOT affect your GPA but do appear on your transcript. However, they don't count toward attempted credits, which can affect financial aid and full-time status. Incomplete (I) grades are temporary and should be resolved by a deadline; if not resolved, they often convert to F grades which DO affect GPA. Too many W grades can be a red flag to graduate schools or employers, suggesting poor planning or academic struggles.
                     </p>
                   </div>

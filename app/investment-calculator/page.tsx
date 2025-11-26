@@ -570,98 +570,98 @@ export default function InvestmentCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is better: lump sum investing or dollar-cost averaging?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Historically, lump sum investing outperforms dollar-cost averaging (DCA) about 66% of the time, according to Vanguard research. This is because markets tend to rise over time, so getting your money invested earlier allows more time for compound growth. However, DCA has advantages: 1) Reduces timing risk - you won't invest everything right before a market crash, 2) Psychological comfort - easier to invest gradually than all at once, 3) Works better in volatile or declining markets - you buy more shares when prices are low. Best approach: If you have a lump sum, invest it immediately if you can handle potential short-term volatility. If it causes anxiety or markets seem overvalued, consider DCA over 3-6 months. For regular income, DCA through automatic monthly investments (like 401k) is ideal.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How does compound interest work in investments?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Compound interest is earning returns on your returns - it's the snowball effect that makes wealth grow exponentially. Here's how it works: Year 1: Invest $10,000 at 8% return = $10,800 (earned $800). Year 2: The $10,800 earns 8% = $11,664 (earned $864 - more than year 1!). Year 3: The $11,664 earns 8% = $12,597 (earned $933). After 20 years at 8%, your $10,000 becomes $46,610 - that's $36,610 in compound earnings! The formula: FV = PV × (1 + r)^n, where FV = future value, PV = present value, r = rate of return, n = number of periods. Key insight: Time is more powerful than amount. Starting early matters more than investing more. $100/month from age 25-65 at 8% = $349,000. Same amount from 35-65 = $150,000. Ten extra years almost triples the result!
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is a realistic investment return rate?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Realistic investment returns depend on your asset allocation and time horizon. Historical data (1926-2023): S&P 500 stocks: ~10% annual average, Bonds: ~5-6% annual average, 60/40 stock/bond portfolio: ~8-9% annual, Cash/savings: ~2-3% (barely beats inflation). However, these are long-term averages with significant year-to-year volatility. Conservative planning recommendations: Conservative (retiree, 40% stocks): 5-6% return, Moderate (middle-age, 60% stocks): 6-7% return, Balanced (working age, 70% stocks): 7-8% return, Aggressive (young, 90%+ stocks): 8-10% return. Important notes: 1) Real returns (after inflation) are 2-3% lower, 2) Past performance doesn't guarantee future results, 3) Fees reduce returns (0.5-1% for funds), 4) Use conservative estimates for planning - better to exceed goals than fall short.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I invest a lump sum all at once or gradually?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The mathematical answer is clear: invest lump sums immediately. Vanguard's research shows lump sum investing outperforms DCA 68% of the time in US markets, 67% in UK markets, and 66% in Australian markets. The reason: markets rise more often than they fall, so being fully invested earlier captures more upside. However, behavioral factors matter: If you'll panic-sell during a downturn, DCA over 3-6 months provides psychological comfort. If you're inheriting money or getting a windfall during market highs, DCA can reduce timing risk. If the lump sum is your entire net worth, DCA may help you sleep better. Optimal strategy: 1) If comfortable with volatility: invest immediately in diversified portfolio, 2) If anxious about timing: DCA over 3-6 months (not longer - research shows diminishing benefits), 3) If markets seem extremely overvalued: consider DCA, but don't try to time the market, 4) For retirement accounts receiving monthly contributions: automatic DCA is perfect.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much should I invest each month?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The amount to invest monthly depends on your income, expenses, and financial goals. General guidelines: Minimum: 15% of gross income for retirement (including employer match). Ideal: 20-30% of gross income across all goals (retirement, emergency fund, other investments). Maximum: After maxing retirement accounts ($23,000 for 401k, $7,000 for IRA in 2024), invest in taxable brokerage accounts. Specific scenarios: Entry-level ($50k salary): $625-1,000/month (15-20%), Mid-career ($100k salary): $1,500-2,500/month (18-30%), High-income ($200k+ salary): $4,000-8,000+/month (24-40%+). Priority order: 1) Employer 401k match (free money!), 2) Emergency fund (3-6 months expenses), 3) Max Roth IRA ($583/month for 2024 limit), 4) Max 401k ($1,917/month for 2024 limit), 5) Taxable investment account. Reality check: Americans save median 5% - far too low. Even $100/month is better than nothing. Start where you can, increase 1% annually.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the Rule of 72 and how does it work?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The Rule of 72 is a quick way to estimate how long it takes your money to double at a given interest rate. Simply divide 72 by your annual return rate. Formula: Years to double = 72 ÷ interest rate. Examples: At 6% return: 72 ÷ 6 = 12 years to double, At 8% return: 72 ÷ 8 = 9 years to double, At 10% return: 72 ÷ 10 = 7.2 years to double, At 12% return: 72 ÷ 12 = 6 years to double. Real-world application: $10,000 invested at 8% doubles to $20,000 in 9 years, then $40,000 at 18 years, then $80,000 at 27 years, then $160,000 at 36 years. The power of compounding! Why 72? It's mathematically close to the natural logarithm formula but easier to calculate mentally. For very high rates, use Rule of 69.3 for precision. This rule also works in reverse - to find required return: If you want to double in 10 years: 72 ÷ 10 = 7.2% return needed. Limitations: Only accurate for rates between 4-12%, doesn't account for contributions/withdrawals, ignores taxes and fees.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How does inflation affect my investments?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Inflation erodes the purchasing power of your investment returns. If you earn 8% but inflation is 3%, your real return is only 5%. Historical context: US inflation averaged 2-3% annually since 1926, but varied widely (1970s: 7-13%, 2010s: 1-2%, 2021-2022: 7-9%). Impact example: $100,000 today at 3% inflation. After 10 years: needs $134,392 to maintain purchasing power. After 20 years: needs $180,611. After 30 years: needs $242,726. This means a $100,000 investment growing at 7% nominal returns. After 20 years: $386,968 nominal value, but only $214,356 in today's dollars (real value). That's 42% less purchasing power! Inflation protection strategies: 1) Invest in stocks (historically outpace inflation long-term), 2) Treasury Inflation-Protected Securities (TIPS), 3) Real estate (often rises with inflation), 4) Commodities (gold, oil), 5) I Bonds (inflation-adjusted savings bonds). Bottom line: Plan using real returns (nominal - inflation). Don't let your nest egg lose value to inflation!
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What's the difference between nominal and real returns?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Nominal returns are the stated percentage gain without adjusting for inflation, while real returns show your actual purchasing power gain after accounting for inflation. Formula: Real return ≈ Nominal return - Inflation rate. Example: Your investment grew 8% this year (nominal return), but inflation was 3%. Your real return is ~5% - that's your actual wealth increase in terms of buying power. Why this matters for planning: Retirement example: You need $50,000/year in today's dollars. At 3% inflation, in 30 years you'll need $121,000/year to maintain the same lifestyle. If planning with 7% nominal returns instead of 4% real returns, you'll drastically underestimate how much to save. Historical perspective: S&P 500 nominal returns (1926-2023): ~10% annual, S&P 500 real returns (adjusted for inflation): ~7% annual. 60/40 portfolio nominal: ~8-9%, real: ~5-6%. Bonds nominal: ~5-6%, real: ~2-3%. Always use real returns for long-term planning (10+ years). Use nominal returns for short-term projections (1-3 years). Most retirement calculators use real returns by default.
                     </p>
                   </div>

@@ -427,18 +427,18 @@ export default function ProteinCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div
                   className="border-b border-gray-200 pb-6"
                   itemScope
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much protein do I need per day?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Daily protein needs depend on your weight, activity level, and fitness goals. General
                       guidelines: Cutting (fat loss): 2.2g per kg body weight (1.0g per lb), Maintenance: 2.0g per kg
                       (0.9g per lb), Bulking (muscle gain): 1.8g per kg (0.8g per lb). Example: A 180 lb person
@@ -454,11 +454,11 @@ export default function ProteinCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much protein per kg for muscle gain?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       For muscle gain (bulking), aim for 1.6-2.2g protein per kg body weight (0.7-1.0g per lb). Most
                       research suggests 1.8g per kg (0.8g per lb) is optimal for muscle growth. Example: A 80kg person
                       needs 144g protein/day for bulking. Higher protein (2.0-2.2g/kg) may be beneficial during calorie
@@ -474,11 +474,11 @@ export default function ProteinCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much protein per day for weight loss?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       For weight loss (cutting), aim for 2.2-2.5g protein per kg body weight (1.0-1.1g per lb) to
                       preserve muscle mass during calorie deficit. Example: A 70kg person cutting needs 154-175g
                       protein/day. Higher protein during cutting helps: preserve lean muscle mass, increase satiety
@@ -494,11 +494,11 @@ export default function ProteinCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much protein per meal?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Aim for 20-40g protein per meal for optimal muscle protein synthesis. Research shows 20-25g
                       high-quality protein per meal maximizes muscle building. Example: If you need 150g protein/day
                       across 5 meals, aim for 30g per meal. Post-workout meals should contain 20-40g protein within 2
@@ -514,11 +514,11 @@ export default function ProteinCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What are the best protein sources?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Best complete protein sources (contain all essential amino acids): Animal sources: Chicken
                       breast (31g per 100g), Salmon (25g per 100g), Lean beef (26g per 100g), Eggs (13g per egg), Greek
                       yogurt (10g per 100g), Cottage cheese (11g per 100g). Plant sources: Tofu (17g per 100g), Black
@@ -535,11 +535,11 @@ export default function ProteinCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can you eat too much protein?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       For most healthy individuals, protein intake up to 2.5g per kg body weight (1.1g per lb) is safe.
                       Very high protein (&gt;3g/kg) may cause: digestive issues (bloating, constipation), kidney strain
                       (if pre-existing kidney disease), dehydration (increased water needs), nutrient imbalance (if
@@ -556,11 +556,11 @@ export default function ProteinCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     When should I eat protein for muscle growth?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Timing protein intake: Post-workout (most important): 20-40g protein within 2 hours of exercise
                       maximizes muscle protein synthesis. Pre-workout: 15-25g protein 1-2 hours before exercise can help
                       prevent muscle breakdown. Throughout the day: Distribute protein evenly across 4-6 meals (every
@@ -576,11 +576,11 @@ export default function ProteinCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much protein do women need?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Women need similar protein per kg body weight as men, but total amounts are lower due to typically
                       smaller body size. Guidelines: Cutting: 2.2g per kg (1.0g per lb), Maintenance: 2.0g per kg (0.9g
                       per lb), Bulking: 1.8g per kg (0.8g per lb). Example: A 60kg woman cutting needs 132g protein/day.

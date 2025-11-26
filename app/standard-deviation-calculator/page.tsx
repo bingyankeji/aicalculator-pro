@@ -379,90 +379,90 @@ export default function StandardDeviationCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" itemScope itemType="https://schema.org/Question">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2" itemProp="name">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     What is standard deviation and how do you calculate it?
                   </h3>
                   <div className="text-gray-700" itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                    <div itemProp="text">
+                    <div>
                       Standard deviation (σ) measures how spread out numbers are from the mean. Formula: σ = √(Σ(x - μ)² / n) for population, or σ = √(Σ(x - x̄)² / (n-1)) for sample. Steps: 1) Calculate mean, 2) Find deviation of each value from mean, 3) Square each deviation, 4) Sum squared deviations, 5) Divide by n (population) or n-1 (sample), 6) Take square root. Example: For [10, 20, 30, 40, 50], mean = 30, deviations = [-20, -10, 0, 10, 20], squared = [400, 100, 0, 100, 400], variance = 200, SD = √200 = 14.14.
                     </div>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" itemScope itemType="https://schema.org/Question">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2" itemProp="name">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     What is the difference between sample and population standard deviation?
                   </h3>
                   <div className="text-gray-700" itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                    <div itemProp="text">
+                    <div>
                       Sample standard deviation uses (n-1) in the denominator (Bessel's correction) to correct for bias when estimating population parameters from a sample. Population standard deviation uses n. Use sample SD when you have a subset of data representing a larger population. Use population SD when you have all data points. Example: If measuring heights of 30 students (sample of all students), use sample SD. If measuring heights of all 500 students in a school (entire population), use population SD. Sample SD is slightly larger to account for estimation uncertainty.
                     </div>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" itemScope itemType="https://schema.org/Question">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2" itemProp="name">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     What does standard deviation tell you?
                   </h3>
                   <div className="text-gray-700" itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                    <div itemProp="text">
+                    <div>
                       Standard deviation tells you: 1) How spread out your data is - low SD means values cluster near mean (consistent), high SD means values are spread out (variable), 2) Data reliability - lower SD indicates more consistent/reliable data, 3) Outlier presence - high SD may indicate outliers, 4) Normal distribution - in normal distributions, ~68% of data falls within 1 SD of mean, ~95% within 2 SD, ~99.7% within 3 SD. Example: Test scores with SD=5 means most scores are within 5 points of average, while SD=20 means scores vary widely.
                     </div>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" itemScope itemType="https://schema.org/Question">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2" itemProp="name">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     How do you interpret standard deviation?
                   </h3>
                   <div className="text-gray-700" itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                    <div itemProp="text">
+                    <div>
                       Interpret standard deviation by comparing it to the mean: 1) Low SD (&lt; 10% of mean) = data is tightly clustered, very consistent, 2) Medium SD (10-30% of mean) = moderate spread, typical variation, 3) High SD (&gt; 30% of mean) = wide spread, high variability, may indicate outliers. Also use coefficient of variation (CV = SD/mean × 100%) for relative comparison. Example: Mean=100, SD=5 → CV=5% (very consistent). Mean=100, SD=30 → CV=30% (moderate variation). Mean=100, SD=50 → CV=50% (high variation).
                     </div>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" itemScope itemType="https://schema.org/Question">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2" itemProp="name">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     What is variance and how is it related to standard deviation?
                   </h3>
                   <div className="text-gray-700" itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                    <div itemProp="text">
+                    <div>
                       Variance (σ²) is the average of squared deviations from the mean. Standard deviation (σ) is the square root of variance. Relationship: Variance = SD², or SD = √Variance. Variance is in squared units (harder to interpret), while SD is in original units (easier to understand). Formula: Variance = Σ(x - μ)² / n. Example: If data is in dollars, variance is in dollars², but SD is in dollars. Both measure spread; SD is preferred for interpretation because it's in the same units as your data.
                     </div>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" itemScope itemType="https://schema.org/Question">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2" itemProp="name">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     When should you use standard deviation?
                   </h3>
                   <div className="text-gray-700" itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                    <div itemProp="text">
+                    <div>
                       Use standard deviation when: 1) Data is normally distributed (bell curve), 2) You need to measure spread/variability, 3) Comparing consistency between datasets, 4) Identifying outliers (values beyond 2-3 SD from mean), 5) Quality control (monitoring process variation), 6) Risk assessment (financial volatility), 7) Scientific research (reporting data variability). Don't use SD for: highly skewed data (use IQR instead), categorical data (use mode), or when outliers dominate (use robust measures).
                     </div>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" itemScope itemType="https://schema.org/Question">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2" itemProp="name">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     How do you find outliers using standard deviation?
                   </h3>
                   <div className="text-gray-700" itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                    <div itemProp="text">
+                    <div>
                       Find outliers using standard deviation with the 2σ or 3σ rule: values beyond 2 standard deviations from mean are unusual, beyond 3 SD are outliers. Formula: Outlier if |x - mean| &gt; 2×SD (or 3×SD for extreme outliers). Our calculator uses IQR method (more robust): Q1 - 1.5×IQR and Q3 + 1.5×IQR. Example: If mean=50, SD=10, then values &lt; 30 or &gt; 70 are outliers (2σ rule). Values &lt; 20 or &gt; 80 are extreme outliers (3σ rule). IQR method is preferred for non-normal distributions.
                     </div>
                   </div>
                 </div>
 
                 <div className="pb-6" itemScope itemType="https://schema.org/Question">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2" itemProp="name">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     What is a good standard deviation?
                   </h3>
                   <div className="text-gray-700" itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
-                    <div itemProp="text">
+                    <div>
                       A 'good' standard deviation depends on context: 1) For quality control: lower is better (more consistent), 2) For test scores: SD of 10-15% of mean is typical, 3) For scientific measurements: depends on precision needed, 4) For financial returns: lower SD = lower risk. Use coefficient of variation (CV = SD/mean) for relative comparison. CV &lt; 15% = low variation (good consistency), CV 15-35% = moderate variation (acceptable), CV &gt; 35% = high variation (may need investigation). There's no universal 'good' value - it depends on your data type and purpose.
                     </div>
                   </div>

@@ -564,98 +564,98 @@ export default function MortgagePayoffCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much can I save by paying extra on my mortgage?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The savings from extra mortgage payments can be substantial. For example, on a $300,000 mortgage at 6.5% over 30 years, paying just $200 extra per month saves approximately $74,000 in interest and shortens the loan by about 7 years. Even $100 extra monthly saves around $42,000 in interest. The earlier you start making extra payments, the more you save, as extra payments directly reduce the principal balance, minimizing future interest charges.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Is it better to make extra monthly payments or a lump sum payment?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Both strategies are effective, but they serve different purposes. Extra monthly payments provide consistent, long-term savings and are ideal if you have steady extra income. Lump sum payments (from bonuses, tax refunds, inheritance) create immediate principal reduction and work best early in the loan term. The optimal strategy is combining both: make a lump sum payment now, then add consistent monthly extra payments. Earlier payments save more interest because interest is calculated on the remaining principal balance.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I pay off my mortgage early or invest the money?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       This depends on your mortgage interest rate vs expected investment returns, risk tolerance, and financial goals. If your mortgage rate is 6.5% and you're in the 24% tax bracket, your effective rate is ~4.9% (accounting for mortgage interest deduction). If you can reliably earn more than 4.9% after taxes in investments, investing may be better mathematically. However, paying off your mortgage provides: guaranteed return equal to your interest rate, peace of mind, reduced monthly expenses in retirement, and improved cash flow. Many financial advisors recommend a balanced approach: pay down high-rate debt (&gt;5-6%) while investing in retirement accounts with employer matches.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     When should I NOT pay off my mortgage early?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Don't pay extra on your mortgage if: 1) You have high-interest debt (credit cards 15-25% APR) - pay those first, 2) You lack an emergency fund (build 3-6 months expenses first), 3) Your mortgage rate is very low (&lt;3-4%) - investing may yield higher returns, 4) You're not maximizing employer 401(k) match (free money), 5) You're planning to sell soon (won't benefit from interest savings), 6) Your mortgage has a prepayment penalty. Always ensure you have adequate emergency savings and retirement contributions before aggressive mortgage payoff.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I make extra principal payments on my mortgage?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To make extra principal payments: 1) Contact your mortgage servicer to understand their process, 2) Specify 'principal only' payment clearly (don't just send extra money - it might be applied to future payments instead), 3) Make payments online through your servicer's portal with principal-only designation, 4) Set up automatic extra principal payments if available, 5) Verify each payment was applied correctly to principal on your next statement. Some lenders require a separate check or form. NEVER skip a regular payment to make extra principal payments - always make your regular payment plus the extra amount.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the biweekly mortgage payment strategy?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The biweekly payment strategy means paying half your monthly mortgage payment every two weeks instead of once a month. Since there are 52 weeks in a year, you make 26 half-payments (equivalent to 13 full monthly payments) instead of 12. This extra payment per year goes directly to principal. Example: $2,000/month mortgage → Pay $1,000 every 2 weeks. You'll make $26,000 in payments annually vs $24,000. On a 30-year $300K mortgage at 6%, this saves ~$45,000 in interest and pays off the loan 4-5 years early. However, some lenders charge fees for biweekly programs - instead, just add 1/12 of your monthly payment as extra principal each month for the same benefit.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Does paying extra on principal reduce monthly payments?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       No, extra principal payments do NOT reduce your required monthly payment amount - they reduce the loan term and total interest paid. Your monthly payment stays the same until the loan is fully paid off (which happens earlier). The benefit is: lower total interest paid, shorter loan term, faster equity building, earlier debt freedom. If you need lower monthly payments, you must refinance the loan. Extra principal payments simply accelerate your progress through the amortization schedule, meaning more of each future payment goes to principal instead of interest.
                     </p>
                   </div>
                 </div>
 
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I deduct mortgage interest if I pay off my mortgage early?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes, you can still deduct mortgage interest you actually paid during the tax year, even if you paid off the loan early. However, paying off your mortgage early means less total interest paid over the life of the loan, which means smaller mortgage interest deductions in future years. For most homeowners after the 2017 Tax Cuts and Jobs Act, the standard deduction ($13,850 single / $27,700 married in 2023) exceeds their itemized deductions, making the mortgage interest deduction less valuable. The interest savings from early payoff typically far outweigh the lost tax deduction. Consult a tax professional for your specific situation.
                     </p>
                   </div>

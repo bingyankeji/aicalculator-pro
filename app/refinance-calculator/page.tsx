@@ -424,98 +424,98 @@ export default function RefinanceCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     When should I refinance my mortgage?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       You should consider refinancing your mortgage when: 1) Interest rates drop 0.5-1% or more below your current rate, 2) Your credit score has improved significantly (50+ points), 3) You want to switch loan types (ARM to fixed or vice versa), 4) You need to remove PMI after reaching 20% equity, 5) You want to change loan term (30-year to 15-year), 6) You need cash-out for home improvements or debt consolidation. The key is ensuring the monthly savings exceed the closing costs within your planned time in the home. Generally, if you'll break even in 2-3 years and plan to stay 5+ years, refinancing makes sense.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much does it cost to refinance?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Refinancing typically costs 2-5% of your loan amount in closing costs. For a $250,000 mortgage, expect $5,000-$12,500 in fees. Common costs include: Application fee ($300-$500), Origination fee (0.5-1% of loan), Appraisal ($400-$600), Title search and insurance ($700-$1,000), Credit report ($25-$50), Attorney fees ($500-$1,500), Recording fees ($100-$250). Some lenders offer 'no-closing-cost' refinancing where they roll costs into the loan or charge a higher interest rate. However, you still pay - just spread out over time instead of upfront.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the break-even point in refinancing?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The break-even point is the number of months it takes for your monthly savings to equal the upfront refinancing costs. Formula: Break-even = Total Closing Costs / Monthly Savings. Example: $5,000 closing costs / $200 monthly savings = 25 months (about 2 years). If you plan to stay in your home longer than the break-even period, refinancing makes financial sense. If you'll move before reaching break-even, you'll lose money on the refinance. Most experts recommend refinancing only if break-even is 2-3 years or less, and you plan to stay at least 5 years.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I refinance to a 15-year or 30-year mortgage?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Choose based on your financial goals: 15-year mortgage advantages: Lower interest rate (typically 0.5-0.75% less), massive interest savings (often $100K+), build equity faster, debt-free sooner, forced savings discipline. Disadvantages: Higher monthly payment (30-50% more), less flexibility, opportunity cost (could invest difference). 30-year mortgage advantages: Lower monthly payment, more cash flow flexibility, easier to qualify, can invest payment difference, better for tight budgets. Disadvantages: Pay much more interest over time, slower equity building, longer debt commitment. Rule of thumb: Choose 15-year if you can comfortably afford 30% higher payments and want to minimize interest. Choose 30-year if you need flexibility or want to invest the difference.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What credit score do I need to refinance?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Minimum credit score requirements for refinancing: Conventional loan: 620 minimum (best rates require 740+), FHA refinance: 580 minimum (500-579 requires 10% equity), VA refinance: No minimum (but lenders typically want 620+), USDA refinance: 640+ recommended. Higher scores = better rates: 760+ = best rates (save 0.5-0.75% vs. lower scores), 700-759 = good rates, 680-699 = average rates (+0.25% vs. excellent), 620-679 = higher rates (+0.5-1% vs. excellent). To improve chances: Pay down credit cards below 30% utilization, make all payments on time for 6-12 months, don't open new credit before applying, dispute errors on credit report, consider adding income sources to application.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is cash-out refinancing?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Cash-out refinancing means taking a new mortgage larger than your current balance and receiving the difference in cash. Example: You owe $200K, home worth $400K. You refinance for $250K, keeping $200K to pay off old loan and receiving $50K cash (minus closing costs). Common uses: Home improvements (adds value), Debt consolidation (replace high-interest debt), Education expenses, Business investment, Emergency funds. Pros: Lower rate than credit cards/personal loans (typically 6-8% vs 15-25%), Tax-deductible if used for home improvements, Single monthly payment. Cons: Increases loan balance, Resets loan term to 30 years, Requires 20% equity minimum, Higher rates than rate-and-term refinance (+0.25-0.5%), Risk losing home if can't pay. Alternatives: HELOC (keeps first mortgage intact, variable rate), Home equity loan (second mortgage, fixed rate), Personal loan (no home equity required).
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I refinance if I have PMI?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes, and refinancing is often an excellent way to remove PMI (Private Mortgage Insurance). You can eliminate PMI through refinancing if: 1) Your home value has increased and you now have 20%+ equity, 2) You've paid down principal to 80% loan-to-value, 3) You've made home improvements increasing value. Example: Bought home for $300K with 10% down ($30K). Original loan: $270K with PMI ($150/month). Home now worth $360K. You've paid $20K in principal. New loan-to-value: $250K / $360K = 69% (31% equity). Result: Refinance to remove PMI, save $150/month ($1,800/year). Even if new rate is same, eliminating PMI makes refinancing worthwhile. Appraisal is key: Lender will order new appraisal to verify value increase. If appraisal comes in low, you won't qualify. Pro tip: Make obvious improvements before appraisal (fresh paint, landscaping, minor repairs).
                     </p>
                   </div>
                 </div>
 
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How long does refinancing take?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Typical refinancing timeline: 30-45 days from application to closing. Week 1-2 (Pre-approval & Application): Submit application (1 day), Lender pulls credit, verifies income/assets (3-7 days), Get pre-approval letter (2-3 days), Lock interest rate (if desired). Week 2-3 (Processing): Order home appraisal ($400-$600, takes 1-2 weeks), Submit additional documents requested, Lender reviews appraisal, title search. Week 3-4 (Underwriting): Underwriter reviews entire file, May request additional documentation (pay stubs, bank statements, explanation letters), Final approval issued. Week 4-5 (Closing): Schedule closing appointment, Review Closing Disclosure (3 days before closing required by law), Attend closing, sign documents, Receive funds (3 days later for cash-out refinance). Faster refinancing options: Streamline refinance (FHA/VA): 15-30 days, no appraisal, Same-lender refinance: 15-30 days, simplified docs, Digital closings: can reduce time by 5-10 days. Delays happen due to: Missing documents, Low appraisal, Credit issues discovered, Title problems, High volume periods.
                     </p>
                   </div>

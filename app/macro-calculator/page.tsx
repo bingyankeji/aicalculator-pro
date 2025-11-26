@@ -583,7 +583,7 @@ export default function MacroCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 {/* FAQ 1 */}
                 <div
                   className="border-b border-gray-200 pb-6"
@@ -591,11 +591,11 @@ export default function MacroCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What are macros and why do they matter?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700 leading-relaxed" itemProp="text">
+                  <div>
+                    <p className="text-gray-700 leading-relaxed">
                       Macros (macronutrients) are protein, carbohydrates, and fats - the three main nutrients
                       your body needs in large amounts. They matter because: (1) <strong>Protein</strong>{' '}
                       builds and repairs muscle tissue, (2) <strong>Carbs</strong> provide energy for workouts
@@ -614,11 +614,11 @@ export default function MacroCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate my macros for weight loss (cutting)?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700 leading-relaxed" itemProp="text">
+                  <div>
+                    <p className="text-gray-700 leading-relaxed">
                       For weight loss, calculate macros by: (1) Determine <strong>TDEE</strong> (Total Daily
                       Energy Expenditure), (2) Create a calorie deficit of 300-500 calories, (3) Set protein at
                       1.0-1.2g per lb of body weight (40-45% of calories), (4) Set fats at 20-30% of calories,
@@ -636,11 +636,11 @@ export default function MacroCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What are the best macro ratios for muscle gain (bulking)?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700 leading-relaxed" itemProp="text">
+                  <div>
+                    <p className="text-gray-700 leading-relaxed">
                       For muscle gain, optimal macro ratios are typically: <strong>Protein 25-35%</strong>{' '}
                       (0.8-1.0g per lb body weight), <strong>Carbs 45-60%</strong>, and{' '}
                       <strong>Fats 15-25%</strong>. Create a calorie surplus of 200-400 calories above TDEE.
@@ -658,11 +658,11 @@ export default function MacroCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much protein do I need per day?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700 leading-relaxed" itemProp="text">
+                  <div>
+                    <p className="text-gray-700 leading-relaxed">
                       Protein needs depend on your goals: Sedentary adults need <strong>0.4g per lb</strong>{' '}
                       body weight. For general fitness, aim for <strong>0.7-1.0g per lb</strong>. For muscle
                       building, target <strong>0.8-1.2g per lb</strong>. During cutting/fat loss, increase to{' '}
@@ -680,11 +680,11 @@ export default function MacroCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I eat the same macros every day?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700 leading-relaxed" itemProp="text">
+                  <div>
+                    <p className="text-gray-700 leading-relaxed">
                       Consistency is key, but you can adjust macros strategically: (1){' '}
                       <strong>Training days</strong> - eat more carbs for energy and recovery, (2){' '}
                       <strong>Rest days</strong> - slightly reduce carbs, maintain protein, (3){' '}
@@ -703,11 +703,11 @@ export default function MacroCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is IIFYM (If It Fits Your Macros)?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700 leading-relaxed" itemProp="text">
+                  <div>
+                    <p className="text-gray-700 leading-relaxed">
                       <strong>IIFYM</strong> (If It Fits Your Macros), also called{' '}
                       <strong>flexible dieting</strong>, is an approach where you track macronutrients rather
                       than restricting specific foods. As long as you hit your daily protein, carbs, and fats
@@ -726,11 +726,11 @@ export default function MacroCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I track my macros accurately?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700 leading-relaxed" itemProp="text">
+                  <div>
+                    <p className="text-gray-700 leading-relaxed">
                       Track macros accurately by: (1) Use a <strong>food scale</strong> - weigh foods in grams
                       for precision, (2) Use tracking apps like <strong>MyFitnessPal</strong> or{' '}
                       <strong>Cronometer</strong>, (3) Track raw/uncooked weights for meat and grains (cooking
@@ -748,11 +748,11 @@ export default function MacroCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How often should I recalculate my macros?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700 leading-relaxed" itemProp="text">
+                  <div>
+                    <p className="text-gray-700 leading-relaxed">
                       Recalculate macros when: (1) You <strong>lose or gain 5-10 lbs</strong> of body weight,
                       (2) Your <strong>activity level</strong> changes significantly, (3) You're not seeing
                       results after 3-4 weeks, (4) You switch goals (cutting to bulking or vice versa), (5)

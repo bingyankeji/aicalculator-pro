@@ -394,18 +394,18 @@ export default function InflationCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div
                   className="border-b border-gray-200 pb-6"
                   itemScope
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much has inflation increased since 2000?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       From 2000 to 2024, cumulative inflation is approximately 75-80% at 3% average annual
                       rate. This means $10,000 in 2000 requires about $17,500-$18,000 today for equivalent
                       purchasing power. Actual U.S. inflation (2000-2024) averaged 2.5-3%, resulting in 75%
@@ -420,11 +420,11 @@ export default function InflationCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is a good inflation rate?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The Federal Reserve targets 2% annual inflation as optimal for economic growth. Rates
                       below 0% (deflation) signal recession, while rates above 5% erode purchasing power
                       rapidly. Historical U.S. average (1913-2024) is ~3.3%. Current 2-3% inflation is
@@ -439,11 +439,11 @@ export default function InflationCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I protect my money from inflation?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Best inflation hedges: 1) Stocks (average 10% return beats 3% inflation), 2) Real
                       Estate (rents rise with inflation), 3) I-Bonds (rate adjusts with CPI every 6 months), 4)
                       TIPS (Treasury Inflation-Protected Securities), 5) Commodities (gold, oil), 6) Dividend
@@ -458,11 +458,11 @@ export default function InflationCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Why is inflation bad for savers?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Inflation reduces purchasing power of saved cash. At 3% inflation, money loses 50% of
                       its value in 23 years. If savings account pays 1% but inflation is 3%, you lose 2% real
                       value annually. Example: $10,000 saved at 1% for 10 years = $11,046. But with 3% inflation,
@@ -478,11 +478,11 @@ export default function InflationCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What causes inflation?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Main causes: 1) Demand-pull inflation (demand exceeds supply), 2) Cost-push inflation
                       (production costs rise), 3) Built-in inflation (wage-price spiral), 4) Monetary inflation
                       (too much money printing). Recent examples: 2021-2022 inflation (supply chain issues +
@@ -498,11 +498,11 @@ export default function InflationCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How is inflation calculated?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       U.S. inflation measured by CPI (Consumer Price Index) from Bureau of Labor Statistics.
                       CPI tracks prices of 80,000+ items in 8 categories: food, housing, transportation,
                       medical care, education, clothing, recreation, and other goods/services. Formula: ((CPI
@@ -518,11 +518,11 @@ export default function InflationCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the difference between inflation and deflation?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Inflation = prices rise, money value falls (most common). Deflation = prices fall, money
                       value rises (rare, often harmful). While deflation sounds good, it signals economic
                       problems: job losses, business failures, debt burden increases. Japan experienced deflation
@@ -537,11 +537,11 @@ export default function InflationCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I invest differently during high inflation?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes. High inflation (&gt;5%) strategy: 1) Reduce bonds (lose value in high inflation), 2)
                       Increase stocks (companies raise prices), 3) Add commodities (gold, oil rise with
                       inflation), 4) Invest in real assets (real estate, farmland), 5) Buy I-Bonds (government

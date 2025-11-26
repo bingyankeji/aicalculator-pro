@@ -474,15 +474,15 @@ export default function TipCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 {/* FAQ 1 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the standard tip percentage in restaurants?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       In the United States, the standard tip percentage for restaurant service is 15-20%. For good service, 18% is typical, while 20% is for great service. Exceptional service may warrant 25% or more. Poor service may receive 10-12%, though it's customary to tip at least 15% unless service was truly inadequate.
                     </p>
                   </div>
@@ -490,12 +490,12 @@ export default function TipCalculatorPage() {
 
                 {/* FAQ 2 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I calculate tip before or after tax?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Traditionally, tips should be calculated on the pre-tax amount of your bill. However, many people calculate on the total including tax for simplicity. Our tip calculator offers both options so you can choose based on your preference. Calculating before tax typically results in a slightly lower tip amount.
                     </p>
                   </div>
@@ -503,12 +503,12 @@ export default function TipCalculatorPage() {
 
                 {/* FAQ 3 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I split a bill with a tip among friends?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To split a bill with tip: 1) Enter the total bill amount, 2) Select your desired tip percentage, 3) Enter the number of people splitting the bill. Our calculator automatically divides the total (bill + tip) by the number of people to show how much each person should pay. It also shows the tip amount per person.
                     </p>
                   </div>
@@ -516,12 +516,12 @@ export default function TipCalculatorPage() {
 
                 {/* FAQ 4 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What are the tipping customs for different service levels?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Tipping customs by service quality: Poor service (10-12%), Fair service (15%), Good service (18%), Great service (20%), Excellent service (25%+). These percentages are guidelines for US restaurants. Factors affecting tip amount include attentiveness, food quality, order accuracy, and overall dining experience.
                     </p>
                   </div>
@@ -529,12 +529,12 @@ export default function TipCalculatorPage() {
 
                 {/* FAQ 5 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Do I need to tip on takeout orders?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Tipping on takeout orders is optional but appreciated. A common practice is to tip 10% for takeout, as staff still prepare and package your order. For delivery, 15-20% is standard. During busy times or for large orders, consider tipping more. Some people tip a flat $2-5 regardless of order size for takeout.
                     </p>
                   </div>
@@ -542,12 +542,12 @@ export default function TipCalculatorPage() {
 
                 {/* FAQ 6 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Is tipping mandatory in the United States?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       While tipping is not legally mandatory in most US restaurants, it is strongly expected and considered part of dining culture. Many servers earn below minimum wage and rely on tips for their income. Some restaurants include an automatic gratuity (usually 18-20%) for large parties. Always check your bill to see if gratuity has already been added.
                     </p>
                   </div>
@@ -555,12 +555,12 @@ export default function TipCalculatorPage() {
 
                 {/* FAQ 7 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much should I tip for delivery services?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       For food delivery services, a standard tip is 15-20% of the order total, with a minimum of $3-5 even for small orders. Consider tipping more for bad weather, long distances, or large/complex orders. For services like UberEats, DoorDash, or GrubHub, you can adjust the tip after delivery based on service quality.
                     </p>
                   </div>
@@ -568,12 +568,12 @@ export default function TipCalculatorPage() {
 
                 {/* FAQ 8 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I adjust my tip after seeing the service?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes, you should adjust your tip based on service quality. Start with the standard 18-20% in mind, then increase for exceptional service or decrease for poor service. If service was truly unacceptable (not just slow due to busyness), you can tip less, but consider speaking with a manager about the issues. Never withhold tips for kitchen errors beyond the server's control.
                     </p>
                   </div>

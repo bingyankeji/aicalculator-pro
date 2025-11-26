@@ -545,98 +545,98 @@ export default function AutoLoanCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is a good interest rate for a car loan?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       As of 2024, good auto loan rates vary by credit score and vehicle type. New car loans: Excellent credit (720+) gets 5-6%, good credit (680-719) gets 6-8%, fair credit (620-679) gets 8-12%. Used car loans are typically 1-3% higher. Credit unions often offer the best rates, sometimes 0.5-1% lower than banks. Dealer financing can have promotional 0% APR but may require sacrificing rebates. Shop multiple lenders to compare rates - even 1% difference saves thousands over the loan term.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much should I put down on a car?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Financial experts recommend a 20% down payment for new cars and 10% for used cars. This helps you: 1) Avoid being upside-down on the loan (owing more than car's worth), 2) Lower monthly payments, 3) Pay less interest overall, 4) Potentially qualify for better interest rates. For a $30,000 car, that's $6,000 down. If you can't afford 20%, aim for at least 10% minimum. Larger down payments are especially important for new cars which lose 20% value in year one. Consider saving longer rather than buying with minimal down payment.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the best car loan term length?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The ideal car loan term is 36-48 months (3-4 years) to balance affordable payments with total interest cost. Shorter terms (24-36 months) save the most interest but have higher monthly payments. Longer terms (60-84 months) have lower monthly payments but you'll pay significantly more interest and risk being upside-down longer. For example, a $25,000 loan at 7%: 36 months = $773/month, $2,817 interest; 72 months = $420/month, $5,213 interest. Never exceed the vehicle's useful life - ideally, you should own the car outright before it needs major repairs.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I buy new or used car for better value?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Used cars typically offer better value due to avoiding steep first-year depreciation. New cars lose 20% value driving off the lot and 15% per year for years 2-3, totaling 50-60% depreciation in 5 years. A 2-3 year old certified pre-owned (CPO) car offers the sweet spot: significant depreciation already occurred, still under warranty, modern features, and lower price. However, new cars have advantages: lower interest rates (often 2-3% less), full warranty, latest safety/tech, no hidden issues. Calculate total 5-year cost including purchase, financing, insurance, and depreciation to compare true value.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How does my trade-in affect my car loan?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Your trade-in value directly reduces the loan amount needed, lowering monthly payments and total interest paid. If your trade-in is worth $5,000 and you're buying a $30,000 car, you only finance $25,000 (plus tax/fees). Important considerations: 1) Research your car's value using KBB or Edmunds before visiting dealerships, 2) If you still owe money (upside-down), that negative equity may roll into new loan, 3) Sometimes selling privately gets $1,000-2,000 more than dealer trade-in, 4) Trading at same brand dealership may get better value. Get trade-in offer in writing before negotiating new car price.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is being upside-down on a car loan?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Being upside-down (or underwater) means owing more on your loan than the car is worth. Example: You owe $20,000 but the car is only worth $15,000 - you're $5,000 upside-down. This happens from: minimal down payment, long loan terms (72-84 months), high interest rates, or rapid depreciation. It's problematic if you need to sell/trade the car - you must pay the difference out of pocket. If the car is totaled, insurance pays current value ($15,000) but you still owe the lender $5,000 (unless you have GAP insurance). Avoid by: 20% down payment, shorter loan terms, and not rolling negative equity from previous loans.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I get GAP insurance for my car loan?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       GAP (Guaranteed Asset Protection) insurance is highly recommended if: 1) You put less than 20% down, 2) You're financing for 60+ months, 3) You bought a car that depreciates quickly (luxury cars, EVs), 4) You rolled negative equity into the loan. GAP covers the difference between insurance payout and loan balance if car is totaled/stolen. Example: Car totaled, worth $15,000, owe $22,000 - GAP pays the $7,000 difference. Cost is $400-700 for loan term (don't buy dealer GAP at $600-900; get from insurance company for $20/year instead). Skip GAP if you put 20%+ down or are almost paid off.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much car can I afford on my salary?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Financial experts recommend the 20/4/10 rule: 20% down payment, finance for no more than 4 years, and total monthly vehicle expenses (payment + insurance + gas + maintenance) should not exceed 10% of gross monthly income. Alternative rule: total car payment shouldn't exceed 15-20% of take-home pay. Example: $60,000 annual salary = $5,000/month gross. Maximum total vehicle cost = $500/month. If insurance is $150 and gas/maintenance is $150, car payment should be $200 or less. Consider: buying used saves on purchase price and insurance; higher credit scores get lower rates; longer commutes increase gas/maintenance costs.
                     </p>
                   </div>

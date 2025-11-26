@@ -518,27 +518,27 @@ export default function SavingsCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 {/* I'll add 8 FAQ items here - showing 2 as example */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much should I save per month?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Financial experts recommend saving at least 20% of your after-tax income. Following the 50/30/20 rule: 50% for needs, 30% for wants, and 20% for savings. For someone earning $4,000/month after taxes, that's $800/month in savings. Start with what you can afford and gradually increase. Emergency funds should cover 3-6 months of expenses. For retirement, aim to save 10-15% of gross income starting in your 20s, or more if starting later.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is compound interest and how does it work?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Compound interest is interest calculated on both the initial principal and accumulated interest from previous periods. Unlike simple interest (calculated only on principal), compound interest allows your money to grow exponentially over time. For example, $10,000 at 5% annual compound interest becomes $12,763 after 5 years, versus $12,500 with simple interest. The formula is: A = P(1 + r/n)^(nt), where P is principal, r is annual rate, n is compounding frequency, and t is time in years.
                     </p>
                   </div>

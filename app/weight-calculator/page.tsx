@@ -313,39 +313,39 @@ export default function WeightCalculatorPage() {
                 Frequently Asked Questions
               </h2>
               
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is ideal body weight and how is it calculated?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Ideal body weight (IBW) is the optimal weight range for your height and gender. It's calculated using proven formulas like Robinson (1983), Miller (1983), Devine (1974), and Hamwi (1964). These formulas consider your height, gender, and sometimes frame size to estimate a healthy weight target. Our calculator uses all four formulas and averages them for the most accurate estimate.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Which ideal weight formula is most accurate?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The Robinson and Miller formulas (1983) are considered most accurate for modern populations as they're based on more recent data. However, ideal weight varies by individual factors like muscle mass, bone density, and frame size. Our calculator averages all four formulas (Robinson, Miller, Devine, Hamwi) and adjusts for frame size to provide the most comprehensive estimate possible.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6 last:border-0 last:pb-0" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How does frame size affect ideal weight?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Frame size significantly impacts ideal weight. Small-framed individuals typically weigh 10% less than the calculated ideal weight, while large-framed individuals may weigh 10% more and still be healthy. You can determine frame size by measuring wrist circumference or using the thumb-and-finger method around your wrist. If fingers overlap, you have a small frame; if they just touch, medium frame; if they don't touch, large frame.
                     </p>
                   </div>

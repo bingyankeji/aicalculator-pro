@@ -385,15 +385,15 @@ export default function PercentageCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 {/* FAQ 1 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do you calculate percentage?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate a percentage, divide the part by the whole and multiply by 100. For example, to find what percent 25 is of 100: (25 ÷ 100) × 100 = 25%. You can also calculate X% of Y by multiplying: (X ÷ 100) × Y.
                     </p>
                   </div>
@@ -401,12 +401,12 @@ export default function PercentageCalculatorPage() {
 
                 {/* FAQ 2 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is 20% of 100?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       20% of 100 is 20. To calculate this, multiply 100 by 0.20 (which is 20% as a decimal), or use the formula: (20 ÷ 100) × 100 = 20.
                     </p>
                   </div>
@@ -414,12 +414,12 @@ export default function PercentageCalculatorPage() {
 
                 {/* FAQ 3 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do you calculate percentage increase?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate percentage increase: 1) Find the difference between the new and original value, 2) Divide the difference by the original value, 3) Multiply by 100. Formula: ((New Value - Original Value) ÷ Original Value) × 100. For example, if a value increases from 50 to 75: ((75 - 50) ÷ 50) × 100 = 50% increase.
                     </p>
                   </div>
@@ -427,12 +427,12 @@ export default function PercentageCalculatorPage() {
 
                 {/* FAQ 4 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do you calculate percentage decrease?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate percentage decrease, use the same formula as percentage increase but the result will be negative: ((New Value - Original Value) ÷ Original Value) × 100. For example, if a value decreases from 100 to 80: ((80 - 100) ÷ 100) × 100 = -20% (a 20% decrease).
                     </p>
                   </div>
@@ -440,12 +440,12 @@ export default function PercentageCalculatorPage() {
 
                 {/* FAQ 5 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the difference between percentage and percent?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       There is no mathematical difference between 'percentage' and 'percent' - they mean the same thing. 'Percent' is typically used with numbers (e.g., '50 percent'), while 'percentage' is often used as a noun (e.g., 'What percentage is this?'). Both represent a fraction of 100.
                     </p>
                   </div>
@@ -453,12 +453,12 @@ export default function PercentageCalculatorPage() {
 
                 {/* FAQ 6 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do you find what number a percentage represents?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To find what number a percentage represents (e.g., '25 is 25% of what?'), divide the part by the percentage (as a decimal). Formula: Part ÷ (Percent ÷ 100) = Whole. For example: 25 ÷ 0.25 = 100. So 25 is 25% of 100.
                     </p>
                   </div>
@@ -466,12 +466,12 @@ export default function PercentageCalculatorPage() {
 
                 {/* FAQ 7 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is percentage difference and how do you calculate it?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Percentage difference measures the relative change between two values. Formula: |Value1 - Value2| ÷ ((Value1 + Value2) ÷ 2) × 100. For example, the percentage difference between 100 and 120 is: |100-120| ÷ ((100+120)÷2) × 100 = 18.18%. This is useful for comparing prices, measurements, or statistics.
                     </p>
                   </div>
@@ -479,12 +479,12 @@ export default function PercentageCalculatorPage() {
 
                 {/* FAQ 8 */}
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do you calculate discount percentage?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate discount percentage: ((Original Price - Sale Price) ÷ Original Price) × 100. For example, if an item costs $100 and is on sale for $75, the discount is ((100-75)÷100)×100 = 25% off. You can also calculate the final price by subtracting the discount percentage: $100 - (25% of $100) = $75.
                     </p>
                   </div>

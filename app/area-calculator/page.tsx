@@ -415,18 +415,18 @@ export default function AreaCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div
                   className="border-b border-gray-200 pb-6"
                   itemScope
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate the area of a rectangle?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate rectangle area: Area = Length × Width. Example: A rectangle 10 feet
                       long × 8 feet wide = 80 square feet. Simply multiply the length by the width. This
                       formula works for any rectangle, regardless of size. For squares (special
@@ -441,11 +441,11 @@ export default function AreaCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate the area of a circle?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Circle area formula: Area = π × r², where r is the radius (half the diameter).
                       Example: A circle with radius 5 feet has area = π × 5² = 3.14159 × 25 = 78.54 square
                       feet. If you know diameter instead: divide by 2 to get radius, then use the formula.
@@ -460,11 +460,11 @@ export default function AreaCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate the area of a triangle?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Triangle area formula: Area = (Base × Height) ÷ 2. Example: A triangle with base 10
                       feet and height 8 feet has area = (10 × 8) ÷ 2 = 80 ÷ 2 = 40 square feet. The height
                       is the perpendicular distance from the base to the opposite vertex. This formula
@@ -479,11 +479,11 @@ export default function AreaCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate the area of a trapezoid?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Trapezoid area formula: Area = ((Base₁ + Base₂) × Height) ÷ 2. Example: A trapezoid
                       with bases 10 feet and 8 feet, and height 6 feet has area = ((10 + 8) × 6) ÷ 2 =
                       (18 × 6) ÷ 2 = 108 ÷ 2 = 54 square feet. The two bases are the parallel sides, and
@@ -498,11 +498,11 @@ export default function AreaCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate the area of an irregular shape?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       For irregular shapes: 1) Break the shape into basic shapes (rectangles, triangles,
                       circles), 2) Calculate area of each basic shape separately, 3) Add all areas
                       together for total area. For shapes with cutouts: Calculate full shape area, subtract
@@ -518,11 +518,11 @@ export default function AreaCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the difference between area and perimeter?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Area measures the space inside a shape (square units like sq ft, sq m). Perimeter
                       measures the distance around a shape (linear units like feet, meters). Example: A
                       10×8 ft rectangle has area = 80 sq ft (space inside) and perimeter = 36 ft (distance
@@ -537,11 +537,11 @@ export default function AreaCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I convert between different area units?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Common area unit conversions: 1 square foot = 0.0929 square meters, 1 square meter =
                       10.764 square feet, 1 square yard = 9 square feet, 1 acre = 43,560 square feet, 1
                       hectare = 10,000 square meters = 2.47 acres. To convert: Multiply by conversion
@@ -556,11 +556,11 @@ export default function AreaCalculatorPage() {
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I calculate area for 3D shapes?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       This calculator calculates 2D area (flat surfaces). For 3D shapes, you need surface
                       area or volume: Surface area = sum of all face areas, Volume = area of base ×
                       height. Example: A box (rectangular prism) has 6 faces - calculate area of each face

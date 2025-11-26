@@ -534,98 +534,98 @@ export default function DebtPayoffCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the debt avalanche method?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The debt avalanche method is a debt repayment strategy where you pay off debts with the highest interest rates first while making minimum payments on other debts. This method saves you the most money on interest over time. For example, if you have a credit card at 19.99% APR and a personal loan at 8% APR, you'd focus extra payments on the credit card first. Once paid off, you roll that payment to the next highest-rate debt.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the debt snowball method?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The debt snowball method prioritizes paying off your smallest balance debts first, regardless of interest rate. You make minimum payments on all debts but put extra money toward the smallest balance. Once that's paid off, you roll that payment to the next smallest debt, creating a 'snowball' effect. This method provides psychological wins through quick payoffs, which can boost motivation to stay debt-free.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Which debt payoff method is better - avalanche or snowball?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The avalanche method saves more money on interest (typically hundreds to thousands of dollars), making it mathematically superior. However, the snowball method provides faster psychological wins that help many people stay motivated. Choose avalanche if you're disciplined and want to minimize costs. Choose snowball if you need motivational boosts from quick wins. Our calculator shows you the exact savings difference for your specific debts.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How much extra payment should I make to pay off debt faster?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Aim to pay at least $100-200 extra per month if possible, but any amount helps. Even $50 extra monthly can save hundreds in interest and shave months off your payoff timeline. A good rule: pay 20% more than minimum payments. For example, if your minimums total $500/month, try to pay $600/month. Use our calculator to see exactly how different extra payment amounts affect your payoff date and total interest.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What types of debt should I include in my debt payoff plan?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Include all unsecured debts with fixed balances: credit cards, personal loans, medical debt, student loans, payday loans, and collection accounts. Don't include mortgage or car loans in this calculator (use specialized calculators for those). Focus on high-interest debt first, especially credit cards which often charge 15-25% APR. Payday loans (often 400%+ APR) should be your highest priority.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How long does it take to become debt-free?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Debt payoff time varies widely based on your debt amount, interest rates, and monthly payments. Typical timelines: $5,000 debt with $200/month payments = 2-3 years, $15,000 debt with $500/month = 3-4 years, $30,000 debt with $800/month = 4-5 years. Increasing your monthly payment by even $100 can reduce payoff time by 6-18 months. Use our calculator with your specific numbers for an accurate timeline.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I save money or pay off debt first?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Build a small emergency fund ($500-1,000) first to avoid new debt from unexpected expenses. Then aggressively pay off high-interest debt (above 7-8% APR), especially credit cards. Once high-interest debt is gone, balance debt payoff with building a 3-6 month emergency fund. Low-interest debt (under 5% APR) can be paid normally while you save and invest more. This balanced approach prevents financial setbacks.
                     </p>
                   </div>
                 </div>
 
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I negotiate lower interest rates on my debt?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes! Call your credit card companies and ask for a lower APR, especially if you have good payment history. Success rates are about 50-70% for rate reductions of 2-5%. Also consider balance transfer cards (0% APR for 12-18 months), debt consolidation loans (typically 6-12% APR), or credit counseling programs. Even a 5% rate reduction can save hundreds of dollars. Update your interest rates in our calculator to see potential savings.
                     </p>
                   </div>

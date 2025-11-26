@@ -487,16 +487,16 @@ export default function InterestCalculatorPage() {
                 Frequently Asked Questions About Compound Interest
               </h2>
               
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 
                 {/* FAQ 1 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate compound interest?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Compound interest is calculated using the formula: A = P(1 + r/n)^(nt), where A is the future value, 
                       P is the principal amount, r is the annual interest rate (as a decimal), n is the number of times 
                       interest is compounded per year, and t is time in years. For continuous compounding, use A = Pe^(rt). 
@@ -507,12 +507,12 @@ export default function InterestCalculatorPage() {
 
                 {/* FAQ 2 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the difference between simple and compound interest?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Simple interest is calculated only on the principal amount: I = P × r × t. Compound interest is 
                       calculated on the principal plus accumulated interest, so you earn "interest on interest." For example, 
                       $10,000 at 5% for 10 years yields $5,000 with simple interest, but $6,288.95 with annual compound 
@@ -523,12 +523,12 @@ export default function InterestCalculatorPage() {
 
                 {/* FAQ 3 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How does compounding frequency affect my returns?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       More frequent compounding leads to higher returns. For example, $10,000 at 5% annual interest for 
                       10 years yields: Annually $16,288.95, Semi-annually $16,386.16, Quarterly $16,436.19, Monthly $16,470.09, 
                       Daily $16,486.65, and Continuously $16,487.21. Daily compounding earns $197.70 more than annual compounding. 
@@ -539,12 +539,12 @@ export default function InterestCalculatorPage() {
 
                 {/* FAQ 4 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the Effective Annual Rate (EAR)?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The Effective Annual Rate (EAR) is the actual annual return, accounting for compounding. It's calculated 
                       as EAR = (1 + r/n)^n - 1. For example, a 5% interest rate compounded monthly has an EAR of 5.116%, 
                       meaning you actually earn 5.116% per year, not just 5%. EAR allows you to compare investments with 
@@ -555,12 +555,12 @@ export default function InterestCalculatorPage() {
 
                 {/* FAQ 5 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How can I maximize my investment growth with compound interest?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Maximize investment growth by: 1) Starting early - time is the most powerful factor in compounding. 
                       2) Making regular contributions - even small monthly additions significantly boost growth. 3) Seeking 
                       higher interest rates - shop around for the best rates. 4) Choosing more frequent compounding - daily 
@@ -573,12 +573,12 @@ export default function InterestCalculatorPage() {
 
                 {/* FAQ 6 - Rule of 72 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the Rule of 72 and how do I use it?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The Rule of 72 is a simple formula to estimate how long it takes to double your money: divide 72 by your 
                       annual interest rate. For example, at 8% interest, your money doubles in approximately 72 ÷ 8 = 9 years. 
                       At 10%, it takes 72 ÷ 10 = 7.2 years. This rule works best for interest rates between 6% and 10%. It's 
@@ -590,12 +590,12 @@ export default function InterestCalculatorPage() {
 
                 {/* FAQ 7 - Tax Impact */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do taxes affect my investment returns?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Taxes significantly reduce investment returns. Interest income from savings accounts, bonds, and CDs is 
                       typically taxed as ordinary income (up to 37% federal rate for high earners). For example, $10,000 
                       earning 6% for 20 years grows to $32,071 tax-free, but only $26,533 after 25% taxes - a loss of $5,538. 
@@ -608,12 +608,12 @@ export default function InterestCalculatorPage() {
 
                 {/* FAQ 8 - Inflation Impact */}
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How does inflation impact my investment growth?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Inflation erodes purchasing power, meaning your money buys less over time. With 3% average inflation, 
                       $10,000 today will only have $7,441 of buying power in 10 years. Your investment return must exceed inflation 
                       to grow real wealth. For example, 5% nominal returns with 3% inflation equals only 2% real returns. After 

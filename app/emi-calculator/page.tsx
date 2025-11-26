@@ -436,98 +436,98 @@ export default function EMICalculatorPage() {
                 Frequently Asked Questions
               </h2>
               
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is EMI and how is it calculated?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       EMI (Equated Monthly Installment) is a fixed payment amount made by a borrower to a lender at a specified date each month. EMI is calculated using the formula: EMI = [P × R × (1+R)^N] / [(1+R)^N-1], where P is the principal loan amount, R is the monthly interest rate (annual rate ÷ 12 ÷ 100), and N is the loan tenure in months. For example, a $300,000 loan at 6.5% annual interest for 30 years results in an EMI of approximately $1,896.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is a good EMI to income ratio?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Financial experts recommend keeping your EMI to income ratio (also called Debt-to-Income or DTI ratio) below 40% of your monthly income. Ideally, it should be below 30-35% to maintain financial stability. If your EMI exceeds 50% of your income, it's considered risky as it leaves little room for other expenses, savings, and emergencies. Banks typically approve loans where EMI doesn't exceed 40-50% of your net monthly income.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How can I reduce my EMI amount?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       You can reduce your EMI in several ways: 1) Increase your down payment to reduce the principal loan amount. 2) Negotiate a lower interest rate with your lender. 3) Extend the loan tenure (though this increases total interest paid). 4) Make prepayments whenever possible to reduce principal. 5) Compare offers from multiple banks to find the best interest rate. 6) Improve your credit score (above 750) to qualify for better rates. For home loans, even a 0.5% reduction in interest rate can save thousands of dollars over the loan tenure.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the difference between flat rate and reducing balance interest?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       In flat rate interest, interest is calculated on the original principal amount throughout the loan tenure. In reducing balance (most common for EMIs), interest is calculated on the outstanding principal, which decreases with each payment. Reducing balance results in lower overall interest. For example, on a $100,000 loan at 10% for 5 years: Flat rate EMI ≈ $2,500 with total interest $50,000, while reducing balance EMI ≈ $2,125 with total interest $27,500. Always check which method your lender uses.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Should I choose a longer or shorter loan tenure?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Shorter tenure (5-10 years) means higher EMI but lower total interest paid, helping you become debt-free faster. Longer tenure (15-30 years) means lower EMI but significantly higher total interest. Choose based on your financial situation: If you have high disposable income and want to save on interest, choose shorter tenure. If you need manageable monthly payments and want financial flexibility, choose longer tenure. You can always prepay to reduce tenure later. For home loans, longer tenure (20-25 years) is common; for car/personal loans, 3-7 years is typical.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is an amortization schedule?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       An amortization schedule is a complete table showing each EMI payment broken down into principal and interest components, along with the remaining loan balance. In the early years of a loan, a larger portion of your EMI goes toward interest, and a smaller portion toward principal. As the loan progresses, this ratio reverses. For example, on a $300,000 loan at 6.5% for 30 years, your first EMI of $1,896 might have $1,625 as interest and only $271 as principal. The schedule helps you understand how your debt reduces over time.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I prepay my loan to reduce EMI or tenure?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes, most loans allow prepayment (full or partial) to either reduce EMI or reduce tenure. Prepayment directly reduces your principal, saving you interest. You can typically choose: 1) Reduce EMI while keeping tenure same (better for monthly budget relief), or 2) Reduce tenure while keeping EMI same (pay off debt faster, save more on interest). Home loans often have no prepayment charges after 6-12 months. Personal loans may have 2-4% prepayment penalty. Even small regular prepayments ($5,000-10,000 annually) can reduce your total interest by tens of thousands of dollars and help you become debt-free years earlier.
                     </p>
                   </div>
                 </div>
 
                 <div 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What documents are needed for a loan application?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Standard loan documents include: 1) Identity Proof: Aadhaar Card, PAN Card, Passport, or Voter ID. 2) Address Proof: Utility bills, rental agreement, or Aadhaar. 3) Income Proof: Last 6 months' salary slips, 2 years' ITR for self-employed, bank statements. 4) Employment Proof: Employment letter, offer letter, or business registration. 5) For Home Loans: Property documents, sale deed, NOC from builder. 6) For Co-borrowers: All above documents for each co-borrower. 7) Photographs: 2-3 recent passport-size photos. Banks may ask for additional documents based on your profile and loan type.
                     </p>
                   </div>

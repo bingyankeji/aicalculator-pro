@@ -481,98 +481,98 @@ export default function BodyFatCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is a healthy body fat percentage?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Healthy body fat percentages vary by age and gender. For men: 18-29 years: 8-20%, 30-49 years: 11-22%, 50+ years: 13-25%. For women: 18-29 years: 14-25%, 30-49 years: 15-27%, 50+ years: 16-30%. Athletes typically have lower percentages (men 6-13%, women 14-20%). Essential fat (minimum for health) is 2-5% for men and 10-13% for women. Body fat above these healthy ranges increases risk of heart disease, diabetes, and other health conditions. However, extremely low body fat can be unhealthy too - disrupting hormones, weakening bones, and affecting organ function. Your ideal percentage depends on your age, gender, genetics, and fitness goals.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How accurate is the Navy Method for body fat?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The US Navy Method is one of the most accurate body fat measurement techniques without specialized equipment, with accuracy within 3-4% of DEXA scans (gold standard). It uses circumference measurements (neck, waist, hip for women) and height to estimate body fat through validated formulas developed by the Department of Defense. Advantages: No special equipment needed (just tape measure), quick and repeatable, validated on large populations, free and accessible. Limitations: Less accurate than DEXA, hydrostatic weighing, or bod pod, accuracy depends on proper measurement technique, may be less accurate for very muscular or very obese individuals, doesn't account for individual body fat distribution variations. For best accuracy: Measure at same time of day, use flexible tape measure, don't suck in or flex, take average of 2-3 measurements, follow proper measurement locations exactly.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What's the difference between Navy Method and YMCA Method?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Navy Method and YMCA Method are different body fat calculation formulas with different approaches. Navy Method: Uses circumference measurements (neck, waist, hip) plus height, developed by US military for fitness assessments, validated on large military populations, generally more accurate for most people, requires proper measurement technique. YMCA Method: Primarily uses waist circumference and weight with age factors, simpler calculation requiring fewer measurements, developed for general population fitness centers, may be less accurate for very athletic or obese individuals, good as secondary estimate. In practice, Navy Method is considered more reliable because it accounts for more body measurements and better reflects individual body composition variations. YMCA is easier but less precise. Our calculator shows both methods so you can compare - typically they're within 2-4% of each other. Significant differences may indicate measurement errors or suggest one formula works better for your body type.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I measure my body fat at home?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To measure body fat at home using the Navy Method, you need a flexible tape measure and follow these steps: 1. Measure in the morning before eating (more consistent), 2. Stand relaxed, don't suck in stomach or flex muscles, 3. Keep tape snug but not tight against skin, 4. Take 2-3 measurements of each area and use average. Measurement locations: Neck - measure just below Adam's apple (narrowest point), keep tape level all around. Waist - measure at navel level (belly button), not smallest part of waist, stand relaxed. Hip (women only) - measure at widest point around buttocks, keep tape level. Height - measure barefoot against wall, use book on head for accuracy. Common mistakes to avoid: Sucking in stomach (inflates lean mass), measuring over clothes (adds bulk), tape too tight or too loose, measuring at wrong locations, taking only one measurement (less reliable). Pro tip: Have someone help you measure, or use mirror to ensure tape is level.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Why is body fat percentage more important than weight?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Body fat percentage is a better health indicator than weight because it distinguishes between fat mass and lean mass (muscle, bone, organs). Two people can weigh the same but have drastically different body compositions and health outcomes. Example: Person A: 180 lbs, 25% body fat = 45 lbs fat, 135 lbs lean mass. Person B: 180 lbs, 15% body fat = 27 lbs fat, 153 lbs lean mass. Person B is much healthier despite same weight. Why it matters: High body fat increases disease risk (heart disease, diabetes, metabolic syndrome), low lean mass reduces metabolism and functional ability, weight alone doesn't show muscle vs fat, body composition affects aging and longevity. Scale weight can mislead: Building muscle increases weight but improves health, losing muscle (crash diets) decreases weight but harms metabolism, 'normal weight' doesn't mean healthy if high body fat (skinny-fat). Better metrics: Body fat percentage, lean muscle mass, waist circumference, how clothes fit, energy levels and performance.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What body fat percentage do I need to see abs?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Visible abs require low body fat percentages to reduce abdominal fat covering the muscles. For men: 10-12% body fat for faint ab definition, 8-10% for clearly visible six-pack, 6-8% for very defined, shredded abs (bodybuilder level), below 6% is unsustainable and unhealthy for most. For women: 16-19% for faint ab definition, 14-16% for visible abs, 12-14% for defined six-pack (very athletic), below 12% may disrupt hormones and menstruation. Important factors: Ab visibility also depends on ab muscle development (need to train abs), genetics (fat distribution varies - some store more in abdomen), age (harder to maintain low body fat as you age), gender (women need higher essential fat for health). Reality check: Very low body fat is difficult to maintain - requires strict diet and training, may not be sustainable or healthy long-term, professional physique competitors only achieve this temporarily, focus on health and functionality, not just aesthetics. Visible abs are achievable for most people at moderate body fat levels with proper training.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can body fat scales accurately measure body fat?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Body fat scales (bioelectrical impedance scales) are convenient but have significant accuracy limitations. How they work: Send small electrical current through body, measure resistance (impedance), fat resists electricity more than muscle, calculate body fat from resistance patterns. Accuracy issues: Can vary by 5-8% from true body fat, highly affected by hydration status (more water = lower reading), influenced by recent eating, exercise, or bathroom use, less accurate for very lean or very obese individuals, readings can vary significantly day-to-day or even hour-to-hour. When they're useful: Tracking trends over time (not absolute numbers), if you use same conditions (same time, hydration), comparing yourself to yourself, motivation to see progress, convenient for regular monitoring. Better alternatives: Navy Method (more accurate, just need tape measure), skinfold calipers (if done by trained person), DEXA scan (gold standard, but expensive), hydrostatic weighing (very accurate), Bod Pod (accurate but not widely available). Bottom line: Use body fat scales for trends, not absolute accuracy. Combine with other measurements (waist circumference, how clothes fit, progress photos) for complete picture.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How can I reduce my body fat percentage?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Reducing body fat percentage requires creating a calorie deficit while preserving lean muscle mass. Key strategies: 1. Nutrition (most important): Create 300-500 calorie daily deficit for sustainable fat loss, eat adequate protein (0.8-1g per lb body weight) to preserve muscle, focus on whole foods (lean proteins, vegetables, fruits, whole grains), reduce processed foods, sugary drinks, and excessive carbs, don't crash diet (lose muscle, slow metabolism). 2. Strength training (critical): Lift weights 3-4 times per week to build/maintain muscle, compound exercises (squats, deadlifts, bench press, rows), progressive overload (gradually increase weight/reps), muscle burns more calories at rest than fat. 3. Cardio (supportive): 150-300 minutes moderate cardio per week, mix of steady-state and high-intensity interval training (HIIT), walking is underrated (low-impact, sustainable), don't over-rely on cardio alone (can burn muscle). 4. Lifestyle factors: Get 7-9 hours quality sleep (affects hormones and hunger), manage stress (cortisol increases fat storage), stay consistent (slow progress beats fast then quitting), track measurements, not just scale weight. Realistic timeline: Lose 0.5-1% body fat per month sustainably, faster fat loss often means muscle loss too, patience and consistency are key.
                     </p>
                   </div>

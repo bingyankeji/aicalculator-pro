@@ -527,98 +527,98 @@ export default function BMRCalculatorPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is BMR (Basal Metabolic Rate)?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       BMR (Basal Metabolic Rate) is the number of calories your body burns at complete rest to maintain vital functions like breathing, circulation, and cell production. It represents 60-75% of your total daily calorie expenditure. BMR does not include calories burned through physical activity or digesting food. For example, a 30-year-old male weighing 180 lbs might have a BMR of 1,800 calories, meaning his body burns 1,800 calories per day even if he stays in bed all day.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is TDEE and how is it different from BMR?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       TDEE (Total Daily Energy Expenditure) is the total number of calories you burn per day, including BMR plus physical activity, exercise, and food digestion (thermic effect). TDEE = BMR × Activity Multiplier. For example, if your BMR is 1,800 calories and you're moderately active (exercise 3-5 days/week), your TDEE would be 1,800 × 1.55 = 2,790 calories per day. TDEE is the number you should use for setting calorie goals, not BMR.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Which BMR formula is more accurate - Mifflin-St Jeor or Harris-Benedict?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The Mifflin-St Jeor equation is generally more accurate for modern populations and is recommended by most nutritionists. It was developed in 1990 and accounts for changes in body composition and lifestyle compared to the original Harris-Benedict equation from 1919. Studies show Mifflin-St Jeor has a 5-10% accuracy advantage, especially for people who are overweight or obese. However, both formulas provide reasonable estimates within 200-300 calories of measured BMR.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How many calories should I eat to lose weight?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To lose weight safely, create a calorie deficit of 500 calories per day, which results in approximately 1 pound (0.5 kg) of weight loss per week. Calculate your TDEE first, then subtract 500 calories. For example, if your TDEE is 2,500 calories, eat 2,000 calories per day. Never eat below your BMR or less than 1,200 calories (women) or 1,500 calories (men) without medical supervision, as this can slow metabolism and cause nutrient deficiencies.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate my activity level accurately?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Choose your activity level honestly: Sedentary (desk job, no exercise) = 1.2x BMR, Light (exercise 1-3 days/week) = 1.375x, Moderate (exercise 3-5 days/week) = 1.55x, Active (exercise 6-7 days/week) = 1.725x, Very Active (physical job + daily exercise) = 1.9x. Most people overestimate their activity level. If you sit at a desk all day and go to the gym 3 times per week for 45 minutes, you're 'Light' or 'Moderate' at most, not 'Active'. Track your weight for 2-3 weeks and adjust if needed.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can BMR change over time?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes, BMR changes based on age, weight, muscle mass, and hormones. BMR naturally decreases by 1-2% per decade after age 20 due to muscle loss and hormonal changes. Building muscle increases BMR by 6-10 calories per pound of muscle gained. Losing weight decreases BMR because a smaller body requires fewer calories. Extreme dieting can temporarily lower BMR by 15-20% (metabolic adaptation). Recalculate your BMR every 10-15 pounds of weight change or yearly.
                     </p>
                   </div>
                 </div>
 
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What are macronutrients and how should I split them?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Macronutrients are protein, carbohydrates, and fats - the three main nutrients that provide calories. A balanced split is 30% protein, 40% carbs, 30% fats. Protein (4 cal/g) builds and repairs muscle; aim for 0.7-1g per pound of body weight. Carbohydrates (4 cal/g) provide energy for workouts and brain function. Fats (9 cal/g) support hormones and nutrient absorption. Athletes may use 40% carbs / 30% protein / 30% fats. Keto dieters use 5% carbs / 25% protein / 70% fats. Adjust based on your goals and preferences.
                     </p>
                   </div>
                 </div>
 
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Is it safe to eat below my BMR?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Generally, no. Eating significantly below your BMR for extended periods can cause muscle loss, metabolic slowdown, fatigue, nutrient deficiencies, and hormonal imbalances. Your BMR represents the minimum calories needed for vital functions. A safe calorie deficit is 500-750 calories below your TDEE (not BMR), which keeps you above BMR in most cases. If your TDEE is close to your BMR (very sedentary), focus on increasing activity rather than drastically cutting calories. Always consult a healthcare provider before eating less than 1,200-1,500 calories per day.
                     </p>
                   </div>

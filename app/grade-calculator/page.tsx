@@ -470,16 +470,16 @@ export default function GradeCalculatorPage() {
                 Frequently Asked Questions
               </h2>
               
-              <div className="space-y-6" itemScope itemType="https://schema.org/FAQPage">
+              <div className="space-y-6">
                 
                 {/* FAQ 1 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate my weighted grade?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate a weighted grade: 1) Enter each assignment name and grade percentage, 2) Assign a weight percentage to each assignment (e.g., homework 20%, midterm 30%, final 50%), 3) The calculator multiplies each grade by its weight, sums them up, and divides by total weight. Formula: <strong>Weighted Grade = (Grade₁ × Weight₁ + Grade₂ × Weight₂ + ...) / Total Weight × 100</strong>. For example, if you scored 85% on homework (20% weight) and 92% on final (80% weight): (85×20 + 92×80)/100 = 90.6%.
                     </p>
                   </div>
@@ -487,12 +487,12 @@ export default function GradeCalculatorPage() {
 
                 {/* FAQ 2 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What is the GPA scale used in this calculator?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       This calculator uses the standard 4.0 GPA scale: <strong>A+ (97-100) = 4.0</strong>, <strong>A (93-96) = 4.0</strong>, <strong>A- (90-92) = 3.7</strong>, <strong>B+ (87-89) = 3.3</strong>, <strong>B (83-86) = 3.0</strong>, <strong>B- (80-82) = 2.7</strong>, <strong>C+ (77-79) = 2.3</strong>, <strong>C (73-76) = 2.0</strong>, <strong>C- (70-72) = 1.7</strong>, <strong>D+ (67-69) = 1.3</strong>, <strong>D (63-66) = 1.0</strong>, <strong>D- (60-62) = 0.7</strong>, <strong>F (0-59) = 0.0</strong>. Note that different institutions may use slightly different scales, so verify with your school's policy.
                     </p>
                   </div>
@@ -500,12 +500,12 @@ export default function GradeCalculatorPage() {
 
                 {/* FAQ 3 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I use this calculator for college courses?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes! This grade calculator works for <strong>high school, college, and university courses</strong>. You can customize assignment names and weights to match your syllabus. Whether it's homework (10%), quizzes (20%), midterms (30%), and finals (40%), or any other distribution, simply enter your specific weights and grades. The calculator handles any number of assignments and any weight distribution, making it versatile for all academic levels.
                     </p>
                   </div>
@@ -513,12 +513,12 @@ export default function GradeCalculatorPage() {
 
                 {/* FAQ 4 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What if my total weight doesn't equal 100%?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       If your total weight doesn't equal 100%, the calculator will still compute a weighted average based on the weights provided. However, you'll see a warning message. For accurate results, <strong>ensure your weights add up to 100%</strong>. For example, if you have 3 assignments worth 30%, 40%, and 30%, the total is 100%. If incomplete (e.g., you've only entered assignments totaling 60%), the calculator proportionally adjusts the calculation, but your final grade may change as more assignments are added.
                     </p>
                   </div>
@@ -526,12 +526,12 @@ export default function GradeCalculatorPage() {
 
                 {/* FAQ 5 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How do I calculate what grade I need on my final exam?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       To calculate the grade needed on your final: 1) Enter all completed assignments with their actual grades and weights, 2) Enter your final exam weight, 3) Leave the final exam grade at 0, 4) Calculate to see your current grade, 5) Determine your target final grade, 6) Use the formula: <strong>Required Final Grade = (Target Grade × 100 - Current Weighted Sum) / Final Exam Weight</strong>. Example: If you have 70% weighted average from 60% of coursework and want 80% overall with final worth 40%: (80×100 - 70×60)/40 = 95% needed on final.
                     </p>
                   </div>
@@ -539,12 +539,12 @@ export default function GradeCalculatorPage() {
 
                 {/* FAQ 6 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     What do the letter grades mean?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Letter grades represent different performance levels: <strong>A (90-100%) = Excellent</strong>, demonstrating outstanding understanding and exceeding expectations; <strong>B (80-89%) = Good</strong>, showing above-average mastery and strong performance; <strong>C (70-79%) = Average</strong>, meeting basic requirements and demonstrating adequate understanding; <strong>D (60-69%) = Below average</strong>, barely passing with limited understanding; <strong>F (0-59%) = Failing</strong>, not meeting minimum standards. Plus (+) and minus (-) modifiers provide finer distinctions within each grade band (e.g., B+ vs B vs B-).
                     </p>
                   </div>
@@ -552,12 +552,12 @@ export default function GradeCalculatorPage() {
 
                 {/* FAQ 7 */}
                 <div className="border-b border-gray-200 pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     Can I save and share my grade calculation?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       Yes! The calculator provides multiple sharing options: 1) <strong>Copy Link</strong> - generates a URL with your assignments and grades that can be bookmarked or shared with friends/teachers, 2) <strong>Social Media</strong> - share directly to Facebook, Twitter, or WhatsApp, 3) <strong>Email</strong> - send your calculation via email, 4) <strong>Save as Image</strong> - download a PNG screenshot of your results for your records, 5) <strong>Print</strong> - create a printer-friendly version. All your assignment data is preserved in the share link, so recipients can see your exact calculation.
                     </p>
                   </div>
@@ -565,12 +565,12 @@ export default function GradeCalculatorPage() {
 
                 {/* FAQ 8 */}
                 <div className="pb-6" 
-                     itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
+                    >
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     How accurate is the GPA conversion?
                   </h3>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="text-gray-700" itemProp="text">
+                  <div>
+                    <p className="text-gray-700">
                       The GPA conversion uses the <strong>standard 4.0 scale commonly used in the United States</strong>. However, note that different schools may use slightly different scales or policies. For example, some don't give A+ grades (capping at 4.0), some use different plus/minus cutoffs (e.g., A- starting at 91% vs 90%), and some have weighted vs unweighted GPA systems. This calculator provides a good estimate, but <strong>always verify with your institution's specific grading policy</strong> for official transcripts. Your school's registrar office can provide the authoritative GPA scale.
                     </p>
                   </div>
